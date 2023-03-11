@@ -33,14 +33,6 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Frame 
-                    x:Name="ModeAuthorization_Frame"
-                    NavigationUIVisibility="Hidden"
-                    Grid.Row="0"/>
                 <Frame 
                     x:Name="Authorization_Frame"
                     NavigationUIVisibility="Hidden"

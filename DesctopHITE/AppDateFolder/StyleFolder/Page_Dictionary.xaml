@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--#region AuthorizationPage-->
     <Style x:Key="Authorization_Page-Style" TargetType="Page">
-        <Setter Property="Width" Value="800"/>
-        <Setter Property="Height" Value="340"/>
+        <Setter Property="Width" Value="796"/>
+        <Setter Property="Height" Value="416"/>
     </Style>
     <!--#endregion-->
 </ResourceDictionary>

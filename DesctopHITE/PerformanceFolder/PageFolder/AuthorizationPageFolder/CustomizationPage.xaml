@@ -7,6 +7,33 @@
     mc:Ignorable="d" 
     Style="{StaticResource Authorization_Page-Style}">
     <Grid>
-        
+        <StackPanel Style="{DynamicResource Authorization_StackPanel-Style}">
+            <Grid Margin="0 0 0 10">
+                <TextBox
+                    Padding="39 0 0 0"
+                    Width="600"
+                    Style="{DynamicResource Main_TextBox-Style}"/>
+                <TextBlock
+                    Text="&#xE13D;"
+                    Style="{DynamicResource Icon_TextBlock-Style}"/>
+                <TextBlock
+                    Margin="40 0 0 0"
+                    Text="LOGIN"
+                    Style="{DynamicResource Hint_TextBlock-Style}"/>
+            </Grid>
+            <Grid Margin="0 10 0 0">
+                <PasswordBox
+                    Padding="39 0 0 0"
+                    Width="600"
+                    Style="{DynamicResource Main_PasswordBox-Style}"/>
+                <TextBlock
+                    Text="&#xE192;"
+                    Style="{DynamicResource Icon_TextBlock-Style}"/>
+                <TextBlock
+                    Margin="40 0 0 0"
+                    Text="PASSWORD"
+                    Style="{DynamicResource Hint_TextBlock-Style}"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>
