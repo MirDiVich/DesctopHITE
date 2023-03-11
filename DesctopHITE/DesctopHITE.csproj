@@ -59,39 +59,39 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AppDateFolder\StyleFolder\Border_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\BorderDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\Button_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\ButtonDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\Page_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\PageDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\PasswordBox_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\PasswordBoxDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\StackPanel_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\StackPanelDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\TextBlock_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\TextBlockDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\TextBox_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\TextBoxDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\ToggleButton_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\ToggleButtonDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\Windows_Dictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\WindowsDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,8 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppDateFolder\ModelFolder\" />
-    <Folder Include="ContentFolder\ImageFolder\" />
     <Folder Include="PerformanceFolder\UserControlFolder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

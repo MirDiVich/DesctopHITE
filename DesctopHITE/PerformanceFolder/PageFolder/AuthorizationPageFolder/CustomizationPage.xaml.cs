@@ -24,5 +24,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.AuthorizationPageFolder
         {
             InitializeComponent();
         }
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VisiblePasswordUserButton_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void VisiblePasswordUserButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

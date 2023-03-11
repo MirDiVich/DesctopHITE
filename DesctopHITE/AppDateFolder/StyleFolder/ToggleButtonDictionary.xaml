@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="ModeAuthorization_ToggleButton-Style" TargetType="ToggleButton">
+    <Style x:Key="ModeAuthorizationToggleButtonStyle" TargetType="ToggleButton">
         <Setter Property="Background" Value="#09092a"/> 
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="#d5d5f6"/>

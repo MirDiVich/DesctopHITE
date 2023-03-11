@@ -5,8 +5,10 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#462AD8"/>
+        <Setter Property="Opacity" Value="0.8"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -21,7 +23,38 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#3b22bb"/>
+                            <Setter Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="PasswordButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Segoe MDL2 Assets"/>
+        <Setter Property="Content" Value="&#xE890;"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        Name="border"
+                        CornerRadius="0"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -29,7 +62,7 @@
         </Setter>
     </Style>
     <!--#region ControlPanel-->
-    <Style TargetType="Button" x:Key="ControlPanel_Button-Style">
+    <Style x:Key="ControlPanelButtonStyle" TargetType="Button" >
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#a2a2a2"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -40,7 +73,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontFamily" Value="Global User Interface"/>
     </Style>
-    <Style TargetType="Button" x:Key="RollupControlButton" BasedOn="{StaticResource ControlPanel_Button-Style}">
+    <Style TargetType="Button" x:Key="RollupControlButton" BasedOn="{StaticResource ControlPanelButtonStyle}">
         <Setter Property="Content" Value="—"/>
         <Setter Property="ToolTip" Value="СВЕРНУТЬ"/>
         <Setter Property="Template">
@@ -63,7 +96,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="Button" x:Key="CloseControlButton" BasedOn="{StaticResource ControlPanel_Button-Style}">
+    <Style TargetType="Button" x:Key="CloseControlButton" BasedOn="{StaticResource ControlPanelButtonStyle}">
         <Setter Property="Content" Value="✕"/>
         <Setter Property="ToolTip" Value="ЗАКРЫТЬ"/>
         <Setter Property="Template">

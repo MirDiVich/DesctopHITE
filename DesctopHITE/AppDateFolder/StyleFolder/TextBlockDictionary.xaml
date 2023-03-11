@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="ControlPanel_TextBlock-Style" TargetType="TextBlock">
+    <Style x:Key="ControlPanelTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="FontSize" Value="15"/>
@@ -9,7 +9,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="10 0 0 0"/>
     </Style>
-    <Style x:Key="Icon_TextBlock-Style" TargetType="TextBlock">
+    <Style x:Key="IconTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Segoe MDL2 Assets"/>
         <Setter Property="FontSize" Value="20"/>
@@ -18,7 +18,7 @@
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Margin" Value="10 0 0 0"/>
     </Style>
-    <Style x:Key="Hint_TextBlock-Style" TargetType="TextBlock">
+    <Style x:Key="HintTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#8c8a8c"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="TextWrapping" Value="Wrap"/>

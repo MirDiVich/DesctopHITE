@@ -7,8 +7,8 @@
     mc:Ignorable="d"
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
-    Style="{DynamicResource Authorization-Style}">
-    <Border Style="{DynamicResource Main_Border-Style}">
+    Style="{DynamicResource AuthorizationStyle}">
+    <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -19,9 +19,9 @@
                 MouseDown="SpaseBarGrid_MouseDown"
                 Background="Transparent">
                 <TextBlock
-                    Style="{DynamicResource ControlPanel_TextBlock-Style}"
+                    Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="Авторизация"/>
-                <StackPanel Style="{DynamicResource ControlPanel_StackPanel-Style}">
+                <StackPanel Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Style="{DynamicResource RollupControlButton}" 
                         x:Name="Rollup_Button" 

@@ -6,15 +6,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\Windows_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\Border_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\StackPanel_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\Button_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBlock_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\Page_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ToggleButton_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBox_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\PasswordBox_Dictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\WindowsDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\BorderDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\StackPanelDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ButtonDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBlockDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\PageDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ToggleButtonDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBoxDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\PasswordBoxDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
