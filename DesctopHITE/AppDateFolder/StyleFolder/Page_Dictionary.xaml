@@ -2,10 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--#region AuthorizationPage-->
-    <Style x:Key="ModeAuthorization_Page-Style" TargetType="Page">
-        <Setter Property="Width" Value="800"/>
-        <Setter Property="Height" Value="80"/>
-    </Style>
     <Style x:Key="Authorization_Page-Style" TargetType="Page">
         <Setter Property="Width" Value="800"/>
         <Setter Property="Height" Value="340"/>

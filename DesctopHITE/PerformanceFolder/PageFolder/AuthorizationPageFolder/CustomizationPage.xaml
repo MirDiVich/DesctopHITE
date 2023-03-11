@@ -5,14 +5,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
-    Style="{DynamicResource Authorization_Page-Style}">
+    Style="{StaticResource Authorization_Page-Style}">
     <Grid>
-        <StackPanel Style="{DynamicResource Authorization_StackPanel-Style}">
-            <Grid>
-                <TextBox 
-                    Width="400"
-                    Style="{DynamicResource Authorization_TextBox-Style}"/>
-            </Grid>
-        </StackPanel> 
+        
     </Grid>
 </Page>

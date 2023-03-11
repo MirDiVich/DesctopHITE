@@ -1,14 +1,38 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="\AppDateFolder\StyleFolder\Color_Dictionary.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="Button">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="#462AD8"/>
+        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        Name="borderone"
+                        CornerRadius="10"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3b22bb"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--#region ControlPanel-->
     <Style TargetType="Button" x:Key="ControlPanel_Button-Style">
-        <Setter Property="Background" Value="{DynamicResource ControlPanel_Button-Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ControlPanel_Button-Foreground}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ControlPanel_Button-BorderBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#a2a2a2"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="50"/>
         <Setter Property="FontSize" Value="18"/>
@@ -31,8 +55,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlPanel_Button-BackgroundIsMouseOver1}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource ControlPanel_Button-ForegroundIsMouseOver}"/>
+                            <Setter Property="Background" Value="#19FFFFFF"/>
+                            <Setter Property="Foreground" Value="#cccccc"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -42,7 +66,6 @@
     <Style TargetType="Button" x:Key="CloseControlButton" BasedOn="{StaticResource ControlPanel_Button-Style}">
         <Setter Property="Content" Value="✕"/>
         <Setter Property="ToolTip" Value="ЗАКРЫТЬ"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -54,9 +77,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlPanel_Button-BackgroundIsMouseOver2}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource ControlPanel_Button-ForegroundIsMouseOver}"/>
-                            <Setter Property="BorderBrush" Value="{DynamicResource ControlPanel_Button-BackgroundIsMouseOver2}"/>
+                            <Setter Property="Background" Value="#ff4848"/>
+                            <Setter Property="Foreground" Value="#cccccc"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

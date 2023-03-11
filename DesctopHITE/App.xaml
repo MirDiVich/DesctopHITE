@@ -8,7 +8,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\Windows_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\Border_Dictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\Color_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\StackPanel_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\Button_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBlock_Dictionary.xaml"/>

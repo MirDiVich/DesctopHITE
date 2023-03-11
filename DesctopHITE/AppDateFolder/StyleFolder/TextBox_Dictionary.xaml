@@ -1,14 +1,11 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="\AppDateFolder\StyleFolder\Color_Dictionary.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="Main_TextBox-Style" TargetType="TextBox">
-        <Setter Property="Background" Value="{DynamicResource Box-Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource Box-Foreground}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource Box-BorderBrush}"/>
-        <Setter Property="CaretBrush" Value="{DynamicResource Box-CaretBrush}"/>
+        <Setter Property="Foreground" Value="#e1e3e6"/>
+        <Setter Property="BorderBrush" Value="#3e3e3f"/>
+        <Setter Property="Background" Value="#0C0C33"/>
+        <Setter Property="CaretBrush" Value="#e1e3e6"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -20,7 +17,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
-    <Style x:Key="Authorization_TextBox-Style" TargetType="TextBox" BasedOn="{DynamicResource Main_TextBox-Style}">
+    <Style x:Key="Authorization_TextBox-Style" TargetType="TextBox" BasedOn="{StaticResource Main_TextBox-Style}">
         <Setter Property="Padding" Value="5 0 5 0"/>
         <Setter Property="Template">
             <Setter.Value>

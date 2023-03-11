@@ -1,21 +1,18 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="\AppDateFolder\StyleFolder\Color_Dictionary.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="ModeAuthorization_ToggleButton-Style" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource ModeAuthorization_ToggleButton-Background}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ModeAuthorization_ToggleButton-Foreground}"/>
+        <Setter Property="Background" Value="#09092a"/> 
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#d5d5f6"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Width" Value="220"/>
         <Setter Property="Height" Value="50"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Cursor" Value="Hand"/> 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -25,9 +22,12 @@
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#0d0d37"/>
+                        </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ModeAuthorization_ToggleButton-BackgroundIsChecked}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource ModeAuthorization_ToggleButton-ForegroundIsChecked}"/>
+                            <Setter Property="Foreground" Value="#f1f1fc"/>
+                            <Setter Property="Background" Value="#19196B"/> 
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

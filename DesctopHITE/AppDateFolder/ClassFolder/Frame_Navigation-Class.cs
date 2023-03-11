@@ -9,7 +9,6 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     internal class Frame_Navigation_Class
     {
-        public static Frame ModeAuthorization_FNC;
         public static Frame Authorization_FNC;
     }
 }

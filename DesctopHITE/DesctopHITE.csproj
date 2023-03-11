@@ -67,10 +67,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\Color_Dictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AppDateFolder\StyleFolder\Page_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,10 +95,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\ModeAuthorizationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,9 +104,6 @@
     <Compile Include="AppDateFolder\ClassFolder\Frame_Navigation-Class.cs" />
     <Compile Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\CustomizationPage.xaml.cs">
       <DependentUpon>CustomizationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\ModeAuthorizationPage.xaml.cs">
-      <DependentUpon>ModeAuthorizationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
