@@ -4,9 +4,18 @@
     <!--#region Color-->
     <Color x:Key="Color1">#0a0a0a</Color>
     <Color x:Key="Color2">#0f0f0f</Color>
-    <Color x:Key="Color3"></Color>
-    <Color x:Key="Color4"></Color>
+    <Color x:Key="Color3">#272727</Color>
+    <Color x:Key="Color4">#f1f1f1</Color>
     <!--#endregion-->
+    <!--#region Window-->
     <SolidColorBrush x:Key="ControlPanel_Border-Color" Color="{DynamicResource Color1}"/>
     <SolidColorBrush x:Key="Background_Border-Color" Color="{DynamicResource Color2}"/>
+    <!--#endregion-->
+    <!--#region Button-->
+    <SolidColorBrush x:Key="ModeAuthorization_ToggleButton-Background" Color="{DynamicResource Color3}"/>
+    <SolidColorBrush x:Key="ModeAuthorization_ToggleButton-Foreground" Color="{DynamicResource Color4}"/>
+
+    <SolidColorBrush x:Key="ModeAuthorization_ToggleButton-BackgroundIsChecked" Color="{DynamicResource Color4}"/>
+    <SolidColorBrush x:Key="ModeAuthorization_ToggleButton-ForegroundIsChecked" Color="{DynamicResource Color3}"/>
+    <!--#endregion-->
 </ResourceDictionary>

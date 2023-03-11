@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDateFolder\StyleFolder\ToggleButton_Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDateFolder\StyleFolder\Windows_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDateFolder\ClassFolder\Frame_Navigation-Class.cs" />
     <Compile Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\ModeAuthorizationPage.xaml.cs">
       <DependentUpon>ModeAuthorizationPage.xaml</DependentUpon>
     </Compile>
@@ -129,7 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppDateFolder\ClassFolder\" />
     <Folder Include="AppDateFolder\ModelFolder\" />
     <Folder Include="ContentFolder\FontFolder\" />
     <Folder Include="ContentFolder\ImageFolder\" />

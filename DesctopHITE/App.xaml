@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\Button_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBlock_Dictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\Page_Dictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ToggleButton_Dictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
