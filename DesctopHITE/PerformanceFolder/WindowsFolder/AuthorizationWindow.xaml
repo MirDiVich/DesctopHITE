@@ -8,12 +8,12 @@
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource Authorization-Style}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Border Style="{DynamicResource ControlPanel_Border-Style}">
+    <Border Style="{DynamicResource Main_Border-Style}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid
                 x:Name="SpaseBarGrid"
                 MouseDown="SpaseBarGrid_MouseDown"
@@ -32,9 +32,7 @@
                         Click="Close_Button_Click"/>
                 </StackPanel>
             </Grid>
-        </Border>
-        <Border Style="{DynamicResource Background_Border-Style}">
-            <Grid>
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="*"/>
@@ -48,6 +46,6 @@
                     NavigationUIVisibility="Hidden"
                     Grid.Row="1"/>
             </Grid>
-        </Border>
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

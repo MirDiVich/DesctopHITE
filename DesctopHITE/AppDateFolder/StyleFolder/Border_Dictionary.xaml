@@ -4,19 +4,25 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="\AppDateFolder\StyleFolder\Color_Dictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <Style x:Key="ControlPanel_Border-Style" TargetType="Border">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Background" Value="{DynamicResource ControlPanel_Border-Color}"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="CornerRadius" Value="10 10 0 0"/>
-        <Setter Property="Grid.Row" Value="0"/>
-    </Style>
-    <Style x:Key="Background_Border-Style" TargetType="Border">
-        <Setter Property="Background" Value="{DynamicResource Background_Border-Color}"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="CornerRadius" Value="0 0 10 10"/>
-        <Setter Property="Grid.Row" Value="1"/>
+    <Style x:Key="Main_Border-Style" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="{DynamicResource Color001}" Offset="1"/>
+                    <GradientStop Color="{DynamicResource Color002}" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{DynamicResource Color003}" Offset="0"/>
+                    <GradientStop Color="{DynamicResource Color004}" Offset="0.75"/>
+                    <GradientStop Color="{DynamicResource Color005}" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="10"/>
     </Style>
 </ResourceDictionary>

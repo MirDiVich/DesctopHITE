@@ -22,6 +22,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             InitializeComponent();
             Frame_Navigation_Class.ModeAuthorization_FNC = ModeAuthorization_Frame;
+            Frame_Navigation_Class.Authorization_FNC = Authorization_Frame;
         }
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
@@ -81,6 +82,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             if (Visibility == Visibility.Visible)
             {
                 Frame_Navigation_Class.ModeAuthorization_FNC.Navigate(new ModeAuthorizationPage());
+                Frame_Navigation_Class.Authorization_FNC.Navigate(new CustomizationPage());
             }
         }
     }
