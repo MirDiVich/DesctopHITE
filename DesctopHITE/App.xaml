@@ -1,0 +1,19 @@
+﻿<Application 
+    x:Class="DesctopHITE.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="\PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\WindowsDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\BorderDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ColorDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\StackPanelDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ButtonDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBlockDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\PageDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

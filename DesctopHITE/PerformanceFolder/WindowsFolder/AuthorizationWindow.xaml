@@ -1,0 +1,52 @@
+﻿<Window 
+    x:Class="DesctopHITE.PerformanceFolder.WindowsFolder.AuthorizationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen"
+    Style="{DynamicResource Authorization-Style}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Style="{DynamicResource ControlPanel_Border-Style}">
+            <Grid
+                x:Name="SpaseBarGrid"
+                MouseDown="SpaseBarGrid_MouseDown"
+                Background="Transparent">
+                <TextBlock
+                    Style="{DynamicResource ControlPanel_TextBlock-Style}"
+                    Text="Авторизация"/>
+                <StackPanel Style="{DynamicResource ControlPanel_StackPanel-Style}">
+                    <Button 
+                        Style="{DynamicResource RollupControlButton}" 
+                        x:Name="Rollup_Button" 
+                        Click="Rollup_Button_Click"/>
+                    <Button 
+                        Style="{DynamicResource CloseControlButton}"
+                        x:Name="Close_Button"
+                        Click="Close_Button_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Style="{DynamicResource Background_Border-Style}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Frame 
+                    x:Name="ModeAuthorization_Frame"
+                    NavigationUIVisibility="Hidden"
+                    Grid.Row="0"/>
+                <Frame 
+                    x:Name="Authorization_Frame"
+                    NavigationUIVisibility="Hidden"
+                    Grid.Row="1"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
