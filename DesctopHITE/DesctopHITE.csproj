@@ -59,15 +59,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AppDateFolder\StyleFolder\BorderDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\Border_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\ButtonDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AppDateFolder\StyleFolder\ColorDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\Button_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,19 +71,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\PageDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\Page_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\StackPanelDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\StackPanel_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\TextBlockDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\TextBlock_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\WindowsDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\Windows_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
