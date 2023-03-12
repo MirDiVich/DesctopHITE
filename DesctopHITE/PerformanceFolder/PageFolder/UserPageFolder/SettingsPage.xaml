@@ -19,6 +19,6 @@
         <Frame
             Grid.Row="1"
             NavigationUIVisibility="Hidden"
-            x:Name="MainSettingsFrame"/>
+            x:Name="BodySettingsFrame"/>
     </Grid>
 </Page>

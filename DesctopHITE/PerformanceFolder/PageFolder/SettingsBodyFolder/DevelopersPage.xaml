@@ -1,0 +1,57 @@
+﻿<Page x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.DevelopersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder"
+      mc:Ignorable="d" 
+      Style="{DynamicResource SettingsPageStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center">
+        <TextBlock
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="20"
+            Text="Здравствуйте, если вам не обходима помощь или произошёл баг (поломка), свяжитесь с нами и мы постараемся вам помочь. Наша компания «GoodProgrammer» доступна в таких соц-сетях как: "
+            Width="1200"
+            Style="{DynamicResource MainStyleTextBlock}"
+            TextWrapping="Wrap">
+            <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="TelegramHyperlink" Click="TelegramHyperlink_Click" Foreground="#34abdf">
+                Telegram,
+            </Hyperlink>
+            <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="WhatsAppHyperlink" Click="WhatsAppHyperlink_Click" Foreground="#33cf6a">
+                WhatsApp,
+            </Hyperlink>
+            <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="VKHyperlink" Click="VKHyperlink_Click" Foreground="#0077ff">
+                VK
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="20"
+            Text="Вы можите нажать на одну из ссылок для перехода в чат с нами, или же отсканировать QR-code для перехода в чат с нами:"
+            Width="1200"
+            Style="{DynamicResource MainStyleTextBlock}"
+            TextWrapping="Wrap"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image
+                Margin="0 0 20 0"
+                Style="{StaticResource QrImage}"
+                Source="\ContentFolder\ImageFolder\TelegramQrCode.png"/>
+            <Image
+                Margin="20 0 20 0"
+                Style="{StaticResource QrImage}"
+                Source="\ContentFolder\ImageFolder\WhatsAppQrCode.png"/>
+            <Image
+                Margin="20 0 0 0"
+                Style="{StaticResource QrImage}"
+                Source="\ContentFolder\ImageFolder\VkQrCode.png"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -16,6 +16,8 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\TextBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\PasswordBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ColorDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\HyperlinkDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ImageDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

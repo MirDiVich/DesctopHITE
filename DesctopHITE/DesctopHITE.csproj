@@ -71,6 +71,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDateFolder\StyleFolder\HyperlinkDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppDateFolder\StyleFolder\ImageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDateFolder\StyleFolder\PageDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\SettingsBodyFolder\DevelopersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +139,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuUserPage.xaml.cs">
       <DependentUpon>MenuUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\DevelopersPage.xaml.cs">
+      <DependentUpon>DevelopersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -173,6 +188,13 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="ContentFolder\ImageFolder\StartIconHTRE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ContentFolder\ImageFolder\TelegramQrCode.png" />
+    <Resource Include="ContentFolder\ImageFolder\WhatsAppQrCode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ContentFolder\ImageFolder\VkQrCode.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

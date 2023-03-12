@@ -23,6 +23,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             InitializeComponent();
             FrameNavigationClass.MunuSettings_FNC = MenuSettingsFrame;
+            FrameNavigationClass.BodySettings_FNC = BodySettingsFrame;
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

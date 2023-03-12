@@ -5,18 +5,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MenuSettingsPageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
+            Click="AboutTheAppToggleButton_Click"
+            x:Name="AboutTheAppToggleButton"
             Content="О ПРИЛОЖЕНИИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            Click="UpdateToggleButton_Click"
+            x:Name="UpdateToggleButton"
             Content="ОБНОВЛЕНИЕ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            Click="DevelopersToggleButton_Click"
+            x:Name="DevelopersToggleButton"
             Content="РАЗРАБОТЧИКИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            Click="TestToggleButton_Click"
+            x:Name="TestToggleButton"
             Content="ТЕСТ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
     </StackPanel>

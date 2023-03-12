@@ -13,4 +13,8 @@
         <Setter Property="Width" Value="1321"/>
         <Setter Property="Height" Value="80"/>
     </Style>
+    <Style x:Key="SettingsPageStyle" TargetType="Page">
+        <Setter Property="Width" Value="1321"/>
+        <Setter Property="Height" Value="790"/>
+    </Style>
 </ResourceDictionary>
