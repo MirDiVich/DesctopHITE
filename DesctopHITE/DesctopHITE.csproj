@@ -99,7 +99,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\CustomizationPage.xaml">
+    <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,9 +121,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDateFolder\ClassFolder\Frame_Navigation-Class.cs" />
-    <Compile Include="PerformanceFolder\PageFolder\AuthorizationPageFolder\CustomizationPage.xaml.cs">
-      <DependentUpon>CustomizationPage.xaml</DependentUpon>
+    <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
+    <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">
+      <DependentUpon>MenuSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuUserPage.xaml.cs">
+      <DependentUpon>MenuUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
@@ -140,6 +154,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="ContentFolder\FontFolder\Material-Design-Iconic-Font.ttf" />
     <Resource Include="ContentFolder\FontFolder\segmdl2.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -155,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="ContentFolder\ImageFolder\StartIconHTRE.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

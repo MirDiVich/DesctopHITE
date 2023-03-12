@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DesctopHITE.AppDateFolder.ClassFolder;
-using DesctopHITE.PerformanceFolder.PageFolder.AuthorizationPageFolder;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -73,15 +72,31 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         public AuthorizationWindow()
         {
             InitializeComponent();
-            Frame_Navigation_Class.Authorization_FNC = Authorization_Frame;
+        }
+        #region Click
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginUser();
+        }
+        #endregion
+        #region Действие
+        private void LoginUser()
+        {
+            MainUserWindow mainUserWindow = new MainUserWindow();
+            mainUserWindow.Show();
+            this.Close();
+        }
+        #endregion
+        #region PreviewMouseUp_PreviewMouseDown
+        private void VisiblePasswordUserButton_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
 
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void VisiblePasswordUserButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
-            {
-                Frame_Navigation_Class.Authorization_FNC.Navigate(new CustomizationPage());
-            }
+
         }
+        #endregion
     }
 }

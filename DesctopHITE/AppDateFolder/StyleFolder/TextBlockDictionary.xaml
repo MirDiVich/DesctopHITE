@@ -11,12 +11,19 @@
     </Style>
     <Style x:Key="IconTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#ffffff"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Segoe MDL2 Assets"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="Margin" Value="10 0 0 0"/>
+    </Style>
+    <Style x:Key="IconButtonTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
     </Style>
     <Style x:Key="HintTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#8c8a8c"/>

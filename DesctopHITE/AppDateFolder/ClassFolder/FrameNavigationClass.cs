@@ -7,8 +7,10 @@ using System.Windows.Controls;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
-    internal class Frame_Navigation_Class
+    internal class FrameNavigationClass
     {
-        public static Frame Authorization_FNC;
+        public static Frame MunuUser_FNC;
+        public static Frame MainUser_FNC;
+        public static Frame MunuSettings_FNC;
     }
 }

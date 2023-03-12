@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -71,11 +73,16 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         public MainUserWindow()
         {
             InitializeComponent();
+            FrameNavigationClass.MunuUser_FNC = MenuFrame;
+            FrameNavigationClass.MainUser_FNC = MainFrame;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            if (Visibility == Visibility.Visible)
+            {
+                FrameNavigationClass.MunuUser_FNC.Navigate(new MenuUserPage());
+            }
         }
     }
 }

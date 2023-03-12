@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource AuthorizationWindowStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
@@ -48,10 +47,123 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
-                <Frame 
-                    x:Name="Authorization_Frame"
-                    NavigationUIVisibility="Hidden"
-                    Grid.Row="1"/>
+                <Grid>
+                    <StackPanel Style="{DynamicResource AuthorizationStackPanelStyle}">
+                        <Image
+                            Source="\ContentFolder\ImageFolder\Icon_DesctopHITE.png"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Margin="0 10 0 10"
+                            Height="150"
+                            Width="150"/>
+                        <Grid Margin="0 10 0 10">
+                            <Border Style="{DynamicResource ShadowBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Direction="-90"
+                                        Color="{DynamicResource ShadowColor}"
+                                        BlurRadius="5"
+                                        ShadowDepth="0.5"
+                                        Opacity="0.5"
+                                        RenderingBias="Performance"/>
+                                </Border.Effect>
+                            </Border>
+                            <TextBox
+                                Padding="39 0 0 0"
+                                Width="600"
+                                Style="{DynamicResource MainTextBoxStyle}"/>
+                            <TextBlock
+                                Text="&#xf207;"
+                                Style="{DynamicResource IconTextBlockStyle}"/>
+                            <TextBlock
+                                x:Name="HintLoginTextBlock"
+                                Margin="40 0 0 0"
+                                Text="LOGIN"
+                                Style="{DynamicResource HintTextBlockStyle}"/>
+                        </Grid>
+                        <Grid Margin="0 10 0 25">
+                            <Border Style="{DynamicResource ShadowBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Direction="-90"
+                                        Color="{DynamicResource ShadowColor}"
+                                        BlurRadius="5"
+                                        ShadowDepth="0.5"
+                                        Opacity="0.5"
+                                        RenderingBias="Performance"/>
+                                </Border.Effect>
+                            </Border>
+                            <Grid x:Name="PasswordPasswordGrid">
+                                <PasswordBox
+                                    Padding="39 0 0 0"
+                                    Width="600"
+                                    Style="{DynamicResource MainPasswordBoxStyle}"/>
+                                <TextBlock
+                                    Text="&#xf191;"
+                                    Style="{DynamicResource IconTextBlockStyle}"/>
+                                <TextBlock
+                                    x:Name="HintTextPasswordTextBlock"
+                                    Margin="40 0 0 0"
+                                    Text="PASSWORD"
+                                    Style="{DynamicResource HintTextBlockStyle}"/>
+                            </Grid>
+                            <Grid Visibility="Collapsed" x:Name="TextPasswordGrid">
+                                <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border.Effect>
+                                        <DropShadowEffect 
+                                            Direction="-90"
+                                            Color="{DynamicResource ShadowColor}"
+                                            BlurRadius="5"
+                                            ShadowDepth="0.5"
+                                            Opacity="0.5"
+                                            RenderingBias="Performance"/>
+                                    </Border.Effect>
+                                </Border>
+                                <TextBox
+                                    Padding="39 0 40 0"
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                <TextBlock
+                                    Text="&#xE192;"
+                                    Style="{DynamicResource IconTextBlockStyle}"/>
+                                <TextBlock
+                                    x:Name="HintPasswordPasswordTextBlock"
+                                    Margin="40 0 0 0"
+                                    Text="PASSWORD"
+                                    Style="{DynamicResource HintTextBlockStyle}"/>
+                            </Grid>
+                            <Button
+                                PreviewMouseUp="VisiblePasswordUserButton_PreviewMouseUp"
+                                PreviewMouseDown="VisiblePasswordUserButton_PreviewMouseDown"
+                                x:Name="VisiblePasswordUserButton"
+                                HorizontalAlignment="Right"
+                                Margin="0 5 10 0"
+                                Style="{StaticResource PasswordButtonStyle}"/>
+                        </Grid>
+                        <Grid Margin="0 25 0 0">
+                            <Border
+                                Width="220"
+                                Height="50" 
+                                Style="{DynamicResource ShadowBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Direction="-90"
+                                        Color="{DynamicResource ShadowColor}"
+                                        BlurRadius="5"
+                                        ShadowDepth="0.5"
+                                        Opacity="0.5"
+                                        RenderingBias="Performance"/>
+                                </Border.Effect>
+                            </Border>
+                            <Button
+                                x:Name="Login_Button"
+                                Click="Login_Button_Click"
+                                Content="ВОЙТИ"
+                                Width="220"
+                                Height="50"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
     </Border>
