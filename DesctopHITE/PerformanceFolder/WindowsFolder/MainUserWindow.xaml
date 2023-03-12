@@ -1,5 +1,5 @@
 ﻿<Window 
-    x:Class="DesctopHITE.PerformanceFolder.WindowsFolder.AuthorizationWindow"
+    x:Class="DesctopHITE.PerformanceFolder.WindowsFolder.MainUserWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
-    Style="{DynamicResource AuthorizationWindowStyle}">
+    Style="{StaticResource MainWinwosStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
                 MouseDown="SpaseBarGrid_MouseDown"
                 Background="Transparent">
                 <Polygon 
-                    Points="200,0, 230,15, 600,15, 630,0" 
+                    Points="200,0, 230,15, 1400,15, 1430,0" 
                     x:Name="PoligonName"
                     Fill="#2a2a2a"
                     Opacity="1">
@@ -35,7 +35,7 @@
                 </Polygon>
                 <TextBlock
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
-                    Text="АВТОРИЗАЦИЯ"/>
+                    Text="ГЛАВНОЕ ОКНО"/>
                 <StackPanel Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Style="{DynamicResource RollupControlButton}" 
@@ -49,7 +49,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Frame 
-                    x:Name="Authorization_Frame"
+                    x:Name="Main_Frame"
                     NavigationUIVisibility="Hidden"
                     Grid.Row="1"/>
             </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.AuthorizationPageFolder
 {
@@ -24,11 +25,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.AuthorizationPageFolder
         {
             InitializeComponent();
         }
-
+        #region Click
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginUser();
         }
+        #endregion
+        #region Действие
+        private void LoginUser()
+        {
+            MainUserWindow mainUserWindow = new MainUserWindow();
+            AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+            mainUserWindow.Show();
+            authorizationWindow.Close();
+        }
+        #endregion
 
         private void VisiblePasswordUserButton_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {

@@ -11,12 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DesctopHITE.AppDateFolder.ClassFolder;
-using DesctopHITE.PerformanceFolder.PageFolder.AuthorizationPageFolder;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
-    public partial class AuthorizationWindow : Window
+    public partial class MainUserWindow : Window
     {
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
@@ -70,18 +68,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        public AuthorizationWindow()
+        public MainUserWindow()
         {
             InitializeComponent();
-            Frame_Navigation_Class.Authorization_FNC = Authorization_Frame;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
-            {
-                Frame_Navigation_Class.Authorization_FNC.Navigate(new CustomizationPage());
-            }
+
         }
     }
 }
