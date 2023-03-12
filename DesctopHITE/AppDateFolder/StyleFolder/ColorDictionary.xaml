@@ -1,0 +1,6 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="ShadowColor">#000000</Color>
+    <SolidColorBrush x:Key="ShadowSolidColorBrush" Color="{DynamicResource ShadowColor}"/>
+</ResourceDictionary>

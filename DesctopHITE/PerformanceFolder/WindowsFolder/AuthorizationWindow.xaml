@@ -18,6 +18,21 @@
                 x:Name="SpaseBarGrid"
                 MouseDown="SpaseBarGrid_MouseDown"
                 Background="Transparent">
+                <Polygon 
+                    Points="200,0, 230,15, 600,15, 630,0" 
+                    x:Name="PoligonName"
+                    Fill="#2a2a2a"
+                    Opacity="1">
+                    <Polygon.Effect>
+                        <DropShadowEffect 
+                            Direction="-90"
+                            Color="{DynamicResource ShadowColor}"
+                            BlurRadius="5"
+                            ShadowDepth="0.5"
+                            Opacity="0.5"
+                            RenderingBias="Performance"/>
+                    </Polygon.Effect>
+                </Polygon>
                 <TextBlock
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="Авторизация"/>
