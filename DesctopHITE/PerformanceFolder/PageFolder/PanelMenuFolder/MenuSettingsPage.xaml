@@ -24,9 +24,9 @@
             Content="РАЗРАБОТЧИКИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
-            Click="TestToggleButton_Click"
-            x:Name="TestToggleButton"
-            Content="ТЕСТ"
+            Click="ScanningToggleButton_Click"
+            x:Name="ScanningToggleButton"
+            Content="СКАНИРОВАНИЕ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
     </StackPanel>
 </Page>

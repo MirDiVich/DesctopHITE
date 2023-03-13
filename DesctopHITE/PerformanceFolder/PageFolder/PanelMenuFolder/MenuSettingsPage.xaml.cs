@@ -55,12 +55,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             FrameNavigationClass.BodySettings_FNC.Navigate(new DevelopersPage());
         }
 
-        private void TestToggleButton_Click(object sender, RoutedEventArgs e)
+        private void ScanningToggleButton_Click(object sender, RoutedEventArgs e)
         {
             IsCheckedToggleButton();
             IsEnabledToggleButton();
-            TestToggleButton.IsChecked = true;
-            TestToggleButton.IsEnabled = false;
+            ScanningToggleButton.IsChecked = true;
+            ScanningToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodySettings_FNC.Navigate(new ScanningPage());
         }
         #endregion
         #region Действие
@@ -69,14 +70,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             AboutTheAppToggleButton.IsChecked = false;
             UpdateToggleButton.IsChecked = false;
             DevelopersToggleButton.IsChecked = false;
-            TestToggleButton.IsChecked = false;
+            ScanningToggleButton.IsChecked = false;
         }
         private void IsEnabledToggleButton()
         {
             AboutTheAppToggleButton.IsEnabled = true;
             UpdateToggleButton.IsEnabled = true;
             DevelopersToggleButton.IsEnabled = true;
-            TestToggleButton.IsEnabled = true;
+            ScanningToggleButton.IsEnabled = true;
         }
         #endregion
     }

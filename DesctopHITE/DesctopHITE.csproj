@@ -119,6 +119,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\SettingsBodyFolder\ScanningPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\WindowsFolder\ScanningWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +151,9 @@
     <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\DevelopersPage.xaml.cs">
       <DependentUpon>DevelopersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\ScanningPage.xaml.cs">
+      <DependentUpon>ScanningPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -151,6 +162,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml.cs">
       <DependentUpon>MainUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\WindowsFolder\ScanningWindow.xaml.cs">
+      <DependentUpon>ScanningWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
