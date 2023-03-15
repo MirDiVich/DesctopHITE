@@ -6,34 +6,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
-    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-        <Expander
-            Header="Паспорт сотрудника">
-            
-        </Expander>
-        <Expander
-            Header="Место жительства">
-
-        </Expander>
-        <Expander
-            Header="Медецинская книжка">
-
-        </Expander>
-        <Expander
-            Header="СНИЛС">
-
-        </Expander>
-        <Expander
-            Header="ИНН">
-
-        </Expander>
-        <Expander
-            Header="Заработная карта">
-
-        </Expander>
-        <Expander
-            Header="Общая информация">
-
-        </Expander>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel Margin="0 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Border Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
+                <Grid Margin="10">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock 
+                            HorizontalAlignment="Left"
+                            Margin="10 0 0 0"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Фамилия"/>
+                        <TextBox
+                            Style="{DynamicResource MainTextBoxStyle}"
+                            Width="320"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock 
+                            HorizontalAlignment="Left"
+                            Margin="10 0 0 0"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Имя"/>
+                        <TextBox
+                            Style="{DynamicResource MainTextBoxStyle}"
+                            Width="320"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
