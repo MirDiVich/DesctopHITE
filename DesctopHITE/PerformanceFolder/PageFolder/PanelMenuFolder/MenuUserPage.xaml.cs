@@ -34,6 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             WorkersToggleButton.IsChecked = true;
             WorkersToggleButton.IsEnabled = false;
+            FrameNavigationClass.MainUser_FNC.Navigate(new WorkerPage());
         }
         private void MenuToggleButton_Click(object sender, RoutedEventArgs e)
         {
