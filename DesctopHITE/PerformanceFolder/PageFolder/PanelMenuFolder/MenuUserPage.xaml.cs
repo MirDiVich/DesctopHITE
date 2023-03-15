@@ -17,6 +17,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 MainToggleButton.IsChecked = true;
                 MainToggleButton.IsEnabled = false;
+                FrameNavigationClass.MainUser_FNC.Navigate(new MainPage());
             }
         }
 
@@ -27,6 +28,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             MainToggleButton.IsChecked = true;
             MainToggleButton.IsEnabled = false;
+            FrameNavigationClass.MainUser_FNC.Navigate(new MainPage());
         }
         private void WorkersToggleButton_Click(object sender, RoutedEventArgs e)
         {

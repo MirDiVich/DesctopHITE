@@ -1,0 +1,39 @@
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder.NewWorkerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Style="{DynamicResource BodySpacePageStyle}">
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Expander
+            Header="Паспорт сотрудника">
+            
+        </Expander>
+        <Expander
+            Header="Место жительства">
+
+        </Expander>
+        <Expander
+            Header="Медецинская книжка">
+
+        </Expander>
+        <Expander
+            Header="СНИЛС">
+
+        </Expander>
+        <Expander
+            Header="ИНН">
+
+        </Expander>
+        <Expander
+            Header="Заработная карта">
+
+        </Expander>
+        <Expander
+            Header="Общая информация">
+
+        </Expander>
+    </StackPanel>
+</Page>

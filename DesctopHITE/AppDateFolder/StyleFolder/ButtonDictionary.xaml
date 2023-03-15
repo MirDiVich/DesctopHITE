@@ -5,7 +5,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#462AD8"/>
-        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="Foreground" Value="#f5f5f5"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -35,7 +35,7 @@
     <Style x:Key="PasswordButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Foreground" Value="#f5f5f5"/>
         <Setter Property="Opacity" Value="0.5"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Cursor" Value="Hand"/>

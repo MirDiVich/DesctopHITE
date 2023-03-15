@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppDateFolder\StyleFolder\ExpanderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppDateFolder\StyleFolder\HyperlinkDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\WorkerPageFolder\NewWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +186,9 @@
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\NewWorkerPage.xaml.cs">
+      <DependentUpon>NewWorkerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -216,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppDateFolder\ModelFolder\" />
-    <Folder Include="PerformanceFolder\PageFolder\WorkerPageFolder\" />
     <Folder Include="PerformanceFolder\UserControlFolder\" />
   </ItemGroup>
   <ItemGroup>

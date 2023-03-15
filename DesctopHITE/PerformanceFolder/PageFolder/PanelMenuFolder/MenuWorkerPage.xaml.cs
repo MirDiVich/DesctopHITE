@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -28,6 +30,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 NewWorkerToggleButton.IsChecked = true;
                 NewWorkerToggleButton.IsEnabled = false;
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage());
             }
         }
         #region Click
@@ -37,6 +40,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             NewWorkerToggleButton.IsChecked = true;
             NewWorkerToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage());
         }
 
         private void ListWorkweToggleButton_Click(object sender, RoutedEventArgs e)

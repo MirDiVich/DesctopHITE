@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ColorDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\HyperlinkDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ImageDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ExpanderDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
