@@ -127,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\UserPageFolder\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +168,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\ScanningPage.xaml.cs">
       <DependentUpon>ScanningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
