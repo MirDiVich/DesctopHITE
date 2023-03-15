@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
-    Style="{DynamicResource SettingsPageStyle}">
+    Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <StackPanel Width="1311" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0">
             <StackPanel Orientation="Horizontal">

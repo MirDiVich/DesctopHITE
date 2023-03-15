@@ -26,8 +26,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            AboutTheAppToggleButton.IsChecked = true;
-            AboutTheAppToggleButton.IsEnabled = false;
+            if(Visibility == Visibility.Visible)
+            {
+                AboutTheAppToggleButton.IsChecked = true;
+                AboutTheAppToggleButton.IsEnabled = false;
+            }
+            
         }
         #region Click
         private void AboutTheAppToggleButton_Click(object sender, RoutedEventArgs e)

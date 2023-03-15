@@ -115,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\SettingsBodyFolder\DevelopersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\PageFolder\UserPageFolder\WorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +156,9 @@
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuUserPage.xaml.cs">
       <DependentUpon>MenuUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuWorkerPage.xaml.cs">
+      <DependentUpon>MenuWorkerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\DevelopersPage.xaml.cs">
       <DependentUpon>DevelopersPage.xaml</DependentUpon>
     </Compile>
@@ -156,6 +167,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\WorkerPage.xaml.cs">
+      <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
@@ -195,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppDateFolder\ModelFolder\" />
+    <Folder Include="PerformanceFolder\PageFolder\WorkerPageFolder\" />
     <Folder Include="PerformanceFolder\UserControlFolder\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<Page 
-    x:Class="DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder.MenuSettingsPage"
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder.MenuWorkerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,24 +9,20 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
-            Click="AboutTheAppToggleButton_Click"
-            x:Name="AboutTheAppToggleButton"
-            Content="О ПРИЛОЖЕНИИ"
+            Click="NewWorkerToggleButton_Click"
+            x:Name="NewWorkerToggleButton"
+            Content="ДОБАВИТЬ СОТРУДНИКА"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
-            Click="UpdateToggleButton_Click"
-            x:Name="UpdateToggleButton"
-            Content="ОБНОВЛЕНИЕ"
+            Click="ListWorkweToggleButton_Click"
+            x:Name="ListWorkweToggleButton"
+            Content="ВСЕ СОТРУДНИКИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
-            Click="DevelopersToggleButton_Click"
-            x:Name="DevelopersToggleButton"
-            Content="РАЗРАБОТЧИКИ"
-            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
-        <ToggleButton
-            Click="ScanningToggleButton_Click"
-            x:Name="ScanningToggleButton"
-            Content="СКАНИРОВАНИЕ"
+            Click="GeneralInformationWorkerToggleButton_Click"
+            x:Name="GeneralInformationWorkerToggleButton"
+            Content="ОБЩАЯ ИНФОРМАЦИЯ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
     </StackPanel>
 </Page>
+
