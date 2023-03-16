@@ -19,6 +19,7 @@
         <Setter Property="BorderBrush" Value="#f5f5f5"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
         <Setter Property="Margin" Value="0 10 0 10"/>
     </Style>
 </ResourceDictionary>

@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,7 +16,6 @@
             <ToggleButton
                 x:Name="PassportToggleButton"
                 Click="PassportToggleButton_Click"
-                IsChecked="True"
                 Content="Паспорт"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
@@ -51,151 +51,165 @@
         </StackPanel>
         <ScrollViewer Grid.Column="1">
             <StackPanel Margin="0 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Border x:Name="PassportBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
-                    <Grid Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel Margin="0 0 0 5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-                            <StackPanel Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                <TextBlock 
-                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                    Text="Паспорт выдан"/>
-                                <TextBox
-                                    MaxLength="400"
-                                    Padding="10"
-                                    Height="Auto"
-                                    TextWrapping="Wrap"
-                                    MaxHeight="130"
-                                    MinHeight="45"
-                                    Style="{DynamicResource MainTextBoxStyle}"
-                                    Width="600"/>
-                            </StackPanel>
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <StackPanel Margin="0 0 55 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Дата выдачи"/>
-                                    <TextBox
-                                        Style="{DynamicResource MainTextBoxStyle}"
-                                        Width="250"/>
-                                </StackPanel>
-                                <StackPanel Margin="55 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Код подразделения"/>
-                                    <TextBox
-                                        Style="{DynamicResource MainTextBoxStyle}"
-                                        Width="240"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <StackPanel Margin="0 0 75 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Серия паспорта"/>
-                                    <TextBox
-                                        Style="{DynamicResource MainTextBoxStyle}"
-                                        Width="200"/>
-                                </StackPanel>
-                                <StackPanel Margin="75 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Номер паспорта"/>
-                                    <TextBox
-                                        Style="{DynamicResource MainTextBoxStyle}"
-                                        Width="250"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </StackPanel>
-                        <Grid Grid.Row="1" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
-                                <Image
-                                    Source="\ContentFolder\ImageFolder\NoImage.png"
-                                    Width="180"
-                                    Stretch="Uniform"
-                                    Height="240"
-                                    Margin="0 0 0 10"/>
-                                <Button
-                                    Width="180"
-                                    Height="50"
-                                    Margin="0 10 0 0">
-                                    <TextBlock
-                                        Text="Загрузить изображение"
-                                        TextWrapping="Wrap" 
-                                        TextAlignment="Center"/>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+                <Border x:Name="PassportBorder" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
+                    <StackPanel Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Паспорт"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <Grid Margin="0 10 0 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Margin="0 0 0 5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
                                 <StackPanel Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock
+                                    <TextBlock 
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Фамилия"/>
+                                        Text="Паспорт выдан"/>
                                     <TextBox
-                                        Width="370"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Имя"/>
-                                    <TextBox
-                                        Width="370"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Отчество"/>
-                                    <TextBox
-                                        Width="370"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
-                                </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <StackPanel Margin="0 0 5 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                            Text="Пол"/>
-                                        <ComboBox
-                                            Height="45"
-                                            Width="130"/>
-                                    </StackPanel>
-                                    <StackPanel Margin="5 0 0 0"  Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                            Text="Дата рождения"/>
-                                        <TextBox
-                                            Width="230"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                    <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Место рождения"/>
-                                    <TextBox
-                                        MaxLength="240"
+                                        MaxLength="400"
                                         Padding="10"
                                         Height="Auto"
                                         TextWrapping="Wrap"
                                         MaxHeight="130"
                                         MinHeight="45"
-                                        Width="370"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        Width="600"/>
+                                </StackPanel>
+                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <StackPanel Margin="0 0 55 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock 
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Дата выдачи"/>
+                                        <TextBox
+                                            Style="{DynamicResource MainTextBoxStyle}"
+                                            Width="250"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="55 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock 
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Код подразделения"/>
+                                        <TextBox
+                                            Style="{DynamicResource MainTextBoxStyle}"
+                                            Width="240"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <StackPanel Margin="0 0 75 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock 
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Серия паспорта"/>
+                                        <TextBox
+                                            Style="{DynamicResource MainTextBoxStyle}"
+                                            Width="200"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="75 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock 
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Номер паспорта"/>
+                                        <TextBox
+                                            Style="{DynamicResource MainTextBoxStyle}"
+                                            Width="250"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
+                            <Grid Grid.Row="1" Margin="0 5 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="230"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+                                    <Image
+                                        Source="\ContentFolder\ImageFolder\NoImage.png"
+                                        Width="180"
+                                        Stretch="Uniform"
+                                        Height="240"
+                                        Margin="0 0 0 10"/>
+                                    <Button
+                                        Width="180"
+                                        Height="50"
+                                        Margin="0 10 0 0">
+                                        <TextBlock
+                                            Text="Загрузить изображение"
+                                            TextWrapping="Wrap" 
+                                            TextAlignment="Center"/>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+                                    <StackPanel Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Фамилия"/>
+                                        <TextBox
+                                            Width="370"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Имя"/>
+                                        <TextBox
+                                            Width="370"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Отчество"/>
+                                        <TextBox
+                                            Width="370"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <StackPanel Margin="0 0 5 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                                Text="Пол"/>
+                                            <ComboBox
+                                                Height="45"
+                                                Width="130"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="5 0 0 0"  Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                                Text="Дата рождения"/>
+                                            <TextBox
+                                                Width="230"
+                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <TextBlock
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                            Text="Место рождения"/>
+                                        <TextBox
+                                            MaxLength="240"
+                                            Padding="10"
+                                            Height="Auto"
+                                            TextWrapping="Wrap"
+                                            MaxHeight="130"
+                                            MinHeight="45"
+                                            Width="370"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </StackPanel>
                 </Border>
-                <Border x:Name="PlaceResidenceBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="PlaceResidenceBorder" Style="{DynamicResource BorderInformationWorker}">
                     <Grid Margin="10">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel HorizontalAlignment="Center" Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Место жительства"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel HorizontalAlignment="Center" Margin="0 10 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                 <TextBlock
                                     Margin="0"
                                     Text="Зарегистрирован"
@@ -258,9 +272,15 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="MedicalBookBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <StackPanel HorizontalAlignment="Center" Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Медецинская книжка"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel HorizontalAlignment="Center" Margin="0 10 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 Margin="0"
@@ -346,23 +366,143 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="SnilsBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}">
-                    <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <StackPanel Margin="0 5 10 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                <Border x:Name="SnilsBorder" Style="{DynamicResource BorderInformationWorker}">
+                    <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="СНИЛС"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0 0 10 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Номер"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="310"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Margin="10 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                    Text="Дата выдачи"/>
+                                <TextBox
+                                    Style="{DynamicResource MainTextBoxStyle}"
+                                    Width="270"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="INNBorder" Style="{DynamicResource BorderInformationWorker}">
+                    <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="ИНН"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="0 10 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0 0 10 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock 
+                                    Text="Номер СНИЛС"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="300"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Margin="10 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Номер Налог. орган"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="280"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                             <TextBlock
-                                Text="Номер"
+                                Text="Налоговый огран"
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                             <TextBox
-                                Width="310"
-                                Style="{DynamicResource MainTextBoxStyle}"/>
-                        </StackPanel>
-                        <StackPanel Margin="10 5 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                            <TextBlock
-                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                Text="Дата выдачи"/>
-                            <TextBox
+                                MaxLength="400"
+                                Padding="10"
+                                Height="Auto"
+                                TextWrapping="Wrap"
+                                MaxHeight="130"
+                                MinHeight="45"
                                 Style="{DynamicResource MainTextBoxStyle}"
-                                Width="270"/>
+                                Width="600"/>
+                        </StackPanel>
+                    </StackPanel> 
+                </Border>
+                <Border x:Name="SalaryCardBorder" Style="{DynamicResource BorderInformationWorker}">
+                    <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Заработная карта"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="0 10 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+                            <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock 
+                                    Text="Номер карты"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel Margin="0 0 20 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                    <TextBlock 
+                                        Text="Фимилия (Eng)"
+                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                    <TextBox
+                                        Width="280"
+                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                </StackPanel>
+                                <StackPanel Margin="20 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                    <TextBlock 
+                                        Text="Имя (Eng)"
+                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                    <TextBox
+                                        Width="280"
+                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="0 5 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel Margin="0 0 120 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock 
+                                            Text="Месяц"
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                        <TextBox
+                                            Width="100"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                    <TextBlock
+                                        Margin="0 23 0 0"
+                                        Text="/"
+                                        Style="{DynamicResource MainStyleTextBlock}"/>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock 
+                                            Text="Год"
+                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                        <TextBox
+                                            Width="100"
+                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="120 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                    <TextBlock
+                                        Text="Код"
+                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                    <TextBox
+                                        Width="150"
+                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
