@@ -242,5 +242,8 @@
   <ItemGroup>
     <Resource Include="ContentFolder\ImageFolder\VkQrCode.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ContentFolder\ImageFolder\NoImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
