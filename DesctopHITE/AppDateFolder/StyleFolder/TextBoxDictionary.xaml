@@ -9,7 +9,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="5 0 5 0"/>
+        <Setter Property="Padding" Value="10 0 10 0"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Height" Value="45"/>
