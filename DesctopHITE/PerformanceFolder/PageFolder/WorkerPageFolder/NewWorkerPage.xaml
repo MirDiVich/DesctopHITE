@@ -13,31 +13,45 @@
         </Grid.ColumnDefinitions>
         <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}" Grid.Column="0">
             <ToggleButton
+                x:Name="PassportToggleButton"
+                Click="PassportToggleButton_Click"
                 IsChecked="True"
                 Content="Паспорт"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="PlaceResidenceToggleButton"
+                Click="PlaceResidenceToggleButton_Click"
                 Content="Место жительства"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="MedicalBookToggleButton"
+                Click="MedicalBookToggleButton_Click"
                 Content="Медецинская книжка"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="SnilsToggleButton"
+                Click="SnilsToggleButton_Click"
                 Content="СНИЛС"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="INNToggleButton"
+                Click="INNToggleButton_Click"
                 Content="ИНН"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="SalaryCardToggleButton"
+                Click="SalaryCardToggleButton_Click"
                 Content="Заработная карта"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                x:Name="GeneralDataToggleButton"
+                Click="GeneralDataToggleButton_Click"
                 Content="Общие данные"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
         </StackPanel>
         <ScrollViewer Grid.Column="1">
             <StackPanel Margin="0 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Border Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
+                <Border Visibility="Visible" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
@@ -76,7 +90,7 @@
                                         Width="240"/>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Margin="0 5 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <StackPanel Margin="0 0 75 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                     <TextBlock 
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
@@ -95,7 +109,7 @@
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                        <Grid Grid.Row="1">
+                        <Grid Grid.Row="1" Margin="0 5 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="230"/>
                                 <ColumnDefinition Width="1*"/>
@@ -117,7 +131,7 @@
                                         TextAlignment="Center"/>
                                 </Button>
                             </StackPanel>
-                            <StackPanel Margin="0 5 0 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
                                 <StackPanel Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                     <TextBlock
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
@@ -126,7 +140,7 @@
                                         Width="370"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                     <TextBlock
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                         Text="Имя"/>
@@ -134,7 +148,7 @@
                                         Width="370"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                     <TextBlock
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                         Text="Отчество"/>

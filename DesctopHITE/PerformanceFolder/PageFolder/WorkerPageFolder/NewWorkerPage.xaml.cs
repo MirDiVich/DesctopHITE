@@ -24,5 +24,38 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             InitializeComponent();
         }
+
+        private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void PlaceResidenceToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MedicalBookToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SnilsToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void INNToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SalaryCardToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GeneralDataToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

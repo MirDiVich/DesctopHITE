@@ -28,6 +28,6 @@
         <Setter Property="Orientation" Value="Vertical"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="0 10 0 10"/>
+        <Setter Property="Margin" Value="0 5 0 5"/>
     </Style>
 </ResourceDictionary>
