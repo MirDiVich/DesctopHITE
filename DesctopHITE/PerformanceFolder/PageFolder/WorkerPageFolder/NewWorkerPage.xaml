@@ -258,6 +258,94 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+                <Border x:Name="MedicalBookBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}">
+                    <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel HorizontalAlignment="Center" Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                Text="Номер медецинской книжки"
+                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                            <TextBox
+                                Style="{DynamicResource MainTextBoxStyle}"
+                                Width="320"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                Text="Личная медецинская книжка выдана"/>
+                            <TextBox
+                                Width="600"
+                                MaxLength="400"
+                                Padding="10"
+                                Height="Auto"
+                                TextWrapping="Wrap"
+                                MaxHeight="130"
+                                MinHeight="45"
+                                Style="{DynamicResource MainTextBoxStyle}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0 0 40 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Дата выдачи"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Style="{DynamicResource MainTextBoxStyle}"
+                                    Width="220"/>
+                            </StackPanel>
+                            <StackPanel Margin="40 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="ФИО руководителя"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Style="{DynamicResource MainTextBoxStyle}"
+                                    Width="300"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                Text="Домашний адресс"/>
+                            <TextBox
+                                Width="600"
+                                MaxLength="400"
+                                Padding="10"
+                                Height="Auto"
+                                TextWrapping="Wrap"
+                                MaxHeight="130"
+                                MinHeight="45"
+                                Style="{DynamicResource MainTextBoxStyle}"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                Text="Должность"/>
+                            <TextBox
+                                Width="600"
+                                MaxLength="400"
+                                Padding="10"
+                                Height="Auto"
+                                TextWrapping="Wrap"
+                                MaxHeight="130"
+                                MinHeight="45"
+                                Style="{DynamicResource MainTextBoxStyle}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                Text="Огранизация (индивидуальный предприниматель)"/>
+                            <TextBox
+                                Width="600"
+                                MaxLength="400"
+                                Padding="10"
+                                Height="Auto"
+                                TextWrapping="Wrap"
+                                MaxHeight="130"
+                                MinHeight="45"
+                                Style="{DynamicResource MainTextBoxStyle}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </ScrollViewer>
     </Grid>

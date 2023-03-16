@@ -47,14 +47,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         private void MedicalBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (PassportToggleButton.IsChecked == true)
-            //{
-            //    PassportBorder.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    PassportBorder.Visibility = Visibility.Collapsed;
-            //}
+            if (MedicalBookToggleButton.IsChecked == true)
+            {
+                MedicalBookBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MedicalBookBorder.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void SnilsToggleButton_Click(object sender, RoutedEventArgs e)
