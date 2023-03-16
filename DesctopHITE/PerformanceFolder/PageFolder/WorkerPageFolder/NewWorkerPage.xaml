@@ -161,9 +161,9 @@
                                         <TextBlock
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Пол"/>
-                                        <TextBox
-                                            Width="130"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                        <ComboBox
+                                            Height="45"
+                                            Width="130"/>
                                     </StackPanel>
                                     <StackPanel Margin="5 0 0 0"  Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                         <TextBlock
