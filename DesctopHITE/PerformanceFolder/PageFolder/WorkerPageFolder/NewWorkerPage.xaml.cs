@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для NewWorkerPage.xaml
-    /// </summary>
     public partial class NewWorkerPage : Page
     {
         public NewWorkerPage()
@@ -25,37 +22,88 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             InitializeComponent();
         }
 
+        #region Click
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (PassportToggleButton.IsChecked == true)
+            {
+                PassportBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PassportBorder.Visibility = Visibility.Collapsed;
+            }
         }
         private void PlaceResidenceToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (PlaceResidenceToggleButton.IsChecked == true)
+            {
+                PlaceResidenceBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PlaceResidenceBorder.Visibility = Visibility.Collapsed;
+            }
         }
         private void MedicalBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (PassportToggleButton.IsChecked == true)
+            //{
+            //    PassportBorder.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    PassportBorder.Visibility = Visibility.Collapsed;
+            //}
         }
 
         private void SnilsToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (PassportToggleButton.IsChecked == true)
+            //{
+            //    PassportBorder.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    PassportBorder.Visibility = Visibility.Collapsed;
+            //}
         }
 
         private void INNToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (PassportToggleButton.IsChecked == true)
+            //{
+            //    PassportBorder.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    PassportBorder.Visibility = Visibility.Collapsed;
+            //}
         }
 
         private void SalaryCardToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (PassportToggleButton.IsChecked == true)
+            //{
+            //    PassportBorder.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    PassportBorder.Visibility = Visibility.Collapsed;
+            //}
         }
 
         private void GeneralDataToggleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (PassportToggleButton.IsChecked == true)
+            //{
+            //    PassportBorder.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    PassportBorder.Visibility = Visibility.Collapsed;
+            //}
         }
+        #endregion
     }
 }
