@@ -59,14 +59,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void SnilsToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (PassportToggleButton.IsChecked == true)
-            //{
-            //    PassportBorder.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    PassportBorder.Visibility = Visibility.Collapsed;
-            //}
+            if (SnilsToggleButton.IsChecked == true)
+            {
+                SnilsBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SnilsBorder.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void INNToggleButton_Click(object sender, RoutedEventArgs e)
