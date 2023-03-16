@@ -47,4 +47,8 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+    <Style x:Key="TextBlockDominatesTextBoxTextBlock" TargetType="TextBlock" BasedOn="{StaticResource MainStyleTextBlock}">
+        <Setter Property="Margin" Value="12 0 0 0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
 </ResourceDictionary>
