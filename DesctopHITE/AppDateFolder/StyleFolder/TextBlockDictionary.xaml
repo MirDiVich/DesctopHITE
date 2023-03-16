@@ -7,7 +7,7 @@
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="Margin" Value="55 0 55 0"/>
     </Style>
     <Style x:Key="IconTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#f5f5f5"/>
