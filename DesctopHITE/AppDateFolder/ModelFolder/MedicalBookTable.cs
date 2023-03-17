@@ -20,7 +20,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
             this.WorkerTabe = new HashSet<WorkerTabe>();
         }
     
-        public int PersonalNumber_MedicalBook { get; set; }
+        public string PersonalNumber_MedicalBook { get; set; }
         public string Issue_MedicalBook { get; set; }
         public string SNMDirector_MedicalBook { get; set; }
         public System.DateTime DateIssue_MedicalBook { get; set; }

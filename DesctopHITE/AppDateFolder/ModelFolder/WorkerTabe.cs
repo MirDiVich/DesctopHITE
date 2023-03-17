@@ -23,7 +23,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public string SeriesPassport_Worker { get; set; }
         public string NumberPassport_Worker { get; set; }
         public string pnPlaceResidence_Worker { get; set; }
-        public int pnMedicalBook_Worker { get; set; }
+        public string pnMedicalBook_Worker { get; set; }
         public string pnSalaryCard_Worker { get; set; }
         public System.DateTime DateWord_Worker { get; set; }
         public int pnStatus_Worker { get; set; }

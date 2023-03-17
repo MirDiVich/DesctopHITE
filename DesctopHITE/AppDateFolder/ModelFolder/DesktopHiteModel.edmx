@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_MedicalBook" />
           </Key>
-          <Property Name="PersonalNumber_MedicalBook" Type="int" Nullable="false" />
+          <Property Name="PersonalNumber_MedicalBook" Type="nchar" MaxLength="8" Nullable="false" />
           <Property Name="Issue_MedicalBook" Type="nvarchar" MaxLength="400" Nullable="false" />
           <Property Name="SNMDirector_MedicalBook" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="DateIssue_MedicalBook" Type="date" Nullable="false" />
@@ -119,7 +119,7 @@
           <Property Name="SeriesPassport_Worker" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="NumberPassport_Worker" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="pnPlaceResidence_Worker" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="pnMedicalBook_Worker" Type="int" Nullable="false" />
+          <Property Name="pnMedicalBook_Worker" Type="nchar" MaxLength="8" Nullable="false" />
           <Property Name="pnSalaryCard_Worker" Type="nchar" MaxLength="16" Nullable="false" />
           <Property Name="DateWord_Worker" Type="date" Nullable="false" />
           <Property Name="pnStatus_Worker" Type="int" Nullable="false" />
@@ -360,7 +360,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_MedicalBook" />
           </Key>
-          <Property Name="PersonalNumber_MedicalBook" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumber_MedicalBook" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="true" />
           <Property Name="Issue_MedicalBook" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="SNMDirector_MedicalBook" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
           <Property Name="DateIssue_MedicalBook" Type="DateTime" Nullable="false" Precision="0" />
@@ -462,7 +462,7 @@
           <Property Name="SeriesPassport_Worker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="NumberPassport_Worker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="pnPlaceResidence_Worker" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="pnMedicalBook_Worker" Type="Int32" Nullable="false" />
+          <Property Name="pnMedicalBook_Worker" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="true" />
           <Property Name="pnSalaryCard_Worker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
           <Property Name="DateWord_Worker" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="pnStatus_Worker" Type="Int32" Nullable="false" />
@@ -587,7 +587,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
