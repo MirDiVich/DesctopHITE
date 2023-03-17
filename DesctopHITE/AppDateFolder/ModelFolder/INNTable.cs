@@ -12,18 +12,18 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class INNWorkerTable
+    public partial class INNTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public INNWorkerTable()
+        public INNTable()
         {
             this.WorkerTabe = new HashSet<WorkerTabe>();
         }
     
-        public string PersonalNumber_INNWorker { get; set; }
-        public string TaxAuthority_INNWorker { get; set; }
-        public string NumberTaxAuthority_INNWorker { get; set; }
-        public System.DateTime Date_INNWorker { get; set; }
+        public string PersonalNumber_INN { get; set; }
+        public string TaxAuthority_INN { get; set; }
+        public string NumberTaxAuthority_INN { get; set; }
+        public System.DateTime Date_INN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerTabe> WorkerTabe { get; set; }

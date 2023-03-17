@@ -26,7 +26,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         }
     
         public virtual DbSet<GenderTable> GenderTable { get; set; }
-        public virtual DbSet<INNWorkerTable> INNWorkerTable { get; set; }
+        public virtual DbSet<INNTable> INNTable { get; set; }
         public virtual DbSet<MedicalBookTable> MedicalBookTable { get; set; }
         public virtual DbSet<PassportTable> PassportTable { get; set; }
         public virtual DbSet<PlaceResidenceTable> PlaceResidenceTable { get; set; }

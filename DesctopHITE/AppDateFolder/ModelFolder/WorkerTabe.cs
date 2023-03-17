@@ -30,7 +30,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public string pnINN_Worker { get; set; }
         public string pnSnils_Worker { get; set; }
     
-        public virtual INNWorkerTable INNWorkerTable { get; set; }
+        public virtual INNTable INNTable { get; set; }
         public virtual MedicalBookTable MedicalBookTable { get; set; }
         public virtual PassportTable PassportTable { get; set; }
         public virtual PlaceResidenceTable PlaceResidenceTable { get; set; }

@@ -123,6 +123,7 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
                                     <Image
+                                        x:Name="UserPhotoImage"
                                         Source="\ContentFolder\ImageFolder\NoImage.png"
                                         Width="180"
                                         Stretch="Uniform"
@@ -131,7 +132,9 @@
                                     <Button
                                         Width="180"
                                         Height="50"
-                                        Margin="0 10 0 0">
+                                        Margin="0 10 0 0"
+                                        x:Name="NewPhotoButton"
+                                        Click="NewPhotoButton_Click">
                                         <TextBlock
                                             Text="Загрузить изображение"
                                             TextWrapping="Wrap" 
