@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DesctopHiteModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GenderTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Gender" />
+          </Key>
+          <Property Name="PersonalNumber_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title_Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INNWorkerTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_INNWorker" />
+          </Key>
+          <Property Name="PersonalNumber_INNWorker" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="TaxAuthority_INNWorker" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="NumberTaxAuthority_INNWorker" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Date_INNWorker" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalBookTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_MedicalBook" />
+          </Key>
+          <Property Name="PersonalNumber_MedicalBook" Type="int" Nullable="false" />
+          <Property Name="Issue_MedicalBook" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="SNMDirector_MedicalBook" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="DateIssue_MedicalBook" Type="date" Nullable="false" />
+          <Property Name="HomeAdress_MedicalBook" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Role_MedicalBook" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Organization_MedicalBook" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassportTable">
+          <Key>
+            <PropertyRef Name="Series_Passport" />
+            <PropertyRef Name="Number_Passport" />
+          </Key>
+          <Property Name="Series_Passport" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Number_Passport" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="Surname_Passport" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_Passport" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middlename_Passport" Type="nvarchar" MaxLength="50" />
+          <Property Name="pnGender_Passport" Type="int" Nullable="false" />
+          <Property Name="Image_Passport" Type="image" />
+          <Property Name="DateOfBrich_Passport" Type="date" Nullable="false" />
+          <Property Name="LocationOfBrich_Passport" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Issued_Passport" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="DateIssued_Passport" Type="date" Nullable="false" />
+          <Property Name="DivisionCode_Passport" Type="nchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceResidenceTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_PlaceResidence" />
+          </Key>
+          <Property Name="PersonalNumber_PlaceResidence" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="RegistrationDate_PlaceResidence" Type="date" Nullable="false" />
+          <Property Name="Region_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="District_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Point_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Street_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="House_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Flat_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Role" />
+          </Key>
+          <Property Name="PersonalNumber_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryCardTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_SalaryCard" />
+          </Key>
+          <Property Name="PersonalNumber_SalaryCard" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="NameEnd_SalaryCard" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SurnameEng_SalaryCard" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearEnd_SalaryCard" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="Month_SalaryCard" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Code_SalaryCard" Type="nchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SnilsTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Snils" />
+          </Key>
+          <Property Name="PersonalNumber_Snils" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="DateRegistration_Snils" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Status" />
+          </Key>
+          <Property Name="PersonalNumber_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="WorkerTabe">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Worker" />
+          </Key>
+          <Property Name="PersonalNumber_Worker" Type="int" Nullable="false" />
+          <Property Name="Phone_Worker" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="Login_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pnRole_Worker" Type="int" Nullable="false" />
+          <Property Name="SeriesPassport_Worker" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="NumberPassport_Worker" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="pnPlaceResidence_Worker" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="pnMedicalBook_Worker" Type="int" Nullable="false" />
+          <Property Name="pnSalaryCard_Worker" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="DateWord_Worker" Type="date" Nullable="false" />
+          <Property Name="pnStatus_Worker" Type="int" Nullable="false" />
+          <Property Name="pnINN_Worker" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="pnSnils_Worker" Type="nchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PassportTable_GenderTable">
+          <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTable">
+              <PropertyRef Name="PersonalNumber_Gender" />
+            </Principal>
+            <Dependent Role="PassportTable">
+              <PropertyRef Name="pnGender_Passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_INNWorkerTable">
+          <End Role="INNWorkerTable" Type="Self.INNWorkerTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INNWorkerTable">
+              <PropertyRef Name="PersonalNumber_INNWorker" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnINN_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_MedicalBookTable">
+          <End Role="MedicalBookTable" Type="Self.MedicalBookTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalBookTable">
+              <PropertyRef Name="PersonalNumber_MedicalBook" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnMedicalBook_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_PassportTable">
+          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassportTable">
+              <PropertyRef Name="Series_Passport" />
+              <PropertyRef Name="Number_Passport" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="SeriesPassport_Worker" />
+              <PropertyRef Name="NumberPassport_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+          <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceResidenceTable">
+              <PropertyRef Name="PersonalNumber_PlaceResidence" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnPlaceResidence_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_RoleTable">
+          <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTable">
+              <PropertyRef Name="PersonalNumber_Role" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnRole_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_SalaryCardTable">
+          <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCardTable">
+              <PropertyRef Name="PersonalNumber_SalaryCard" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnSalaryCard_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_SnilsTable">
+          <End Role="SnilsTable" Type="Self.SnilsTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SnilsTable">
+              <PropertyRef Name="PersonalNumber_Snils" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnSnils_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_StatusTable">
+          <End Role="StatusTable" Type="Self.StatusTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTable">
+              <PropertyRef Name="PersonalNumber_Status" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnStatus_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DesctopHiteModelContainer">
+          <EntitySet Name="GenderTable" EntityType="Self.GenderTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INNWorkerTable" EntityType="Self.INNWorkerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalBookTable" EntityType="Self.MedicalBookTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassportTable" EntityType="Self.PassportTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceResidenceTable" EntityType="Self.PlaceResidenceTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleTable" EntityType="Self.RoleTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryCardTable" EntityType="Self.SalaryCardTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SnilsTable" EntityType="Self.SnilsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerTabe" EntityType="Self.WorkerTabe" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PassportTable_GenderTable" Association="Self.FK_PassportTable_GenderTable">
+            <End Role="GenderTable" EntitySet="GenderTable" />
+            <End Role="PassportTable" EntitySet="PassportTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_INNWorkerTable" Association="Self.FK_WorkerTabe_INNWorkerTable">
+            <End Role="INNWorkerTable" EntitySet="INNWorkerTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_MedicalBookTable" Association="Self.FK_WorkerTabe_MedicalBookTable">
+            <End Role="MedicalBookTable" EntitySet="MedicalBookTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="Self.FK_WorkerTabe_PassportTable">
+            <End Role="PassportTable" EntitySet="PassportTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="Self.FK_WorkerTabe_PlaceResidenceTable">
+            <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_RoleTable" Association="Self.FK_WorkerTabe_RoleTable">
+            <End Role="RoleTable" EntitySet="RoleTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_SalaryCardTable" Association="Self.FK_WorkerTabe_SalaryCardTable">
+            <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_SnilsTable" Association="Self.FK_WorkerTabe_SnilsTable">
+            <End Role="SnilsTable" EntitySet="SnilsTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_StatusTable" Association="Self.FK_WorkerTabe_StatusTable">
+            <End Role="StatusTable" EntitySet="StatusTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DesctopHiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GenderTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Gender" />
+          </Key>
+          <Property Name="PersonalNumber_Gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title_Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PassportTable" Relationship="Self.FK_PassportTable_GenderTable" FromRole="GenderTable" ToRole="PassportTable" />
+        </EntityType>
+        <EntityType Name="INNWorkerTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_INNWorker" />
+          </Key>
+          <Property Name="PersonalNumber_INNWorker" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TaxAuthority_INNWorker" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberTaxAuthority_INNWorker" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Date_INNWorker" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_INNWorkerTable" FromRole="INNWorkerTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="MedicalBookTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_MedicalBook" />
+          </Key>
+          <Property Name="PersonalNumber_MedicalBook" Type="Int32" Nullable="false" />
+          <Property Name="Issue_MedicalBook" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SNMDirector_MedicalBook" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateIssue_MedicalBook" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HomeAdress_MedicalBook" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role_MedicalBook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Organization_MedicalBook" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_MedicalBookTable" FromRole="MedicalBookTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="PassportTable">
+          <Key>
+            <PropertyRef Name="Series_Passport" />
+            <PropertyRef Name="Number_Passport" />
+          </Key>
+          <Property Name="Series_Passport" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Number_Passport" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Surname_Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name_Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middlename_Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pnGender_Passport" Type="Int32" Nullable="false" />
+          <Property Name="Image_Passport" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateOfBrich_Passport" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LocationOfBrich_Passport" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Issued_Passport" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateIssued_Passport" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DivisionCode_Passport" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GenderTable" Relationship="Self.FK_PassportTable_GenderTable" FromRole="PassportTable" ToRole="GenderTable" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_PassportTable" FromRole="PassportTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="PlaceResidenceTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_PlaceResidence" />
+          </Key>
+          <Property Name="PersonalNumber_PlaceResidence" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="RegistrationDate_PlaceResidence" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Region_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="District_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Point_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="House_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Flat_PlaceResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_PlaceResidenceTable" FromRole="PlaceResidenceTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="RoleTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Role" />
+          </Key>
+          <Property Name="PersonalNumber_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_RoleTable" FromRole="RoleTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="SalaryCardTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_SalaryCard" />
+          </Key>
+          <Property Name="PersonalNumber_SalaryCard" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NameEnd_SalaryCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SurnameEng_SalaryCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YearEnd_SalaryCard" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Month_SalaryCard" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Code_SalaryCard" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_SalaryCardTable" FromRole="SalaryCardTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="SnilsTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Snils" />
+          </Key>
+          <Property Name="PersonalNumber_Snils" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DateRegistration_Snils" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_SnilsTable" FromRole="SnilsTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="StatusTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Status" />
+          </Key>
+          <Property Name="PersonalNumber_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkerTabe" Relationship="Self.FK_WorkerTabe_StatusTable" FromRole="StatusTable" ToRole="WorkerTabe" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="WorkerTabe">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Worker" />
+          </Key>
+          <Property Name="PersonalNumber_Worker" Type="Int32" Nullable="false" />
+          <Property Name="Phone_Worker" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login_Worker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email_Worker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password_Worker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pnRole_Worker" Type="Int32" Nullable="false" />
+          <Property Name="SeriesPassport_Worker" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NumberPassport_Worker" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pnPlaceResidence_Worker" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pnMedicalBook_Worker" Type="Int32" Nullable="false" />
+          <Property Name="pnSalaryCard_Worker" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DateWord_Worker" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pnStatus_Worker" Type="Int32" Nullable="false" />
+          <Property Name="pnINN_Worker" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="pnSnils_Worker" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="INNWorkerTable" Relationship="Self.FK_WorkerTabe_INNWorkerTable" FromRole="WorkerTabe" ToRole="INNWorkerTable" />
+          <NavigationProperty Name="MedicalBookTable" Relationship="Self.FK_WorkerTabe_MedicalBookTable" FromRole="WorkerTabe" ToRole="MedicalBookTable" />
+          <NavigationProperty Name="PassportTable" Relationship="Self.FK_WorkerTabe_PassportTable" FromRole="WorkerTabe" ToRole="PassportTable" />
+          <NavigationProperty Name="PlaceResidenceTable" Relationship="Self.FK_WorkerTabe_PlaceResidenceTable" FromRole="WorkerTabe" ToRole="PlaceResidenceTable" />
+          <NavigationProperty Name="RoleTable" Relationship="Self.FK_WorkerTabe_RoleTable" FromRole="WorkerTabe" ToRole="RoleTable" />
+          <NavigationProperty Name="SalaryCardTable" Relationship="Self.FK_WorkerTabe_SalaryCardTable" FromRole="WorkerTabe" ToRole="SalaryCardTable" />
+          <NavigationProperty Name="SnilsTable" Relationship="Self.FK_WorkerTabe_SnilsTable" FromRole="WorkerTabe" ToRole="SnilsTable" />
+          <NavigationProperty Name="StatusTable" Relationship="Self.FK_WorkerTabe_StatusTable" FromRole="WorkerTabe" ToRole="StatusTable" />
+        </EntityType>
+        <Association Name="FK_PassportTable_GenderTable">
+          <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTable">
+              <PropertyRef Name="PersonalNumber_Gender" />
+            </Principal>
+            <Dependent Role="PassportTable">
+              <PropertyRef Name="pnGender_Passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_INNWorkerTable">
+          <End Role="INNWorkerTable" Type="Self.INNWorkerTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INNWorkerTable">
+              <PropertyRef Name="PersonalNumber_INNWorker" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnINN_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_MedicalBookTable">
+          <End Role="MedicalBookTable" Type="Self.MedicalBookTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalBookTable">
+              <PropertyRef Name="PersonalNumber_MedicalBook" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnMedicalBook_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_PassportTable">
+          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassportTable">
+              <PropertyRef Name="Series_Passport" />
+              <PropertyRef Name="Number_Passport" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="SeriesPassport_Worker" />
+              <PropertyRef Name="NumberPassport_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+          <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceResidenceTable">
+              <PropertyRef Name="PersonalNumber_PlaceResidence" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnPlaceResidence_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_RoleTable">
+          <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTable">
+              <PropertyRef Name="PersonalNumber_Role" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnRole_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_SalaryCardTable">
+          <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCardTable">
+              <PropertyRef Name="PersonalNumber_SalaryCard" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnSalaryCard_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_SnilsTable">
+          <End Role="SnilsTable" Type="Self.SnilsTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SnilsTable">
+              <PropertyRef Name="PersonalNumber_Snils" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnSnils_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTabe_StatusTable">
+          <End Role="StatusTable" Type="Self.StatusTable" Multiplicity="1" />
+          <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTable">
+              <PropertyRef Name="PersonalNumber_Status" />
+            </Principal>
+            <Dependent Role="WorkerTabe">
+              <PropertyRef Name="pnStatus_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesctopHiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GenderTable" EntityType="Self.GenderTable" />
+          <EntitySet Name="INNWorkerTable" EntityType="Self.INNWorkerTable" />
+          <EntitySet Name="MedicalBookTable" EntityType="Self.MedicalBookTable" />
+          <EntitySet Name="PassportTable" EntityType="Self.PassportTable" />
+          <EntitySet Name="PlaceResidenceTable" EntityType="Self.PlaceResidenceTable" />
+          <EntitySet Name="RoleTable" EntityType="Self.RoleTable" />
+          <EntitySet Name="SalaryCardTable" EntityType="Self.SalaryCardTable" />
+          <EntitySet Name="SnilsTable" EntityType="Self.SnilsTable" />
+          <EntitySet Name="StatusTable" EntityType="Self.StatusTable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="WorkerTabe" EntityType="Self.WorkerTabe" />
+          <AssociationSet Name="FK_PassportTable_GenderTable" Association="Self.FK_PassportTable_GenderTable">
+            <End Role="GenderTable" EntitySet="GenderTable" />
+            <End Role="PassportTable" EntitySet="PassportTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_INNWorkerTable" Association="Self.FK_WorkerTabe_INNWorkerTable">
+            <End Role="INNWorkerTable" EntitySet="INNWorkerTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_MedicalBookTable" Association="Self.FK_WorkerTabe_MedicalBookTable">
+            <End Role="MedicalBookTable" EntitySet="MedicalBookTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="Self.FK_WorkerTabe_PassportTable">
+            <End Role="PassportTable" EntitySet="PassportTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="Self.FK_WorkerTabe_PlaceResidenceTable">
+            <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_RoleTable" Association="Self.FK_WorkerTabe_RoleTable">
+            <End Role="RoleTable" EntitySet="RoleTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_SalaryCardTable" Association="Self.FK_WorkerTabe_SalaryCardTable">
+            <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_SnilsTable" Association="Self.FK_WorkerTabe_SnilsTable">
+            <End Role="SnilsTable" EntitySet="SnilsTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTabe_StatusTable" Association="Self.FK_WorkerTabe_StatusTable">
+            <End Role="StatusTable" EntitySet="StatusTable" />
+            <End Role="WorkerTabe" EntitySet="WorkerTabe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DesctopHiteModelContainer" CdmEntityContainer="DesctopHiteEntities">
+          <EntitySetMapping Name="GenderTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.GenderTable">
+              <MappingFragment StoreEntitySet="GenderTable">
+                <ScalarProperty Name="PersonalNumber_Gender" ColumnName="PersonalNumber_Gender" />
+                <ScalarProperty Name="Title_Gender" ColumnName="Title_Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INNWorkerTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.INNWorkerTable">
+              <MappingFragment StoreEntitySet="INNWorkerTable">
+                <ScalarProperty Name="PersonalNumber_INNWorker" ColumnName="PersonalNumber_INNWorker" />
+                <ScalarProperty Name="TaxAuthority_INNWorker" ColumnName="TaxAuthority_INNWorker" />
+                <ScalarProperty Name="NumberTaxAuthority_INNWorker" ColumnName="NumberTaxAuthority_INNWorker" />
+                <ScalarProperty Name="Date_INNWorker" ColumnName="Date_INNWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalBookTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.MedicalBookTable">
+              <MappingFragment StoreEntitySet="MedicalBookTable">
+                <ScalarProperty Name="PersonalNumber_MedicalBook" ColumnName="PersonalNumber_MedicalBook" />
+                <ScalarProperty Name="Issue_MedicalBook" ColumnName="Issue_MedicalBook" />
+                <ScalarProperty Name="SNMDirector_MedicalBook" ColumnName="SNMDirector_MedicalBook" />
+                <ScalarProperty Name="DateIssue_MedicalBook" ColumnName="DateIssue_MedicalBook" />
+                <ScalarProperty Name="HomeAdress_MedicalBook" ColumnName="HomeAdress_MedicalBook" />
+                <ScalarProperty Name="Role_MedicalBook" ColumnName="Role_MedicalBook" />
+                <ScalarProperty Name="Organization_MedicalBook" ColumnName="Organization_MedicalBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassportTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.PassportTable">
+              <MappingFragment StoreEntitySet="PassportTable">
+                <ScalarProperty Name="Series_Passport" ColumnName="Series_Passport" />
+                <ScalarProperty Name="Number_Passport" ColumnName="Number_Passport" />
+                <ScalarProperty Name="Surname_Passport" ColumnName="Surname_Passport" />
+                <ScalarProperty Name="Name_Passport" ColumnName="Name_Passport" />
+                <ScalarProperty Name="Middlename_Passport" ColumnName="Middlename_Passport" />
+                <ScalarProperty Name="pnGender_Passport" ColumnName="pnGender_Passport" />
+                <ScalarProperty Name="Image_Passport" ColumnName="Image_Passport" />
+                <ScalarProperty Name="DateOfBrich_Passport" ColumnName="DateOfBrich_Passport" />
+                <ScalarProperty Name="LocationOfBrich_Passport" ColumnName="LocationOfBrich_Passport" />
+                <ScalarProperty Name="Issued_Passport" ColumnName="Issued_Passport" />
+                <ScalarProperty Name="DateIssued_Passport" ColumnName="DateIssued_Passport" />
+                <ScalarProperty Name="DivisionCode_Passport" ColumnName="DivisionCode_Passport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceResidenceTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.PlaceResidenceTable">
+              <MappingFragment StoreEntitySet="PlaceResidenceTable">
+                <ScalarProperty Name="PersonalNumber_PlaceResidence" ColumnName="PersonalNumber_PlaceResidence" />
+                <ScalarProperty Name="RegistrationDate_PlaceResidence" ColumnName="RegistrationDate_PlaceResidence" />
+                <ScalarProperty Name="Region_PlaceResidence" ColumnName="Region_PlaceResidence" />
+                <ScalarProperty Name="District_PlaceResidence" ColumnName="District_PlaceResidence" />
+                <ScalarProperty Name="Point_PlaceResidence" ColumnName="Point_PlaceResidence" />
+                <ScalarProperty Name="Street_PlaceResidence" ColumnName="Street_PlaceResidence" />
+                <ScalarProperty Name="House_PlaceResidence" ColumnName="House_PlaceResidence" />
+                <ScalarProperty Name="Flat_PlaceResidence" ColumnName="Flat_PlaceResidence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.RoleTable">
+              <MappingFragment StoreEntitySet="RoleTable">
+                <ScalarProperty Name="PersonalNumber_Role" ColumnName="PersonalNumber_Role" />
+                <ScalarProperty Name="Name_Role" ColumnName="Name_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCardTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.SalaryCardTable">
+              <MappingFragment StoreEntitySet="SalaryCardTable">
+                <ScalarProperty Name="PersonalNumber_SalaryCard" ColumnName="PersonalNumber_SalaryCard" />
+                <ScalarProperty Name="NameEnd_SalaryCard" ColumnName="NameEnd_SalaryCard" />
+                <ScalarProperty Name="SurnameEng_SalaryCard" ColumnName="SurnameEng_SalaryCard" />
+                <ScalarProperty Name="YearEnd_SalaryCard" ColumnName="YearEnd_SalaryCard" />
+                <ScalarProperty Name="Month_SalaryCard" ColumnName="Month_SalaryCard" />
+                <ScalarProperty Name="Code_SalaryCard" ColumnName="Code_SalaryCard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SnilsTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.SnilsTable">
+              <MappingFragment StoreEntitySet="SnilsTable">
+                <ScalarProperty Name="PersonalNumber_Snils" ColumnName="PersonalNumber_Snils" />
+                <ScalarProperty Name="DateRegistration_Snils" ColumnName="DateRegistration_Snils" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.StatusTable">
+              <MappingFragment StoreEntitySet="StatusTable">
+                <ScalarProperty Name="PersonalNumber_Status" ColumnName="PersonalNumber_Status" />
+                <ScalarProperty Name="Title_Status" ColumnName="Title_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DesctopHiteModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerTabe">
+            <EntityTypeMapping TypeName="DesctopHiteModel.WorkerTabe">
+              <MappingFragment StoreEntitySet="WorkerTabe">
+                <ScalarProperty Name="PersonalNumber_Worker" ColumnName="PersonalNumber_Worker" />
+                <ScalarProperty Name="Phone_Worker" ColumnName="Phone_Worker" />
+                <ScalarProperty Name="Login_Worker" ColumnName="Login_Worker" />
+                <ScalarProperty Name="Email_Worker" ColumnName="Email_Worker" />
+                <ScalarProperty Name="Password_Worker" ColumnName="Password_Worker" />
+                <ScalarProperty Name="pnRole_Worker" ColumnName="pnRole_Worker" />
+                <ScalarProperty Name="SeriesPassport_Worker" ColumnName="SeriesPassport_Worker" />
+                <ScalarProperty Name="NumberPassport_Worker" ColumnName="NumberPassport_Worker" />
+                <ScalarProperty Name="pnPlaceResidence_Worker" ColumnName="pnPlaceResidence_Worker" />
+                <ScalarProperty Name="pnMedicalBook_Worker" ColumnName="pnMedicalBook_Worker" />
+                <ScalarProperty Name="pnSalaryCard_Worker" ColumnName="pnSalaryCard_Worker" />
+                <ScalarProperty Name="DateWord_Worker" ColumnName="DateWord_Worker" />
+                <ScalarProperty Name="pnStatus_Worker" ColumnName="pnStatus_Worker" />
+                <ScalarProperty Name="pnINN_Worker" ColumnName="pnINN_Worker" />
+                <ScalarProperty Name="pnSnils_Worker" ColumnName="pnSnils_Worker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
