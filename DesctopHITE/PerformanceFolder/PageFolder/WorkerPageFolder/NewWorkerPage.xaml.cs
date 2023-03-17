@@ -106,14 +106,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void GeneralDataToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (PassportToggleButton.IsChecked == true)
-            //{
-            //    PassportBorder.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    PassportBorder.Visibility = Visibility.Collapsed;
-            //}
+            if (GeneralDataToggleButton.IsChecked == true)
+            {
+                GeneralDataBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GeneralDataBorder.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         #endregion
     }

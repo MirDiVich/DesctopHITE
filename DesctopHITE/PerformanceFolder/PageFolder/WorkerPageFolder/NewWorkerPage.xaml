@@ -50,7 +50,7 @@
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
         </StackPanel>
         <ScrollViewer Grid.Column="1">
-            <StackPanel Margin="0 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <StackPanel Margin="0 10 0 20" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <Border x:Name="PassportBorder" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
                     <StackPanel Margin="10">
                         <TextBlock
@@ -506,6 +506,73 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
+                <Border Margin="0 10 0 20" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformationWorker}">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Общая информация"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0 0 0 5" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Электронная почта"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Номер телефона"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Должность"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <ComboBox
+                                    Width="600"
+                                    Height="45"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Login"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Password"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="Повторите password"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <TextBox
+                                    Width="600"
+                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Button
+                    x:Name="NewWorkerButton"
+                    Click="NewWorkerButton_Click"
+                    Margin="0 10 0 0"
+                    Width="320"
+                    Height="50"
+                    Content="Добавить нового сотрудника"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
