@@ -85,6 +85,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Дата выдачи"/>
                                         <TextBox
+                                            x:Name="DateIssuedTextBox"
                                             Style="{DynamicResource MainTextBoxStyle}"
                                             Width="250"/>
                                     </StackPanel>
@@ -93,6 +94,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Код подразделения"/>
                                         <TextBox
+                                            x:Name="DivisionCodeTextBox"
                                             Style="{DynamicResource MainTextBoxStyle}"
                                             Width="240"/>
                                     </StackPanel>
@@ -103,6 +105,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Серия паспорта"/>
                                         <TextBox
+                                            x:Name="SeriesTextBox"
                                             Style="{DynamicResource MainTextBoxStyle}"
                                             Width="200"/>
                                     </StackPanel>
@@ -111,6 +114,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Номер паспорта"/>
                                         <TextBox
+                                            x:Name="NumberTextBox"
                                             Style="{DynamicResource MainTextBoxStyle}"
                                             Width="250"/>
                                     </StackPanel>
@@ -147,6 +151,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Фамилия"/>
                                         <TextBox
+                                            x:Name="SurnameTextBox"
                                             Width="370"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
                                     </StackPanel>
@@ -155,6 +160,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Имя"/>
                                         <TextBox
+                                            x:Name="NameTextBox"
                                             Width="370"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
                                     </StackPanel>
@@ -163,6 +169,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Отчество"/>
                                         <TextBox
+                                            x:Name="MiddlenameTextBox"
                                             Width="370"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
                                     </StackPanel>
@@ -172,6 +179,9 @@
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                                 Text="Пол"/>
                                             <ComboBox
+                                                x:Name="pnGenderComboBox"
+                                                DisplayMemberPath="Title_Gender"
+                                                SelectedValuePath="PersonalNumber_Gender"
                                                 Height="45"
                                                 Width="130"/>
                                         </StackPanel>

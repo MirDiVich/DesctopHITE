@@ -194,7 +194,7 @@
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
       <DependentUpon>DesktopHiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\INNWorkerTable.cs">
+    <Compile Include="AppDateFolder\ModelFolder\INNTable.cs">
       <DependentUpon>DesktopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\MedicalBookTable.cs">

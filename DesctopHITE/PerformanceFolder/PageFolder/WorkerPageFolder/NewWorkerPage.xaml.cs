@@ -21,13 +21,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
-        string PathImage = "\\ContentFolder\\ImageFolder\\NoImage.png";
+        string PathImage = "\\ContentFolder\\ImageFolder\\NoImage.png"; // Путь к стандартному фото
         public NewWorkerPage()
         {
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
+                pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
             }
             catch (Exception ex)
             {
@@ -39,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Еслм страница видна
         {
             if (Visibility == Visibility.Visible)
             {
@@ -141,7 +142,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         private void NewPhotoButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png"; // Выбираем в OpenFileDialog формат файла
             if (openFileDialog.ShowDialog() == true) // Если пользователь выбрал содержимое
             {
                 PathImage = openFileDialog.FileName; // Получение пути к выбранному файлу и записываем в переменную
