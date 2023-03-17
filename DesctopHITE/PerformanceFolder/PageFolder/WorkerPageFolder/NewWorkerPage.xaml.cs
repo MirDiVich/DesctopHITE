@@ -24,6 +24,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
     {
         string PathImage = "\\ContentFolder\\ImageFolder\\NoImage.png"; // Путь к стандартному фото
         DateTime ToDayDate = DateTime.Today; // Получаем сегодняшнюю дату
+
         public NewWorkerPage()
         {
             try
