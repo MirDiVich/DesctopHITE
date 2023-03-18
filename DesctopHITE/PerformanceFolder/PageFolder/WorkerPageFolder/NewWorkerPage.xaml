@@ -51,7 +51,7 @@
         </StackPanel>
         <ScrollViewer Grid.Column="1">
             <StackPanel Margin="0 10 0 20" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Border x:Name="PassportBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
+                <Border x:Name="PassportBorder" Visibility="Collapsed" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
                     <StackPanel Margin="10">
                         <TextBlock
                             Foreground="#462AD8"
@@ -111,6 +111,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "DateValidationTextBox"
+                                                MaxLength="10"
                                                 x:Name="DateIssuedPassportTextBox"
                                                 Style="{DynamicResource MainTextBoxStyle}"
                                                 Width="250"/>
@@ -133,6 +135,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "DivisionCodeValidationTextBox"
+                                                MaxLength="7"
                                                 x:Name="DivisionCodePassportTextBox"
                                                 Style="{DynamicResource MainTextBoxStyle}"
                                                 Width="240"/>
@@ -157,6 +161,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "NumberValidationTextBox"
+                                                MaxLength="4"
                                                 x:Name="SeriesPassportTextBox"
                                                 Style="{DynamicResource MainTextBoxStyle}"
                                                 Width="200"/>
@@ -179,6 +185,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "NumberValidationTextBox"
+                                                MaxLength="6"
                                                 x:Name="NumberPassportTextBox"
                                                 Style="{DynamicResource MainTextBoxStyle}"
                                                 Width="250"/>
@@ -241,6 +249,7 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                MaxLength="50"
                                                 x:Name="SurnamePassportTextBox"
                                                 Width="370"
                                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -263,6 +272,7 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                MaxLength="50"
                                                 x:Name="NamePassportTextBox"
                                                 Width="370"
                                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -285,6 +295,7 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                MaxLength="50"
                                                 x:Name="MiddlenamePassportTextBox"
                                                 Width="370"
                                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -332,6 +343,8 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <TextBox
+                                                    PreviewTextInput = "DateValidationTextBox"
+                                                    MaxLength="10"
                                                     x:Name="DateOfBrichPassportTextBox"
                                                     Width="230"
                                                     Style="{DynamicResource MainTextBoxStyle}"/>
@@ -399,6 +412,10 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Padding="0"
+                                        HorizontalContentAlignment="Center"
+                                        PreviewTextInput = "DateValidationTextBox"
+                                        MaxLength="10"
                                         x:Name="RegistrationDatePlaceResidenceTextBox"
                                         Width="300"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -421,6 +438,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="100"
                                         x:Name="RegionPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -443,6 +461,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="100"
                                         x:Name="DistrictPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -465,6 +484,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="100"
                                         x:Name="PointPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -487,6 +507,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="100"
                                         x:Name="StreetPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -510,6 +531,8 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            PreviewTextInput = "NumberValidationTextBox"
+                                            MaxLength="10"
                                             x:Name="HousePlaceResidenceTextBox"
                                             Width="230"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
@@ -532,6 +555,8 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            PreviewTextInput = "NumberValidationTextBox"
+                                            MaxLength="10"
                                             x:Name="FlatPlaceResidenceTextBox"
                                             Width="230"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
@@ -568,6 +593,8 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    MaxLength="8"
+                                    PreviewTextInput = "NumberValidationTextBox"
                                     x:Name="PersonalNumberMedicalBookTextBox"
                                     Style="{DynamicResource MainTextBoxStyle}"
                                     Width="320"/>
@@ -619,6 +646,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "DateValidationTextBox"
+                                        MaxLength="10"
                                         x:Name="DateIssueMedicalBookTextBox"
                                         Style="{DynamicResource MainTextBoxStyle}"
                                         Width="220"/>
@@ -641,6 +670,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="120"
                                         x:Name="SNMDirectorMedicalBookTextBox"
                                         Style="{DynamicResource MainTextBoxStyle}"
                                         Width="300"/>
@@ -759,6 +789,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "NumberValidationTextBox"
+                                        MaxLength="11"
                                         x:Name="PersonalNumberSnilsTextBox"
                                         Width="310"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -781,6 +813,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "DateValidationTextBox"
+                                        MaxLength="10"
                                         x:Name="DateRegistrationSnilsTextBox"
                                         Style="{DynamicResource MainTextBoxStyle}"
                                         Width="270"/>
@@ -815,6 +849,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "NumberValidationTextBox"
+                                        MaxLength="12"
                                         x:Name="PersonalNumberINNTextBox"
                                         Width="300"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -837,6 +873,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "NumberValidationTextBox"
+                                        MaxLength="4"
                                         x:Name="NumberTaxAuthorityINNTextBox"
                                         Width="280"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -889,6 +927,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "DateValidationTextBox"
+                                        MaxLength="10"
                                         x:Name="DateINNTextBox"
                                         Style="{DynamicResource MainTextBoxStyle}"
                                         Width="180"/>
@@ -923,6 +963,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput = "NumberValidationTextBox"
+                                        MaxLength="16"
                                         x:Name="PersonalNumberSalaryCardTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -946,6 +988,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            MaxLength="50"
                                             x:Name="SurnameEngSalaryCardTextBox"
                                             Width="280"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
@@ -968,6 +1011,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            MaxLength="50"
                                             x:Name="NameEndSalaryCardTextBox"
                                             Width="280"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
@@ -993,6 +1037,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "NumberValidationTextBox" 
+                                                MaxLength="2"
                                                 x:Name="MonthSalaryCardTextBox"
                                                 Width="100"
                                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1019,6 +1065,8 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                PreviewTextInput = "NumberValidationTextBox"
+                                                MaxLength="4"
                                                 x:Name="YearEndSalaryCardTextBox"
                                                 Width="100"
                                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1042,6 +1090,8 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            PreviewTextInput = "NumberValidationTextBox"
+                                            MaxLength="3"
                                             x:Name="CodeSalaryCardTextBox"
                                             Width="150"
                                             Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1077,6 +1127,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="200"
                                         x:Name="EmailWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1099,6 +1150,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        PreviewTextInput="NumberValidationTextBox"
+                                        MaxLength="11"
                                         x:Name="PhoneWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1145,6 +1198,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="70"
                                         x:Name="LoginWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1167,6 +1221,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="50"
                                         x:Name="PasswordWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1189,6 +1244,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        MaxLength="50"
                                         x:Name="RepeatPasswordWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource MainTextBoxStyle}"/>
@@ -1211,6 +1267,7 @@
                             </Border.Effect>
                         </Border>
                         <Button
+                            IsEnabled="False"
                             x:Name="NewWorkerButton"
                             Click="NewWorkerButton_Click"
                             Width="320"

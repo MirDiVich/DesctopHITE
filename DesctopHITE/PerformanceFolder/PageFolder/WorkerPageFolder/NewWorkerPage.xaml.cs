@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -376,6 +377,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) MessageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
             #endregion
+        }
+        #endregion
+        #region ValidData
+        private void DateValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex DateRegex = new Regex("[^0-9/.]");
+            e.Handled = DateRegex.IsMatch(e.Text);
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex NumberRegex = new Regex("[^0-9,]");
+            e.Handled = NumberRegex.IsMatch(e.Text);
+        }
+        private void DivisionCodeValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex DivisionCodeRegex = new Regex("[^0-9,]");
+            e.Handled = DivisionCodeRegex.IsMatch(e.Text);
         }
         #endregion
     }
