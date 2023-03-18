@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
-        string PathImage = "\\ContentFolder\\ImageFolder\\NoImage.png"; // Путь к стандартному фото
+        string PathImage = "";
         DateTime ToDayDate = DateTime.Today; // Получаем сегодняшнюю дату
 
         string MessagePassportNull;
@@ -148,25 +148,36 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e) // Выполняем ряд действий, после чего добавляем нового сотрудника в базу данных
         {
-            MessagePassportNull = "";
-            MessagePlaceResidenceNull = "";
-            MessageMedicalBookNull = "";
-            MessageSnilsNull = "";
-            MessageINNNull = "";
-            MessageSalaryCardNull = "";
-            MessageGeneralDataNull = "";
-
-            MessageNull();
-
-            if (MessagePassportNull == "" || MessagePlaceResidenceNull == "" || MessageMedicalBookNull == "" || MessageSnilsNull == "" || MessageINNNull == "" || MessageSalaryCardNull == "" || MessageGeneralDataNull == "")
+            try
             {
+                MessagePassportNull = "";
+                MessagePlaceResidenceNull = "";
+                MessageMedicalBookNull = "";
+                MessageSnilsNull = "";
+                MessageINNNull = "";
+                MessageSalaryCardNull = "";
+                MessageGeneralDataNull = "";
 
+                MessageNull();
+
+                if (MessagePassportNull != "" || MessagePlaceResidenceNull != "" || MessageMedicalBookNull != "" || MessageSnilsNull != "" || MessageINNNull != "" || MessageSalaryCardNull != "" || MessageGeneralDataNull != "")
+                {
+                    MessageBox.Show(
+                        MessagePassportNull + MessagePlaceResidenceNull + MessageMedicalBookNull + MessageSnilsNull + MessageINNNull + MessageSalaryCardNull + MessageGeneralDataNull,
+                        "Ошибка добавления нового сотрудника (Error - E-003)",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+                else
+                {
+                    AddDataDatabase();
+                }
             }
-            else
+            catch (Exception ex)
             {
                 MessageBox.Show(
-                    MessagePassportNull + MessagePlaceResidenceNull + MessageMedicalBookNull + MessageSnilsNull + MessageINNNull + MessageSalaryCardNull + MessageGeneralDataNull,
-                    "Ошибка добавления нового сотрудника (Error - E-003)",
+                    ex.Message,
+                    "Ошибка добавления (Error - E-004)",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -188,14 +199,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                // Конвертация изображения в байты
-                byte[] imageData;
-                using (FileStream fs = new FileStream(PathImage, FileMode.Open, FileAccess.Read))
-                {
-                    imageData = new byte[fs.Length];
-                    fs.Read(imageData, 0, imageData.Length);
-                }
-
                 PassportTable AddPassport = new PassportTable()
                 {
                     Series_Passport = SeriesPassportTextBox.Text,
@@ -204,13 +207,28 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Name_Passport = NamePassportTextBox.Text,
                     Middlename_Passport = MiddlenamePassportTextBox.Text,
                     pnGender_Passport = (pnGenderComboBox.SelectedItem as GenderTable).PersonalNumber_Gender,
-                    Image_Passport = imageData,
                     DateOfBrich_Passport = Convert.ToDateTime(DateOfBrichPassportTextBox.Text),
                     LocationOfBrich_Passport = LocationOfBrichPassportTextBox.Text,
                     Issued_Passport = IssuedPassportTextBox.Text,
                     DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text),
                     DivisionCode_Passport = DivisionCodePassportTextBox.Text
                 };
+                if (PathImage == "")
+                {
+                    AddPassport.Image_Passport = null;
+                }
+                else
+                {
+                    // Конвертация изображения в байты
+                    byte[] imageData;
+                    using (FileStream fs = new FileStream(PathImage, FileMode.Open, FileAccess.Read))
+                    {
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
+                    }
+
+                    AddPassport.Image_Passport = imageData;
+                }
                 AppConnectClass.DataBase.PassportTable.Add(AddPassport);
 
                 PlaceResidenceTable AddPlaceResidence = new PlaceResidenceTable()
@@ -286,11 +304,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 AppConnectClass.DataBase.SaveChanges();
                 MessageBox.Show(
-                    "Новый сотрудник добавлен в базу данных",
-                    "Сохранение",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
-            }
+                        "Новый сотрудник добавлен в базу данных",
+                        "Сохранение",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(
@@ -299,7 +317,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
-        }
+}
 
         private void MessageNull()
         {
