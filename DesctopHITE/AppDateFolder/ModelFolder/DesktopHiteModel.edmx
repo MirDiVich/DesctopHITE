@@ -110,7 +110,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Worker" />
           </Key>
-          <Property Name="PersonalNumber_Worker" Type="int" Nullable="false" />
+          <Property Name="PersonalNumber_Worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Phone_Worker" Type="nchar" MaxLength="11" Nullable="false" />
           <Property Name="Login_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -453,7 +453,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Worker" />
           </Key>
-          <Property Name="PersonalNumber_Worker" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumber_Worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Phone_Worker" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="Login_Worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email_Worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />

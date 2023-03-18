@@ -25,6 +25,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string PathImage = "\\ContentFolder\\ImageFolder\\NoImage.png"; // Путь к стандартному фото
         DateTime ToDayDate = DateTime.Today; // Получаем сегодняшнюю дату
 
+        string MessagePassportNull;
+        string MessagePlaceResidenceNull;
+        string MessageMedicalBookNull;
+        string MessageSnilsNull;
+        string MessageINNNull;
+        string MessageSalaryCardNull;
+        string MessageGeneralDataNull;
+
         public NewWorkerPage()
         {
             try
@@ -140,7 +148,28 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e) // Выполняем ряд действий, после чего добавляем нового сотрудника в базу данных
         {
+            MessagePassportNull = "";
+            MessagePlaceResidenceNull = "";
+            MessageMedicalBookNull = "";
+            MessageSnilsNull = "";
+            MessageINNNull = "";
+            MessageSalaryCardNull = "";
+            MessageGeneralDataNull = "";
 
+            MessageNull();
+
+            if (MessagePassportNull == "" || MessagePlaceResidenceNull == "" || MessageMedicalBookNull == "" || MessageSnilsNull == "" || MessageINNNull == "" || MessageSalaryCardNull == "" || MessageGeneralDataNull == "")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show(
+                    MessagePassportNull + MessagePlaceResidenceNull + MessageMedicalBookNull + MessageSnilsNull + MessageINNNull + MessageSalaryCardNull + MessageGeneralDataNull,
+                    "Ошибка добавления нового сотрудника (Error - E-003)",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
 
         private void NewPhotoButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
@@ -249,7 +278,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     pnMedicalBook_Worker = AddMedicalBook.PersonalNumber_MedicalBook,
                     pnSalaryCard_Worker = AddSalaryCard.PersonalNumber_SalaryCard,
                     DateWord_Worker = ToDayDate,
-                    pnStatus_Worker = 1,
+                    pnStatus_Worker = 2,
                     pnINN_Worker = AddINN.PersonalNumber_INN,
                     pnSnils_Worker = AddSnils.PersonalNumber_Snils
                 };
@@ -270,6 +299,65 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+        }
+
+        private void MessageNull()
+        {
+            #region MessagePassportNull
+            if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NumberPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Номер' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(SurnamePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Фамилию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NamePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Имя' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(pnGenderComboBox.Text)) MessagePassportNull += "Вы не указали 'Пол' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateOfBrichPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Дату рождения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(LocationOfBrichPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Место рождения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(IssuedPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Кем выдан' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateIssuedPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Дату выдачи' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DivisionCodePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Код подразделения' в 'Паспорт'\n";
+            #endregion
+            #region MessagePlaceResidenceNull
+            if (string.IsNullOrWhiteSpace(RegistrationDatePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Дату регистрации' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(RegionPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Регион' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(DistrictPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Район' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(PointPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Пункт' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(StreetPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Улицу' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Дом' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Квартиру' в 'Место жительства'\n";
+            #endregion
+            #region MessageMedicalBookNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Номер' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(IssueMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Личная медецинская книжка выдана' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(SNMDirectorMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'ФИО руководителя' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(DateIssueMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Дату выдачи' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(HomeAdressMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Домашний адресс' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(RoleMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Должность' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(OrganizationMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Организацию (индивидуальный предприниматель)' в 'Медецинская книжка'\n";
+            #endregion
+            #region MessageSnilsNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberSnilsTextBox.Text)) MessageSnilsNull += "Вы не указали 'Номер' в 'СНИЛС'\n";
+            if (string.IsNullOrWhiteSpace(DateRegistrationSnilsTextBox.Text)) MessageSnilsNull += "Вы не указали 'Дату выдачи' в 'СНИЛС'\n";
+            #endregion
+            #region MessageINNNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberINNTextBox.Text)) MessageINNNull += "Вы не указали 'Номер' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(TaxAuthorityINNTextBox.Text)) MessageINNNull += "Вы не указали 'Налоговый огран' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(NumberTaxAuthorityINNTextBox.Text)) MessageINNNull += "Вы не указали 'Номер налогового органа' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(DateINNTextBox.Text)) MessageINNNull += "Вы не указали 'Дату выдачи' в 'ИНН'\n";
+            #endregion
+            #region MessageSalaryCardNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Номер' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(NameEndSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Имя (Eng)' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(SurnameEngSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Фамилия (Eng)' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(YearEndSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Год' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(MonthSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Месяц' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(CodeSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Код' в 'Заработная карта'\n";
+            #endregion
+            #region MessageGeneralDataNull
+            if (string.IsNullOrWhiteSpace(PhoneWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Номер телефона' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(LoginWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Login' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(EmailWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Электронную почту' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) MessageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
+            #endregion
         }
         #endregion
     }
