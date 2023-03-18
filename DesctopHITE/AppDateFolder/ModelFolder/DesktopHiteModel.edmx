@@ -10,7 +10,7 @@
             <PropertyRef Name="PersonalNumber_Gender" />
           </Key>
           <Property Name="PersonalNumber_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title_Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title_Gender" Type="nvarchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="INNTable">
           <Key>
@@ -26,12 +26,12 @@
             <PropertyRef Name="PersonalNumber_MedicalBook" />
           </Key>
           <Property Name="PersonalNumber_MedicalBook" Type="nchar" MaxLength="8" Nullable="false" />
-          <Property Name="Issue_MedicalBook" Type="nvarchar" MaxLength="400" Nullable="false" />
-          <Property Name="SNMDirector_MedicalBook" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="Issue_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SNMDirector_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="DateIssue_MedicalBook" Type="date" Nullable="false" />
-          <Property Name="HomeAdress_MedicalBook" Type="nvarchar" MaxLength="400" Nullable="false" />
-          <Property Name="Role_MedicalBook" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Organization_MedicalBook" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="HomeAdress_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Role_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Organization_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="PassportTable">
           <Key>
@@ -40,13 +40,13 @@
           </Key>
           <Property Name="Series_Passport" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="Number_Passport" Type="nchar" MaxLength="6" Nullable="false" />
-          <Property Name="Surname_Passport" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name_Passport" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Middlename_Passport" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname_Passport" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Name_Passport" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Middlename_Passport" Type="nvarchar" MaxLength="80" />
           <Property Name="pnGender_Passport" Type="int" Nullable="false" />
           <Property Name="Image_Passport" Type="image" />
           <Property Name="DateOfBrich_Passport" Type="date" Nullable="false" />
-          <Property Name="LocationOfBrich_Passport" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LocationOfBrich_Passport" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Issued_Passport" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="DateIssued_Passport" Type="date" Nullable="false" />
           <Property Name="DivisionCode_Passport" Type="nchar" MaxLength="7" Nullable="false" />
@@ -57,27 +57,27 @@
           </Key>
           <Property Name="PersonalNumber_PlaceResidence" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="RegistrationDate_PlaceResidence" Type="date" Nullable="false" />
-          <Property Name="Region_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="District_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Point_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Street_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="House_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Flat_PlaceResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Region_PlaceResidence" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="District_PlaceResidence" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Point_PlaceResidence" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Street_PlaceResidence" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="House_PlaceResidence" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Flat_PlaceResidence" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="RoleTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Role" />
           </Key>
           <Property Name="PersonalNumber_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name_Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_Role" Type="nvarchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
           <Key>
             <PropertyRef Name="PersonalNumber_SalaryCard" />
           </Key>
           <Property Name="PersonalNumber_SalaryCard" Type="nchar" MaxLength="16" Nullable="false" />
-          <Property Name="NameEnd_SalaryCard" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SurnameEng_SalaryCard" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameEnd_SalaryCard" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="SurnameEng_SalaryCard" Type="nvarchar" MaxLength="80" Nullable="false" />
           <Property Name="YearEnd_SalaryCard" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="Month_SalaryCard" Type="nchar" MaxLength="2" Nullable="false" />
           <Property Name="Code_SalaryCard" Type="nchar" MaxLength="3" Nullable="false" />
@@ -94,7 +94,7 @@
             <PropertyRef Name="PersonalNumber_Status" />
           </Key>
           <Property Name="PersonalNumber_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title_Status" Type="nvarchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -112,9 +112,9 @@
           </Key>
           <Property Name="PersonalNumber_Worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Phone_Worker" Type="nchar" MaxLength="11" Nullable="false" />
-          <Property Name="Login_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login_Worker" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Email_Worker" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Password_Worker" Type="nvarchar" MaxLength="80" Nullable="false" />
           <Property Name="pnRole_Worker" Type="int" Nullable="false" />
           <Property Name="SeriesPassport_Worker" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="NumberPassport_Worker" Type="nchar" MaxLength="6" Nullable="false" />
@@ -343,7 +343,7 @@
             <PropertyRef Name="PersonalNumber_Gender" />
           </Key>
           <Property Name="PersonalNumber_Gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title_Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title_Gender" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_PassportTable_GenderTable" FromRole="GenderTable" ToRole="PassportTable" />
         </EntityType>
         <EntityType Name="INNTable">
@@ -361,12 +361,12 @@
             <PropertyRef Name="PersonalNumber_MedicalBook" />
           </Key>
           <Property Name="PersonalNumber_MedicalBook" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="true" />
-          <Property Name="Issue_MedicalBook" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="SNMDirector_MedicalBook" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Issue_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SNMDirector_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DateIssue_MedicalBook" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="HomeAdress_MedicalBook" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="Role_MedicalBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Organization_MedicalBook" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAdress_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Role_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Organization_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="MedicalBookTable" ToRole="WorkerTabe" />
         </EntityType>
         <EntityType Name="PassportTable">
@@ -376,13 +376,13 @@
           </Key>
           <Property Name="Series_Passport" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="Number_Passport" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="Surname_Passport" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name_Passport" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Middlename_Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname_Passport" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Passport" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Middlename_Passport" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="pnGender_Passport" Type="Int32" Nullable="false" />
           <Property Name="Image_Passport" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DateOfBrich_Passport" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="LocationOfBrich_Passport" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LocationOfBrich_Passport" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Issued_Passport" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DateIssued_Passport" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DivisionCode_Passport" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
@@ -395,12 +395,12 @@
           </Key>
           <Property Name="PersonalNumber_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="RegistrationDate_PlaceResidence" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Region_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="District_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Point_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Street_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="House_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Flat_PlaceResidence" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Region_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="District_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Point_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Street_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="House_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Flat_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" FromRole="PlaceResidenceTable" ToRole="WorkerTabe" />
         </EntityType>
         <EntityType Name="RoleTable">
@@ -408,7 +408,7 @@
             <PropertyRef Name="PersonalNumber_Role" />
           </Key>
           <Property Name="PersonalNumber_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name_Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Role" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_RoleTable" FromRole="RoleTable" ToRole="WorkerTabe" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
@@ -416,8 +416,8 @@
             <PropertyRef Name="PersonalNumber_SalaryCard" />
           </Key>
           <Property Name="PersonalNumber_SalaryCard" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
-          <Property Name="NameEnd_SalaryCard" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SurnameEng_SalaryCard" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameEnd_SalaryCard" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="SurnameEng_SalaryCard" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="YearEnd_SalaryCard" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="Month_SalaryCard" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="Code_SalaryCard" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
@@ -436,7 +436,7 @@
             <PropertyRef Name="PersonalNumber_Status" />
           </Key>
           <Property Name="PersonalNumber_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title_Status" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="StatusTable" ToRole="WorkerTabe" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -455,9 +455,9 @@
           </Key>
           <Property Name="PersonalNumber_Worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Phone_Worker" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
-          <Property Name="Login_Worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email_Worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password_Worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login_Worker" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Worker" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Password_Worker" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="pnRole_Worker" Type="Int32" Nullable="false" />
           <Property Name="SeriesPassport_Worker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="NumberPassport_Worker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />

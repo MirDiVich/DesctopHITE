@@ -33,6 +33,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string MessageINNNull;
         string MessageSalaryCardNull;
         string MessageGeneralDataNull;
+        string MessageValidData;
 
         public NewWorkerPage()
         {
@@ -171,7 +172,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    AddDataDatabase();
+                    if (MessageValidData != "")
+                    {
+                        MessageBox.Show(
+                            MessageValidData,
+                            "Ошибка добавления нового сотрудника (Error - E-005)",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        AddDataDatabase();
+                    }
                 }
             }
             catch (Exception ex)
@@ -376,6 +388,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (string.IsNullOrWhiteSpace(EmailWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Электронную почту' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) MessageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
+            #endregion
+            #region MessageValidData
+            if (PhoneWorkerTextBox.Text.Length > 0) MessageGeneralDataNull += "Вы не указали 'Номер телефона' в 'Общие данные'\n";
             #endregion
         }
         #endregion
