@@ -60,10 +60,10 @@
                             <Border Style="{DynamicResource ShadowBorder}">
                                 <Border.Effect>
                                     <DropShadowEffect 
-                                        Direction="-90"
+                                        Direction="315"
                                         Color="{DynamicResource ShadowColor}"
                                         BlurRadius="5"
-                                        ShadowDepth="0.5"
+                                        ShadowDepth="2"
                                         Opacity="0.5"
                                         RenderingBias="Performance"/>
                                 </Border.Effect>
@@ -85,10 +85,10 @@
                             <Border Style="{DynamicResource ShadowBorder}">
                                 <Border.Effect>
                                     <DropShadowEffect 
-                                        Direction="-90"
+                                        Direction="315"
                                         Color="{DynamicResource ShadowColor}"
                                         BlurRadius="5"
-                                        ShadowDepth="0.5"
+                                        ShadowDepth="2"
                                         Opacity="0.5"
                                         RenderingBias="Performance"/>
                                 </Border.Effect>
@@ -147,10 +147,10 @@
                                 Style="{DynamicResource ShadowBorder}">
                                 <Border.Effect>
                                     <DropShadowEffect 
-                                        Direction="-90"
+                                        Direction="315"
                                         Color="{DynamicResource ShadowColor}"
                                         BlurRadius="5"
-                                        ShadowDepth="0.5"
+                                        ShadowDepth="2"
                                         Opacity="0.5"
                                         RenderingBias="Performance"/>
                                 </Border.Effect>
