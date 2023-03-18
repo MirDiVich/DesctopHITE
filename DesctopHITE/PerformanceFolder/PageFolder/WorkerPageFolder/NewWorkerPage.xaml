@@ -73,10 +73,10 @@
                                         <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                    Direction="-90"
+                                                    Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="0.5"
+                                                    ShadowDepth="2"
                                                     Opacity="0.5"
                                                     RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -102,10 +102,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -124,10 +124,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -148,10 +148,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -170,10 +170,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -203,10 +203,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                    Direction="-90"
+                                                    Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="0.5"
+                                                    ShadowDepth="2"
                                                     Opacity="0.5"
                                                     RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -232,10 +232,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -254,10 +254,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -276,10 +276,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -299,10 +299,10 @@
                                                 <Border Height="43" Width="128" Style="{DynamicResource ShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
-                                                            Direction="-90"
+                                                            Direction="315"
                                                             Color="{DynamicResource ShadowColor}"
                                                             BlurRadius="5"
-                                                            ShadowDepth="0.5"
+                                                            ShadowDepth="2"
                                                             Opacity="0.5"
                                                             RenderingBias="Performance"/>
                                                     </Border.Effect>
@@ -323,10 +323,10 @@
                                                 <Border Style="{DynamicResource ShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
-                                                            Direction="-90"
+                                                            Direction="315"
                                                             Color="{DynamicResource ShadowColor}"
                                                             BlurRadius="5"
-                                                            ShadowDepth="0.5"
+                                                            ShadowDepth="2"
                                                             Opacity="0.5"
                                                             RenderingBias="Performance"/>
                                                     </Border.Effect>
@@ -346,10 +346,10 @@
                                             <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -390,10 +390,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -412,10 +412,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -434,10 +434,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -456,10 +456,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -478,10 +478,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -501,10 +501,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -523,10 +523,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -559,10 +559,10 @@
                                 <Border Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                     </Border.Effect>
@@ -581,10 +581,10 @@
                                 <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                            Direction="-90"
+                                            Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="0.5"
+                                            ShadowDepth="2"
                                             Opacity="0.5"
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
@@ -610,10 +610,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -632,10 +632,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -655,10 +655,10 @@
                                 <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                            Direction="-90"
+                                            Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="0.5"
+                                            ShadowDepth="2"
                                             Opacity="0.5"
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
@@ -683,10 +683,10 @@
                                 <Border Height="Auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                            Direction="-90"
+                                            Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="0.5"
+                                            ShadowDepth="2"
                                             Opacity="0.5"
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
@@ -711,10 +711,10 @@
                                 <Border Height="Auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                            Direction="-90"
+                                            Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="0.5"
+                                            ShadowDepth="2"
                                             Opacity="0.5"
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
@@ -750,10 +750,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -772,10 +772,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -806,10 +806,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -828,10 +828,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -852,10 +852,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -880,10 +880,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -914,10 +914,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -937,10 +937,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -959,10 +959,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -984,10 +984,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -1010,10 +1010,10 @@
                                             <Border Style="{DynamicResource ShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
-                                                        Direction="-90"
+                                                        Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="0.5"
+                                                        ShadowDepth="2"
                                                         Opacity="0.5"
                                                         RenderingBias="Performance"/>
                                                 </Border.Effect>
@@ -1033,10 +1033,10 @@
                                         <Border Style="{DynamicResource ShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                    Direction="-90"
+                                                    Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="0.5"
+                                                    ShadowDepth="2"
                                                     Opacity="0.5"
                                                     RenderingBias="Performance"/>
                                             </Border.Effect>
@@ -1068,10 +1068,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1090,10 +1090,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1112,10 +1112,10 @@
                                     <Border Height="43" Width="598" Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1136,10 +1136,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1158,10 +1158,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1180,10 +1180,10 @@
                                     <Border Style="{DynamicResource ShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
-                                                Direction="-90"
+                                                Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="0.5"
+                                                ShadowDepth="2"
                                                 Opacity="0.5"
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
@@ -1202,10 +1202,10 @@
                         <Border Width="320" Height="50" Style="{DynamicResource ShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Direction="-90"
+                                    Direction="315"
                                     Color="{DynamicResource ShadowColor}"
                                     BlurRadius="5"
-                                    ShadowDepth="0.5"
+                                    ShadowDepth="2"
                                     Opacity="0.5"
                                     RenderingBias="Performance"/>
                             </Border.Effect>

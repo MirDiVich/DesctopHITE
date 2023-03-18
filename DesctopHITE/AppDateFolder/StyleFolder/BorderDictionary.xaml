@@ -9,6 +9,7 @@
     </Style>
     <Style x:Key="ShadowBorder" TargetType="Border">
         <Setter Property="Height" Value="45"/>
+        <Setter Property="Opacity" Value="0.6"/>
         <Setter Property="Background" Value="{DynamicResource ShadowSolidColorBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
