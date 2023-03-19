@@ -159,6 +159,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 MessageINNNull = "";
                 MessageSalaryCardNull = "";
                 MessageGeneralDataNull = "";
+                MessageValidData = "";
 
                 MessageNull();
 

@@ -1267,7 +1267,6 @@
                             </Border.Effect>
                         </Border>
                         <Button
-                            IsEnabled="False"
                             x:Name="NewWorkerButton"
                             Click="NewWorkerButton_Click"
                             Width="320"
