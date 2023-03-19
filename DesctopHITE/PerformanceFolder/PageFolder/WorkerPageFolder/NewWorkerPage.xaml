@@ -832,7 +832,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="INNBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="INNBorder" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
