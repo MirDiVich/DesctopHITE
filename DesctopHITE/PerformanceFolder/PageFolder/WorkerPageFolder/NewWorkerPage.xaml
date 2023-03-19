@@ -566,7 +566,7 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="MedicalBookBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -763,7 +763,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="SnilsBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="SnilsBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"

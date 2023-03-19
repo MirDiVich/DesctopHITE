@@ -390,28 +390,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) MessageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
             #endregion
             #region MessageValidData
-            if (IssuedPassportTextBox.Text.Length <= 5) MessageValidData += "'Паспорт выдан' в 'Паспорт' не может быть кароче или быть равным 5 символам\n";
-            if (DateIssuedPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'Паспорт' не может быть кароче или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 6) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (SeriesPassportTextBox.Text.Length <= 3) MessageValidData += "'Серия паспорта' в 'Паспорт' не может быть кароче или быть равным 3 символам\n";
-            if (NumberPassportTextBox.Text.Length <= 5) MessageValidData += "'Номер паспорта' в 'Паспорт' не может быть кароче или быть равным 5 символам\n";
-            if (SurnamePassportTextBox.Text.Length <= 3) MessageValidData += "'Фамилия' в 'Паспорт' не может быть кароче или быть равным 3 символам\n";
-            if (NamePassportTextBox.Text.Length <= 1) MessageValidData += "'Имя' в 'Паспорт' не может быть кароче или быть равным 1 символу\n";
-            if (DateOfBrichPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата рождения' в 'Паспорт' не может быть кароче или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (LocationOfBrichPassportTextBox.Text.Length <= 3) MessageValidData += "'Место рождеия' в 'Паспорт' не может быть кароче или быть равным 3 символам\n";
+            if (IssuedPassportTextBox.Text.Length <= 5) MessageValidData += "'Паспорт выдан' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
+            if (DateIssuedPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 6) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть меньше или быть равным 6 символам\n";
+            if (SeriesPassportTextBox.Text.Length <= 3) MessageValidData += "'Серия паспорта' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            if (NumberPassportTextBox.Text.Length <= 5) MessageValidData += "'Номер паспорта' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
+            if (SurnamePassportTextBox.Text.Length <= 3) MessageValidData += "'Фамилия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            if (NamePassportTextBox.Text.Length <= 1) MessageValidData += "'Имя' в 'Паспорт' не может быть меньше или быть равным 1 символу\n";
+            if (DateOfBrichPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата рождения' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (LocationOfBrichPassportTextBox.Text.Length <= 3) MessageValidData += "'Место рождеия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
 
-            if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) MessageValidData += "'Зарегистрирован' в 'Место жительства' не может быть кароче или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (RegionPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Регион' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
-            if (DistrictPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Район' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
-            if (PointPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Рункт' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
-            if (StreetPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Улица' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
-            if (HousePlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Дом' в 'Место жительства' не может быть кароче или быть равным 1 символу\n";
-            if (FlatPlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Квартира' в 'Место жительства' не может быть кароче или быть равным 1 символу\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
-            
+            if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) MessageValidData += "'Зарегистрирован' в 'Место жительства' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (RegionPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Регион' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (DistrictPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Район' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (PointPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Рункт' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (StreetPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Улица' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть меньше или быть равным 6 символам\n";
+            if (HousePlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Дом' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
+            if (FlatPlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Квартира' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
+
+            if (PersonalNumberMedicalBookTextBox.Text.Length <= 7) MessageValidData += "'Номер медецинской книжки' в 'Медецинская книжка' не может быть меньше или быть равным 7 символам\n";
+            if (IssueMedicalBookTextBox.Text.Length <= 3) MessageValidData += "'Личная медецинская книжка выдана' в 'Медецинская книжка' не может быть меньше или быть равным 3 символам\n";
+            if (DateIssueMedicalBookTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'Медецинская книжка' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (SNMDirectorMedicalBookTextBox.Text.Length <= 5) MessageValidData += "'ФИО руководителя' в 'Медецинская книжка' не может быть меньше или быть равным 5 символам\n";
+            if (HomeAdressMedicalBookTextBox.Text.Length <= 10) MessageValidData += "'Домашний адресс' в 'Медецинская книжка' не может быть меньше или быть равным 10 символам\n";
+            if (RoleMedicalBookTextBox.Text.Length <= 4) MessageValidData += "'Должность' в 'Медецинская книжка' не может быть меньше или быть равным 4 символам\n";
+            if (OrganizationMedicalBookTextBox.Text.Length <= 1) MessageValidData += "'Огранизация (индивидуальный предприниматель)' в 'Медецинская книжка' не может быть меньше или быть равным 1 символу\n";
+
+            if (PersonalNumberMedicalBookTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Медецинская книжка' не может быть меньше или быть равным 6 символам\n";
             #endregion
         }
         #endregion
