@@ -28,4 +28,14 @@
         <Setter Property="Visibility" Value="Collapsed"/>
         <Setter Property="Margin" Value="0 10 0 10"/>
     </Style>
+    <Style x:Key="MaskBorder" TargetType="Border">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="CornerRadius" Value="38"/>
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="BorderBrush" Value="#202020"/>
+        <Setter Property="BorderThickness" Value="75"/>
+    </Style>
 </ResourceDictionary>

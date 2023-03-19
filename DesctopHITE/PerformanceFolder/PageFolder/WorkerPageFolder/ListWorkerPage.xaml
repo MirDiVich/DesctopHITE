@@ -8,15 +8,12 @@
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
         <ListBox
-            Grid.Column="0"
+            Background="Transparent"
             MouseDoubleClick="ListWorkerListBox_MouseDoubleClick"
             x:Name="ListWorkerListBox"
-            Margin="0">
+            Margin="0"
+            ItemContainerStyle="{StaticResource ListBoxItemSelected}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel 
