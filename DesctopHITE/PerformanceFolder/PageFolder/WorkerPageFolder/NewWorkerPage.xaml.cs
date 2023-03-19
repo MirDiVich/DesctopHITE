@@ -190,6 +190,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         else
                         {
                             AddDataDatabase();
+                            ClearText();
                         }
                     }
                 }
@@ -339,7 +340,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxImage.Error);
             }
         }
-
         private void MessageNull()
         {
             #region MessagePassportNull
@@ -445,6 +445,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (LoginWorkerTextBox.Text.Length <= 5) MessageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             if (PasswordWorkerTextBox.Text.Length <= 5) MessageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             #endregion
+        }
+        private void ClearText() // Очищаем все поля
+        {
+            try
+            {
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage()); // Я решил просто переоткрывать страницу, нечиго в неё не передовая, так она должна очищаться
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Ошибка добавления (NewWorkerPage - E-009)",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
         #endregion
         #region ValidData
