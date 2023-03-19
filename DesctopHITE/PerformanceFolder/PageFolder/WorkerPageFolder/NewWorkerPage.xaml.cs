@@ -425,8 +425,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (TaxAuthorityINNTextBox.Text.Length <= 5) MessageValidData += "'Налоговый огран' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
             if (DateINNTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'ИНН' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
-            if (PersonalNumberINNTextBox.Text.Length <= 5) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 6 символам\n";
-            if (PersonalNumberINNTextBox.Text.Length <= 5) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 6 символам\n";
+            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
+            if (SurnameEngSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Фимилия (Eng)' в 'Заработная карта' не может быть меньше или быть равным 3 символам\n";
+            if (NameEndSalaryCardTextBox.Text.Length <= 1) MessageValidData += "'Имя (Eng)' в 'Заработная карта' не может быть меньше или быть равным 1 символу\n";
+            if (MonthSalaryCardTextBox.Text.Length <= 1) MessageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
+            if (YearEndSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
+            if (CodeSalaryCardTextBox.Text.Length <= 2) MessageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
+
+            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
+            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
             #endregion
         }
         #endregion
