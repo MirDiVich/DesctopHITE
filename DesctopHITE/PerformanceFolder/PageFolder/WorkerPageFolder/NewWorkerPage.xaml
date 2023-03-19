@@ -1173,7 +1173,7 @@
                                     </Border>
                                     <TextBox
                                         TextChanged="PhoneWorkerTextBox_TextChanged"
-                                        Text="{Binding Phone_Worker,StringFormat=}"
+                                        Text="{Binding Phone_Worker}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="11"

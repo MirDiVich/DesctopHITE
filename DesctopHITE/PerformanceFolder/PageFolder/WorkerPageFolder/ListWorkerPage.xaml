@@ -1,0 +1,36 @@
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder.ListWorkerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:uc ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
+    mc:Ignorable="d" 
+    Style="{DynamicResource BodySpacePageStyle}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox
+            Grid.Column="0"
+            MouseDoubleClick="ListWorkerListBox_MouseDoubleClick"
+            x:Name="ListWorkerListBox"
+            Margin="0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel 
+                        IsItemsHost="True" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        Background="Transparent"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <uc:ListWorkerControl/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

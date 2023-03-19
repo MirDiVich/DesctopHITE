@@ -49,6 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             ListWorkweToggleButton.IsChecked = true;
             ListWorkweToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodyWorker_FNC.Navigate(new ListWorkerPage());
         }
 
         private void GeneralInformationWorkerToggleButton_Click(object sender, RoutedEventArgs e)
