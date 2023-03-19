@@ -432,8 +432,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (YearEndSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
             if (CodeSalaryCardTextBox.Text.Length <= 2) MessageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
 
-            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
-            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
+            if (EmailWorkerTextBox.Text.Length <= 5) MessageValidData += "'Электронная почта' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+            if (PhoneWorkerTextBox.Text.Length <= 10) MessageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";
+            if (LoginWorkerTextBox.Text.Length <= 5) MessageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+            if (PasswordWorkerTextBox.Text.Length <= 5) MessageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             #endregion
         }
         #endregion
