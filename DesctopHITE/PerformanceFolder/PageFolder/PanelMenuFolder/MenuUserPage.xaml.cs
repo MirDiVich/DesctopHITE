@@ -40,10 +40,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
         private void MenuToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            IsCheckedToggleButton();
-            IsEnabledToggleButton();
-            MenuToggleButton.IsChecked = true;
-            MenuToggleButton.IsEnabled = false;
+            //IsCheckedToggleButton();
+            //IsEnabledToggleButton();
+            //MenuToggleButton.IsChecked = true;
+            //MenuToggleButton.IsEnabled = false;
         }
         private void SettingsToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -59,14 +59,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             MainToggleButton.IsChecked = false;
             WorkersToggleButton.IsChecked = false;
-            MenuToggleButton.IsChecked = false;
+            //MenuToggleButton.IsChecked = false;
             SettingsToggleButton.IsChecked = false;
         }
         private void IsEnabledToggleButton()
         {
             MainToggleButton.IsEnabled = true;
             WorkersToggleButton.IsEnabled = true;
-            MenuToggleButton.IsEnabled = true;
+            //MenuToggleButton.IsEnabled = true;
             SettingsToggleButton.IsEnabled = true;
         }
         #endregion

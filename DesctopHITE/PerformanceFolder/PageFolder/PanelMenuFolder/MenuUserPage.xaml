@@ -34,6 +34,8 @@
             </StackPanel>
         </ToggleButton>
         <ToggleButton 
+            IsEnabled="False"
+            Opacity="0.5"
             Click="MenuToggleButton_Click"
             x:Name="MenuToggleButton"
             Style="{DynamicResource MainMenuToggleButtonStyle}">
