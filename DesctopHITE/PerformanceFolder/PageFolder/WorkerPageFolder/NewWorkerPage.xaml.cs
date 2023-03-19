@@ -420,7 +420,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (PersonalNumberSnilsTextBox.Text.Length <= 10) MessageValidData += "'Номер' в 'СНИЛС' не может быть меньше или быть равным 10 символам\n";
             if (DateRegistrationSnilsTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'СНИЛС' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
-            if (PersonalNumberMedicalBookTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Медецинская книжка' не может быть меньше или быть равным 6 символам\n";
+            if (PersonalNumberINNTextBox.Text.Length <= 11) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 11 символам\n";
+            if (NumberTaxAuthorityINNTextBox.Text.Length <= 3) MessageValidData += "'Номер Налог. орган' в 'ИНН' не может быть меньше или быть равным 3 символам\n";
+            if (TaxAuthorityINNTextBox.Text.Length <= 5) MessageValidData += "'Налоговый огран' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
+            if (DateINNTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'ИНН' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+
+            if (PersonalNumberINNTextBox.Text.Length <= 5) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 6 символам\n";
+            if (PersonalNumberINNTextBox.Text.Length <= 5) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 6 символам\n";
             #endregion
         }
         #endregion

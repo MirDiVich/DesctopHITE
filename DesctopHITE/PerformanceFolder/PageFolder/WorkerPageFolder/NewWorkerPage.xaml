@@ -834,7 +834,7 @@
                         <StackPanel Margin="0 10 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <StackPanel Margin="0 0 10 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                 <TextBlock 
-                                    Text="Номер ИНН"
+                                    Text="Номер"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
                                     <Border Style="{DynamicResource ShadowBorder}">
@@ -937,7 +937,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="SalaryCardBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="SalaryCardBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
