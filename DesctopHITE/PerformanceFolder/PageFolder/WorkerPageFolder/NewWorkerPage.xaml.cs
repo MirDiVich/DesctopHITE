@@ -448,12 +448,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex NumberRegex = new Regex("[^0-9,]");
+            Regex NumberRegex = new Regex("[^0-9]");
             e.Handled = NumberRegex.IsMatch(e.Text);
         }
         private void DivisionCodeValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex DivisionCodeRegex = new Regex("[^0-9,]");
+            Regex DivisionCodeRegex = new Regex("[^0-9-]");
             e.Handled = DivisionCodeRegex.IsMatch(e.Text);
         }
         #endregion
