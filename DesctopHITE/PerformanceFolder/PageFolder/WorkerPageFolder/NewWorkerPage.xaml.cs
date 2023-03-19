@@ -46,7 +46,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Еслм страница видна
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Если страница видна
         {
             if (Visibility == Visibility.Visible)
             {
@@ -55,9 +55,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region Color
+        // Радал цвета, для того, что бы проще обращяться к ним, и менять их
         SolidColorBrush RedColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
         SolidColorBrush GreenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
-        SolidColorBrush StandardColor = new SolidColorBrush(Color.FromRgb(62, 62, 63));
+        SolidColorBrush StandardColor = new SolidColorBrush(Color.FromRgb(32, 32, 32));
         #endregion
         #region Click
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
@@ -340,7 +341,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxImage.Error);
             }
         }
-        private void MessageNull()
+        private void MessageNull() // Метод на проверки полей на валлидность данных 
         {
             #region MessagePassportNull
             if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";
