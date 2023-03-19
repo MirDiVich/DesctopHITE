@@ -31,7 +31,7 @@
                 <StackPanel Margin="0 5 0 2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock
                         Width="150"
-                        TextWrapping="WrapWithOverflow"
+                        TextWrapping="Wrap"
                         FontSize="15"
                         Margin="0"
                         Style="{DynamicResource MainStyleTextBlock}">
@@ -44,7 +44,7 @@
                 </StackPanel>
                 <StackPanel Margin="0 2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock 
-                        FontSize="15"
+                        FontSize="9"
                         Style="{DynamicResource MainStyleTextBlock}"
                         Text="{Binding StatusTable.Title_Status}"/>
                 </StackPanel>
