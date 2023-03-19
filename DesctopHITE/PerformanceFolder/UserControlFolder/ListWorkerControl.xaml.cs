@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace DesctopHITE.PerformanceFolder.UserControlFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для ListWorkerControl.xaml
-    /// </summary>
     public partial class ListWorkerControl : UserControl
     {
         public ListWorkerControl()
         {
             InitializeComponent();
+            if (UserImage.Source == null) 
+            {
+                ImageSource userImage = new BitmapImage(new Uri("/ContentFolder/ImageFolder/NoImage.png", UriKind.RelativeOrAbsolute)); // Вывод стандартного фото
+                UserImage.Source = userImage;
+            }
         }
     }
 }
