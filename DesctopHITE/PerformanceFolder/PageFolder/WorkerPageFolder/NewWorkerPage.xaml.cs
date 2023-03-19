@@ -417,6 +417,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (RoleMedicalBookTextBox.Text.Length <= 4) MessageValidData += "'Должность' в 'Медецинская книжка' не может быть меньше или быть равным 4 символам\n";
             if (OrganizationMedicalBookTextBox.Text.Length <= 1) MessageValidData += "'Огранизация (индивидуальный предприниматель)' в 'Медецинская книжка' не может быть меньше или быть равным 1 символу\n";
 
+            if (PersonalNumberSnilsTextBox.Text.Length <= 10) MessageValidData += "'Номер' в 'СНИЛС' не может быть меньше или быть равным 10 символам\n";
+            if (DateRegistrationSnilsTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'СНИЛС' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+
             if (PersonalNumberMedicalBookTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Медецинская книжка' не может быть меньше или быть равным 6 символам\n";
             #endregion
         }
