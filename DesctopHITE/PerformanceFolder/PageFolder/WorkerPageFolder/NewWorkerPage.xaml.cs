@@ -440,6 +440,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (MonthSalaryCardTextBox.Text.Length <= 1) MessageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
             if (YearEndSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
             if (CodeSalaryCardTextBox.Text.Length <= 2) MessageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
+            int MonthText = Convert.ToInt32(MonthSalaryCardTextBox.Text);
+            if (MonthText > 12) MessageValidData += "'Месяц' в 'Заработная карта' не может быть больше 12\n";
+            if (MonthText < 01) MessageValidData += "'Месяц' в 'Заработная карта' не может быть меньше 01\n";
 
             if (EmailWorkerTextBox.Text.Length <= 5) MessageValidData += "'Электронная почта' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             if (PhoneWorkerTextBox.Text.Length <= 10) MessageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";

@@ -49,7 +49,7 @@
     <Style x:Key="OtherTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource MainTextBoxStyle}">
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="MinHeight" Value="45"/>
-        <Setter Property="MaxHeight" Value="180"/>
+        <Setter Property="MaxHeight" Value="250"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
