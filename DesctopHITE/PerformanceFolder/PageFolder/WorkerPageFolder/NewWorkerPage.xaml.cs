@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string MessageSalaryCardNull;
         string MessageGeneralDataNull;
         string MessageValidData;
+        string RandomPassword = null;
+        string EmailWorker = "";
 
         public NewWorkerPage()
         {
@@ -190,8 +193,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         }
                         else
                         {
-                            AddDataDatabase();
-                            ClearText();
+                            EmailWorker = EmailWorkerTextBox.Text;
+                            bool isValidEmail = Regex.IsMatch(EmailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+                            if (isValidEmail)
+                            {
+                                AddDataDatabase();
+                                ClearText();
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                   "Введите корректную электронную почту",
+                                   "Ошибка добавления нового сотрудника (NewWorkerPage - E-011)",
+                                   MessageBoxButton.OK,
+                                   MessageBoxImage.Error);
+                            }
                         }
                     }
                 }
@@ -218,6 +235,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region Действие
+        private int RandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
+        {
+            Random random = new Random();
+            return random.Next(1000000000);
+        }
         private void AddDataDatabase() // Метод для добавления нового сотрудника в базу данных
         {
             try
@@ -486,25 +508,25 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         #endregion
         #region LayoutUpdated
         // Проверка на пароль
-        private void RepeatPasswordWorkerTextBox_LayoutUpdated(object sender, EventArgs e)
+        private void RepeatPasswordWorkerPasswordBox_LayoutUpdated(object sender, EventArgs e)
         {
             try
             {
                 string PasswordText, PasswordPasword;
                 PasswordText = Convert.ToString(PasswordWorkerTextBox.Text);
-                PasswordPasword = Convert.ToString(RepeatPasswordWorkerTextBox.Password);
+                PasswordPasword = Convert.ToString(RepeatPasswordWorkerPasswordBox.Password);
 
                 if (PasswordText == "")
                 {
-                    RepeatPasswordWorkerTextBox.BorderBrush = StandardColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = StandardColor;
                 }
                 else if (PasswordPasword != PasswordText)
                 {
-                    RepeatPasswordWorkerTextBox.BorderBrush = RedColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = RedColor;
                 }
                 else
                 {
-                    RepeatPasswordWorkerTextBox.BorderBrush = GreenColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = GreenColor;
                     NewWorkerButton.IsEnabled = true;
                 }
 
@@ -527,6 +549,29 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
             {
                 e.Handled = true;
+            }
+        }
+        #endregion
+        #region SelectionChanged
+        private void pnRoleWorkerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
+            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5)
+            {
+                RandomPassword = RandomTextSender().ToString("D6");
+
+                PasswordWorkerTextBox.Text = RandomPassword;
+                RepeatPasswordWorkerPasswordBox.Password = RandomPassword;
+                PasswordWorkerTextBox.IsEnabled = false;
+                RepeatPasswordWorkerPasswordBox.IsEnabled = false;
+                LoginWorkerTextBox.Text = RandomPassword;
+                LoginWorkerTextBox.IsEnabled = false;
+            }
+            else
+            {
+                PasswordWorkerTextBox.IsEnabled = true;
+                RepeatPasswordWorkerPasswordBox.IsEnabled = true;
+                LoginWorkerTextBox.IsEnabled = true;
             }
         }
         #endregion

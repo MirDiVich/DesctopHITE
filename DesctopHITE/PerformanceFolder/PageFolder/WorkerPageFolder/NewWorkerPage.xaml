@@ -1198,6 +1198,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <ComboBox
+                                        SelectionChanged="pnRoleWorkerComboBox_SelectionChanged" 
                                         Text="{Binding RoleTable.Name_Role}"
                                         DisplayMemberPath="Name_Role"
                                         SelectedValuePath="PersonalNumber_Role"
@@ -1274,9 +1275,9 @@
                                     </Border>
                                     <PasswordBox
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        LayoutUpdated ="RepeatPasswordWorkerTextBox_LayoutUpdated"
+                                        LayoutUpdated ="RepeatPasswordWorkerPasswordBox_LayoutUpdated"
                                         MaxLength="50"
-                                        x:Name="RepeatPasswordWorkerTextBox"
+                                        x:Name="RepeatPasswordWorkerPasswordBox"
                                         Width="600"
                                         Style="{DynamicResource MainPasswordBoxStyle}"/>
                                 </Grid>
