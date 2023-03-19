@@ -2,22 +2,13 @@
 using DesctopHITE.AppDateFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -48,7 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Ошибка (Error - E-001)",
+                    "Ошибка (NewWorkerPage - E-001)",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -163,27 +154,38 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 MessageNull();
 
-                if (MessagePassportNull != "" || MessagePlaceResidenceNull != "" || MessageMedicalBookNull != "" || MessageSnilsNull != "" || MessageINNNull != "" || MessageSalaryCardNull != "" || MessageGeneralDataNull != "")
+                if (MessagePassportNull != "" || MessagePlaceResidenceNull != "" || MessageMedicalBookNull != "" || MessageSnilsNull != "" || MessageINNNull != "" || MessageSalaryCardNull != "" || MessageGeneralDataNull != "") // Проверка на пустые поля
                 {
                     MessageBox.Show(
                         MessagePassportNull + MessagePlaceResidenceNull + MessageMedicalBookNull + MessageSnilsNull + MessageINNNull + MessageSalaryCardNull + MessageGeneralDataNull,
-                        "Ошибка добавления нового сотрудника (Error - E-003)",
+                        "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error);
                 }
                 else
                 {
-                    if (MessageValidData != "")
+                    if (MessageValidData != "") // Проверка на правилььную валлидность данных
                     {
                         MessageBox.Show(
                             MessageValidData,
-                            "Ошибка добавления нового сотрудника (Error - E-005)",
+                            "Ошибка добавления нового сотрудника (NewWorkerPage - E-005)",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
                     }
                     else
                     {
-                        AddDataDatabase();
+                        if (AppConnectClass.DataBase.WorkerTabe.Count(Log => Log.Login_Worker == LoginWorkerTextBox.Text) > 0) // Проверка на существующий Login в Базе данных
+                        {
+                            MessageBox.Show(
+                               "Сотрудник с данным Login уже существует",
+                               "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
+                               MessageBoxButton.OK,
+                               MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            AddDataDatabase();
+                        }
                     }
                 }
             }
@@ -191,7 +193,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Ошибка добавления (Error - E-004)",
+                    "Ошибка добавления (NewWorkerPage - E-004)",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
@@ -322,16 +324,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         "Сохранение",
                         MessageBoxButton.OK,
                         MessageBoxImage.Information);
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Ошибка добавления (Error - E-002)",
+                    "Ошибка добавления (NewWorkerPage - E-002)",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
-}
+        }
 
         private void MessageNull()
         {
