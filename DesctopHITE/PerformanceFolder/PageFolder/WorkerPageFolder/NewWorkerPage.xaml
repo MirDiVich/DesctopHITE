@@ -109,7 +109,7 @@
                                             <TextBox
                                                 Text="{Binding PassportTable.DateIssued_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown" 
-                                                PreviewTextInput = "DateValidationTextBox"
+                                                PreviewTextInput="DateValidationTextBox"
                                                 MaxLength="10"
                                                 x:Name="DateIssuedPassportTextBox"
                                                 Style="{DynamicResource OtherTextBoxStyle}"
@@ -163,7 +163,7 @@
                                             <TextBox
                                                 Text="{Binding PassportTable.Series_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput = "NumberValidationTextBox"
+                                                PreviewTextInput="NumberValidationTextBox"
                                                 MaxLength="4"
                                                 x:Name="SeriesPassportTextBox"
                                                 Style="{DynamicResource OtherTextBoxStyle}"
@@ -189,7 +189,7 @@
                                             <TextBox
                                                 Text="{Binding PassportTable.Number_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput = "NumberValidationTextBox"
+                                                PreviewTextInput="NumberValidationTextBox"
                                                 MaxLength="6"
                                                 x:Name="NumberPassportTextBox"
                                                 Style="{DynamicResource OtherTextBoxStyle}"
@@ -326,6 +326,7 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <ComboBox
+                                                    Text="{Binding GenderTable.Title_Gender}"
                                                     x:Name="pnGenderComboBox"
                                                     DisplayMemberPath="Title_Gender"
                                                     SelectedValuePath="PersonalNumber_Gender"
@@ -352,7 +353,7 @@
                                                 <TextBox
                                                     Text="{Binding PassportTable.DateOfBrich_Passport}"
                                                     PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                    PreviewTextInput = "DateValidationTextBox"
+                                                    PreviewTextInput="DateValidationTextBox"
                                                     MaxLength="10"
                                                     x:Name="DateOfBrichPassportTextBox"
                                                     Width="230"
@@ -417,10 +418,11 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding PlaceResidenceTable.RegistrationDate_PlaceResidence}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         Padding="0"
                                         HorizontalContentAlignment="Center"
-                                        PreviewTextInput = "DateValidationTextBox"
+                                        PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="RegistrationDatePlaceResidenceTextBox"
                                         Width="300"
@@ -444,7 +446,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="100"
+                                        Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"
+                                        MaxLength="50"
                                         x:Name="RegionPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -467,7 +470,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="100"
+                                        Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"
+                                        MaxLength="80"
                                         x:Name="DistrictPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -490,7 +494,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="100"
+                                        Text="{Binding PlaceResidenceTable.Point_PlaceResidence}"
+                                        MaxLength="80"
                                         x:Name="PointPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -513,7 +518,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="100"
+                                        Text="{Binding PlaceResidenceTable.Street_PlaceResidence}"
+                                        MaxLength="80"
                                         x:Name="StreetPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -528,17 +534,18 @@
                                         <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="315"
-                                                Color="{DynamicResource ShadowColor}"
-                                                BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                    Direction="315"
+                                                    Color="{DynamicResource ShadowColor}"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="2"
+                                                    Opacity="0.5"
+                                                    RenderingBias="Performance"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            Text="{Binding PlaceResidenceTable.House_PlaceResidence}"
                                             PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                            PreviewTextInput = "NumberValidationTextBox"
+                                            PreviewTextInput="NumberValidationTextBox"
                                             MaxLength="10"
                                             x:Name="HousePlaceResidenceTextBox"
                                             Width="230"
@@ -553,17 +560,18 @@
                                         <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
-                                                Direction="315"
-                                                Color="{DynamicResource ShadowColor}"
-                                                BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                    Direction="315"
+                                                    Color="{DynamicResource ShadowColor}"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="2"
+                                                    Opacity="0.5"
+                                                    RenderingBias="Performance"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            Text="{Binding PlaceResidenceTable.Flat_PlaceResidence}"
                                             PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                            PreviewTextInput = "NumberValidationTextBox"
+                                            PreviewTextInput="NumberValidationTextBox"
                                             MaxLength="10"
                                             x:Name="FlatPlaceResidenceTextBox"
                                             Width="230"
@@ -592,18 +600,19 @@
                                 <Border Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                                Direction="315"
-                                                Color="{DynamicResource ShadowColor}"
-                                                BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                            Direction="315"
+                                            Color="{DynamicResource ShadowColor}"
+                                            BlurRadius="5"
+                                            ShadowDepth="2"
+                                            Opacity="0.5"
+                                            RenderingBias="Performance"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    Text="{Binding MedicalBookTable.PersonalNumber_MedicalBook}"
                                     PreviewKeyDown="CtrlV_PreviewKeyDown"
                                     MaxLength="8"
-                                    PreviewTextInput = "NumberValidationTextBox"
+                                    PreviewTextInput="NumberValidationTextBox"
                                     x:Name="PersonalNumberMedicalBookTextBox"
                                     Style="{DynamicResource OtherTextBoxStyle}"
                                     Width="320"/>
@@ -626,14 +635,10 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    Text="{Binding MedicalBookTable.Issue_MedicalBook}"
                                     x:Name="IssueMedicalBookTextBox"
                                     Width="600"
-                                    MaxLength="400"
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    MaxLength="500"
                                     Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
@@ -655,8 +660,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding MedicalBookTable.DateIssue_MedicalBook}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "DateValidationTextBox"
+                                        PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateIssueMedicalBookTextBox"
                                         Style="{DynamicResource OtherTextBoxStyle}"
@@ -680,7 +686,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="120"
+                                        Text="{Binding MedicalBookTable.SNMDirector_MedicalBook}"
+                                        MaxLength="500"
                                         x:Name="SNMDirectorMedicalBookTextBox"
                                         Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="300"/>
@@ -704,14 +711,10 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    Text="{Binding MedicalBookTable.HomeAdress_MedicalBook}"
                                     x:Name="HomeAdressMedicalBookTextBox"
                                     Width="600"
-                                    MaxLength="400"
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    MaxLength="500"
                                     Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
@@ -732,14 +735,10 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    Text="{Binding MedicalBookTable.Role_MedicalBook}"
                                     x:Name="RoleMedicalBookTextBox"
                                     Width="600"
-                                    MaxLength="400"
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    MaxLength="500"
                                     Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
@@ -760,14 +759,10 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    Text="{Binding MedicalBookTable.Organization_MedicalBook}"
                                     x:Name="OrganizationMedicalBookTextBox"
                                     Width="600"
-                                    MaxLength="400"
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    MaxLength="500"
                                     Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
@@ -799,8 +794,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding SnilsTable.PersonalNumber_Snils}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "NumberValidationTextBox"
+                                        PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="11"
                                         x:Name="PersonalNumberSnilsTextBox"
                                         Width="310"
@@ -824,8 +820,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding SnilsTable.DateRegistration_Snils}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "DateValidationTextBox"
+                                        PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateRegistrationSnilsTextBox"
                                         Style="{DynamicResource OtherTextBoxStyle}"
@@ -861,8 +858,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding INNTable.PersonalNumber_INN}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "NumberValidationTextBox"
+                                        PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="12"
                                         x:Name="PersonalNumberINNTextBox"
                                         Width="300"
@@ -886,8 +884,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding INNTable.NumberTaxAuthority_INN}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "NumberValidationTextBox"
+                                        PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="4"
                                         x:Name="NumberTaxAuthorityINNTextBox"
                                         Width="280"
@@ -913,13 +912,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding INNTable.TaxAuthority_INN}"
                                         x:Name="TaxAuthorityINNTextBox"
-                                        MaxLength="400"
-                                        
-                                        
-                                        
-                                        
-                                        
+                                        MaxLength="500"
                                         Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="400"/>
                                 </Grid>
@@ -941,8 +936,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding INNTable.Date_INN}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "DateValidationTextBox"
+                                        PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateINNTextBox"
                                         Style="{DynamicResource OtherTextBoxStyle}"
@@ -978,8 +974,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding SalaryCardTable.PersonalNumber_SalaryCard}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        PreviewTextInput = "NumberValidationTextBox"
+                                        PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="16"
                                         x:Name="PersonalNumberSalaryCardTextBox"
                                         Width="600"
@@ -1004,7 +1001,8 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
-                                            MaxLength="50"
+                                            Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"
+                                            MaxLength="80"
                                             x:Name="SurnameEngSalaryCardTextBox"
                                             Width="280"
                                             Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -1027,7 +1025,8 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
-                                            MaxLength="50"
+                                            Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"
+                                            MaxLength="80"
                                             x:Name="NameEndSalaryCardTextBox"
                                             Width="280"
                                             Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -1053,8 +1052,9 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding SalaryCardTable.Month_SalaryCard}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput = "NumberValidationTextBox" 
+                                                PreviewTextInput="NumberValidationTextBox" 
                                                 MaxLength="2"
                                                 x:Name="MonthSalaryCardTextBox"
                                                 Width="100"
@@ -1082,8 +1082,9 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding SalaryCardTable.YearEnd_SalaryCard}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput = "NumberValidationTextBox"
+                                                PreviewTextInput="NumberValidationTextBox"
                                                 MaxLength="4"
                                                 x:Name="YearEndSalaryCardTextBox"
                                                 Width="100"
@@ -1108,8 +1109,9 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            Text="{Binding SalaryCardTable.Code_SalaryCard}"
                                             PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                            PreviewTextInput = "NumberValidationTextBox"
+                                            PreviewTextInput="NumberValidationTextBox"
                                             MaxLength="3"
                                             x:Name="CodeSalaryCardTextBox"
                                             Width="150"
@@ -1146,7 +1148,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        MaxLength="200"
+                                        Text="{Binding Email_Worker}"
+                                        MaxLength="80"
                                         x:Name="EmailWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -1169,6 +1172,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding Phone_Worker}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="11"
@@ -1194,6 +1198,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <ComboBox
+                                        Text="{Binding RoleTable.Name_Role}"
                                         DisplayMemberPath="Name_Role"
                                         SelectedValuePath="PersonalNumber_Role"
                                         x:Name="pnRoleWorkerComboBox"
@@ -1218,8 +1223,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding Login_Worker}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        MaxLength="70"
+                                        MaxLength="80"
                                         x:Name="LoginWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
@@ -1242,8 +1248,9 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
+                                        Text="{Binding Password_Worker}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                        MaxLength="50"
+                                        MaxLength="80"
                                         x:Name="PasswordWorkerTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>

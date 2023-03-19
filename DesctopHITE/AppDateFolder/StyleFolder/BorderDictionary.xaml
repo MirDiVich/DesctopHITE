@@ -18,7 +18,7 @@
     <Style x:Key="OtherShadowBorder" TargetType="Border" BasedOn="{StaticResource MainBorderStyle}">
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="MinHeight" Value="45"/>
-        <Setter Property="MaxHeight" Value="130"/>
+        <Setter Property="MaxHeight" Value="180"/>
     </Style>
     <Style x:Key="BorderInformationWorker" TargetType="Border">
         <Setter Property="Background" Value="Transparent"/>
