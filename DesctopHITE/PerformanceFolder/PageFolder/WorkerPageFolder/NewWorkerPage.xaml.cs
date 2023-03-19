@@ -400,15 +400,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (DateOfBrichPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата рождения' в 'Паспорт' не может быть кароче или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
             if (LocationOfBrichPassportTextBox.Text.Length <= 3) MessageValidData += "'Место рождеия' в 'Паспорт' не может быть кароче или быть равным 3 символам\n";
 
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть кароче или быть равным 6 символам\n";
+            if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) MessageValidData += "'Зарегистрирован' в 'Место жительства' не может быть кароче или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (RegionPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Регион' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
+            if (DistrictPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Район' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
+            if (PointPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Рункт' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
+            if (StreetPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Улица' в 'Место жительства' не может быть кароче или быть равным 3 символам\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
+            if (HousePlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Дом' в 'Место жительства' не может быть кароче или быть равным 1 символу\n";
+            if (FlatPlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Квартира' в 'Место жительства' не может быть кароче или быть равным 1 символу\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть кароче или быть равным 6 символам\n";
             
             #endregion
         }
