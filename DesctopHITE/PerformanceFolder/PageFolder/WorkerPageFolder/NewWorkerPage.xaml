@@ -1243,11 +1243,12 @@
                                                 RenderingBias="Performance"/>
                                         </Border.Effect>
                                     </Border>
-                                    <TextBox
+                                    <PasswordBox
+                                        LayoutUpdated ="RepeatPasswordWorkerTextBox_LayoutUpdated"
                                         MaxLength="50"
                                         x:Name="RepeatPasswordWorkerTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource MainPasswordBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                         </StackPanel>

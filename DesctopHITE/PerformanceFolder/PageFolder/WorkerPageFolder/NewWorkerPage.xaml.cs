@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
@@ -53,7 +54,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 PassportBorder.Visibility = Visibility.Visible;
             }
         }
-
+        #region Color
+        SolidColorBrush RedColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
+        SolidColorBrush GreenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
+        SolidColorBrush StandardColor = new SolidColorBrush(Color.FromRgb(62, 62, 63));
+        #endregion
         #region Click
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -457,6 +462,41 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             Regex DivisionCodeRegex = new Regex("[^0-9-]");
             e.Handled = DivisionCodeRegex.IsMatch(e.Text);
+        }
+        #endregion
+        #region LayoutUpdated
+        private void RepeatPasswordWorkerTextBox_LayoutUpdated(object sender, EventArgs e)
+        {
+            try
+            {
+                string PasswordText, PasswordPasword;
+                PasswordText = Convert.ToString(PasswordWorkerTextBox.Text);
+                PasswordPasword = Convert.ToString(RepeatPasswordWorkerTextBox.Password);
+
+                if (PasswordText == "")
+                {
+                    RepeatPasswordWorkerTextBox.BorderBrush = StandardColor;
+                }
+                else if (PasswordPasword != PasswordText)
+                {
+                    RepeatPasswordWorkerTextBox.BorderBrush = RedColor;
+                }
+                else
+                {
+                    RepeatPasswordWorkerTextBox.BorderBrush = GreenColor;
+                    NewWorkerButton.IsEnabled = true;
+                }
+
+                NewWorkerButton.IsEnabled = !(PasswordText == "" || PasswordPasword != PasswordText);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    "Ошибка добавления (NewWorkerPage - E-008)",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
         #endregion
     }
