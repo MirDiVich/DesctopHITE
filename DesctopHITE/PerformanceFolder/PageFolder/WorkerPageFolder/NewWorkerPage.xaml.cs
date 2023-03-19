@@ -55,7 +55,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region Color
-        // Радал цвета, для того, что бы проще обращяться к ним, и менять их
+        // Задал цвета, для того, что бы проще обращяться к ним, и менять их
         SolidColorBrush RedColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
         SolidColorBrush GreenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
         SolidColorBrush StandardColor = new SolidColorBrush(Color.FromRgb(32, 32, 32));
@@ -158,7 +158,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 MessageGeneralDataNull = "";
                 MessageValidData = "";
 
-                MessageNull();
+                MessageNull(); // Вызываем метод по проверки на ошибки
 
                 if (MessagePassportNull != "" || MessagePlaceResidenceNull != "" || MessageMedicalBookNull != "" || MessageSnilsNull != "" || MessageINNNull != "" || MessageSalaryCardNull != "" || MessageGeneralDataNull != "") // Проверка на пустые поля
                 {
@@ -464,6 +464,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region ValidData
+        // Просто для валлидность данных (В одних TextBox разрешить писать только цифры и т.д.)
         private void DateValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex DateRegex = new Regex("[^0-9/.]");
@@ -481,6 +482,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region LayoutUpdated
+        // Проверка на пароль
         private void RepeatPasswordWorkerTextBox_LayoutUpdated(object sender, EventArgs e)
         {
             try
