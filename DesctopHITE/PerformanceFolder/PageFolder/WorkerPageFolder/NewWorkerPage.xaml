@@ -107,7 +107,7 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
-                                                Text="{Binding PassportTable.DateIssued_Passport}"
+                                                Text="{Binding PassportTable.DateIssued_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown" 
                                                 PreviewTextInput="DateValidationTextBox"
                                                 MaxLength="10"
@@ -351,7 +351,7 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <TextBox
-                                                    Text="{Binding PassportTable.DateOfBrich_Passport}"
+                                                    Text="{Binding PassportTable.DateOfBrich_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"
                                                     PreviewKeyDown="CtrlV_PreviewKeyDown"
                                                     PreviewTextInput="DateValidationTextBox"
                                                     MaxLength="10"
@@ -418,7 +418,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        Text="{Binding PlaceResidenceTable.RegistrationDate_PlaceResidence}"
+                                        Text="{Binding PlaceResidenceTable.RegistrationDate_PlaceResidence, StringFormat='{}{0:dd/MM/yyyy}'}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         Padding="0"
                                         HorizontalContentAlignment="Center"
@@ -660,7 +660,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        Text="{Binding MedicalBookTable.DateIssue_MedicalBook}"
+                                        Text="{Binding MedicalBookTable.DateIssue_MedicalBook, StringFormat='{}{0:dd/MM/yyyy}'}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
@@ -820,7 +820,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        Text="{Binding SnilsTable.DateRegistration_Snils}"
+                                        Text="{Binding SnilsTable.DateRegistration_Snils, StringFormat='{}{0:dd/MM/yyyy}'}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
@@ -832,7 +832,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="INNBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="INNBorder" Visibility="Visible" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -936,7 +936,7 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        Text="{Binding INNTable.Date_INN}"
+                                        Text="{Binding INNTable.Date_INN, StringFormat='{}{0:dd/MM/yyyy}'}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="DateValidationTextBox"
                                         MaxLength="10"
@@ -1172,7 +1172,8 @@
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
-                                        Text="{Binding Phone_Worker}"
+                                        TextChanged="PhoneWorkerTextBox_TextChanged"
+                                        Text="{Binding Phone_Worker,StringFormat=}"
                                         PreviewKeyDown="CtrlV_PreviewKeyDown"
                                         PreviewTextInput="NumberValidationTextBox"
                                         MaxLength="11"
