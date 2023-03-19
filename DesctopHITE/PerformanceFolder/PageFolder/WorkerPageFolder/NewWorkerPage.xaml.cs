@@ -514,5 +514,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #endregion
+        #region PreviewKeyDown
+        // Запретить использовать Ctrl + v в некоторых TextBox
+        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
     }
 }
