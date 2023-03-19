@@ -69,8 +69,8 @@
                                     <TextBlock 
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                         Text="Паспорт выдан"/>
-                                    <Grid Height="auto" MinHeight="45" MaxHeight="130">
-                                        <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                                    <Grid>
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                     Direction="315"
@@ -82,14 +82,10 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
+                                            Text="{Binding PassportTable.Issued_Passport}"
                                             x:Name="IssuedPassportTextBox"
                                             MaxLength="400"
-                                            Padding="10"
-                                            Height="Auto"
-                                            TextWrapping="Wrap"
-                                            MaxHeight="130"
-                                            MinHeight="45"
-                                            Style="{DynamicResource MainTextBoxStyle}"
+                                            Style="{DynamicResource OtherTextBoxStyle}"
                                             Width="600"/>
                                     </Grid>
                                 </StackPanel>
@@ -99,7 +95,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Дата выдачи"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -111,11 +107,12 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding PassportTable.DateIssued_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown" 
                                                 PreviewTextInput = "DateValidationTextBox"
                                                 MaxLength="10"
                                                 x:Name="DateIssuedPassportTextBox"
-                                                Style="{DynamicResource MainTextBoxStyle}"
+                                                Style="{DynamicResource OtherTextBoxStyle}"
                                                 Width="250"/>
                                         </Grid>
                                     </StackPanel>
@@ -124,7 +121,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Код подразделения"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -136,11 +133,12 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding PassportTable.DivisionCode_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
                                                 PreviewTextInput = "DivisionCodeValidationTextBox"
                                                 MaxLength="7"
                                                 x:Name="DivisionCodePassportTextBox"
-                                                Style="{DynamicResource MainTextBoxStyle}"
+                                                Style="{DynamicResource OtherTextBoxStyle}"
                                                 Width="240"/>
                                         </Grid>
                                     </StackPanel>
@@ -151,7 +149,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Серия паспорта"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -163,11 +161,12 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding PassportTable.Series_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
                                                 PreviewTextInput = "NumberValidationTextBox"
                                                 MaxLength="4"
                                                 x:Name="SeriesPassportTextBox"
-                                                Style="{DynamicResource MainTextBoxStyle}"
+                                                Style="{DynamicResource OtherTextBoxStyle}"
                                                 Width="200"/>
                                         </Grid>
                                     </StackPanel>
@@ -176,7 +175,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Номер паспорта"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -188,11 +187,12 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding PassportTable.Number_Passport}"
                                                 PreviewKeyDown="CtrlV_PreviewKeyDown"
                                                 PreviewTextInput = "NumberValidationTextBox"
                                                 MaxLength="6"
                                                 x:Name="NumberPassportTextBox"
-                                                Style="{DynamicResource MainTextBoxStyle}"
+                                                Style="{DynamicResource OtherTextBoxStyle}"
                                                 Width="250"/>
                                         </Grid>
                                     </StackPanel>
@@ -212,7 +212,7 @@
                                         Height="240"
                                         Margin="0 0 0 10"/>
                                     <Grid Margin="0 10 0 0">
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                     Direction="315"
@@ -224,13 +224,13 @@
                                             </Border.Effect>
                                         </Border>
                                         <Button
-                                            Width="180"
-                                            Height="50"
+                                            Width="190"
+                                            Height="55"
                                             x:Name="NewPhotoButton"
                                             Click="NewPhotoButton_Click">
                                             <TextBlock
                                                 Text="Загрузить изображение"
-                                                TextWrapping="Wrap" 
+                                                TextWrapping="Wrap"
                                                 TextAlignment="Center"/>
                                         </Button>
                                     </Grid>
@@ -241,7 +241,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Фамилия"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -253,10 +253,11 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
-                                                MaxLength="50"
+                                                Text="{Binding PassportTable.Surname_Passport}"
+                                                MaxLength="80"
                                                 x:Name="SurnamePassportTextBox"
                                                 Width="370"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                     <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -264,7 +265,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Имя"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -276,10 +277,11 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
-                                                MaxLength="50"
+                                                Text="{Binding PassportTable.Name_Passport}"
+                                                MaxLength="80"
                                                 x:Name="NamePassportTextBox"
                                                 Width="370"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                     <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -287,7 +289,7 @@
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Отчество"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -299,10 +301,11 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
-                                                MaxLength="50"
+                                                Text="{Binding PassportTable.Middlename_Passport}"
+                                                MaxLength="80"
                                                 x:Name="MiddlenamePassportTextBox"
                                                 Width="370"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                     <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -311,7 +314,7 @@
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                                 Text="Пол"/>
                                             <Grid>
-                                                <Border Height="43" Width="128" Style="{DynamicResource ShadowBorder}">
+                                                <Border Height="43" Width="128" Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
                                                             Direction="315"
@@ -335,7 +338,7 @@
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                                 Text="Дата рождения"/>
                                             <Grid>
-                                                <Border Style="{DynamicResource ShadowBorder}">
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
                                                             Direction="315"
@@ -347,12 +350,13 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <TextBox
+                                                    Text="{Binding PassportTable.DateOfBrich_Passport}"
                                                     PreviewKeyDown="CtrlV_PreviewKeyDown"
                                                     PreviewTextInput = "DateValidationTextBox"
                                                     MaxLength="10"
                                                     x:Name="DateOfBrichPassportTextBox"
                                                     Width="230"
-                                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                                    Style="{DynamicResource OtherTextBoxStyle}"/>
                                             </Grid>
                                         </StackPanel>
                                     </StackPanel>
@@ -360,8 +364,8 @@
                                         <TextBlock
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                             Text="Место рождения"/>
-                                        <Grid Height="Auto" MinHeight="45" MaxHeight="130">
-                                            <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                                        <Grid   >
+                                            <Border    Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -373,15 +377,11 @@
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
+                                                Text="{Binding PassportTable.LocationOfBrich_Passport}"
                                                 x:Name="LocationOfBrichPassportTextBox"
-                                                MaxLength="240"
-                                                Padding="10"
-                                                Height="Auto"
-                                                TextWrapping="Wrap"
-                                                MaxHeight="130"
-                                                MinHeight="45"
+                                                MaxLength="400"
                                                 Width="370"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                 </StackPanel>
@@ -405,7 +405,7 @@
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                     HorizontalAlignment="Center"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -424,7 +424,7 @@
                                         MaxLength="10"
                                         x:Name="RegistrationDatePlaceResidenceTextBox"
                                         Width="300"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -432,7 +432,7 @@
                                     Text="Регион"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -447,7 +447,7 @@
                                         MaxLength="100"
                                         x:Name="RegionPlaceResidenceTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -455,7 +455,7 @@
                                     Text="Район"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -470,7 +470,7 @@
                                         MaxLength="100"
                                         x:Name="DistrictPlaceResidenceTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -478,7 +478,7 @@
                                     Text="Пункт"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -493,7 +493,7 @@
                                         MaxLength="100"
                                         x:Name="PointPlaceResidenceTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -501,7 +501,7 @@
                                     Text="Улица"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -516,7 +516,7 @@
                                         MaxLength="100"
                                         x:Name="StreetPlaceResidenceTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Margin="0 5 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -525,7 +525,7 @@
                                         Text="Дом"
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                     <Grid>
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                 Direction="315"
@@ -542,7 +542,7 @@
                                             MaxLength="10"
                                             x:Name="HousePlaceResidenceTextBox"
                                             Width="230"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                            Style="{DynamicResource OtherTextBoxStyle}"/>
                                     </Grid>
                                 </StackPanel>
                                 <StackPanel Margin="70 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -550,7 +550,7 @@
                                         Text="Квартира"
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                     <Grid>
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                 Direction="315"
@@ -567,7 +567,7 @@
                                             MaxLength="10"
                                             x:Name="FlatPlaceResidenceTextBox"
                                             Width="230"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                            Style="{DynamicResource OtherTextBoxStyle}"/>
                                     </Grid>
                                 </StackPanel>
                             </StackPanel>
@@ -589,7 +589,7 @@
                                 Text="Номер медецинской книжки"
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                             <Grid>
-                                <Border Style="{DynamicResource ShadowBorder}">
+                                <Border Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
                                                 Direction="315"
@@ -605,7 +605,7 @@
                                     MaxLength="8"
                                     PreviewTextInput = "NumberValidationTextBox"
                                     x:Name="PersonalNumberMedicalBookTextBox"
-                                    Style="{DynamicResource MainTextBoxStyle}"
+                                    Style="{DynamicResource OtherTextBoxStyle}"
                                     Width="320"/>
                             </Grid>
                         </StackPanel>
@@ -613,8 +613,8 @@
                             <TextBlock
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                 Text="Личная медецинская книжка выдана"/>
-                            <Grid Height="auto" MinHeight="45" MaxHeight="130">
-                                <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                            <Grid   >
+                                <Border    Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
                                             Direction="315"
@@ -629,12 +629,12 @@
                                     x:Name="IssueMedicalBookTextBox"
                                     Width="600"
                                     MaxLength="400"
-                                    Padding="10"
-                                    Height="Auto"
-                                    TextWrapping="Wrap"
-                                    MaxHeight="130"
-                                    MinHeight="45"
-                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -643,7 +643,7 @@
                                     Text="Дата выдачи"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -659,7 +659,7 @@
                                         PreviewTextInput = "DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateIssueMedicalBookTextBox"
-                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="220"/>
                                 </Grid>
                             </StackPanel>
@@ -668,7 +668,7 @@
                                     Text="ФИО руководителя"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -682,7 +682,7 @@
                                     <TextBox
                                         MaxLength="120"
                                         x:Name="SNMDirectorMedicalBookTextBox"
-                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="300"/>
                                 </Grid>
                             </StackPanel>
@@ -691,8 +691,8 @@
                             <TextBlock
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                 Text="Домашний адресс"/>
-                            <Grid Height="auto" MinHeight="45" MaxHeight="130">
-                                <Border Height="auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                            <Grid   >
+                                <Border    Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
                                             Direction="315"
@@ -707,20 +707,20 @@
                                     x:Name="HomeAdressMedicalBookTextBox"
                                     Width="600"
                                     MaxLength="400"
-                                    Padding="10"
-                                    Height="Auto"
-                                    TextWrapping="Wrap"
-                                    MaxHeight="130"
-                                    MinHeight="45"
-                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                             <TextBlock
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                 Text="Должность"/>
-                            <Grid Height="auto" MinHeight="45" MaxHeight="130">
-                                <Border Height="Auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                            <Grid   >
+                                <Border    Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
                                             Direction="315"
@@ -735,20 +735,20 @@
                                     x:Name="RoleMedicalBookTextBox"
                                     Width="600"
                                     MaxLength="400"
-                                    Padding="10"
-                                    Height="Auto"
-                                    TextWrapping="Wrap"
-                                    MaxHeight="130"
-                                    MinHeight="45"
-                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
                         <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                             <TextBlock
                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                 Text="Огранизация (индивидуальный предприниматель)"/>
-                            <Grid Height="Auto" MinHeight="45" MaxHeight="130">
-                                <Border Height="Auto" MinHeight="45" MaxHeight="130" Style="{DynamicResource ShadowBorder}">
+                            <Grid   >
+                                <Border    Style="{DynamicResource OtherShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
                                             Direction="315"
@@ -763,12 +763,12 @@
                                     x:Name="OrganizationMedicalBookTextBox"
                                     Width="600"
                                     MaxLength="400"
-                                    Padding="10"
-                                    Height="Auto"
-                                    TextWrapping="Wrap"
-                                    MaxHeight="130"
-                                    MinHeight="45"
-                                    Style="{DynamicResource MainTextBoxStyle}"/>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Style="{DynamicResource OtherTextBoxStyle}"/>
                             </Grid>
                         </StackPanel>
                     </StackPanel>
@@ -787,7 +787,7 @@
                                     Text="Номер"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -804,7 +804,7 @@
                                         MaxLength="11"
                                         x:Name="PersonalNumberSnilsTextBox"
                                         Width="310"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Margin="10 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -812,7 +812,7 @@
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
                                     Text="Дата выдачи"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -828,7 +828,7 @@
                                         PreviewTextInput = "DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateRegistrationSnilsTextBox"
-                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="270"/>
                                 </Grid>
                             </StackPanel>
@@ -849,7 +849,7 @@
                                     Text="Номер"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -866,7 +866,7 @@
                                         MaxLength="12"
                                         x:Name="PersonalNumberINNTextBox"
                                         Width="300"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Margin="10 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -874,7 +874,7 @@
                                     Text="Номер Налог. орган"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -891,7 +891,7 @@
                                         MaxLength="4"
                                         x:Name="NumberTaxAuthorityINNTextBox"
                                         Width="280"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                         </StackPanel>
@@ -900,8 +900,8 @@
                                 <TextBlock
                                     Text="Налоговый огран"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                <Grid Height="auto" MinHeight="45" MaxHeight="130">
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                <Grid   >
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -915,12 +915,12 @@
                                     <TextBox
                                         x:Name="TaxAuthorityINNTextBox"
                                         MaxLength="400"
-                                        Padding="10"
-                                        Height="Auto"
-                                        TextWrapping="Wrap"
-                                        MaxHeight="130"
-                                        MinHeight="45"
-                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="400"/>
                                 </Grid>
                             </StackPanel>
@@ -929,7 +929,7 @@
                                     Text="Дата выдычи"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -945,7 +945,7 @@
                                         PreviewTextInput = "DateValidationTextBox"
                                         MaxLength="10"
                                         x:Name="DateINNTextBox"
-                                        Style="{DynamicResource MainTextBoxStyle}"
+                                        Style="{DynamicResource OtherTextBoxStyle}"
                                         Width="180"/>
                                 </Grid>
                             </StackPanel>
@@ -966,7 +966,7 @@
                                     Text="Номер карты"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -983,7 +983,7 @@
                                         MaxLength="16"
                                         x:Name="PersonalNumberSalaryCardTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Margin="0 5 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -992,7 +992,7 @@
                                         Text="Фимилия (Eng)"
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                     <Grid>
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                     Direction="315"
@@ -1007,7 +1007,7 @@
                                             MaxLength="50"
                                             x:Name="SurnameEngSalaryCardTextBox"
                                             Width="280"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                            Style="{DynamicResource OtherTextBoxStyle}"/>
                                     </Grid>
                                 </StackPanel>
                                 <StackPanel Margin="20 0 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -1015,7 +1015,7 @@
                                         Text="Имя (Eng)"
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                     <Grid>
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                     Direction="315"
@@ -1030,7 +1030,7 @@
                                             MaxLength="50"
                                             x:Name="NameEndSalaryCardTextBox"
                                             Width="280"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                            Style="{DynamicResource OtherTextBoxStyle}"/>
                                     </Grid>
                                 </StackPanel>
                             </StackPanel>
@@ -1041,7 +1041,7 @@
                                             Text="Месяц"
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -1058,7 +1058,7 @@
                                                 MaxLength="2"
                                                 x:Name="MonthSalaryCardTextBox"
                                                 Width="100"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                     <TextBlock
@@ -1070,7 +1070,7 @@
                                             Text="Год"
                                             Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                         <Grid>
-                                            <Border Style="{DynamicResource ShadowBorder}">
+                                            <Border Style="{DynamicResource OtherShadowBorder}">
                                                 <Border.Effect>
                                                     <DropShadowEffect 
                                                         Direction="315"
@@ -1087,7 +1087,7 @@
                                                 MaxLength="4"
                                                 x:Name="YearEndSalaryCardTextBox"
                                                 Width="100"
-                                                Style="{DynamicResource MainTextBoxStyle}"/>
+                                                Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
                                     </StackPanel>
                                 </StackPanel>
@@ -1096,7 +1096,7 @@
                                         Text="Код"
                                         Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                     <Grid>
-                                        <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border Style="{DynamicResource OtherShadowBorder}">
                                             <Border.Effect>
                                                 <DropShadowEffect 
                                                     Direction="315"
@@ -1113,14 +1113,14 @@
                                             MaxLength="3"
                                             x:Name="CodeSalaryCardTextBox"
                                             Width="150"
-                                            Style="{DynamicResource MainTextBoxStyle}"/>
+                                            Style="{DynamicResource OtherTextBoxStyle}"/>
                                     </Grid>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Margin="0 10 0 20" Visibility="Visible" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border Margin="0 10 0 20" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformationWorker}">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
                         <TextBlock
                             Foreground="#462AD8"
@@ -1134,7 +1134,7 @@
                                     Text="Электронная почта"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1149,7 +1149,7 @@
                                         MaxLength="200"
                                         x:Name="EmailWorkerTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -1157,7 +1157,7 @@
                                     Text="Номер телефона"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1174,7 +1174,7 @@
                                         MaxLength="11"
                                         x:Name="PhoneWorkerTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -1182,7 +1182,7 @@
                                     Text="Должность"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Height="43" Width="598" Style="{DynamicResource ShadowBorder}">
+                                    <Border Height="43" Width="598" Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1206,7 +1206,7 @@
                                     Text="Login"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1222,7 +1222,7 @@
                                         MaxLength="70"
                                         x:Name="LoginWorkerTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -1230,7 +1230,7 @@
                                     Text="Password"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1246,7 +1246,7 @@
                                         MaxLength="50"
                                         x:Name="PasswordWorkerTextBox"
                                         Width="600"
-                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                        Style="{DynamicResource OtherTextBoxStyle}"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Margin="0 5 0 0" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
@@ -1254,7 +1254,7 @@
                                     Text="Повторите password"
                                     Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                 <Grid>
-                                    <Border Style="{DynamicResource ShadowBorder}">
+                                    <Border Style="{DynamicResource OtherShadowBorder}">
                                         <Border.Effect>
                                             <DropShadowEffect 
                                                 Direction="315"
@@ -1279,7 +1279,7 @@
                 </Border>
                 <Border>
                     <Grid Margin="0 10 0 0">
-                        <Border Width="320" Height="50" Style="{DynamicResource ShadowBorder}">
+                        <Border Width="320" Height="50" Style="{DynamicResource OtherShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
                                     Direction="315"
