@@ -64,13 +64,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             else
             {
                 HintSearchTextBlock.Visibility = Visibility.Collapsed;
-                var Sweep = AppConnectClass.DataBase.WorkerTabe.Include(Blood => Blood.PassportTable).ToList();
-                Sweep = Sweep.Where(Cookie =>
-                Cookie.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                Cookie.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                Cookie.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())) .ToList();
+                //var Sweep = AppConnectClass.DataBase.PassportTable.Include(Blood => Blood.WorkerTabe).ToList();
+                //Sweep = Sweep.Where(Cookie =>
+                //Cookie.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+                //Cookie.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+                //Cookie.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())) .ToList();
 
-                ListWorkerListBox.ItemsSource = Sweep.ToList();
+                //ListWorkerListBox.ItemsSource = Sweep.ToList();
             }
         }
         #endregion
