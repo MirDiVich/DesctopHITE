@@ -6,9 +6,80 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:uc ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid HorizontalAlignment="Left" Width="520" Margin="10 0 0 0">
+                <Border Style="{DynamicResource ShadowBorder}">
+                    <Border.Effect>
+                        <DropShadowEffect 
+                            Direction="315"
+                            Color="{DynamicResource ShadowColor}"
+                            BlurRadius="5"
+                            ShadowDepth="2"
+                            Opacity="0.5"
+                            RenderingBias="Performance"/>
+                    </Border.Effect>
+                </Border>
+                <TextBox
+                    SelectionChanged="SearchTextBox_SelectionChanged"
+                    x:Name="SearchTextBox"
+                    Padding="38 0 0 0"
+                    Width="520"
+                    Style="{DynamicResource MainTextBoxStyle}"/>
+                <TextBlock
+                    Text="&#xf1c3;"
+                    Style="{DynamicResource IconTextBlockStyle}"/>
+                <TextBlock
+                    x:Name="HintSearchTextBlock"
+                    Margin="40 0 0 0"
+                    Text="Поиск"
+                    Style="{DynamicResource HintTextBlockStyle}"/>
+            </Grid>
+            <StackPanel Margin="0 0 10 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button
+                    x:Name="EditButton"
+                    Click="EditButton_Click"
+                    Width="220"
+                    Height="45"
+                    Margin="0 0 5 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Text="&#xf158;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Margin="5 0 0 0"
+                            Text="Редактировать"/>
+                    </StackPanel>
+                </Button>
+                <Button
+                    Style="{DynamicResource DeliteButtonStyle}"
+                    x:Name="DeliteButton"
+                    Click="DeliteButton_Click"
+                    Margin="5 0 0 0"
+                    Width="180"
+                    Height="45">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Text="&#xf154;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Margin="5 0 0 0"
+                            Text="Удалить"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
         <ListBox
+            SelectionChanged="ListWorkerListBox_SelectionChanged"
+            Grid.Row="1"
             Background="Transparent"
             MouseDoubleClick="ListWorkerListBox_MouseDoubleClick"
             x:Name="ListWorkerListBox"

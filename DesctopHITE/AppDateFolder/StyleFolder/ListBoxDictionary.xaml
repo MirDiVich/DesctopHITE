@@ -16,8 +16,9 @@
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border 
                         x:Name="border"
-                        CornerRadius="7"
+                        CornerRadius="10"
                         BorderThickness="1" 
+                        Background="Transparent"
                         BorderBrush="Transparent">
                         <ContentPresenter />
                     </Border>
@@ -27,7 +28,7 @@
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#e1e3e6" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#f5f5f5" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

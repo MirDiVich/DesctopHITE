@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
+    IsVisibleChanged="UserControl_IsVisibleChanged"
     Height="250"
     Width="200">
     <Border CornerRadius="10" Background="#2a2a2a" BorderBrush="Transparent" BorderThickness="0">
@@ -29,9 +30,9 @@
                             <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
                         </StackPanel.OpacityMask>
                         <Image 
-                            Height="150"
-                            Width="150"
-                            Stretch="UniformToFill"
+                            Height="145"
+                            Width="145"
+                            Stretch="Uniform"
                             Opacity="1"
                             x:Name="UserImage" 
                             Source="{Binding PassportTable.Image_Passport}"/>
@@ -54,6 +55,7 @@
                 </StackPanel>
                 <StackPanel Margin="0 2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock 
+                        x:Name="StatusTextBlock"
                         Foreground="#9a9a9a"
                         FontSize="12"
                         Style="{DynamicResource MainStyleTextBlock}"
