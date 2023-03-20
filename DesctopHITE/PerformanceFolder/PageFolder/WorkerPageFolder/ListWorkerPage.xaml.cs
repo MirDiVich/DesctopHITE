@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Data.Entity;
-using System.Linq.Expressions;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 
@@ -37,45 +25,45 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region Click
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
 
         }
 
-        private void DeliteButton_Click(object sender, RoutedEventArgs e)
+        private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
 
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
 
         }
-        private void ListWorkerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListWorkerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника
         {
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }
         private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTabe
         {
-            if (SearchTextBox.Text == "")
+            if (SearchTextBox.Text == "") // Если SearchTextBox пустой
             {
-                HintSearchTextBlock.Visibility = Visibility.Visible;
-                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                HintSearchTextBlock.Visibility = Visibility.Visible; // Включаем подсказку
+                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Выводим объекты из таблицы WorkerTabe
             }
-            else
+            else // Если же в SearchTextBox есть что-то то:
             {
-                HintSearchTextBlock.Visibility = Visibility.Collapsed;
+                HintSearchTextBlock.Visibility = Visibility.Collapsed; // Выключаем подсказку
 
-                var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList();
+                var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
 
-                var SearchResults = Objects.Where(worker =>
-                    worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                    worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                    worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()));
+                var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
+                    worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                    worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                    worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
 
-                ListWorkerListBox.ItemsSource = SearchResults.ToList();
+                ListWorkerListBox.ItemsSource = SearchResults.ToList(); // Выводим полученный результат в виде списка
             }
         }
         #endregion
