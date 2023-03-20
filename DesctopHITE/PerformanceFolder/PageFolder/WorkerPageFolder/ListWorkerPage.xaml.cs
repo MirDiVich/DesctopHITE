@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,17 +62,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (SearchTextBox.Text == "")
             {
                 HintSearchTextBlock.Visibility = Visibility.Visible;
+                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
             }
             else
             {
                 HintSearchTextBlock.Visibility = Visibility.Collapsed;
-                //var Sweep = AppConnectClass.DataBase.PassportTable.Include(Blood => Blood.WorkerTabe).ToList();
-                //Sweep = Sweep.Where(Cookie =>
-                //Cookie.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                //Cookie.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
-                //Cookie.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())) .ToList();
 
-                //ListWorkerListBox.ItemsSource = Sweep.ToList();
+                var workers = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList();
+
+                var searchResults = workers.Where(worker =>
+                    worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+                    worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+                    worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()));
+
+                ListWorkerListBox.ItemsSource = searchResults.ToList();
             }
         }
         #endregion
