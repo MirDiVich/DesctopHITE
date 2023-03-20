@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using System;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -13,12 +14,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         public ListWorkerPage()
         {
             InitializeComponent();
-            AppConnectClass.DataBase = new DesctopHiteEntities();
-            ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+            AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
+            ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible) //Если страница видна
             {
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
@@ -40,30 +41,41 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
 
         }
-        private void ListWorkerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника
+        private void ListWorkerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListBox
         {
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }
         private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTabe
         {
-            if (SearchTextBox.Text == "") // Если SearchTextBox пустой
+            try
             {
-                HintSearchTextBlock.Visibility = Visibility.Visible; // Включаем подсказку
-                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Выводим объекты из таблицы WorkerTabe
+                if (SearchTextBox.Text == "") // Если SearchTextBox пустой
+                {
+                    HintSearchTextBlock.Visibility = Visibility.Visible;
+                    ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                }
+                else // Если же в SearchTextBox есть что-то то:
+                {
+                    HintSearchTextBlock.Visibility = Visibility.Collapsed;
+
+                    var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
+
+                    var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
+                        worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                        worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                        worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+
+                    ListWorkerListBox.ItemsSource = SearchResults.ToList();
+                }
             }
-            else // Если же в SearchTextBox есть что-то то:
+            catch (Exception ex)
             {
-                HintSearchTextBlock.Visibility = Visibility.Collapsed; // Выключаем подсказку
-
-                var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
-
-                var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
-                    worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
-                    worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
-                    worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
-
-                ListWorkerListBox.ItemsSource = SearchResults.ToList(); // Выводим полученный результат в виде списка
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    "Ошибка поиска - E001",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
         #endregion
