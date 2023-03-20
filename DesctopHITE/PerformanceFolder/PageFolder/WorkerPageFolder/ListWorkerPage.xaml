@@ -89,8 +89,8 @@
                 <ItemsPanelTemplate>
                     <WrapPanel 
                         IsItemsHost="True" 
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
                         Background="Transparent"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
