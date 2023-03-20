@@ -57,7 +57,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }
-        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTabe
         {
             if (SearchTextBox.Text == "")
             {
@@ -68,14 +68,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                var workers = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList();
+                var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList();
 
-                var searchResults = workers.Where(worker =>
+                var SearchResults = Objects.Where(worker =>
                     worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
                     worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
                     worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()));
 
-                ListWorkerListBox.ItemsSource = searchResults.ToList();
+                ListWorkerListBox.ItemsSource = SearchResults.ToList();
             }
         }
         #endregion
