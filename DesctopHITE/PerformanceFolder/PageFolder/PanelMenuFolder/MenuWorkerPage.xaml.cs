@@ -30,7 +30,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 NewWorkerToggleButton.IsChecked = true;
                 NewWorkerToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage());
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
             }
         }
         #region Click
@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             NewWorkerToggleButton.IsChecked = true;
             NewWorkerToggleButton.IsEnabled = false;
-            FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage());
+            FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
         }
 
         private void ListWorkweToggleButton_Click(object sender, RoutedEventArgs e)
@@ -58,6 +58,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             GeneralInformationWorkerToggleButton.IsChecked = true;
             GeneralInformationWorkerToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodyWorker_FNC.Navigate(new GeneralInformationWorkerPage());
         }
         #endregion
         #region Действие

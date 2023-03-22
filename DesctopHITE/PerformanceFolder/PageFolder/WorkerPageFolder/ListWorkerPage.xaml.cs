@@ -28,7 +28,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         #region Click
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-
+            WorkerTabe workerTabe = (WorkerTabe)ListWorkerListBox.SelectedItem;
+            if (workerTabe == null)
+            {
+                MessageBox.Show(
+                    "Сотрудник не выбран",
+                    "Ошибка - E001",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(workerTabe));
+            }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника

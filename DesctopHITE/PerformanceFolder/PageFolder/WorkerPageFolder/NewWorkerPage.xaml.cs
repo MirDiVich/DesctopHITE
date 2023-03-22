@@ -31,11 +31,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string RandomPassword = null;
         string EmailWorker = "";
 
-        public NewWorkerPage()
+        public NewWorkerPage(WorkerTabe workerTabe)
         {
             try
             {
                 InitializeComponent();
+                if (workerTabe != null) 
+                {
+                    DataContext = workerTabe;
+                }
                 AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
                 pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
                 pnRoleWorkerComboBox.ItemsSource = AppConnectClass.DataBase.RoleTable.ToList(); // Выгружаем список Гендера в pnRoleWorkerComboBox    
@@ -477,7 +481,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage()); // Я решил просто переоткрывать страницу, нечиго в неё не передовая, так она должна очищаться
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null)); // Я решил просто переоткрывать страницу, нечиго в неё не передовая, так она должна очищаться
             }
             catch (Exception ex)
             {

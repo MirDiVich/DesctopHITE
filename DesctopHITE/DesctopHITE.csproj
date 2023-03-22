@@ -160,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\WorkerPageFolder\GeneralInformationWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\WorkerPageFolder\ListWorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +263,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\GeneralInformationWorkerPage.xaml.cs">
+      <DependentUpon>GeneralInformationWorkerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\ListWorkerPage.xaml.cs">
       <DependentUpon>ListWorkerPage.xaml</DependentUpon>
