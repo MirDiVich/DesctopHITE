@@ -139,7 +139,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_INNWorkerTable">
-          <End Role="INNTable" Type="Self.INNTable" Multiplicity="1" />
+          <End Role="INNTable" Type="Self.INNTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="INNTable">
@@ -151,7 +153,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_MedicalBookTable">
-          <End Role="MedicalBookTable" Type="Self.MedicalBookTable" Multiplicity="1" />
+          <End Role="MedicalBookTable" Type="Self.MedicalBookTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MedicalBookTable">
@@ -163,7 +167,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_PassportTable">
-          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="1" />
+          <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PassportTable">
@@ -177,7 +183,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_PlaceResidenceTable">
-          <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1" />
+          <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PlaceResidenceTable">
@@ -201,7 +209,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_SalaryCardTable">
-          <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1" />
+          <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SalaryCardTable">
@@ -213,7 +223,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_SnilsTable">
-          <End Role="SnilsTable" Type="Self.SnilsTable" Multiplicity="1" />
+          <End Role="SnilsTable" Type="Self.SnilsTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="WorkerTabe" Type="Self.WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SnilsTable">
@@ -490,7 +502,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_INNWorkerTable">
-          <End Type="DesctopHiteModel.INNTable" Role="INNTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.INNTable" Role="INNTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="INNTable">
@@ -502,7 +516,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_MedicalBookTable">
-          <End Type="DesctopHiteModel.MedicalBookTable" Role="MedicalBookTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.MedicalBookTable" Role="MedicalBookTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MedicalBookTable">
@@ -514,7 +530,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_PassportTable">
-          <End Type="DesctopHiteModel.PassportTable" Role="PassportTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.PassportTable" Role="PassportTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PassportTable">
@@ -528,7 +546,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_PlaceResidenceTable">
-          <End Type="DesctopHiteModel.PlaceResidenceTable" Role="PlaceResidenceTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.PlaceResidenceTable" Role="PlaceResidenceTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PlaceResidenceTable">
@@ -552,7 +572,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_SalaryCardTable">
-          <End Type="DesctopHiteModel.SalaryCardTable" Role="SalaryCardTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.SalaryCardTable" Role="SalaryCardTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SalaryCardTable">
@@ -564,7 +586,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkerTabe_SnilsTable">
-          <End Type="DesctopHiteModel.SnilsTable" Role="SnilsTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.SnilsTable" Role="SnilsTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="DesctopHiteModel.WorkerTabe" Role="WorkerTabe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SnilsTable">

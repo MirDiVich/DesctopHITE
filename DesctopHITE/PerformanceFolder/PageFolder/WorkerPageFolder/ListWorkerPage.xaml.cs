@@ -28,8 +28,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         #region Click
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            WorkerTabe workerTabe = (WorkerTabe)ListWorkerListBox.SelectedItem;
-            if (workerTabe == null)
+            WorkerTabe WorkerEdit = (WorkerTabe)ListWorkerListBox.SelectedItem;
+            if (WorkerEdit == null)
             {
                 MessageBox.Show(
                     "Сотрудник не выбран",
@@ -39,13 +39,54 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             else
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(workerTabe));
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(WorkerEdit));
             }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
+            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem;
+            if (WorkerDelit == null)
+            {
+                MessageBox.Show(
+                    "Сотрудник не выбран",
+                    "Ошибка - E002",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            else
+            {
+                try
+                {
+                    PassportTable WorkerInfo = AppConnectClass.DataBase.PassportTable.FirstOrDefault(data => data.Series_Passport == WorkerDelit.SeriesPassport_Worker && data.Number_Passport == WorkerDelit.NumberPassport_Worker);
 
+                    if (MessageBox.Show("Вы действительно хотите удалить: " + WorkerInfo.Surname_Passport.ToString() + " " + WorkerInfo.Name_Passport.ToString() + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
+                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
+                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
+                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+
+                        AppConnectClass.DataBase.SaveChanges();
+                        MessageBox.Show(
+                            "Сотрудник " + WorkerInfo.Surname_Passport.ToString() + " " + WorkerInfo.Name_Passport.ToString() + " удалён",
+                            "Удаление",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information);
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(
+                            Ex.Message.ToString(),
+                            "Ошибка - E003",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                }
+            }
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
