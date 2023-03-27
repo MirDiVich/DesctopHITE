@@ -45,9 +45,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem;
+            var WorkerDelit = ListWorkerListBox.SelectedItem as WorkerTabe; // Получаем выбранного сотрудника
             if (WorkerDelit == null)
             {
+                // Перед удалением проверяем, что сотрудник выбран
                 MessageBox.Show(
                     "Сотрудник не выбран",
                     "Ошибка - E002",
@@ -56,13 +57,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             else
             {
-                try
+                try // помешаем рабочий код в "безопасную каробку"
                 {
+                    // Если пользователь подтверждает удаление сотрудника
                     if (MessageBox.Show("Вы действительно хотите удалить: " + WorkerDelit.PassportTable.Surname_Passport.ToString() + " " + WorkerDelit.PassportTable.Name_Passport.ToString() + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
-                        string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport;
-                        string NameWorker = WorkerDelit.PassportTable.Name_Passport;
+                        string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport; // Получаем Фамилия для уведомления
+                        string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
 
+                        // Выполняем удаление
                         AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
                         AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
                         AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
@@ -71,15 +74,25 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
                         AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
 
+                        // Сохраняем изменения
                         AppConnectClass.DataBase.SaveChanges();
 
+                        // Выводим уведомление с переменными выше
                         MessageBox.Show(
                             "Сотрудник " + SurnameWorker + " " + NameWorker + " удалён",
                             "Удаление",
                             MessageBoxButton.OK,
                             MessageBoxImage.Information);
                     }
+                    // Если пользователь отменил действие "Удалить"
+                    else
+                    {
+                        WorkerDelit = null;
+                        DeliteButton.IsEnabled = false;
+                        EditButton.IsEnabled = false;
+                    }
                 }
+                // Если произошла ошибка в коде сверху, обрабатываем эту ошибку
                 catch (Exception Ex)
                 {
                     MessageBox.Show(
@@ -88,11 +101,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
                 }
+                // Действие после удачного или неудачного выполнения работы кода
+                finally
+                {
+                    WorkerDelit = null;
+                    DeliteButton.IsEnabled = false;
+                    EditButton.IsEnabled = false;
+                }
             }
-        }
-        #endregion
-        #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
+            }
+            #endregion
+            #region SelectionChanged_MouseDoubleClick
+            private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
 
         }
