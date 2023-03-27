@@ -46,7 +46,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
             WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem;
-
             if (WorkerDelit == null)
             {
                 MessageBox.Show(
@@ -59,35 +58,37 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 try
                 {
-                    var WorkerInfo = AppConnectClass.DataBase.PassportTable.FirstOrDefault(data => data.Series_Passport == WorkerDelit.SeriesPassport_Worker && data.Number_Passport == WorkerDelit.NumberPassport_Worker);
+                    if (MessageBox.Show("Вы действительно хотите удалить: " + WorkerDelit.PassportTable.Surname_Passport.ToString() + " " + WorkerDelit.PassportTable.Name_Passport.ToString() + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport;
+                        string NameWorker = WorkerDelit.PassportTable.Name_Passport;
 
-                if (MessageBox.Show("Вы действительно хотите удалить: " + WorkerInfo.Surname_Passport.ToString() + " " + WorkerInfo.Name_Passport.ToString() + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
-                    AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
-                    AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
-                    AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
-                    AppConnectClass.DataBase.PassportTable.Remove(WorkerInfo);
-                    AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
-                    AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
+                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
+                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
+                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
 
-                    AppConnectClass.DataBase.SaveChanges();
-                    MessageBox.Show(
-                        "Сотрудник " + WorkerInfo.Surname_Passport.ToString() + " " + WorkerInfo.Name_Passport.ToString() + " удалён",
-                        "Удаление",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Information);
+                        AppConnectClass.DataBase.SaveChanges();
+
+                        MessageBox.Show(
+                            "Сотрудник " + SurnameWorker + " " + NameWorker + " удалён",
+                            "Удаление",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information);
+                    }
                 }
-            }
                 catch (Exception Ex)
                 {
-                MessageBox.Show(
-                        Ex.Message.ToString(),
-                        "Ошибка - E003",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
+                    MessageBox.Show(
+                            Ex.Message.ToString(),
+                            "Ошибка - E003",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
+                }
             }
-        }
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
