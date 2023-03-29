@@ -182,7 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+        <Association Name="FK_WorkerTabe_PlaceResidenceTable1">
           <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -276,7 +276,7 @@
             <End Role="PassportTable" EntitySet="PassportTable" />
             <End Role="WorkerTabe" EntitySet="WorkerTabe" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="Self.FK_WorkerTabe_PlaceResidenceTable">
+          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable1" Association="Self.FK_WorkerTabe_PlaceResidenceTable1">
             <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
             <End Role="WorkerTabe" EntitySet="WorkerTabe" />
           </AssociationSet>
@@ -329,7 +329,7 @@
             <End Role="PassportTable" EntitySet="PassportTable" />
             <End Role="WorkerTabe" EntitySet="WorkerTabe" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable">
+          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable1" Association="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable1">
             <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
             <End Role="WorkerTabe" EntitySet="WorkerTabe" />
           </AssociationSet>
@@ -413,7 +413,7 @@
           <Property Name="Street_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="House_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Flat_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" FromRole="PlaceResidenceTable" ToRole="WorkerTabe" />
+          <NavigationProperty Name="WorkerTabe" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable1" FromRole="PlaceResidenceTable" ToRole="WorkerTabe" />
         </EntityType>
         <EntityType Name="RoleTable">
           <Key>
@@ -483,7 +483,7 @@
           <NavigationProperty Name="INNTable" Relationship="DesctopHiteModel.FK_WorkerTabe_INNWorkerTable" FromRole="WorkerTabe" ToRole="INNTable" />
           <NavigationProperty Name="MedicalBookTable" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="WorkerTabe" ToRole="MedicalBookTable" />
           <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PassportTable" FromRole="WorkerTabe" ToRole="PassportTable" />
-          <NavigationProperty Name="PlaceResidenceTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" FromRole="WorkerTabe" ToRole="PlaceResidenceTable" />
+          <NavigationProperty Name="PlaceResidenceTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable1" FromRole="WorkerTabe" ToRole="PlaceResidenceTable" />
           <NavigationProperty Name="RoleTable" Relationship="DesctopHiteModel.FK_WorkerTabe_RoleTable" FromRole="WorkerTabe" ToRole="RoleTable" />
           <NavigationProperty Name="SalaryCardTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" FromRole="WorkerTabe" ToRole="SalaryCardTable" />
           <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTabe" ToRole="SnilsTable" />
@@ -545,7 +545,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+        <Association Name="FK_WorkerTabe_PlaceResidenceTable1">
           <End Type="DesctopHiteModel.PlaceResidenceTable" Role="PlaceResidenceTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>

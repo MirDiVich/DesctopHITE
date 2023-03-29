@@ -45,7 +45,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            var WorkerDelit = ListWorkerListBox.SelectedItem as WorkerTabe; // Получаем выбранного сотрудника
+            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
+
             if (WorkerDelit == null)
             {
                 // Перед удалением проверяем, что сотрудник выбран
@@ -64,6 +65,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     {
                         string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport; // Получаем Фамилия для уведомления
                         string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
+
 
                         // Выполняем удаление
                         AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
@@ -109,10 +111,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     EditButton.IsEnabled = false;
                 }
             }
-            }
-            #endregion
-            #region SelectionChanged_MouseDoubleClick
-            private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
+        }
+        #endregion
+        #region SelectionChanged_MouseDoubleClick
+        private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
 
         }
