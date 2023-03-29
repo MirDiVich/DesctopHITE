@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Data.Entity;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
-using System.ComponentModel;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -32,6 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
             WorkerTabe WorkerEdit = (WorkerTabe)ListWorkerListBox.SelectedItem;
+
             if (WorkerEdit == null)
             {
                 MessageBox.Show(
@@ -48,7 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
+            var WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
 
             if (WorkerDelit == null)
             {
@@ -70,13 +71,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
 
                         // Выполняем удаление
-                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
-                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
-                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
-                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
-                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
-                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
                         AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
+                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
+                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
+                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
 
                         // Сохраняем изменения
                         AppConnectClass.DataBase.SaveChanges();
