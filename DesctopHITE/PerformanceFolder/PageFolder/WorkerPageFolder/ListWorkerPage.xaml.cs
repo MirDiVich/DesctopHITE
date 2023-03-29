@@ -15,7 +15,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         public ListWorkerPage()
         {
             InitializeComponent();
-            AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -24,6 +23,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
 
+                AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
                 ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
                 ListWorkerListBox.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListBox" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
             }
@@ -70,13 +70,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
 
                         // Выполняем удаление
-                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
+                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
                         AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
                         AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
-                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
-                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
-                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
-                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
 
                         // Сохраняем изменения
                         AppConnectClass.DataBase.SaveChanges();
