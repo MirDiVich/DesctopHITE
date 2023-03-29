@@ -6,6 +6,7 @@ using System.Windows.Input;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
+using System.ComponentModel;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -15,7 +16,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             InitializeComponent();
             AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
-            ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -23,6 +23,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
+                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
+                ListWorkerListBox.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListBox" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
             }
         }
         #region Click
@@ -65,7 +67,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     {
                         string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport; // Получаем Фамилия для уведомления
                         string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
-
 
                         // Выполняем удаление
                         AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
