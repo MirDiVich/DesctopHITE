@@ -12,6 +12,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class ListWorkerPage : Page
     {
+        WorkerTabe DataContextWorker;
         public ListWorkerPage()
         {
             InitializeComponent();
@@ -31,9 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         #region Click
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            WorkerTabe WorkerEdit = (WorkerTabe)ListWorkerListView.SelectedItem;
-
-            if (WorkerEdit == null)
+            if (DataContextWorker == null)
             {
                 MessageBox.Show(
                     "Сотрудник не выбран", "Ошибка - E001",
@@ -41,15 +40,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             else
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(WorkerEdit));
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(DataContextWorker));
             }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListView.SelectedItem; // Получаем выбранного сотрудника
-
-            if (WorkerDelit == null)
+            DeliteWorkerMethod();
+        }
+        #endregion
+        #region Действие
+        private void DeliteWorkerMethod()
+        {
+            if (DataContextWorker == null)
             {
                 // Перед удалением проверяем, что сотрудник выбран
                 MessageBox.Show(
@@ -60,7 +63,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 try // помешаем рабочий код в "безопасную каробку"
                 {
-                    string SurnameNameWorker = WorkerDelit.PassportTable.Surname_Passport + " " + WorkerDelit.PassportTable.Name_Passport; ; // Получаем Фамилия и Имя для уведомления
+                    string SurnameNameWorker = DataContextWorker.PassportTable.Surname_Passport + " " + DataContextWorker.PassportTable.Name_Passport; ; // Получаем Фамилия и Имя для уведомления
 
                     // Если пользователь подтверждает удаление сотрудника
                     string MessageTitle = "Вы действительно хотите удалить: " + SurnameNameWorker + " ?";
@@ -69,13 +72,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         // Выполняем удаление
-                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
-                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
-                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
-                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
-                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
-                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
-                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
+                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(DataContextWorker.PlaceResidenceTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(DataContextWorker.MedicalBookTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(DataContextWorker.SalaryCardTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(DataContextWorker.PassportTable);
+                        AppConnectClass.DataBase.SnilsTable.Remove(DataContextWorker.SnilsTable);
+                        AppConnectClass.DataBase.INNTable.Remove(DataContextWorker.INNTable);
+                        AppConnectClass.DataBase.WorkerTabe.Remove(DataContextWorker);
 
                         // Сохраняем изменения
                         AppConnectClass.DataBase.SaveChanges();
@@ -100,7 +103,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     // Обновляем содержимое ListBox
                     ListWorkerListView.Items.Refresh();
 
-                    WorkerDelit = null;
+                    DataContextWorker = null;
                     DeliteButton.IsEnabled = false;
                     EditButton.IsEnabled = false;
                 }
@@ -114,6 +117,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
+            DataContextWorker = (WorkerTabe)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }

@@ -96,62 +96,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="10" Background="#2a2a2a" BorderBrush="Transparent" BorderThickness="0">
-                        <Border.Effect>
-                            <DropShadowEffect 
-                Direction="315"
-                Color="{DynamicResource ShadowColor}"
-                BlurRadius="5"
-                ShadowDepth="2"
-                Opacity="0.5"
-                RenderingBias="Performance"/>
-                        </Border.Effect>
-                        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Margin="0 0 0 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Grid>
-                                    <Border 
-                        VerticalAlignment="Top"
-                        x:Name="MaskMorderBorder" 
-                        Style="{StaticResource MaskBorder}"/>
-                                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-                                        <StackPanel.OpacityMask>
-                                            <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
-                                        </StackPanel.OpacityMask>
-                                        <Image 
-                            Height="145"
-                            Width="145"
-                            Stretch="Uniform"
-                            Opacity="1"
-                            x:Name="UserImage" 
-                            Source="{Binding PassportTable.Image_Passport}"/>
-                                    </StackPanel>
-                                </Grid>
-                                <StackPanel Margin="0 10 0 2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock
-                        TextAlignment="Center"
-                        FontSize="15"
-                        Margin="0"
-                        Style="{DynamicResource MainStyleTextBlock}">
-                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text="{Binding PassportTable.Surname_Passport}" Margin="0 0 2 0"/>
-                                <TextBlock Text="{Binding PassportTable.Name_Passport}" Margin="2 0 2 0"/>
-                            </StackPanel>
-                            <TextBlock Text="{Binding PassportTable.Middlename_Passport}" Margin="2 0 0 0"/>
-                        </StackPanel>
-                    </TextBlock>
-                                </StackPanel>
-                                <StackPanel Margin="0 2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock 
-                        x:Name="StatusTextBlock"
-                        Foreground="#9a9a9a"
-                        FontSize="12"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        Text="{Binding StatusTable.Title_Status}"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
+                    <UserControl:ListWorkerControl/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
