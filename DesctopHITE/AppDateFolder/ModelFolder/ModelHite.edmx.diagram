@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c788544bc7834d64b2cfcf738e59bfab" Name="Diagram1">
-        <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DesctopHiteModel.WorkerTabe" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="DesctopHiteModel.FK_PassportTable_GenderTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_INNWorkerTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_PassportTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable1" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_RoleTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_SnilsTable" ManuallyRouted="false" />
-        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_StatusTable" ManuallyRouted="false" />
+      <Diagram DiagramId="c788544bc7834d64b2cfcf738e59bfab" Name="Diagram1" ZoomLevel="132">
+        <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="21.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="19.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="13.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.WorkerTabe" Width="1.5" PointX="5.25" PointY="1.125" />
+        <AssociationConnector Association="DesctopHiteModel.FK_PassportTable_GenderTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_INNTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_PassportTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_RoleTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_SnilsTable" />
+        <AssociationConnector Association="DesctopHiteModel.FK_WorkerTabe_StatusTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

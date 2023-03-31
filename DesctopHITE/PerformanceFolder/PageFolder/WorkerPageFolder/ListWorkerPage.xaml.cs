@@ -15,6 +15,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         public ListWorkerPage()
         {
             InitializeComponent();
+            AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -23,7 +24,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
 
-                AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
                 ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
                 ListWorkerListBox.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListBox" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
             }
@@ -36,10 +36,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (WorkerEdit == null)
             {
                 MessageBox.Show(
-                    "Сотрудник не выбран",
-                    "Ошибка - E001",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Сотрудник не выбран", "Ошибка - E001",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -49,45 +47,44 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            var WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
+            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
 
             if (WorkerDelit == null)
             {
                 // Перед удалением проверяем, что сотрудник выбран
                 MessageBox.Show(
-                    "Сотрудник не выбран",
-                    "Ошибка - E002",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Сотрудник не выбран", "Ошибка - E002",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
                 try // помешаем рабочий код в "безопасную каробку"
                 {
-                    // Если пользователь подтверждает удаление сотрудника
-                    if (MessageBox.Show("Вы действительно хотите удалить: " + WorkerDelit.PassportTable.Surname_Passport.ToString() + " " + WorkerDelit.PassportTable.Name_Passport.ToString() + "?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                    {
-                        string SurnameWorker = WorkerDelit.PassportTable.Surname_Passport; // Получаем Фамилия для уведомления
-                        string NameWorker = WorkerDelit.PassportTable.Name_Passport; // Получаем Имя для уведомления
+                    string SurnameNameWorker = WorkerDelit.PassportTable.Surname_Passport + " " + WorkerDelit.PassportTable.Name_Passport; ; // Получаем Фамилия и Имя для уведомления
 
+                    // Если пользователь подтверждает удаление сотрудника
+                    string MessageTitle = "Вы действительно хотите удалить: " + SurnameNameWorker + " ?";
+                    if (MessageBox.Show(
+                        MessageTitle, "Удаление",
+                        MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
                         // Выполняем удаление
-                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
-                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
-                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
-                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
-                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
-                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
                         AppConnectClass.DataBase.PlaceResidenceTable.Remove(WorkerDelit.PlaceResidenceTable);
+                        AppConnectClass.DataBase.MedicalBookTable.Remove(WorkerDelit.MedicalBookTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Remove(WorkerDelit.SalaryCardTable);
+                        AppConnectClass.DataBase.PassportTable.Remove(WorkerDelit.PassportTable);
+                        AppConnectClass.DataBase.SnilsTable.Remove(WorkerDelit.SnilsTable);
+                        AppConnectClass.DataBase.INNTable.Remove(WorkerDelit.INNTable);
+                        AppConnectClass.DataBase.WorkerTabe.Remove(WorkerDelit);
 
                         // Сохраняем изменения
                         AppConnectClass.DataBase.SaveChanges();
 
                         // Выводим уведомление с переменными выше
+                        string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
                         MessageBox.Show(
-                            "Сотрудник " + SurnameWorker + " " + NameWorker + " удалён",
-                            "Удаление",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Information);
+                            MessageTitleDelit, "Удаление",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     // Если пользователь отменил действие "Удалить"
                     else
@@ -97,14 +94,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         EditButton.IsEnabled = false;
                     }
                 }
-                // Если произошла ошибка в коде сверху, обрабатываем эту ошибку
+                //Если произошла ошибка в коде сверху, обрабатываем эту ошибку
                 catch (Exception Ex)
                 {
                     MessageBox.Show(
-                            Ex.Message.ToString(),
-                            "Ошибка - E003",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
+                        Ex.Message.ToString(), "Ошибка - E003",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 // Действие после удачного или неудачного выполнения работы кода
                 finally
@@ -152,10 +147,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "Ошибка поиска - E001",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message.ToString(), "Ошибка поиска - E001",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
