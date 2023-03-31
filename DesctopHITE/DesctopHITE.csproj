@@ -192,53 +192,53 @@
   <ItemGroup>
     <Compile Include="AppDateFolder\ClassFolder\AppConnectClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
-    <Compile Include="AppDateFolder\ModelFolder\DesktopHiteModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DesktopHiteModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\DesktopHiteModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\DesktopHiteModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DesktopHiteModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\INNTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\MedicalBookTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ModelHite.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHite.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ModelHite.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ModelHite.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHite.edmx</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PassportTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PlaceResidenceTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\RoleTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\SalaryCardTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\SnilsTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\StatusTable.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\sysdiagrams.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTabe.cs">
-      <DependentUpon>DesktopHiteModel.tt</DependentUpon>
+      <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">
       <DependentUpon>MenuSettingsPage.xaml</DependentUpon>
@@ -304,12 +304,12 @@
     </EmbeddedResource>
     <Resource Include="ContentFolder\FontFolder\Material-Design-Iconic-Font.ttf" />
     <Resource Include="ContentFolder\FontFolder\segmdl2.ttf" />
-    <EntityDeploy Include="AppDateFolder\ModelFolder\DesktopHiteModel.edmx">
+    <EntityDeploy Include="AppDateFolder\ModelFolder\ModelHite.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DesktopHiteModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelHite.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AppDateFolder\ModelFolder\DesktopHiteModel.edmx.diagram">
-      <DependentUpon>DesktopHiteModel.edmx</DependentUpon>
+    <None Include="AppDateFolder\ModelFolder\ModelHite.edmx.diagram">
+      <DependentUpon>ModelHite.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -338,15 +338,15 @@
     <Resource Include="ContentFolder\ImageFolder\NoImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppDateFolder\ModelFolder\DesktopHiteModel.Context.tt">
+    <Content Include="AppDateFolder\ModelFolder\ModelHite.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DesktopHiteModel.Context.cs</LastGenOutput>
-      <DependentUpon>DesktopHiteModel.edmx</DependentUpon>
+      <DependentUpon>ModelHite.edmx</DependentUpon>
+      <LastGenOutput>ModelHite.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="AppDateFolder\ModelFolder\DesktopHiteModel.tt">
+    <Content Include="AppDateFolder\ModelFolder\ModelHite.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DesktopHiteModel.edmx</DependentUpon>
-      <LastGenOutput>DesktopHiteModel.cs</LastGenOutput>
+      <DependentUpon>ModelHite.edmx</DependentUpon>
+      <LastGenOutput>ModelHite.cs</LastGenOutput>
     </Content>
     <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
   </ItemGroup>
