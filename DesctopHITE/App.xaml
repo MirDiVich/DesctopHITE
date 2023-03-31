@@ -20,7 +20,7 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ImageDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ScrollViewerDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ComboBoxDictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ListBoxDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ListViewDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

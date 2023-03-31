@@ -92,7 +92,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppDateFolder\StyleFolder\ListBoxDictionary.xaml">
+    <Page Include="AppDateFolder\StyleFolder\ListViewDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

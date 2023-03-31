@@ -15,7 +15,6 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             InitializeComponent();
             AppConnectClass.DataBase = new DesctopHiteEntities();
         }
-
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)

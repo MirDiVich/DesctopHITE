@@ -1,12 +1,12 @@
-﻿using System.Linq;
-using System.Data.Entity;
+﻿using System;
 using System.ComponentModel;
+using System.Data.Entity;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using System;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -24,14 +24,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
 
-                ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList(); // Вывел в ListWorkerListBox объекты из WorkerTabe в виде листа
-                ListWorkerListBox.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListBox" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
+                ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
             }
         }
         #region Click
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            WorkerTabe WorkerEdit = (WorkerTabe)ListWorkerListBox.SelectedItem;
+            WorkerTabe WorkerEdit = (WorkerTabe)ListWorkerListView.SelectedItem;
 
             if (WorkerEdit == null)
             {
@@ -47,7 +47,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListBox.SelectedItem; // Получаем выбранного сотрудника
+            WorkerTabe WorkerDelit = (WorkerTabe)ListWorkerListView.SelectedItem; // Получаем выбранного сотрудника
 
             if (WorkerDelit == null)
             {
@@ -86,13 +86,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             MessageTitleDelit, "Удаление",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                    // Если пользователь отменил действие "Удалить"
-                    else
-                    {
-                        WorkerDelit = null;
-                        DeliteButton.IsEnabled = false;
-                        EditButton.IsEnabled = false;
-                    }
                 }
                 //Если произошла ошибка в коде сверху, обрабатываем эту ошибку
                 catch (Exception Ex)
@@ -104,6 +97,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 // Действие после удачного или неудачного выполнения работы кода
                 finally
                 {
+                    // Обновляем содержимое ListBox
+                    ListWorkerListView.Items.Refresh();
+
                     WorkerDelit = null;
                     DeliteButton.IsEnabled = false;
                     EditButton.IsEnabled = false;
@@ -112,11 +108,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
+        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
 
         }
-        private void ListWorkerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListBox
+        private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
@@ -128,7 +124,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (SearchTextBox.Text == "") // Если SearchTextBox пустой
                 {
                     HintSearchTextBlock.Visibility = Visibility.Visible;
-                    ListWorkerListBox.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
                 }
                 else // Если же в SearchTextBox есть что-то то:
                 {
@@ -141,7 +137,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
                         worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
 
-                    ListWorkerListBox.ItemsSource = SearchResults.ToList();
+                    ListWorkerListView.ItemsSource = SearchResults.ToList();
                 }
             }
             catch (Exception ex)
