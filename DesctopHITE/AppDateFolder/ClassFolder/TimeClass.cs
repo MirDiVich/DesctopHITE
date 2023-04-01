@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
-    public  partial class TimeClass
+    public partial class TimeClass
     {
         DateTime ToDay = DateTime.Now;
         public string WhatTimeIsIt
