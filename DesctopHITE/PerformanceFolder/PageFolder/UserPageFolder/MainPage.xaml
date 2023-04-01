@@ -5,9 +5,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MainUserPageStyle}">
     <Grid>
         <TextBlock
+            x:Name="ttt"
             Text="Пока что не готово"
             Style="{DynamicResource MainStyleTextBlock}"/>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesctopHITE.AppDateFolder.ClassFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
-        DateTime ToDayDate = DateTime.Today;
+        public static TimeClass GetTimeClass = new TimeClass();
         public MainPage()
         {
             InitializeComponent();
@@ -28,5 +29,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 
         }
         #endregion
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                string ToDayDate = GetTimeClass.WhatTimeIsIt + " " + GetTimeClass.WhatDayIsIt;
+                ttt.Text = ToDayDate;
+            }
+        }
     }
 }
