@@ -85,7 +85,7 @@
             x:Name="ListWorkerListView"
             Margin="0"
             ItemContainerStyle="{StaticResource ListViewItemSelected}">
-            <ListView.ItemsPanel>
+            <ListView.ItemsPanel> 
                 <ItemsPanelTemplate>
                     <WrapPanel 
                         IsItemsHost="True" 

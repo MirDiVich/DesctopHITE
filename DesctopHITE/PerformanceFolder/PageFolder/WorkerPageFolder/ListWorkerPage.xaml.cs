@@ -63,7 +63,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 try // помешаем рабочий код в "безопасную каробку"
                 {
-                    string SurnameNameWorker = DataContextWorker.PassportTable.Surname_Passport + " " + DataContextWorker.PassportTable.Name_Passport; ; // Получаем Фамилия и Имя для уведомления
+                    string SurnameNameWorker = DataContextWorker.PassportTable.Surname_Passport + " " + DataContextWorker.PassportTable.Name_Passport; // Получаем Фамилия и Имя для уведомления
 
                     // Если пользователь подтверждает удаление сотрудника
                     string MessageTitle = "Вы действительно хотите удалить: " + SurnameNameWorker + " ?";
