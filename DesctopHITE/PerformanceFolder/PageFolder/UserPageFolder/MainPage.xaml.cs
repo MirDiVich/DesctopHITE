@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             InitializeComponent();
         }
         #region Действие
-        private void timer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
             NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
@@ -42,7 +42,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             if (Visibility == Visibility.Visible)
             {
                 GetTimer = new DispatcherTimer(); // Присваиваем переменной DispatcherTimer
-                GetTimer.Tick += new EventHandler(timer_Tick); // Создаём событие обновления
+                GetTimer.Tick += new EventHandler(GetTimer_Tick); // Создаём событие обновления
                 GetTimer.Interval = TimeSpan.FromSeconds(1); // Говорим, через какой промежуток времени обновляться
                 GetTimer.Start(); // Запускаем DispatcherTimer
             }
