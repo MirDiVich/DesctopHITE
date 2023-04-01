@@ -20,7 +20,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
     public partial class MainPage : Page
     {
         public static TimeClass GetTimeClass = new TimeClass();
-        private DispatcherTimer GetTimer;
+        DispatcherTimer GetTimer;
         public MainPage()
         {
             InitializeComponent();
@@ -32,7 +32,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss.fff");
+            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
+            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
+            NowDayTextBlock.Text = DateTime.Now.ToString("dd MMMM" + ("(MM) ") + "yyyy");
+            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString();
+            if (GetTimeClass.WhatDayIsIt == "Сегодня нет праздников")
+            {
+                NowHolidayTextBlock.FontSize = 20;
+                NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
+            }
         }
         #endregion
 
@@ -42,7 +50,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             {
                 GetTimer = new DispatcherTimer();
                 GetTimer.Tick += new EventHandler(timer_Tick);
-                GetTimer.Interval = new TimeSpan.FromSeconds(0.1);
+                GetTimer.Interval = TimeSpan.FromSeconds(1);
                 GetTimer.Start();
             }
             else

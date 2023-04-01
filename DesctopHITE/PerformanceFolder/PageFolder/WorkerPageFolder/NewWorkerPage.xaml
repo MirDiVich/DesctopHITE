@@ -51,7 +51,7 @@
         </StackPanel>
         <ScrollViewer Grid.Column="1">
             <StackPanel x:Name="MainStackPanel" Margin="0 10 0 20" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Border x:Name="PassportBorder" Style="{DynamicResource BorderInformationWorker}" Margin="0 0 0 10">
+                <Border x:Name="PassportBorder" Style="{DynamicResource BorderInformation}" Margin="0 0 0 10">
                     <StackPanel Margin="10">
                         <TextBlock
                             Foreground="#462AD8"
@@ -390,7 +390,7 @@
                         </Grid>
                     </StackPanel>
                 </Border>
-                <Border x:Name="PlaceResidenceBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="PlaceResidenceBorder" Style="{DynamicResource BorderInformation}">
                     <Grid Margin="10">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <TextBlock
@@ -582,7 +582,7 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -768,7 +768,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="SnilsBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="SnilsBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -832,7 +832,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="INNBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="INNBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -948,7 +948,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border x:Name="SalaryCardBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border x:Name="SalaryCardBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Margin="10" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -1122,7 +1122,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Border Margin="0 10 0 20" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformationWorker}">
+                <Border Margin="0 10 0 20" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
                         <TextBlock
                             Foreground="#462AD8"
