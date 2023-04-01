@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
-    internal class TimeClass
+    public  partial class TimeClass
     {
+        DateTime ToDay = DateTime.Now;
+        public string WhatTimeIsIt
+        {
+            get
+            {
+                string TitleToDay = "Не определенно";
+
+                if (ToDay.Hour >= 6 && ToDay.Hour < 12)
+                {
+                    TitleToDay = "Доброе утро!";
+                }
+
+                return TitleToDay;
+            }
+        }
     }
 }
