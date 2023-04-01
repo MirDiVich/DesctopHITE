@@ -13,12 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
         public static TimeClass GetTimeClass = new TimeClass();
+        private DispatcherTimer GetTimer;
         public MainPage()
         {
             InitializeComponent();
@@ -28,14 +30,24 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
 
         }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss.fff");
+        }
         #endregion
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                string ToDayDate = GetTimeClass.WhatTimeIsIt + " " + GetTimeClass.WhatDayIsIt;
-                ttt.Text = ToDayDate;
+                GetTimer = new DispatcherTimer();
+                GetTimer.Tick += new EventHandler(timer_Tick);
+                GetTimer.Interval = new TimeSpan.FromSeconds(0.1);
+                GetTimer.Start();
+            }
+            else
+            {
+                GetTimer.Stop();
             }
         }
     }

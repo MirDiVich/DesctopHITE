@@ -1,8 +1,8 @@
-﻿//----------------------------------------------------------------------------------------------------------
-// В данном классе идёт работа с системной датой и временем
-// В зависимости от даты или времени, в переменные засовывается определённый текст.
-// Переменные в последствии вызываются
-//----------------------------------------------------------------------------------------------------------
+﻿///----------------------------------------------------------------------------------------------------------
+/// В данном классе идёт работа с системной датой и временем
+/// В зависимости от даты или времени, в переменные засовывается определённый текст.
+/// Переменные в последствии вызываются
+///----------------------------------------------------------------------------------------------------------
 
 using System;
 
@@ -15,25 +15,23 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         {
             get
             {
-                string TitleNowHour = "Не определенно";
-
-                if (ToDay.Hour >= 6 && ToDay.Hour < 12)
-                {
-                    TitleNowHour = "Доброе утро!";
-                }
-                else if (ToDay.Hour >= 12 && DateTime.Now.Hour < 18)
-                {
-                    TitleNowHour = "Доброе день!";
-                }
-                else if (ToDay.Hour >= 18 && DateTime.Now.Hour < 23)
-                {
-                    TitleNowHour = "Доброе вечер!";
-                }
-                else if (ToDay.Hour >= 12 && DateTime.Now.Hour < 6)
+                string TitleNowHour = "Время не определенно";
+                if (ToDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
                     TitleNowHour = "Доброй ночи";
                 }
-
+                else if (ToDay.Hour >= 6 && ToDay.Hour <= 11)
+                {
+                    TitleNowHour = "Доброе утро!";
+                }
+                else if (ToDay.Hour >= 12 && DateTime.Now.Hour <=17)
+                {
+                    TitleNowHour = "Доброе день!";
+                }
+                else if (ToDay.Hour >= 18 && DateTime.Now.Hour <= 23)
+                {
+                    TitleNowHour = "Доброе вечер!";
+                }
                 return TitleNowHour;
             }
         }
@@ -42,7 +40,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         {
             get
             {
-                string TitleNowDay = "Не определенно";
+                string TitleNowDay = "Сегодня нет праздников";
 
                 if ((ToDay.Day == 1 || ToDay.Day <= 6) && ToDay.Month == 1)
                 {

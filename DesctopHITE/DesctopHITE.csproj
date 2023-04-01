@@ -320,6 +320,7 @@
     <None Include="AppDateFolder\ModelFolder\ModelHite.edmx.diagram">
       <DependentUpon>ModelHite.edmx</DependentUpon>
     </None>
+    <Resource Include="ContentFolder\FontFolder\Dosis-VariableFont_wght.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

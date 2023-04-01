@@ -8,9 +8,12 @@
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MainUserPageStyle}">
     <Grid>
-        <TextBlock
-            x:Name="ttt"
-            Text="Пока что не готово"
-            Style="{DynamicResource MainStyleTextBlock}"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock
+                x:Name="NowTimeTextBlock"
+                Style="{DynamicResource MainStyleTextBlock}"
+                FontSize="60"
+                FontFamily="\ContentFolder\FontFolder\#Dosis ExtraLight"/>
+        </StackPanel>
     </Grid>
 </Page>
