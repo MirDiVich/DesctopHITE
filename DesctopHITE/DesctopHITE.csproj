@@ -197,6 +197,7 @@
   <ItemGroup>
     <Compile Include="AppDateFolder\ClassFolder\AppConnectClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
+    <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
       <DependentUpon>ModelHite.tt</DependentUpon>
     </Compile>
