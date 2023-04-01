@@ -1,18 +1,14 @@
-﻿using DesctopHITE.AppDateFolder.ClassFolder;
+﻿///----------------------------------------------------------------------------------------------------------
+/// Данная страница является "главной" и открывается при авторизации пользователя.
+/// На странице реализовано то, что считается нужным быть на главной странице.
+/// Данная страница берёт некоторую информацию из класса TimeClass
+///----------------------------------------------------------------------------------------------------------
+
+using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
@@ -26,16 +22,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             InitializeComponent();
         }
         #region Действие
-        private void PartOfTheDay()
-        {
-
-        }
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
-            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
-            NowDayTextBlock.Text = DateTime.Now.ToString("dd MMMM" + ("(MM) ") + "yyyy");
-            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString();
+            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
+            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + ("(MM) ") + "yyyy"); // xx Month(xx) xxxx
+            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString(); // Показывает, какой сегодня праздник
+
             if (GetTimeClass.WhatDayIsIt == "Сегодня нет праздников")
             {
                 NowHolidayTextBlock.FontSize = 20;
@@ -48,14 +41,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             if (Visibility == Visibility.Visible)
             {
-                GetTimer = new DispatcherTimer();
-                GetTimer.Tick += new EventHandler(timer_Tick);
-                GetTimer.Interval = TimeSpan.FromSeconds(1);
-                GetTimer.Start();
+                GetTimer = new DispatcherTimer(); // Присваиваем переменной DispatcherTimer
+                GetTimer.Tick += new EventHandler(timer_Tick); // Создаём событие обновления
+                GetTimer.Interval = TimeSpan.FromSeconds(1); // Говорим, через какой промежуток времени обновляться
+                GetTimer.Start(); // Запускаем DispatcherTimer
             }
             else
             {
-                GetTimer.Stop();
+                GetTimer.Stop();  // Останавливаем DispatcherTimer
             }
         }
     }

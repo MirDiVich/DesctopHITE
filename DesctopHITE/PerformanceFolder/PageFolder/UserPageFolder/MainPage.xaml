@@ -27,7 +27,7 @@
                         Margin="0 2 0 5"
                         HorizontalAlignment="Center"
                         TextAlignment="Center"
-                        x:Name="NowDayTextBlock"
+                        x:Name="NowDateTextBlock"
                         Style="{DynamicResource MainStyleTextBlock}"
                         FontSize="30"/>
                     <TextBlock
