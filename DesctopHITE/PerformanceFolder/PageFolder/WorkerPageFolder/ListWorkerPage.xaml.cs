@@ -50,6 +50,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region Действие
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Использование неявного типа", Justification = "<Ожидание>")]
         private void DeliteWorkerMethod()
         {
             if (DataContextWorker == null)
@@ -134,7 +135,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.DataBase.WorkerTabe.Include(w => w.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
+                    var Objects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
 
                     var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
                         worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
