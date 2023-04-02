@@ -5,10 +5,14 @@
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
+using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -16,6 +20,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     {
         string MessageNullBox;
         int QuantityNoInputs = 0;
+        DispatcherTimer GetTimer;
+        private double СurrentRotationAngle = 0;
 
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
@@ -87,6 +93,20 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                // Свойства для Таймера
+                GetTimer = new DispatcherTimer();
+                GetTimer.Tick += new EventHandler(GetTimer_Tick);
+                GetTimer.Interval = TimeSpan.FromMilliseconds(30);
+            }
+            else
+            {
+                GetTimer.Stop();
+            }
+        }
         #region Click
 
         // Действие при нажатии на кнопку "Войти"
@@ -105,6 +125,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         }
         #endregion
         #region Метод
+        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        {
+            RotateTransform LoadingAnimation = new RotateTransform();
+            СurrentRotationAngle += 10; // Поворот на 10 градусов
+
+            if (СurrentRotationAngle >= 360)
+            {
+                СurrentRotationAngle = 0;
+            }
+
+            LoadingAnimation.Angle = СurrentRotationAngle;
+            LoadingSpinnerTextBlock.RenderTransformOrigin = new Point(0.5, 0.5);
+
+            LoadingSpinnerTextBlock.RenderTransform = LoadingAnimation;
+        }
         private void LoginUser() // Действие для авторизации пользователя
         {
             ErrorNullBox(); // Вызываем метод проверки текстовых полей на пустоту
@@ -135,14 +170,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) MessageNullBox += "Поле Login пустое\n";
             if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) MessageNullBox += "Поле Password пустое";
         }
-        private void DateUser() // Метод авторизации пользователя
+        private async void DateUser() // Метод авторизации пользователя
         {
             try
             {
+                // Запуск анимации загрузки
+                LoadingAppInformationTextTextBlock.Visibility = Visibility.Visible;
+                GetTimer.Start();
+
+                // Стринговые переменные, потому что без этого код не работает (всё из-за 2-го потока)
+                string ReceiveLogin = LoginUserTextBox.Text;
+                string ReceivePassword = PasswordUserPasswordBox.Password;
+
                 // Переменная, которая содержит в себе информацию о пользователе
-                var LogInUser = AppConnectClass.DataBase.WorkerTabe.FirstOrDefault(
-                    DataUser => DataUser.Login_Worker == LoginUserTextBox.Text &&
-                                DataUser.Password_Worker == PasswordUserPasswordBox.Password);
+                var LogInUser = await AppConnectClass.DataBase.WorkerTabe.FirstOrDefaultAsync(
+                    DataUser => DataUser.Login_Worker == ReceiveLogin && DataUser.Password_Worker == ReceivePassword);
 
                 // Если данные которые ввел пользователь, существуют в базе данных
                 if (LogInUser != null)
@@ -193,7 +235,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBox.Show(
                         MessageError, "Авторизация",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-
                     QuantityNoInputs++;
                 }
             }
@@ -207,6 +248,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageError, "Ошибка - E002",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                // Остановка анимации загрузки
+                LoadingAppInformationTextTextBlock.Visibility = Visibility.Collapsed;
+                GetTimer.Stop();
+            }
+          
         }
         #endregion
         #region Показать\Скрыть пароль
