@@ -16,6 +16,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     {
         string MessageNullBox;
         int QuantityNoInputs = 0;
+
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
         {
