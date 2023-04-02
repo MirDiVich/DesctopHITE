@@ -66,6 +66,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBox.Show(
                         "То, что вы ввели, не совпадает с Капчей", "Капча",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CaptchaTextBox.Text = "";
                     RandomGeneratedCaptcha();
                     GetStyleCaptcha();
                 }

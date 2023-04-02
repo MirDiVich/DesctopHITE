@@ -113,6 +113,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 CaptchaWindow captchaWindow = new CaptchaWindow();
                 captchaWindow.ShowDialog();
+                QuantityNoInputs = 0;
             }
             else
             {
