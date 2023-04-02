@@ -35,6 +35,7 @@
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid Margin="0 0 0 20">
                         <TextBlock
+                            FontFamily="Times New Roman"
                             x:Name="TextCaptchaTextBlock"
                             Style="{DynamicResource MainStyleTextBlock}"/>
                         <Image
@@ -96,6 +97,7 @@
                             x:Name="NewCaptchaButton"
                             Click="NewCaptchaButton_Click"
                             Width="190"
+                            Style="{DynamicResource OtherButtonStyle}"
                             Height="40">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock

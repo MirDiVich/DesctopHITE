@@ -41,14 +41,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             if (Visibility == Visibility.Visible)
             {
-                GetTimer = new DispatcherTimer(); // Присваиваем переменной DispatcherTimer
-                GetTimer.Tick += new EventHandler(GetTimer_Tick); // Создаём событие обновления
-                GetTimer.Interval = TimeSpan.FromSeconds(1); // Говорим, через какой промежуток времени обновляться
-                GetTimer.Start(); // Запускаем DispatcherTimer
+                // Свойства для Таймера
+                GetTimer = new DispatcherTimer();
+                GetTimer.Tick += new EventHandler(GetTimer_Tick);
+                GetTimer.Interval = TimeSpan.FromSeconds(1);
+                GetTimer.Start();
             }
             else
             {
-                GetTimer.Stop();  // Останавливаем DispatcherTimer
+                GetTimer.Stop();
             }
         }
     }

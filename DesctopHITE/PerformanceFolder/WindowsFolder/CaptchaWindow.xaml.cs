@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -18,6 +19,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     {
         string GetCaptchaText;
         string MessageNullBox;
+        DispatcherTimer GetTimer;
 
         public CaptchaWindow()
         {
@@ -29,7 +31,23 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 RandomGeneratedCaptcha();
                 GetStyleCaptcha();
+
+                // Свойства для Таймера
+                GetTimer = new DispatcherTimer(); 
+                GetTimer.Tick += new EventHandler(GetTimer_Tick); 
+                GetTimer.Interval = TimeSpan.FromSeconds(5); 
+                GetTimer.Stop();
             }
+            else
+            {
+                NewCaptchaButton.IsEnabled = true;
+                GetTimer.Stop();
+            }
+        }
+        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        {
+            NewCaptchaButton.IsEnabled = true;
+            GetTimer.Stop();
         }
         #region Метод
         private void ErrorNullBox() // Метод проверки текстового поля на пустоту
@@ -104,12 +122,18 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         #region Click
         private void NewCaptchaButton_Click(object sender, RoutedEventArgs e) // Сгенерировать новую капчу
         {
+            // Вызов методов
             RandomGeneratedCaptcha();
             GetStyleCaptcha();
+
+            // Отключение кнопки, чтоб пользователь не "спамил"
+            NewCaptchaButton.IsEnabled = false; 
+            GetTimer.Start();
         }
 
         private void EnterCaptchaButton_Click(object sender, RoutedEventArgs e) // Нажатие кнопка "ПРОДОЛЖИТЬ"
         {
+            // Вызов методов
             GetEnter();
         }
 
@@ -117,6 +141,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             if (e.Key == Key.Enter)
             {
+                // Вызов методов
                 GetEnter();
             }
         }
