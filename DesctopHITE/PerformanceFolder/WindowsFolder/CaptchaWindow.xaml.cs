@@ -5,6 +5,7 @@
 /// Свойство текста капчи - другой метод
 ///----------------------------------------------------------------------------------------------------------
 
+using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
 using System.Linq;
 using System.Windows;
@@ -85,49 +86,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         }
         private void GetStyleCaptcha() // Метод для рандомного свойства Text Captcha 
         {
-            Random RandomStyle = new Random();
-
-            // генерация рандомной амплитуды и частоты волны
-            double AmplitudeText = RandomStyle.Next(-20, 20); // амплитуда
-            double FrequencyText = RandomStyle.Next(-40, -40); // частота
-
-            // генерация рандомного угла наклона
-            double RotationText = RandomStyle.Next(-15, 15);
-
-            // Получаем рандомный цвет
-            Color RandomRgbColor = Color.FromRgb((byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256));
-            SolidColorBrush ColorText = new SolidColorBrush(RandomRgbColor);
-
-            // Получаем рандомную прозрачность
-            double OpacityText = RandomStyle.NextDouble() * (0.7 - 0.3) + 0.3;
-
-            // Выставляем "жирность текста" в зависимости от случайного числа
-            FontWeight[] GetFontWeights =
-                  { FontWeights.Black,
-                    FontWeights.Bold,
-                    FontWeights.DemiBold,
-                    FontWeights.ExtraBlack,
-                    FontWeights.ExtraBold,
-                    FontWeights.ExtraLight,
-                    FontWeights.Heavy,
-                    FontWeights.Light,
-                    FontWeights.Medium,
-                    FontWeights.Normal,
-                    FontWeights.Regular,
-                    FontWeights.SemiBold,
-                    FontWeights.Thin,
-                    FontWeights.UltraBlack,
-                    FontWeights.UltraBold,
-                    FontWeights.UltraLight };
-            int RandomFontWeight = RandomStyle.Next(0, GetFontWeights.Length);
-
             // Присвоение рандомных свойств TextCaptchaTextBlock
-            TextCaptchaTextBlock.Opacity = OpacityText;
-            TextCaptchaTextBlock.Foreground = ColorText;
-            TextCaptchaTextBlock.FontSize = RandomStyle.Next(20, 32);
-            TextCaptchaTextBlock.RenderTransform = new RotateTransform(RotationText);
-            TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / FrequencyText) * AmplitudeText);
-            TextCaptchaTextBlock.FontWeight = GetFontWeights[RandomFontWeight];
+            var StyleText = CaptchaClass.GetStyle(); // Обращение к классу
+
+            TextCaptchaTextBlock.Opacity = StyleText.OpacityText;
+            TextCaptchaTextBlock.Foreground = StyleText.ColorText;
+            TextCaptchaTextBlock.FontSize = StyleText.FontSizeText;
+            TextCaptchaTextBlock.RenderTransform = new RotateTransform(StyleText.RotationText);
+            TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / StyleText.FrequencyText) * StyleText.AmplitudeText);
+            TextCaptchaTextBlock.FontWeight = StyleText.FontWeightText;
         }
         #endregion
         #region Click

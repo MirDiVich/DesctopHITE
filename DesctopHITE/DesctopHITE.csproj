@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDateFolder\ClassFolder\AppConnectClass.cs" />
+    <Compile Include="AppDateFolder\ClassFolder\CaptchaClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
