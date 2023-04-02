@@ -48,27 +48,6 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
-                <TextBlock
-                    Visibility="Collapsed"
-                    x:Name="LoadingAppInformationTextTextBlock"
-                    Opacity="0.5"
-                    Style="{DynamicResource MainStyleTextBlock}"
-                    VerticalAlignment="Bottom" 
-                    HorizontalAlignment="Right"
-                    Margin="10"
-                    FontSize="15">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock 
-                            x:Name="LoadingSpinnerTextBlock"
-                            Style="{StaticResource IconTextBlockStyle}"
-                            Text="&#xf3ec;"
-                            Margin="0 0 2 0"/>
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            Text="Приложение загружается"
-                            Margin="2 0 0 0"/>
-                    </StackPanel>
-                </TextBlock>
                 <Grid>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Image
@@ -105,36 +84,8 @@
                                 Text="LOGIN"
                                 Style="{DynamicResource HintTextBlockStyle}"/>
                         </Grid>
-                        <Grid Margin="0 10 0 25">
-                            <Border Style="{DynamicResource ShadowBorder}">
-                                <Border.Effect>
-                                    <DropShadowEffect 
-                                        Direction="315"
-                                        Color="{DynamicResource ShadowColor}"
-                                        BlurRadius="5"
-                                        ShadowDepth="2"
-                                        Opacity="0.5"
-                                        RenderingBias="Performance"/>
-                                </Border.Effect>
-                            </Border>
-                            <Grid x:Name="PasswordPasswordGrid">
-                                <PasswordBox
-                                    KeyDown="PasswordUserPasswordBox_KeyDown"
-                                    PasswordChanged="PasswordUserPasswordBox_PasswordChanged"
-                                    x:Name="PasswordUserPasswordBox"
-                                    Padding="39 0 0 0"
-                                    Width="600"
-                                    Style="{DynamicResource MainPasswordBoxStyle}"/>
-                                <TextBlock
-                                    Text="&#xf191;"
-                                    Style="{DynamicResource IconTextBlockStyle}"/>
-                                <TextBlock
-                                    x:Name="HintTextPasswordTextBlock"
-                                    Margin="40 0 0 0"
-                                    Text="PASSWORD"
-                                    Style="{DynamicResource HintTextBlockStyle}"/>
-                            </Grid>
-                            <Grid Visibility="Collapsed" x:Name="TextPasswordGrid">
+                        <StackPanel Orientation="Vertical" Margin="0 10 0 20">
+                            <Grid>
                                 <Border Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
@@ -146,30 +97,67 @@
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
                                 </Border>
-                                <TextBox
-                                    TextChanged="PasswordUserTextBox_TextChanged"
-                                    x:Name="PasswordUserTextBox"
-                                    Padding="39 0 40 0"
-                                    Width="600"
-                                    Style="{DynamicResource MainTextBoxStyle}"/>
-                                <TextBlock
-                                    Text="&#xf191;"
-                                    Style="{DynamicResource IconTextBlockStyle}"/>
-                                <TextBlock
-                                    x:Name="HintPasswordPasswordTextBlock"
-                                    Margin="40 0 0 0"
-                                    Text="PASSWORD"
-                                    Style="{DynamicResource HintTextBlockStyle}"/>
+                                <Grid x:Name="PasswordPasswordGrid">
+                                    <PasswordBox
+                                        KeyDown="PasswordUserPasswordBox_KeyDown"
+                                        PasswordChanged="PasswordUserPasswordBox_PasswordChanged"
+                                        x:Name="PasswordUserPasswordBox"
+                                        Padding="39 0 0 0"
+                                        Width="600"
+                                        Style="{DynamicResource MainPasswordBoxStyle}"/>
+                                    <TextBlock
+                                        Text="&#xf191;"
+                                        Style="{DynamicResource IconTextBlockStyle}"/>
+                                    <TextBlock
+                                        x:Name="HintTextPasswordTextBlock"
+                                        Margin="40 0 0 0"
+                                        Text="PASSWORD"
+                                        Style="{DynamicResource HintTextBlockStyle}"/>
+                                </Grid>
+                                <Grid Visibility="Collapsed" x:Name="TextPasswordGrid">
+                                    <Border Style="{DynamicResource ShadowBorder}">
+                                        <Border.Effect>
+                                            <DropShadowEffect 
+                                                Direction="315"
+                                                Color="{DynamicResource ShadowColor}"
+                                                BlurRadius="5"
+                                                ShadowDepth="2"
+                                                Opacity="0.5"
+                                                RenderingBias="Performance"/>
+                                        </Border.Effect>
+                                    </Border>
+                                    <TextBox
+                                        TextChanged="PasswordUserTextBox_TextChanged"
+                                        x:Name="PasswordUserTextBox"
+                                        Padding="39 0 40 0"
+                                        Width="600"
+                                        Style="{DynamicResource MainTextBoxStyle}"/>
+                                    <TextBlock
+                                        Text="&#xf191;"
+                                        Style="{DynamicResource IconTextBlockStyle}"/>
+                                    <TextBlock
+                                        x:Name="HintPasswordPasswordTextBlock"
+                                        Margin="40 0 0 0"
+                                        Text="PASSWORD"
+                                        Style="{DynamicResource HintTextBlockStyle}"/>
+                                </Grid>
+                                <Button
+                                    PreviewMouseUp="VisiblePasswordUserButton_PreviewMouseUp"
+                                    PreviewMouseDown="VisiblePasswordUserButton_PreviewMouseDown"
+                                    x:Name="VisiblePasswordUserButton"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 5 10 0"
+                                    Style="{StaticResource PasswordButtonStyle}"/>
                             </Grid>
-                            <Button
-                                PreviewMouseUp="VisiblePasswordUserButton_PreviewMouseUp"
-                                PreviewMouseDown="VisiblePasswordUserButton_PreviewMouseDown"
-                                x:Name="VisiblePasswordUserButton"
-                                HorizontalAlignment="Right"
-                                Margin="0 5 10 0"
-                                Style="{StaticResource PasswordButtonStyle}"/>
-                        </Grid>
-                        <Grid Margin="0 25 0 0">
+                            <TextBlock
+                                Visibility="Collapsed"
+                                x:Name="CapsLockTextBlock"        
+                                Foreground="#ff073a"
+                                FontSize="12"
+                                Text="CapsLock"
+                                Style="{StaticResource HintTextBlockStyle}"/>
+                        </StackPanel>
+                        <Grid Margin="0 20 0 0">
                             <Border
                                 Width="220"
                                 Height="50" 
@@ -187,9 +175,20 @@
                             <Button
                                 x:Name="LoginButton"
                                 Click="LoginButton_Click"
-                                Content="ВОЙТИ"
                                 Width="220"
-                                Height="50"/>
+                                Height="50">
+                                <Grid>
+                                    <TextBlock
+                                        Text="ВОЙТИ"
+                                        x:Name="StandardTextInTheButton"/>
+                                    <TextBlock 
+                                        Visibility="Collapsed"
+                                        x:Name="LoadingSpinnerTextBlock"
+                                        Style="{StaticResource IconTextBlockStyle}"
+                                        Text="&#xf3ec;"
+                                        Margin="0 0 2 0"/>
+                                </Grid>
+                            </Button>
                         </Grid>
                     </StackPanel>
                 </Grid>

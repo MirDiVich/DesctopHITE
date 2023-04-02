@@ -174,8 +174,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
+                // Отключение кнопки
+                LoginButton.IsEnabled = false;
+
                 // Запуск анимации загрузки
-                LoadingAppInformationTextTextBlock.Visibility = Visibility.Visible;
+                StandardTextInTheButton.Visibility = Visibility.Collapsed;
+                LoadingSpinnerTextBlock.Visibility = Visibility.Visible;
                 GetTimer.Start();
 
                 // Стринговые переменные, потому что без этого код не работает (всё из-за 2-го потока)
@@ -251,10 +255,27 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             finally
             {
                 // Остановка анимации загрузки
-                LoadingAppInformationTextTextBlock.Visibility = Visibility.Collapsed;
+                StandardTextInTheButton.Visibility = Visibility.Visible;
+                LoadingSpinnerTextBlock.Visibility = Visibility.Collapsed;
                 GetTimer.Stop();
+
+                // Включение кнопки
+                LoginButton.IsEnabled = true;
             }
           
+        }
+        private void GetCapsLock() // Метод, который реагирует на нажатый CapsLock
+        {
+            bool IsCapsLockOn = Console.CapsLock;
+
+            if (IsCapsLockOn)
+            {
+                CapsLockTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                CapsLockTextBlock.Visibility = Visibility.Collapsed;
+            }
         }
         #endregion
         #region Показать\Скрыть пароль
@@ -284,6 +305,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         #region Показать\Скрыть текстовае подсказки
         private void LoginUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // Если в текстовом поле есть какие то символы
             if (LoginUserTextBox.Text.Length > 0)
             {
                 HintLoginTextBlock.Visibility = Visibility.Collapsed;
@@ -296,6 +318,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void PasswordUserPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            // Если в текстовом поле есть какие то символы
             if (PasswordUserPasswordBox.Password.Length > 0)
             {
                 HintTextPasswordTextBlock.Visibility = Visibility.Collapsed;
@@ -304,10 +327,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 HintTextPasswordTextBlock.Visibility = Visibility.Visible;
             }
+
+            // Проверка на CapsLock
+            GetCapsLock();
         }
 
         private void PasswordUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // Если в текстовом поле есть какие то символы
             if (PasswordUserTextBox.Text.Length > 0)
             {
                 HintPasswordPasswordTextBlock.Visibility = Visibility.Collapsed;
@@ -316,6 +343,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
             }
+
+            // Проверка на CapsLock
+            GetCapsLock();
         }
         #endregion
     }
