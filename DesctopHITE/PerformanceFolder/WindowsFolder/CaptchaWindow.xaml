@@ -5,6 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
     Style="{DynamicResource AuthorizationWindowStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>
@@ -32,6 +34,9 @@
             <Grid Grid.Row="1">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid Margin="0 0 0 20">
+                        <TextBlock
+                            x:Name="TextCaptchaTextBlock"
+                            Style="{DynamicResource MainStyleTextBlock}"/>
                         <Image
                             Height="150"
                             Width="500"
@@ -39,14 +44,8 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Stretch="UniformToFill"/>
-                        <TextBlock
-                            x:Name="TextCaptchaTextBlock"
-                            Text="as35d4a5fa"
-                            Foreground="#000"
-                            Opacity="0.5"
-                            Style="{DynamicResource MainStyleTextBlock}"/>
                     </Grid>
-                    <Grid Margin="0 20 0 0">
+                    <Grid Margin="0 20 0 10">
                         <Border Style="{DynamicResource ShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
@@ -59,6 +58,7 @@
                             </Border.Effect>
                         </Border>
                         <TextBox
+                            KeyDown="CaptchaTextBox_KeyDown"
                             MaxLength="20"
                             TextChanged="CaptchaTextBox_TextChanged"
                             x:Name="CaptchaTextBox"
@@ -74,6 +74,22 @@
                             Text="Капча"
                             Style="{DynamicResource HintTextBlockStyle}"/>
                     </Grid>
+                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button
+                            Margin="0 0 10 0"
+                            x:Name="EnterCaptchaButton"
+                            Click="EnterCaptchaButton_Click"
+                            Content="ПРОДОЛЖИТЬ"
+                            Width="220"
+                            Height="40"/>
+                        <Button
+                            Margin="10 0 0 0"
+                            x:Name="NewCaptchaButton"
+                            Click="NewCaptchaButton_Click"
+                            Content="Другая капча"
+                            Width="180"
+                            Height="40"/>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>
