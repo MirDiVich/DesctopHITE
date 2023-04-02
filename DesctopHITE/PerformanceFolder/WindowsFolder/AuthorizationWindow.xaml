@@ -69,6 +69,7 @@
                                 </Border.Effect>
                             </Border>
                             <TextBox
+                                x:Name="LoginUsetTextBox"
                                 Padding="39 0 0 0"
                                 Width="600"
                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -95,6 +96,7 @@
                             </Border>
                             <Grid x:Name="PasswordPasswordGrid">
                                 <PasswordBox
+                                    x:Name="PasswordUserPasswordBox"
                                     Padding="39 0 0 0"
                                     Width="600"
                                     Style="{DynamicResource MainPasswordBoxStyle}"/>
@@ -120,6 +122,7 @@
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    x:Name="PasswordUserTextBox"
                                     Padding="39 0 40 0"
                                     Width="600"
                                     Style="{DynamicResource MainTextBoxStyle}"/>

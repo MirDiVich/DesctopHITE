@@ -50,7 +50,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region Действие
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Использование неявного типа", Justification = "<Ожидание>")]
         private void DeliteWorkerMethod()
         {
             if (DataContextWorker == null)

@@ -8,37 +8,42 @@
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MainUserPageStyle}">
     <Grid>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Margin="20 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock
-                        TextAlignment="Center"
-                        x:Name="HelloyTextBlock"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        Margin="0 0 0 5"/>
-                    <TextBlock
-                        TextAlignment="Center"
-                        x:Name="NowTimeTextBlock"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="100"
-                        FontFamily="\ContentFolder\FontFolder\#Dosis ExtraLight"
-                        Margin="0 5 0 2"/>
-                    <TextBlock
-                        Margin="0 2 0 5"
-                        HorizontalAlignment="Center"
-                        TextAlignment="Center"
-                        x:Name="NowDateTextBlock"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"/>
-                    <TextBlock
-                        Margin="0 5 0 0"
-                        HorizontalAlignment="Center"
-                        TextAlignment="Center"
-                        x:Name="NowHolidayTextBlock"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"/>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Right" Margin="5" BorderBrush="#462AD8" Visibility="Visible" Style="{DynamicResource BorderInformation}">
+            <StackPanel Margin="20 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock
+                    Padding="10 5"
+                    Background="#462AD8"
+                    TextAlignment="Center"
+                    x:Name="HelloyTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    Margin="0 0 0 2"/>
+                <TextBlock
+                    Width="350"
+                    TextAlignment="Center"
+                    x:Name="NowTimeTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="100"
+                    FontFamily="\ContentFolder\FontFolder\#Dosis ExtraLight"
+                    Margin="0 2 0 2"/>
+                <TextBlock
+                    Margin="0 2 0 5"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    x:Name="NowDateTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="30"/>
+                <TextBlock
+                    Margin="0 5 0 0"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    x:Name="NowHolidayTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="30"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
