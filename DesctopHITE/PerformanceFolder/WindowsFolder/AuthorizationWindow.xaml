@@ -69,7 +69,8 @@
                                 </Border.Effect>
                             </Border>
                             <TextBox
-                                x:Name="LoginUsetTextBox"
+                                TextChanged="LoginUserTextBox_TextChanged"
+                                x:Name="LoginUserTextBox"
                                 Padding="39 0 0 0"
                                 Width="600"
                                 Style="{DynamicResource MainTextBoxStyle}"/>
@@ -96,6 +97,8 @@
                             </Border>
                             <Grid x:Name="PasswordPasswordGrid">
                                 <PasswordBox
+                                    KeyDown="PasswordUserPasswordBox_KeyDown"
+                                    PasswordChanged="PasswordUserPasswordBox_PasswordChanged"
                                     x:Name="PasswordUserPasswordBox"
                                     Padding="39 0 0 0"
                                     Width="600"
@@ -113,21 +116,22 @@
                                 <Border Style="{DynamicResource ShadowBorder}">
                                     <Border.Effect>
                                         <DropShadowEffect 
-                                            Direction="-90"
+                                            Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="0.5"
+                                            ShadowDepth="2"
                                             Opacity="0.5"
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
+                                    TextChanged="PasswordUserTextBox_TextChanged"
                                     x:Name="PasswordUserTextBox"
                                     Padding="39 0 40 0"
                                     Width="600"
                                     Style="{DynamicResource MainTextBoxStyle}"/>
                                 <TextBlock
-                                    Text="&#xE192;"
+                                    Text="&#xf191;"
                                     Style="{DynamicResource IconTextBlockStyle}"/>
                                 <TextBlock
                                     x:Name="HintPasswordPasswordTextBlock"
@@ -159,8 +163,8 @@
                                 </Border.Effect>
                             </Border>
                             <Button
-                                x:Name="Login_Button"
-                                Click="Login_Button_Click"
+                                x:Name="LoginButton"
+                                Click="LoginButton_Click"
                                 Content="ВОЙТИ"
                                 Width="220"
                                 Height="50"/>

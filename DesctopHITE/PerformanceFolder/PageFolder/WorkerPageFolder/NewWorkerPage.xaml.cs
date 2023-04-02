@@ -368,7 +368,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxImage.Error);
             }
         }
-        private void MessageNull() // Метод на проверки полей на валлидность данных 
+        private void MessageNull() // Метод на проверки полей на валидность данных 
         {
             #region MessagePassportNull
             if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";

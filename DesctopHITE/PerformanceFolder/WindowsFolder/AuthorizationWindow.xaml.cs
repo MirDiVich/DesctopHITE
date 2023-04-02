@@ -2,26 +2,20 @@
 /// В данном окне реализован код авторизации и код для взаимодействия пользователя с окном авторизации
 ///----------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class AuthorizationWindow : Window
     {
+        string MessageNullBox;
+
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
         {
@@ -81,7 +75,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 InitializeComponent();
                 AppConnectClass.DataBase = new DesctopHiteEntities();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 string MessageError =
                     $"Вызвало ошибку: {ex.Source}\n" +
@@ -93,67 +87,112 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #region Click
-        private void Login_Button_Click(object sender, RoutedEventArgs e)
+
+        // Действие при нажатии на кнопку "Войти"
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             LoginUser();
         }
-        #endregion
-        #region Действие
-        private void LoginUser() // Авторизация пользователя
+
+        // Если пользователь, находясь в PasswordBox нажал на Enter
+        private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e)
         {
-            // Переменная, которая содержит в себе информацию о пользователе
-            var LogInUser = AppConnectClass.DataBase.WorkerTabe.FirstOrDefault(
-                DataUser => DataUser.Login_Worker == LoginUsetTextBox.Text && 
-                            DataUser.Password_Worker == PasswordUserPasswordBox.Password);
-
-            // Если данные которые ввел пользователь, существуют в базе данных
-            if (LogInUser != null)
+            if (e.Key == Key.Enter)
             {
-                MainUserWindow mainUserWindow = new MainUserWindow();
-
-                switch (LogInUser.pnRole_Worker) // Проверяем должность пользователя
-                {
-                    case 1:
-                        mainUserWindow.Show();
-                        AppConnectClass.GetUser = LogInUser;
-                        this.Close();
-                        break;
-                    case 2:
-                        AppConnectClass.GetUser = LogInUser;
-                        mainUserWindow.Show();
-                        this.Close();
-                        break;
-                    case 3:
-                        MessageBox.Show("Для вас ещё не реализован код");
-                        mainUserWindow.Show();
-                        this.Close();
-                        break;
-                    case 5:
-                        AppConnectClass.GetUser = LogInUser;
-                        mainUserWindow.Show();
-                        this.Close();
-                        break;
-
-                        // Если у пользователя должность, которой не разрешён вход
-                    default:
-                        string MessageDefault =
-                            $"Извините {LogInUser.PassportTable.Surname_Passport + " " + LogInUser.PassportTable.Name_Passport}" +
-                            " " + "но для вас доступ в АИС закрыт!";
-                        MessageBox.Show(
-                            MessageDefault, "Авторизация",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                        break;
-                }
+                LoginUser();
             }
-            // Если данные которые ввел пользователь, не существуют в базе данных
+        }
+        #endregion
+        #region Метод
+        private void LoginUser() // Действие для авторизации пользователя
+        {
+            ErrorNullBox(); // Вызываем метод проверки текстовых полей на пустоту
+
+            if (MessageNullBox != null)
+            {
+                MessageBox.Show(
+                    MessageNullBox, "Авторизация",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageNullBox = null;
+            }
             else
             {
-                string MessageError =  $"Извините, но пользователя с:\n\n" +
-                    $"Login: {LoginUsetTextBox.Text}\n" +
-                    $"Password: {PasswordUserPasswordBox.Password}\n\n" +
-                    $"не нашлось в нашей базе данных";
+                DateUser();
+            }
+        }
+        private void ErrorNullBox() // Метод проверки текстовых полей на пустоту
+        {
+            if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) MessageNullBox += "Поле Login пустое\n";
+            if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) MessageNullBox += "Поле Password пустое";
+        }
+        private void DateUser() // Метод авторизации пользователя
+        {
+            try
+            {
+                // Переменная, которая содержит в себе информацию о пользователе
+                var LogInUser = AppConnectClass.DataBase.WorkerTabe.FirstOrDefault(
+                    DataUser => DataUser.Login_Worker == LoginUserTextBox.Text &&
+                                DataUser.Password_Worker == PasswordUserPasswordBox.Password);
+
+                // Если данные которые ввел пользователь, существуют в базе данных
+                if (LogInUser != null)
+                {
+                    MainUserWindow mainUserWindow = new MainUserWindow();
+
+                    switch (LogInUser.pnRole_Worker) // Проверяем должность пользователя
+                    {
+                        case 1:
+                            mainUserWindow.Show();
+                            AppConnectClass.GetUser = LogInUser;
+                            this.Close();
+                            break;
+                        case 2:
+                            AppConnectClass.GetUser = LogInUser;
+                            mainUserWindow.Show();
+                            this.Close();
+                            break;
+                        case 3:
+                            MessageBox.Show("Для вас ещё не реализован код");
+                            mainUserWindow.Show();
+                            this.Close();
+                            break;
+                        case 5:
+                            AppConnectClass.GetUser = LogInUser;
+                            mainUserWindow.Show();
+                            this.Close();
+                            break;
+
+                        // Если у пользователя должность, которой не разрешён вход
+                        default:
+                            string MessageDefault =
+                                $"Извините {LogInUser.PassportTable.Surname_Passport + " " + LogInUser.PassportTable.Name_Passport}" +
+                                " " + "но для вас доступ в АИС закрыт!";
+                            MessageBox.Show(
+                                MessageDefault, "Авторизация",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+                    }
+                }
+                // Если данные которые ввел пользователь, не существуют в базе данных
+                else
+                {
+                    string MessageError = $"Извините, но пользователя с:\n\n" +
+                        $"Login: {LoginUserTextBox.Text}\n" +
+                        $"Password: {PasswordUserPasswordBox.Password}\n\n" +
+                        $"не нашлось в нашей базе данных";
+                    MessageBox.Show(
+                        MessageError, "Авторизация",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                string MessageError =
+                    $"Вызвало ошибку: {ex.Source}\n" +
+                    $"Сообщение ошибки: {ex.Message}\n" +
+                    $"Трассировка стека: {ex.StackTrace}";
                 MessageBox.Show(
-                    MessageError, "Авторизация",
+                    MessageError, "Ошибка - E002",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -180,6 +219,43 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
             PasswordPasswordGrid.Visibility = Visibility.Visible;
             TextPasswordGrid.Visibility = Visibility.Collapsed;
+        }
+        #endregion
+        #region Показать\Скрыть текстовае подсказки
+        private void LoginUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (LoginUserTextBox.Text.Length > 0)
+            {
+                HintLoginTextBlock.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                HintLoginTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PasswordUserPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (PasswordUserPasswordBox.Password.Length > 0)
+            {
+                HintTextPasswordTextBlock.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                HintTextPasswordTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PasswordUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (PasswordUserTextBox.Text.Length > 0)
+            {
+                HintPasswordPasswordTextBlock.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
+            }
         }
         #endregion
     }
