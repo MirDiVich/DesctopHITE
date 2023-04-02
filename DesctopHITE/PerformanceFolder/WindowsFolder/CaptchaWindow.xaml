@@ -36,7 +36,8 @@
                     <Grid Margin="0 0 0 20">
                         <TextBlock
                             x:Name="TextCaptchaTextBlock"
-                            Style="{DynamicResource MainStyleTextBlock}"/>
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontWeight="UltraBold"/>
                         <Image
                             Height="150"
                             Width="500"

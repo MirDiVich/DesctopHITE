@@ -36,10 +36,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             Random textRandom = new Random();
 
             // Символы, которые будут присутствовать в капче
-            string charText = "1234567890!@#$%^&*()!№;%:?{}[]<>|/QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+            string charText =
+                "1234567890" +
+                "!@#$%^&*()!№;%:?{}[]<>|/" +
+                "QWERTYUIOPASDFGHJKLZXCVBNM" +
+                "qwertyuiopasdfghjklzxcvbnm";
 
             // Генерируем длину капчу от 5 до 10 символов
-            int lengthCaptcha = textRandom.Next(5, 10); 
+            int lengthCaptcha = textRandom.Next(5, 10);
 
             // Генератор самой капчи
             string CaptchaText = new string(Enumerable.Repeat(charText, lengthCaptcha).Select(s => s[textRandom.Next(s.Length)]).ToArray());
@@ -84,25 +88,46 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             Random RandomStyle = new Random();
 
             // генерация рандомной амплитуды и частоты волны
-            double AmplitudeText = RandomStyle.Next(0, 20); // амплитуда
-            double FrequencyText = RandomStyle.Next(0, 20); // частота
+            double AmplitudeText = RandomStyle.Next(-20, 20); // амплитуда
+            double FrequencyText = RandomStyle.Next(-40, -40); // частота
 
             // генерация рандомного угла наклона
-            double RotationText = RandomStyle.Next(-30, 30);
+            double RotationText = RandomStyle.Next(-15, 15);
 
             // Получаем рандомный цвет
-            Color RandomRgbColor = Color.FromRgb((byte)RandomStyle.Next(10, 256), (byte)RandomStyle.Next(10, 256), (byte)RandomStyle.Next(10, 256));
+            Color RandomRgbColor = Color.FromRgb((byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256));
             SolidColorBrush ColorText = new SolidColorBrush(RandomRgbColor);
 
             // Получаем рандомную прозрачность
-            double OpacityText = RandomStyle.NextDouble() * (0.9 - 0.6) + 0.6;
+            double OpacityText = RandomStyle.NextDouble() * (0.7 - 0.3) + 0.3;
+
+            // Выставляем "жирность текста" в зависимости от случайного числа
+            FontWeight[] GetFontWeights =
+                  { FontWeights.Black,
+                    FontWeights.Bold,
+                    FontWeights.DemiBold,
+                    FontWeights.ExtraBlack,
+                    FontWeights.ExtraBold,
+                    FontWeights.ExtraLight,
+                    FontWeights.Heavy,
+                    FontWeights.Light,
+                    FontWeights.Medium,
+                    FontWeights.Normal,
+                    FontWeights.Regular,
+                    FontWeights.SemiBold,
+                    FontWeights.Thin,
+                    FontWeights.UltraBlack,
+                    FontWeights.UltraBold,
+                    FontWeights.UltraLight };
+            int RandomFontWeight = RandomStyle.Next(0, GetFontWeights.Length);
 
             // Присвоение рандомных свойств TextCaptchaTextBlock
             TextCaptchaTextBlock.Opacity = OpacityText;
             TextCaptchaTextBlock.Foreground = ColorText;
-            TextCaptchaTextBlock.FontSize = RandomStyle.Next(18,25);
+            TextCaptchaTextBlock.FontSize = RandomStyle.Next(20, 32);
             TextCaptchaTextBlock.RenderTransform = new RotateTransform(RotationText);
             TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / FrequencyText) * AmplitudeText);
+            TextCaptchaTextBlock.FontWeight = GetFontWeights[RandomFontWeight];
         }
         #endregion
         #region Click
