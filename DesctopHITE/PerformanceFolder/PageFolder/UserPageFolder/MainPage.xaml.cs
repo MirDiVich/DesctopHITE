@@ -26,7 +26,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
             NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
-            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + ("(MM) ") + "yyyy"); // xx Month(xx) xxxx
+            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy"); // xx Month(xx) xxxx
             NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString(); // Показывает, какой сегодня праздник
 
             if (GetTimeClass.WhatDayIsIt == "Сегодня нет праздников")
