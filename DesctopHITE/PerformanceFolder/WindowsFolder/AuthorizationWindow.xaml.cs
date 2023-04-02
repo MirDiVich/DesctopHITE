@@ -15,7 +15,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     public partial class AuthorizationWindow : Window
     {
         string MessageNullBox;
-
+        int QuantityNoInputs = 0;
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
         {
@@ -108,16 +108,24 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             ErrorNullBox(); // Вызываем метод проверки текстовых полей на пустоту
 
-            if (MessageNullBox != null)
+            if (QuantityNoInputs >= 5)
             {
-                MessageBox.Show(
-                    MessageNullBox, "Авторизация",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-                MessageNullBox = null;
+                CaptchaWindow captchaWindow = new CaptchaWindow();
+                captchaWindow.ShowDialog();
             }
             else
             {
-                DateUser();
+                if (MessageNullBox != null)
+                {
+                    MessageBox.Show(
+                        MessageNullBox, "Авторизация",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageNullBox = null;
+                }
+                else
+                {
+                    DateUser();
+                }
             }
         }
         private void ErrorNullBox() // Метод проверки текстовых полей на пустоту
@@ -183,6 +191,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBox.Show(
                         MessageError, "Авторизация",
                         MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    QuantityNoInputs++;
                 }
             }
             catch (Exception ex)

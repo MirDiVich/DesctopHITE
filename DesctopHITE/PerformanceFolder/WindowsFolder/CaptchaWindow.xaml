@@ -1,0 +1,81 @@
+﻿<Window 
+    x:Class="DesctopHITE.PerformanceFolder.WindowsFolder.CaptchaWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Style="{DynamicResource AuthorizationWindowStyle}">
+    <Border Style="{DynamicResource MainBorderStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Background="Transparent">
+                <Polygon 
+                    Points="200,0, 230,15, 600,15, 630,0" 
+                    x:Name="PoligonName"
+                    Fill="#2a2a2a"
+                    Opacity="1">
+                    <Polygon.Effect>
+                        <DropShadowEffect 
+                            Direction="-90"
+                            Color="{DynamicResource ShadowColor}"
+                            BlurRadius="5"
+                            ShadowDepth="0.5"
+                            Opacity="0.5"
+                            RenderingBias="Performance"/>
+                    </Polygon.Effect>
+                </Polygon>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid Margin="0 0 0 20">
+                        <Image
+                            Height="150"
+                            Width="500"
+                            Source="\ContentFolder\ImageFolder\CaptchaBackground.png"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Stretch="UniformToFill"/>
+                        <TextBlock
+                            x:Name="TextCaptchaTextBlock"
+                            Text="as35d4a5fa"
+                            Foreground="#000"
+                            Opacity="0.5"
+                            Style="{DynamicResource MainStyleTextBlock}"/>
+                    </Grid>
+                    <Grid Margin="0 20 0 0">
+                        <Border Style="{DynamicResource ShadowBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Direction="315"
+                                    Color="{DynamicResource ShadowColor}"
+                                    BlurRadius="5"
+                                    ShadowDepth="2"
+                                    Opacity="0.5"
+                                    RenderingBias="Performance"/>
+                            </Border.Effect>
+                        </Border>
+                        <TextBox
+                            MaxLength="20"
+                            TextChanged="CaptchaTextBox_TextChanged"
+                            x:Name="CaptchaTextBox"
+                            Padding="39 0 0 0"
+                            Width="600"
+                            Style="{DynamicResource MainTextBoxStyle}"/>
+                        <TextBlock
+                            Text="&#xf23f;"
+                            Style="{DynamicResource IconTextBlockStyle}"/>
+                        <TextBlock
+                            x:Name="HintCaptchaTextBlock"
+                            Margin="40 0 0 0"
+                            Text="Капча"
+                            Style="{DynamicResource HintTextBlockStyle}"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
