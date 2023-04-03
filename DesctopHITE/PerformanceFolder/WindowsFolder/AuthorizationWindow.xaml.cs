@@ -24,7 +24,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         private double СurrentRotationAngle = 0;
 
         #region Управление окном
-        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
+        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
         {
             try
             {
@@ -43,7 +43,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
         {
             try
             {
@@ -59,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Rollup_Button_Click(object sender, RoutedEventArgs e)
+        private void RollupButton_Click(object sender, RoutedEventArgs e) // Для того, что бы свернуть окно 
         {
             try
             {
@@ -101,6 +101,18 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 GetTimer = new DispatcherTimer();
                 GetTimer.Tick += new EventHandler(GetTimer_Tick);
                 GetTimer.Interval = TimeSpan.FromMilliseconds(30);
+
+                RememberUserComboBox.SelectedItem = NoRememberItem;
+
+                // Если пользователь в предыдущем заходе сохранил данные для входа
+                if (Properties.Settings.Default.MeaningRemember == true)
+                {
+                    LoginUserTextBox.Text = Properties.Settings.Default.LoginUserRemember;
+                    PasswordUserPasswordBox.Password = Properties.Settings.Default.PasswordUserRemember;
+                    RememberUserComboBox.SelectedItem = RememberItem;
+
+                    LoginUser();
+                }
             }
             else
             {
@@ -198,21 +210,26 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     switch (LogInUser.pnRole_Worker) // Проверяем должность пользователя
                     {
                         case 1:
-                            mainUserWindow.Show();
+                            SaveSettings();
                             AppConnectClass.GetUser = LogInUser;
+                            mainUserWindow.Show();
                             this.Close();
                             break;
                         case 2:
+                            SaveSettings();
                             AppConnectClass.GetUser = LogInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
                         case 3:
+                            SaveSettings();
+                            AppConnectClass.GetUser = LogInUser;
                             MessageBox.Show("Для вас ещё не реализован код");
                             mainUserWindow.Show();
                             this.Close();
                             break;
                         case 5:
+                            SaveSettings();
                             AppConnectClass.GetUser = LogInUser;
                             mainUserWindow.Show();
                             this.Close();
@@ -275,6 +292,33 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             else
             {
                 CapsLockTextBlock.Visibility = Visibility.Collapsed;
+            }
+        }
+        public void SaveSettings() // Сохранение пользовательской информации для входа
+        {
+            if (RememberUserComboBox.SelectedItem == RememberItem)
+            {
+                // Сохранение сохранения
+                Properties.Settings.Default.MeaningRemember = true;
+
+                // Сохранение информации
+                Properties.Settings.Default.LoginUserRemember = LoginUserTextBox.Text;
+                Properties.Settings.Default.PasswordUserRemember = PasswordUserPasswordBox.Password;
+
+                // Сохранение
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                // Сохранение сохранения
+                Properties.Settings.Default.MeaningRemember = false;
+
+                // Сохранение информации
+                Properties.Settings.Default.LoginUserRemember = null;
+                Properties.Settings.Default.PasswordUserRemember = null;
+
+                // Сохранение
+                Properties.Settings.Default.Save();
             }
         }
         #endregion

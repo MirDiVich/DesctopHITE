@@ -38,13 +38,20 @@
                     Text="ГЛАВНОЕ ОКНО"/>
                 <StackPanel Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
+                        Width="30"
+                        Content="&#xf1cc;"
+                        FontFamily="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
                         Style="{DynamicResource RollupControlButton}" 
-                        x:Name="Rollup_Button" 
-                        Click="Rollup_Button_Click"/>
+                        x:Name="ExitUserButton" 
+                        Click="ExitUserButton_Click"/>
+                    <Button 
+                        Style="{DynamicResource RollupControlButton}" 
+                        x:Name="RollupButton" 
+                        Click="RollupButton_Click"/>
                     <Button 
                         Style="{DynamicResource CloseControlButton}"
-                        x:Name="Close_Button"
-                        Click="Close_Button_Click"/>
+                        x:Name="CloseButton"
+                        Click="CloseButton_Click"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">

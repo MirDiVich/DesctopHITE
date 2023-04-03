@@ -19,7 +19,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     public partial class MainUserWindow : Window
     {
         #region Управление окном
-        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать 
+        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
         {
             try
             {
@@ -38,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
         {
             try
             {
@@ -54,11 +54,38 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Rollup_Button_Click(object sender, RoutedEventArgs e)
+        private void RollupButton_Click(object sender, RoutedEventArgs e) // Для того, что бы свернуть окно 
         {
             try
             {
                 WindowState = WindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    "REBU003 - Ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+        private void ExitUserButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы пользователь вышел, но данные для входа в АИС не сохранились
+        {
+            try
+            {
+                // Закрытие приложения
+                Application.Current.Shutdown();
+
+                // Сохранение сохранения
+                Properties.Settings.Default.MeaningRemember = false;
+
+                // Сохранение информации
+                Properties.Settings.Default.LoginUserRemember = null;
+                Properties.Settings.Default.PasswordUserRemember = null;
+
+                // Сохранение
+                Properties.Settings.Default.Save();
+
             }
             catch (Exception ex)
             {
