@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border HorizontalAlignment="Right" Margin="5" BorderBrush="#462AD8" Visibility="Visible" Style="{DynamicResource BorderInformation}">
-            <StackPanel Margin="20 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Margin="20 10" Orientation="Vertical" VerticalAlignment="Center">
                 <TextBlock
                     Padding="10 5"
                     Background="#462AD8"
@@ -23,6 +23,7 @@
                     Margin="0 0 0 2"/>
                 <TextBlock
                     Width="350"
+                    HorizontalAlignment="Left"
                     TextAlignment="Center"
                     x:Name="NowTimeTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"

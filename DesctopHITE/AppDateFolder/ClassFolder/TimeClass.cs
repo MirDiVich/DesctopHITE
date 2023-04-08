@@ -18,19 +18,27 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 string TitleNowHour = "Время не определенно";
                 if (ToDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
-                    TitleNowHour = "Доброй ночи";
+                    TitleNowHour = $"Доброй ночи \n " +
+                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
                 else if (ToDay.Hour >= 6 && ToDay.Hour <= 11)
                 {
-                    TitleNowHour = "Доброе утро!";
+                    TitleNowHour = $"Доброе утро \n " +
+                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
                 else if (ToDay.Hour >= 12 && DateTime.Now.Hour <=17)
                 {
-                    TitleNowHour = "Доброе день!";
+                    TitleNowHour = $"Доброе день \n " +
+                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
                 else if (ToDay.Hour >= 18 && DateTime.Now.Hour <= 23)
                 {
-                    TitleNowHour = "Доброе вечер!";
+                    TitleNowHour = $"Доброе вечер \n " +
+                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
                 return TitleNowHour;
             }
