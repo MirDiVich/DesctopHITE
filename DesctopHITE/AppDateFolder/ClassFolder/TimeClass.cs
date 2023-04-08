@@ -109,5 +109,20 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 return TitleNowDay;
             }
         }
+
+        public string HappyBirthdayGreetings // Поздравление пользователя, если у него день рождения
+        {
+            get
+            {
+                string TitleHappyBirthday = "";
+                DateTime TitleDateOfBrich = AppConnectClass.GetUser.PassportTable.DateOfBrich_Passport;
+
+                if (ToDay.Day == TitleDateOfBrich.Day && ToDay.Month == TitleDateOfBrich.Month)
+                {
+                    TitleHappyBirthday = "С днём рождения!";
+                }
+                return TitleHappyBirthday;
+            }
+        }
     }
 }

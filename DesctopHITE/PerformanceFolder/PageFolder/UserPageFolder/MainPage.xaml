@@ -9,41 +9,53 @@
     Style="{DynamicResource MainUserPageStyle}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border HorizontalAlignment="Right" Margin="5" BorderBrush="#462AD8" Visibility="Visible" Style="{DynamicResource BorderInformation}">
-            <StackPanel Margin="20 10" Orientation="Vertical" VerticalAlignment="Center">
+        <Border MinHeight="0" MaxHeight="295" Height="auto" HorizontalAlignment="Right" Margin="5" BorderBrush="#462AD8" Visibility="Visible" Style="{DynamicResource BorderInformation}">
+            <StackPanel Margin="5 10" Orientation="Vertical" VerticalAlignment="Center">
+                <!--Приветствие пользователя-->
                 <TextBlock
                     Padding="10 5"
                     Background="#462AD8"
                     TextAlignment="Center"
                     x:Name="HelloyTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
-                    Margin="0 0 0 2"/>
+                    Margin="0 0 0 2.5"/>
+                <!--Текущие время-->
                 <TextBlock
                     Width="350"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     TextAlignment="Center"
                     x:Name="NowTimeTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
-                    FontSize="100"
-                    FontFamily="\ContentFolder\FontFolder\#Dosis ExtraLight"
-                    Margin="0 2 0 2"/>
+                    FontSize="60"
+                    FontFamily="\ContentFolder\FontFolder\#DM Mono Medium"
+                    Margin="0 2.5 0 2.5"/>
+                <!--Текущая дата-->
                 <TextBlock
-                    Margin="0 2 0 5"
+                    Margin="0 2.5 0 0"
                     HorizontalAlignment="Center"
                     TextAlignment="Center"
                     x:Name="NowDateTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
-                    FontSize="30"/>
+                    FontSize="25"/>
+                <!--Поздравление с днём рождения-->
                 <TextBlock
-                    Margin="0 5 0 0"
+                    Margin="0 2 0 2"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    x:Name="BirthdayTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="25"/>
+                <!--Поздравление с праздником-->
+                <TextBlock
+                    Margin="0 2 0 0"
                     HorizontalAlignment="Center"
                     TextAlignment="Center"
                     x:Name="NowHolidayTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
-                    FontSize="30"/>
+                    FontSize="25"/>
             </StackPanel>
         </Border>
     </Grid>

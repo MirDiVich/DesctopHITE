@@ -323,6 +323,7 @@
     </None>
     <Resource Include="ContentFolder\FontFolder\Dosis-VariableFont_wght.ttf" />
     <Resource Include="ContentFolder\FontFolder\RubikWetPaint-Regular.ttf" />
+    <Resource Include="ContentFolder\FontFolder\DMMono-Medium.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -24,14 +24,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         #region Действие
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
-            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
+            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString(); // Текст приветствие
             NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
             NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy"); // xx Month(xx) xxxx
-            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString(); // Показывает, какой сегодня праздник
+            BirthdayTextBlock.Text = GetTimeClass.HappyBirthdayGreetings.ToString(); // Поздравление с днём рождения
+            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString(); // Поздравление с текущим праздником
 
+            if (GetTimeClass.HappyBirthdayGreetings == "")
+            {
+                BirthdayTextBlock.Visibility = Visibility.Collapsed;
+            }
             if (GetTimeClass.WhatDayIsIt == "Сегодня нет праздников")
             {
-                NowHolidayTextBlock.FontSize = 20;
+                NowHolidayTextBlock.FontSize = 18;
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
             }
         }

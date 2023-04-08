@@ -6,14 +6,14 @@
     <edmx:Diagrams>
       <Diagram DiagramId="c788544bc7834d64b2cfcf738e59bfab" Name="Diagram1" ZoomLevel="99">
         <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="24.125" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="18.25" />
         <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="1.5" PointX="3" PointY="2" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="15.125" />
-        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="7.125" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="18.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="12.875" />
-        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="21.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="15.875" />
         <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="DesctopHiteModel.WorkerTabe" Width="1.5" PointX="5.25" PointY="1.125" />
         <AssociationConnector Association="DesctopHiteModel.FK_PassportTable_GenderTable" />
