@@ -16,6 +16,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
     public partial class MainPage : Page
     {
         public static TimeClass GetTimeClass = new TimeClass();
+        public static HolidayClass GetDayClass = new HolidayClass();
         DispatcherTimer GetTimer;
         public MainPage()
         {
@@ -27,14 +28,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString(); // Текст приветствие
             NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
             NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy"); // xx Month(xx) xxxx
-            BirthdayTextBlock.Text = GetTimeClass.HappyBirthdayGreetings.ToString(); // Поздравление с днём рождения
-            NowHolidayTextBlock.Text = GetTimeClass.WhatDayIsIt.ToString(); // Поздравление с текущим праздником
+            BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString(); // Поздравление с днём рождения
+            NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString(); // Поздравление с текущим праздником
 
-            if (GetTimeClass.HappyBirthdayGreetings == "")
+            if (GetDayClass.HappyBirthdayGreetings == "")
             {
                 BirthdayTextBlock.Visibility = Visibility.Collapsed;
             }
-            if (GetTimeClass.WhatDayIsIt == "Сегодня нет праздников")
+            if (GetDayClass.WhatDayIsIt == "Сегодня нет праздников")
             {
                 NowHolidayTextBlock.FontSize = 18;
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
