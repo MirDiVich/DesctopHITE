@@ -22,6 +22,10 @@
             <StackPanel Margin="0 0 0 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid>
                     <Border 
+                        BorderThickness="75"
+                        Height="150"
+                        Width="150"
+                        CornerRadius="75"
                         VerticalAlignment="Top"
                         x:Name="MaskMorderBorder" 
                         Style="{StaticResource MaskBorder}"/>

@@ -137,9 +137,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     var Objects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
 
                     var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
-                        worker.PassportTable.Surname_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
-                        worker.PassportTable.Name_Passport.ToLower().Contains(SearchTextBox.Text.ToLower()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
-                        worker.PassportTable.Middlename_Passport.ToLower().Contains(SearchTextBox.Text.ToLower())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                        worker.PassportTable.Surname_Passport.ToString().Contains(SearchTextBox.Text.ToString()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                        worker.PassportTable.Name_Passport.ToString().Contains(SearchTextBox.Text.ToString()) || // По атрибуту Name_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
+                        worker.PassportTable.Middlename_Passport.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
 
                     ListWorkerListView.ItemsSource = SearchResults.ToList();
                 }

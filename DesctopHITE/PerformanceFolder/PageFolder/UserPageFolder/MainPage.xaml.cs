@@ -7,17 +7,23 @@
 using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
 using System.Windows;
+using System.Data.Entity;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
+using System.Linq;
+using DesctopHITE.AppDateFolder.ModelFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
+        DateTime ToDay = DateTime.Now;
         public static TimeClass GetTimeClass = new TimeClass();
         public static HolidayClass GetDayClass = new HolidayClass();
+
         DispatcherTimer GetTimer;
+
         public MainPage()
         {
             InitializeComponent();
@@ -40,7 +46,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 NowHolidayTextBlock.FontSize = 18;
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
             }
-        }
+
+            var EmployeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
+                Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == ToDay.Day &&
+                            Birthday.PassportTable.DateOfBrich_Passport.Month == ToDay.Month);
+
+            EmployeesWhoHaveBirthdayToday.ItemsSource = EmployeesObjects.ToList();
+            }
         #endregion
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

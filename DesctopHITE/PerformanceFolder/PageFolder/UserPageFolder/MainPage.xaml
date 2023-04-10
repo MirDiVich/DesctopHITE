@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     mc:Ignorable="d" 
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MainUserPageStyle}">
@@ -12,7 +13,16 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border MinHeight="0" MaxHeight="295" Height="auto" HorizontalAlignment="Right" Margin="5" BorderBrush="#462AD8" Visibility="Visible" Style="{DynamicResource BorderInformation}">
+        <Border 
+            MinHeight="0" 
+            MaxHeight="295" 
+            Height="auto" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right" 
+            Margin="5"
+            BorderBrush="#462AD8" 
+            Visibility="Visible" 
+            Style="{DynamicResource BorderInformation}">
             <StackPanel Margin="5 10" Orientation="Vertical" VerticalAlignment="Center">
                 <!--Приветствие пользователя-->
                 <TextBlock
@@ -58,5 +68,17 @@
                     FontSize="25"/>
             </StackPanel>
         </Border>
+        <ListView
+            Width="420"
+            HorizontalAlignment="Left"
+            ItemContainerStyle="{StaticResource ListViewItemSelected}"
+            Background="Transparent"
+            x:Name="EmployeesWhoHaveBirthdayToday">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <UserControl:ListWorkerBirthdayControl/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

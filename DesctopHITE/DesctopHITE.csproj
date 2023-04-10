@@ -173,6 +173,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\ListWorkerBirthdayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,6 +284,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\NewWorkerPage.xaml.cs">
       <DependentUpon>NewWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerBirthdayControl.xaml.cs">
+      <DependentUpon>ListWorkerBirthdayControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml.cs">
       <DependentUpon>ListWorkerControl.xaml</DependentUpon>

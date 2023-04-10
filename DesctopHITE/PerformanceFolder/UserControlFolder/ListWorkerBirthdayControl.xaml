@@ -1,0 +1,57 @@
+﻿<UserControl 
+    x:Class="DesctopHITE.PerformanceFolder.UserControlFolder.ListWorkerBirthdayControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    IsVisibleChanged="UserControl_IsVisibleChanged"
+    Height="auto"
+    Width="auto">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="360"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="5" Grid.Column="0">
+            <Border 
+                Height="50"
+                Width="50"
+                CornerRadius="25"
+                BorderThickness="25"
+                VerticalAlignment="Top"
+                x:Name="MaskMorderBorder" 
+                Style="{StaticResource MaskBorder}"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                </StackPanel.OpacityMask>
+                <Image 
+                    Height="50"
+                    Width="50"
+                    Stretch="Uniform"
+                    Opacity="1"
+                    x:Name="UserImage" 
+                    Source="{Binding PassportTable.Image_Passport}"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0">
+            <TextBlock
+                FontSize="15"
+                Style="{DynamicResource MainStyleTextBlock}">
+                <TextBlock 
+                    Margin="0 0 2 0" 
+                    Text="{Binding PassportTable.Surname_Passport}"/>
+                <TextBlock 
+                    Margin="2 0 2 0" 
+                    Text="{Binding PassportTable.Name_Passport}"/>
+                <TextBlock 
+                    Margin="2 0 0 0"
+                    Text="{Binding PassportTable.Middlename_Passport}"/>
+                <TextBlock 
+                    x:Name="TurnedYearsOld"
+                    Margin="2 0 0 0"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
