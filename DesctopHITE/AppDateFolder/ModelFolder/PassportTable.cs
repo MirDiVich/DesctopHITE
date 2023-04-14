@@ -26,14 +26,15 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public string Name_Passport { get; set; }
         public string Middlename_Passport { get; set; }
         public int pnGender_Passport { get; set; }
-        public byte[] Image_Passport { get; set; }
         public System.DateTime DateOfBrich_Passport { get; set; }
         public string LocationOfBrich_Passport { get; set; }
         public string Issued_Passport { get; set; }
         public System.DateTime DateIssued_Passport { get; set; }
         public string DivisionCode_Passport { get; set; }
+        public string pnImage_Passport { get; set; }
     
         public virtual GenderTable GenderTable { get; set; }
+        public virtual ImagePassportTable ImagePassportTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerTabe> WorkerTabe { get; set; }
     }

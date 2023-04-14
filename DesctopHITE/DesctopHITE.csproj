@@ -204,53 +204,56 @@
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\HolidayClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
+    <Compile Include="AppDateFolder\ModelFolder\DesctopHiteModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesctopHiteModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\DesctopHiteModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\DesctopHiteModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ImagePassportTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\INNTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\MedicalBookTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\ModelHite.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHite.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\ModelHite.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHite.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\ModelHite.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHite.edmx</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PassportTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PlaceResidenceTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\RoleTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\SalaryCardTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\SnilsTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\StatusTable.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\sysdiagrams.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTabe.cs">
-      <DependentUpon>ModelHite.tt</DependentUpon>
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">
       <DependentUpon>MenuSettingsPage.xaml</DependentUpon>
@@ -322,16 +325,16 @@
     </EmbeddedResource>
     <Resource Include="ContentFolder\FontFolder\Material-Design-Iconic-Font.ttf" />
     <Resource Include="ContentFolder\FontFolder\segmdl2.ttf" />
-    <EntityDeploy Include="AppDateFolder\ModelFolder\ModelHite.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelHite.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="AppDateFolder\ModelFolder\ModelHite.edmx.diagram">
-      <DependentUpon>ModelHite.edmx</DependentUpon>
-    </None>
     <Resource Include="ContentFolder\FontFolder\Dosis-VariableFont_wght.ttf" />
     <Resource Include="ContentFolder\FontFolder\RubikWetPaint-Regular.ttf" />
     <Resource Include="ContentFolder\FontFolder\DMMono-Medium.ttf" />
+    <EntityDeploy Include="AppDateFolder\ModelFolder\DesctopHiteModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DesctopHiteModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AppDateFolder\ModelFolder\DesctopHiteModel.edmx.diagram">
+      <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -341,7 +344,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="AppDateFolder\ModelFolder\DesctopHiteModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
+      <LastGenOutput>DesctopHiteModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppDateFolder\ModelFolder\DesctopHiteModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
+      <LastGenOutput>DesctopHiteModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
   </ItemGroup>
@@ -359,21 +374,11 @@
     <Resource Include="ContentFolder\ImageFolder\NoImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppDateFolder\ModelFolder\ModelHite.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelHite.edmx</DependentUpon>
-      <LastGenOutput>ModelHite.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AppDateFolder\ModelFolder\ModelHite.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelHite.edmx</DependentUpon>
-      <LastGenOutput>ModelHite.cs</LastGenOutput>
-    </Content>
-    <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
     <Resource Include="ContentFolder\ImageFolder\CaptchaBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

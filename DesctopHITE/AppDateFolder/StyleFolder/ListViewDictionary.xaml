@@ -24,7 +24,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="#529ef4"/>
+                            <Setter TargetName="border" Property="Background" Value="#2a2a2a"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#2a2a2a"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">

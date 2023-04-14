@@ -29,10 +29,10 @@
                 <Image 
                     Height="50"
                     Width="50"
-                    Stretch="Uniform"
+                    Stretch="UniformToFill"
                     Opacity="1"
                     x:Name="UserImage" 
-                    Source="{Binding PassportTable.Image_Passport}"/>
+                    Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0">

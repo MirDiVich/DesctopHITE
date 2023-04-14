@@ -249,6 +249,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
+                // Конвертация изображения в байты
+                byte[] imageData;
+                using (FileStream fs = new FileStream(PathImage, FileMode.Open, FileAccess.Read))
+                {
+                    imageData = new byte[fs.Length];
+                    fs.Read(imageData, 0, imageData.Length);
+                }
+
+                ImagePassportTable AddImagePassport = new ImagePassportTable()
+                {
+                    PersonalNumber_ImagePassport = SeriesPassportTextBox.Text + NumberPassportTextBox.Text,
+                    Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}",
+                    Image_ImagePassport = imageData
+                };
+                AppConnectClass.DataBase.ImagePassportTable.Add(AddImagePassport);
+
                 PassportTable AddPassport = new PassportTable()
                 {
                     Series_Passport = SeriesPassportTextBox.Text,
@@ -265,19 +281,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 };
                 if (PathImage == "")
                 {
-                    AddPassport.Image_Passport = null;
+                    AddPassport.pnImage_Passport = "0";
                 }
                 else
                 {
-                    // Конвертация изображения в байты
-                    byte[] imageData;
-                    using (FileStream fs = new FileStream(PathImage, FileMode.Open, FileAccess.Read))
-                    {
-                        imageData = new byte[fs.Length];
-                        fs.Read(imageData, 0, imageData.Length);
-                    }
-
-                    AddPassport.Image_Passport = imageData;
+                    AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
                 }
                 AppConnectClass.DataBase.PassportTable.Add(AddPassport);
 

@@ -47,12 +47,28 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
             }
 
+            // Поиск сотрудников, у которых сегодня день рождение
             var EmployeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
                 Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == ToDay.Day &&
                             Birthday.PassportTable.DateOfBrich_Passport.Month == ToDay.Month);
 
             EmployeesWhoHaveBirthdayToday.ItemsSource = EmployeesObjects.ToList();
+
+            if (EmployeesWhoHaveBirthdayToday.Items.Count == 0)
+            {
+                TitleTodayTheBirthdayBorder.Visibility = Visibility.Collapsed;
             }
+            else if(EmployeesWhoHaveBirthdayToday.Items.Count == 1)
+            {
+                TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
+                TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечает:";
+            }
+            else if (EmployeesWhoHaveBirthdayToday.Items.Count > 1)
+            {
+                TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
+                TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечают:";
+            }
+        }
         #endregion
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
