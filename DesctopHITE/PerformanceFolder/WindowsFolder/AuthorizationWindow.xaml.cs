@@ -6,12 +6,10 @@ using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
 using System.Data.Entity;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
@@ -81,22 +79,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 InitializeComponent();
                 AppConnectClass.DataBase = new DesctopHiteEntities();
-            }
-            catch (Exception ex)
-            {
-                string MessageError =
-                    $"Вызвало ошибку: {ex.Source}\n" +
-                    $"Сообщение ошибки: {ex.Message}\n" +
-                    $"Трассировка стека: {ex.StackTrace}";
-                MessageBox.Show(
-                    MessageError, "Ошибка - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Visibility == Visibility.Visible)
-            {
+
+
                 // Свойства для Таймера
                 GetTimer = new DispatcherTimer();
                 GetTimer.Tick += new EventHandler(GetTimer_Tick);
@@ -114,10 +98,24 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     LoginUser();
                 }
             }
-            else
+            catch (Exception ex)
+            {
+                string MessageError =
+                    $"Вызвало ошибку: {ex.Source}\n" +
+                    $"Сообщение ошибки: {ex.Message}\n" +
+                    $"Трассировка стека: {ex.StackTrace}";
+                MessageBox.Show(
+                    MessageError, "Ошибка - E001",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally 
             {
                 GetTimer.Stop();
             }
+        }
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
         #region Click
 
@@ -233,7 +231,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         case 5:
                             SaveSettings();
                             AppConnectClass.GetUser = LogInUser;
-                            mainUserWindow.Show();
+                            //mainUserWindow.Show();
                             this.Close();
                             break;
 
@@ -281,7 +279,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 // Включение кнопки
                 LoginButton.IsEnabled = true;
             }
-          
+
         }
         private void GetCapsLock() // Метод, который реагирует на нажатый CapsLock
         {
