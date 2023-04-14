@@ -188,6 +188,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 // Отключение кнопки
                 LoginButton.IsEnabled = false;
+                CloseButton.IsEnabled = false;
+                RollupButton.IsEnabled = false;
 
                 // Запуск анимации загрузки
                 StandardTextInTheButton.Visibility = Visibility.Collapsed;

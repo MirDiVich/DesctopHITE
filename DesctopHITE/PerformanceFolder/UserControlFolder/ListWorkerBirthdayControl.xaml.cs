@@ -19,10 +19,10 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
         {
             if(Visibility == Visibility.Visible) 
             {
-                var howManyYearsWorker = AppConnectClass.DataBase.PassportTable.FirstOrDefault();
-                var titleYearsWorker = ToDay.Year - howManyYearsWorker.DateOfBrich_Passport.Year;
+                //var howManyYearsWorker = AppConnectClass.DataBase.PassportTable.ToList();
+                //var titleYearsWorker = ToDay.Year - howManyYearsWorker.DateOfBrich_Passport.Year;
 
-                TurnedYearsOld.Text = titleYearsWorker.ToString();
+                //TurnedYearsOld.Text = $"({titleYearsWorker})";
             }
         }
     }
