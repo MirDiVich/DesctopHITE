@@ -231,7 +231,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         case 5:
                             SaveSettings();
                             AppConnectClass.GetUser = LogInUser;
-                            //mainUserWindow.Show();
+                            mainUserWindow.Show();
                             this.Close();
                             break;
 
@@ -262,7 +262,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             catch (Exception ex)
             {
                 string MessageError =
-                    $"Вызвало ошибку: {ex.Source}\n" +
                     $"Сообщение ошибки: {ex.Message}\n" +
                     $"Трассировка стека: {ex.StackTrace}";
                 MessageBox.Show(
@@ -278,6 +277,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                 // Включение кнопки
                 LoginButton.IsEnabled = true;
+                CloseButton.IsEnabled = true;
+                RollupButton.IsEnabled = true;
             }
 
         }

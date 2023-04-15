@@ -27,6 +27,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 if (workerTabe != null )
                 {
                     DataContext = workerTabe;
+                    var addedWhomWorker = workerTabe.AddpnWorker_Worker;
+                    var informationAddedWhomWorker = AppConnectClass.DataBase.WorkerTabe.Find(addedWhomWorker);
+                    SNMAddedWhomWorkerTextBlock.Text =
+                        $"{informationAddedWhomWorker.PassportTable.Surname_Passport} " +
+                        $"{informationAddedWhomWorker.PassportTable.Name_Passport} " +
+                        $"{informationAddedWhomWorker.PassportTable.Middlename_Passport}";
+                    RoleAddedWhomWorkerTextBlock.Text =
+                        $"({informationAddedWhomWorker.RoleTable.Name_Role})";
                 }
             }
             catch (Exception ex) 

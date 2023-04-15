@@ -354,7 +354,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     DateWord_Worker = ToDayDate,
                     pnStatus_Worker = 2,
                     pnINN_Worker = AddINN.PersonalNumber_INN,
-                    pnSnils_Worker = AddSnils.PersonalNumber_Snils
+                    pnSnils_Worker = AddSnils.PersonalNumber_Snils,
+                    AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker
                 };
                 AppConnectClass.DataBase.WorkerTabe.Add(AddWorker);
 

@@ -67,19 +67,70 @@
                             Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"/>
                     </StackPanel>
                 </Grid>
-                <Grid Margin="10 5 10 0" Grid.Column="1">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <TextBlock
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="25">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding PassportTable.Surname_Passport}"/>
-                                <TextBlock Text="{Binding PassportTable.Name_Passport}"/>
-                                <TextBlock Text="{Binding PassportTable.Middlename_Passport}"/>
+                <StackPanel  Margin="10 5 10 0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="0 0 0 5"
+                        Style="{DynamicResource MainStyleTextBlock}"
+                        FontSize="25">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0 0 5 0"
+                                Text="{Binding PassportTable.Surname_Passport}"/>
+                            <TextBlock
+                                Margin="5 0 5 0"
+                                Text="{Binding PassportTable.Name_Passport}"/>
+                            <TextBlock
+                                Margin="5 0 0 0"
+                                Text="{Binding PassportTable.Middlename_Passport}"/>
+                            <TextBlock
+                                Foreground="#202020"
+                                VerticalAlignment="Bottom"
+                                Margin="5 0 0 0"
+                                FontSize="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="("/>
+                                    <TextBlock Text="{Binding RoleTable.Name_Role}"/>
+                                    <TextBlock Text=")"/>
+                                </StackPanel>
+                            </TextBlock>
+                        </StackPanel>
+                    </TextBlock>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="0 5 0 0"
+                        Style="{DynamicResource MainStyleTextBlock}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0 0 5 0"
+                                Text="Когда добавлен:"/>
+                            <TextBlock
+                                Margin="5 0 5 0"
+                                Text="{Binding DateWord_Worker, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                        </StackPanel>
+                    </TextBlock>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Margin="0 5 0 0"
+                        Style="{DynamicResource MainStyleTextBlock}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Margin="0 0 5 0"
+                                Text="Кем добавлен:"/>
+                            <StackPanel Margin="5 0 0 0" Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    x:Name="SNMAddedWhomWorkerTextBlock"/>
+                                <TextBlock
+                                    Foreground="#202020"
+                                    VerticalAlignment="Bottom"
+                                    Margin="5 0 0 0"
+                                    FontSize="18"
+                                    x:Name="RoleAddedWhomWorkerTextBlock"/>
                             </StackPanel>
-                        </TextBlock>
-                    </StackPanel>
-                </Grid>
+                        </StackPanel>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
         </Grid>
     </Border>
