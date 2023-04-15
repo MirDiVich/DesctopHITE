@@ -41,7 +41,7 @@
                 </Polygon>
                 <TextBlock
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
-                    Text="Удаление сотрудника"/>
+                    Text="УДАЛЕНИЕ СОТРУДНИКА"/>
                 <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Style="{DynamicResource CloseControlButton}"
@@ -110,7 +110,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 0 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Когда добавлен сотрудник:"/>
@@ -127,7 +127,7 @@
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Кем добавлен сотрудник:"/>
-                                <StackPanel Margin="30 6 0 0" Orientation="Horizontal">
+                                <StackPanel VerticalAlignment="Center" Margin="30 6 0 0" Orientation="Horizontal">
                                     <TextBlock
                                         Margin="0 0 5 0"
                                         x:Name="SNMAddedWhomWorkerTextBlock"/>
@@ -144,7 +144,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="ИНН сотрудника:"/>
@@ -157,7 +157,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel  VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Снилс сотрудника:"/>
@@ -170,7 +170,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Зарабатная карта сотрудника:"/>
@@ -183,7 +183,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Медецинская книжка сотрудника:"/>
@@ -196,7 +196,7 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Паспорт сотрудника:"/>
@@ -209,6 +209,42 @@
                             </StackPanel>
                          </TextBlock>
                      </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="0 0 5 5" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Button
+                        Style="{DynamicResource OtherButtonStyle}"
+                        x:Name="CancelButton"
+                        Click="CancelButton_Click"
+                        Width="150"
+                        Margin="0 0 5 0"
+                        Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="&#xf2ff;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="0 0 5 0"/>
+                            <TextBlock
+                                Margin="5 0 0 0"
+                                Text="Отмена"/>
+                        </StackPanel>
+                    </Button>    
+                    <Button
+                        Style="{DynamicResource DeliteButtonStyle}"
+                        x:Name="DeliteButton"
+                        Click="DeliteButton_Click"
+                        Width="150"
+                        Margin="5 0 0 0"
+                        Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="&#xF154;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="0 0 5 0"/>
+                            <TextBlock
+                                Margin="5 0 0 0"
+                                Text="Удалить"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Grid>

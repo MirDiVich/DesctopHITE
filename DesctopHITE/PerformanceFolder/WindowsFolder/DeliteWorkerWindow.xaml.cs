@@ -1,18 +1,12 @@
-﻿using DesctopHITE.AppDateFolder.ClassFolder;
+﻿///----------------------------------------------------------------------------------------------------------
+/// В данном окне реализован код удаления выбранного сотрудника и взаимодействие с данным окном
+///----------------------------------------------------------------------------------------------------------
+
+using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -54,17 +48,24 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
+
+        int personalNumberWorker = 0; // Переменная для дальнейших действий над сотрудником по его персональному номеру
+
         public DeliteWorkerWindow(WorkerTabe workerTabe)
         {
             try
             {
                 InitializeComponent();
                 AppConnectClass.DataBase = new DesctopHiteEntities();
+
                 if (workerTabe != null )
                 {
-                    DataContext = workerTabe;
-                    var addedWhomWorker = workerTabe.AddpnWorker_Worker;
+                    DataContext = workerTabe; // Присваиваю DataContext на данном окне переданное значение из workerTabe
+                    personalNumberWorker = workerTabe.PersonalNumber_Worker; // Присваиваю переменной персональному номеру сотрудника, над которым и происходит действие
+
+                    var addedWhomWorker = workerTabe.AddpnWorker_Worker; // Получаю персональный номер сотрудника, который добавил сотрудника над которым происходит действие
                     var informationAddedWhomWorker = AppConnectClass.DataBase.WorkerTabe.Find(addedWhomWorker);
+
                     SNMAddedWhomWorkerTextBlock.Text =
                         $"{informationAddedWhomWorker.PassportTable.Surname_Passport} " +
                         $"{informationAddedWhomWorker.PassportTable.Name_Passport} " +
@@ -80,5 +81,76 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #region Click
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Close();
+                personalNumberWorker = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    "REBU002 - Ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void DeliteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (personalNumberWorker == 0)
+            {
+                MessageBox.Show(
+                    "Сотрудник не выбран", "Ошибка - E002",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                DeliteWorkerMethod();
+            }
+        }
+        #endregion
+        #region Метод
+        private void DeliteWorkerMethod() // Реализация удаления выбранного сотрудника
+        {
+            try
+            {
+                var informationDeliteWorker = AppConnectClass.DataBase.WorkerTabe.Find(personalNumberWorker);
+
+                string SurnameNameWorker = $"{informationDeliteWorker.PassportTable.Surname_Passport} {informationDeliteWorker.PassportTable.Name_Passport}"; // Получаем Фамилия и Имя для уведомления
+                string MessageTitle = $"Вы действительно хотите удалить: {SurnameNameWorker} ?";
+
+                if (MessageBox.Show(
+                    MessageTitle, "Удаление",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    AppConnectClass.DataBase.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
+                    AppConnectClass.DataBase.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
+                    AppConnectClass.DataBase.SalaryCardTable.Remove(informationDeliteWorker.SalaryCardTable);
+                    AppConnectClass.DataBase.PassportTable.Remove(informationDeliteWorker.PassportTable);
+                    AppConnectClass.DataBase.SnilsTable.Remove(informationDeliteWorker.SnilsTable);
+                    AppConnectClass.DataBase.INNTable.Remove(informationDeliteWorker.INNTable);
+                    AppConnectClass.DataBase.WorkerTabe.Remove(informationDeliteWorker);
+
+                    AppConnectClass.DataBase.SaveChanges();
+
+                    string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
+
+                    MessageBox.Show(
+                        MessageTitleDelit, "Удаление",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(
+                    Ex.Message.ToString(), "Ошибка - E003",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        #endregion
     }
 }
