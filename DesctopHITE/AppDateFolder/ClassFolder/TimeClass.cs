@@ -1,7 +1,6 @@
 ﻿///----------------------------------------------------------------------------------------------------------
 /// В данном классе идёт работа с системным временем
-/// В зависимости от времени, в переменные засовывается определённый текст.
-/// Переменные в последствии вызываются
+/// В зависимости от времени, в переменные записывается определённый текст.
 ///----------------------------------------------------------------------------------------------------------
 
 using System;
@@ -10,37 +9,37 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public partial class TimeClass
     {
-        DateTime TimeDay = DateTime.Now;
+        DateTime timeDay = DateTime.Now;
         public string WhatTimeIsIt // В зависимости от текущего времени, выводим приветствие (Смотрим, какой сейчас час)
         {
             get
             {
-                string TitleNowHour = "Время не определенно";
-                if (TimeDay.Hour >= 0 && DateTime.Now.Hour <= 5)
+                string titleNowHour = "Время не определенно";
+                if (timeDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
-                    TitleNowHour = $"Доброй ночи \n " +
+                    titleNowHour = $"Доброй ночи \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
-                else if (TimeDay.Hour >= 6 && TimeDay.Hour <= 11)
+                else if (timeDay.Hour >= 6 && timeDay.Hour <= 11)
                 {
-                    TitleNowHour = $"Доброе утро \n " +
+                    titleNowHour = $"Доброе утро \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
-                else if (TimeDay.Hour >= 12 && DateTime.Now.Hour <=17)
+                else if (timeDay.Hour >= 12 && DateTime.Now.Hour <=17)
                 {
-                    TitleNowHour = $"Доброе день \n " +
+                    titleNowHour = $"Доброе день \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
-                else if (TimeDay.Hour >= 18 && DateTime.Now.Hour <= 23)
+                else if (timeDay.Hour >= 18 && DateTime.Now.Hour <= 23)
                 {
-                    TitleNowHour = $"Доброе вечер \n " +
+                    titleNowHour = $"Доброе вечер \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
-                return TitleNowHour;
+                return titleNowHour;
             }
         }
     }

@@ -1,82 +1,78 @@
 ﻿///----------------------------------------------------------------------------------------------------------
 /// В данном классе идёт работа с системной датой
-/// В зависимости от даты, в переменные засовывается определённый текст.
-/// Переменные в последствии вызываются
+/// В зависимости от даты, в переменные записывается определённый текст.
 ///----------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public partial class HolidayClass
     {
-        DateTime ToDay = DateTime.Now;
+        DateTime toDay = DateTime.Now;
         public string WhatDayIsIt // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
         {
             get
             {
-                string TitleNowDay = "Сегодня нет праздников";
+                string titleNowDay = "Сегодня нет праздников";
 
-                if ((ToDay.Day == 1 || ToDay.Day <= 6) && ToDay.Month == 1)
+                if ((toDay.Day == 1 || toDay.Day <= 6) && toDay.Month == 1)
                 {
-                    TitleNowDay = "C новым " + ToDay.Year.ToString() + " годом!";
+                    titleNowDay = "C новым " + toDay.Year.ToString() + " годом!";
                 }
-                else if (ToDay.Day == 7 && ToDay.Month == 1)
+                else if (toDay.Day == 7 && toDay.Month == 1)
                 {
-                    TitleNowDay = "С Рождеством Христова!";
+                    titleNowDay = "С Рождеством Христова!";
                 }
-                else if (ToDay.Day == 14 && ToDay.Month == 1)
+                else if (toDay.Day == 14 && toDay.Month == 1)
                 {
-                    TitleNowDay = "Со Старым Новым годом!";
+                    titleNowDay = "Со Старым Новым годом!";
                 }
-                else if (ToDay.Day == 14 && ToDay.Month == 2)
+                else if (toDay.Day == 14 && toDay.Month == 2)
                 {
-                    TitleNowDay = "С днем Святого Валентина!";
+                    titleNowDay = "С днем Святого Валентина!";
                 }
-                else if (ToDay.Day == 23 && ToDay.Month == 2)
+                else if (toDay.Day == 23 && toDay.Month == 2)
                 {
-                    TitleNowDay = "С днём защитника отечества!";
+                    titleNowDay = "С днём защитника отечества!";
                 }
-                else if (ToDay.Day == 8 && ToDay.Month == 3)
+                else if (toDay.Day == 8 && toDay.Month == 3)
                 {
-                    TitleNowDay = "С Восьмым марта!";
+                    titleNowDay = "С Восьмым марта!";
                 }
-                else if (ToDay.Day == 1 && ToDay.Month == 4)
+                else if (toDay.Day == 1 && toDay.Month == 4)
                 {
-                    TitleNowDay = "С днём смеха!";
+                    titleNowDay = "С днём смеха!";
                 }
-                else if (ToDay.Day == 12 && ToDay.Month == 4)
+                else if (toDay.Day == 12 && toDay.Month == 4)
                 {
-                    TitleNowDay = "С днём космонавтики!";
+                    titleNowDay = "С днём космонавтики!";
                 }
-                else if (ToDay.Day == 1 && ToDay.Month == 5)
+                else if (toDay.Day == 1 && toDay.Month == 5)
                 {
-                    TitleNowDay = "С Праздником Весны и Труда";
+                    titleNowDay = "С Праздником Весны и Труда";
                 }
-                else if (ToDay.Day == 9 && ToDay.Month == 5)
+                else if (toDay.Day == 9 && toDay.Month == 5)
                 {
-                    TitleNowDay = "С Днём Победы";
+                    titleNowDay = "С Днём Победы";
                 }
-                else if (ToDay.Day == 1 && ToDay.Month == 6)
+                else if (toDay.Day == 1 && toDay.Month == 6)
                 {
-                    TitleNowDay = "С Международным днём защиты детей!";
+                    titleNowDay = "С Международным днём защиты детей!";
                 }
-                else if (ToDay.Day == 12 && ToDay.Month == 6)
+                else if (toDay.Day == 12 && toDay.Month == 6)
                 {
-                    TitleNowDay = "С днем России!";
+                    titleNowDay = "С днем России!";
                 }
-                else if (ToDay.Day == 1 && ToDay.Month == 9)
+                else if (toDay.Day == 1 && toDay.Month == 9)
                 {
-                    TitleNowDay = "С днем Знаний!";
+                    titleNowDay = "С днем Знаний!";
                 }
-                else if (ToDay.Day == 4 && ToDay.Month == 11)
+                else if (toDay.Day == 4 && toDay.Month == 11)
                 {
-                    TitleNowDay = "С днем народного единства!";
+                    titleNowDay = "С днем народного единства!";
                 }
-                return TitleNowDay;
+                return titleNowDay;
             }
         }
 
@@ -84,14 +80,14 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         {
             get
             {
-                string TitleHappyBirthday = "";
-                DateTime TitleDateOfBrich = AppConnectClass.GetUser.PassportTable.DateOfBrich_Passport;
+                string titleHappyBirthday = "";
+                DateTime titleDateOfBrich = AppConnectClass.GetUser.PassportTable.DateOfBrich_Passport;
 
-                if (ToDay.Day == TitleDateOfBrich.Day && ToDay.Month == TitleDateOfBrich.Month)
+                if (toDay.Day == titleDateOfBrich.Day && toDay.Month == titleDateOfBrich.Month)
                 {
-                    TitleHappyBirthday = "С днём рождения!";
+                    titleHappyBirthday = "С днём рождения!";
                 }
-                return TitleHappyBirthday;
+                return titleHappyBirthday;
             }
         }
     }

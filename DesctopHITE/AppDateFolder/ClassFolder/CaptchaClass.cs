@@ -1,6 +1,5 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// В данном классе реализован метод по генерации рандомных свойств для текста
-/// Данный класс срабатывает каждый раз, когда его вызывают
+/// В данном классе реализован метод по генерации рандомных свойств для текста капчи
 ///----------------------------------------------------------------------------------------------------------
 
 using System;
@@ -25,10 +24,10 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         // Стиль для капчи
         public static CaptchaClass GetStyle()
         {
-            Random RandomStyle = new Random();
+            Random randomStyle = new Random();
 
             // Выставляем "жирность" текста в зависимости от случайного числа
-            FontWeight[] AskFontWeights =
+            FontWeight[] askFontWeights =
             {
                 FontWeights.Black,
                 FontWeights.Bold,
@@ -49,7 +48,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             };
 
             // Выставляем "Стиль" текста в зависимости от случайного числа
-            FontStyle[] AskFontStyle =
+            FontStyle[] askFontStyle =
             {
                 FontStyles.Italic,
                 FontStyles.Oblique,
@@ -57,7 +56,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             };
 
             // Выставляем "Декорацию" текста в зависимости от случайного числа
-            TextDecorationCollection[] AskTextDecorations =
+            TextDecorationCollection[] askTextDecorations =
             {
                 TextDecorations.Baseline,
                 TextDecorations.OverLine,
@@ -66,42 +65,42 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             };
 
             // генерация рандомной "Жирности текста"
-            var FontWeightText = AskFontWeights[RandomStyle.Next(0, AskFontWeights.Length)];
+            var fontWeightText = askFontWeights[randomStyle.Next(0, askFontWeights.Length)];
 
             // генерация рандомной "Стиля текста"
-            var FontStyleText = AskFontStyle[RandomStyle.Next(0, AskFontStyle.Length)];
+            var fontStyleText = askFontWeights[randomStyle.Next(0, askFontStyle.Length)];
 
             // генерация рандомной "Декорации текста"
-            var FontDecorationsText = AskTextDecorations[RandomStyle.Next(0, AskTextDecorations.Length)];
+            var fontDecorationsText = askFontWeights[randomStyle.Next(0, askTextDecorations.Length)];
 
             // генерация рандомной амплитуды и частоты волны
-            var AmplitudeText = RandomStyle.Next(-20, 20); // Амплитуда
-            var FrequencyText = RandomStyle.Next(-40, 40); // Частота
+            var amplitudeText = randomStyle.Next(-20, 20); // Амплитуда
+            var frequencyText = randomStyle.Next(-40, 40); // Частота
 
             // генерация рандомного угла наклона
-            var RotationText = RandomStyle.Next(-15, 15);
+            var rotationText = randomStyle.Next(-15, 15);
 
             // Получаем рандомный цвет
-            var RandomRgbColor = new SolidColorBrush(Color.FromRgb((byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256), (byte)RandomStyle.Next(256)));
+            var randomRgbColor = new SolidColorBrush(Color.FromRgb((byte)randomStyle.Next(256), (byte)randomStyle.Next(256), (byte)randomStyle.Next(256)));
 
             // Получаем рандомную прозрачность
-            var OpacityText = RandomStyle.NextDouble() * (0.7 - 0.3) + 0.3;
+            var opacityText = randomStyle.NextDouble() * (0.7 - 0.3) + 0.3;
 
             // Получаем рандомный размер текста
-            var FontSizeText = RandomStyle.Next(20, 32);
+            var fontSizeText = randomStyle.Next(20, 32);
 
             // Вызываемым переменным присваиваем полученные свойства
             return new CaptchaClass
             {
-                GetFontWeightText = FontWeightText,
-                GetAmplitudeText = AmplitudeText,
-                GetFrequencyText = FrequencyText,
-                GetRotationText = RotationText,
-                GetColorText = RandomRgbColor,
-                GetOpacityText = OpacityText,
-                GetFontSizeText = FontSizeText,
-                GetFontStyleText = FontStyleText,
-                GetTextDecorationText = FontDecorationsText
+                GetFontWeightText = fontWeightText,
+                GetAmplitudeText = amplitudeText,
+                GetFrequencyText = frequencyText,
+                GetRotationText = rotationText,
+                GetColorText = randomRgbColor,
+                GetOpacityText = opacityText,
+                GetFontSizeText = fontSizeText,
+                GetFontStyleText = fontStyleText,
+                GetTextDecorationText = fontDecorationsText
             };
         }
     }
