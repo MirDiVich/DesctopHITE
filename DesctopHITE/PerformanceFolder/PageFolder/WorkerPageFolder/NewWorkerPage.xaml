@@ -326,7 +326,7 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <ComboBox
-                                                    Text="{Binding GenderTable.Title_Gender}"
+                                                    Text="{Binding PassportTable.GenderTable.Title_Gender}"
                                                     x:Name="pnGenderComboBox"
                                                     DisplayMemberPath="Title_Gender"
                                                     SelectedValuePath="PersonalNumber_Gender"
@@ -1305,8 +1305,14 @@
                             Height="50">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock
-                                    x:Name="TitleIconNewWorkerTextBlock"
+                                    x:Name="TitleIconNewWorkerTextBlock1"
                                     Text="&#xf1ff;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0 0 5 0"/>
+                                <TextBlock
+                                    Visibility="Collapsed"
+                                    x:Name="TitleIconNewWorkerTextBlock2"
+                                    Text="&#xf158;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
                                     Margin="0 0 5 0"/>
                                 <TextBlock

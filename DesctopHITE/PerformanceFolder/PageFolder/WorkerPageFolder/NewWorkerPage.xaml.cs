@@ -41,7 +41,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (workerTabe != null) 
                 {
                     DataContext = workerTabe;
-                    TitleIconNewWorkerTextBlock.Text = "&#xf158;";
+
+                    TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
+                    TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
                     TitleTextNewWorkerTextBlock.Text = "Сохранить изменения";
                 }
                 AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
