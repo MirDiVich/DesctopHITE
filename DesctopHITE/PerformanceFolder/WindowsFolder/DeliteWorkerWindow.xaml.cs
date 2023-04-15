@@ -70,6 +70,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         $"{informationAddedWhomWorker.PassportTable.Surname_Passport} " +
                         $"{informationAddedWhomWorker.PassportTable.Name_Passport} " +
                         $"{informationAddedWhomWorker.PassportTable.Middlename_Passport}";
+
                     RoleAddedWhomWorkerTextBlock.Text =
                         $"({informationAddedWhomWorker.RoleTable.Name_Role})";
                 }

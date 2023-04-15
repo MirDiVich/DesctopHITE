@@ -24,7 +24,6 @@
             Visibility="Visible" 
             Style="{DynamicResource BorderInformation}">
             <StackPanel Margin="5 10" Orientation="Vertical" VerticalAlignment="Center">
-                <!--Приветствие пользователя-->
                 <TextBlock
                     Text="Loading..."
                     Padding="10 5"
@@ -33,7 +32,6 @@
                     x:Name="HelloyTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
                     Margin="0 0 0 2.5"/>
-                <!--Текущие время-->
                 <TextBlock
                     Width="350"
                     HorizontalAlignment="Center"
@@ -43,7 +41,6 @@
                     FontSize="60"
                     FontFamily="\ContentFolder\FontFolder\#DM Mono Medium"
                     Margin="0 2.5 0 2.5"/>
-                <!--Текущая дата-->
                 <TextBlock
                     Margin="0 2.5 0 0"
                     HorizontalAlignment="Center"
@@ -51,7 +48,6 @@
                     x:Name="NowDateTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
                     FontSize="25"/>
-                <!--Поздравление с днём рождения-->
                 <TextBlock
                     Margin="0 2 0 2"
                     HorizontalAlignment="Center"
@@ -59,14 +55,13 @@
                     x:Name="BirthdayTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
                     FontSize="25"/>
-                <!--Поздравление с праздником-->
                 <TextBlock
                     Margin="0 2 0 0"
                     HorizontalAlignment="Center"
                     TextAlignment="Center"
                     x:Name="NowHolidayTextBlock"
                     Style="{DynamicResource MainStyleTextBlock}"
-                    FontSize="25"/>
+                    FontSize="20"/>
             </StackPanel>
         </Border>
         <Border

@@ -42,7 +42,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             if (GetDayClass.WhatDayIsIt == "Сегодня нет праздников")
             {
-                NowHolidayTextBlock.FontSize = 18;
+                NowHolidayTextBlock.FontSize = 15;
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
             }
 

@@ -41,6 +41,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (workerTabe != null) 
                 {
                     DataContext = workerTabe;
+                    TitleIconNewWorkerTextBlock.Text = "&#xf158;";
+                    TitleTextNewWorkerTextBlock.Text = "Сохранить изменения";
                 }
                 AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
                 pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
