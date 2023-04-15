@@ -127,6 +127,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageTitle, "Удаление",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
+                    AppConnectClass.DataBase.ImagePassportTable.Remove(informationDeliteWorker.PassportTable.ImagePassportTable);
                     AppConnectClass.DataBase.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
                     AppConnectClass.DataBase.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
                     AppConnectClass.DataBase.SalaryCardTable.Remove(informationDeliteWorker.SalaryCardTable);
@@ -142,6 +143,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBox.Show(
                         MessageTitleDelit, "Удаление",
                         MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Close();
                 }
             }
             catch (Exception Ex)
