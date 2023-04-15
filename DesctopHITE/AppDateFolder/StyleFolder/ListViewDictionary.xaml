@@ -29,7 +29,16 @@
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="#f5f5f5" />
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
+                                        <GradientStop Color="#462AD8" Offset="1"/>
+                                        <GradientStop Color="#6b55e0"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#f5f5f5"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

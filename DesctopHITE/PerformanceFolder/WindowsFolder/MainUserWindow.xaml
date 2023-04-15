@@ -18,8 +18,15 @@
                 x:Name="SpaseBarGrid"
                 MouseDown="SpaseBarGrid_MouseDown"
                 Background="Transparent">
-                <Polygon 
-                    Points="200,0, 230,15, 1400,15, 1430,0" 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1230"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Polygon
+                    HorizontalAlignment="Center"
+                    Grid.Column="1"
+                    Points="0,0, 30,15, 1200,15, 1230,0" 
                     x:Name="PoligonName"
                     Fill="#2a2a2a"
                     Opacity="1">
@@ -34,9 +41,10 @@
                     </Polygon.Effect>
                 </Polygon>
                 <TextBlock
+                    Grid.Column="0"
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="ГЛАВНОЕ ОКНО"/>
-                <StackPanel Style="{DynamicResource ControlPanelStackPanelStyle}">
+                <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Width="30"
                         Content="&#xf1cc;"

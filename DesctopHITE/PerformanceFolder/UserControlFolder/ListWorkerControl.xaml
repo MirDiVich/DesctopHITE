@@ -8,15 +8,6 @@
     Height="250"
     Width="200">
     <Border CornerRadius="10" BorderBrush="Transparent" BorderThickness="0">
-        <Border.Effect>
-            <DropShadowEffect 
-                Direction="315"
-                Color="{DynamicResource ShadowColor}"
-                BlurRadius="5"
-                ShadowDepth="2"
-                Opacity="0.5"
-                RenderingBias="Performance"/>
-        </Border.Effect>
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Margin="0 0 0 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid>

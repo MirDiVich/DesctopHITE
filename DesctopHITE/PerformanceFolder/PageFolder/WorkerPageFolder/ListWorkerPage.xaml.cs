@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -46,7 +47,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            DeliteWorkerMethod();
+            DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(DataContextWorker);
+            deliteWorkerWindow.ShowDialog();
+
+            //DeliteWorkerMethod();
         }
         #endregion
         #region Действие

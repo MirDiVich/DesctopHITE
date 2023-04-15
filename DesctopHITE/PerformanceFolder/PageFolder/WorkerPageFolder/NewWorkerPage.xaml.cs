@@ -47,10 +47,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message,
-                    "Ошибка (NewWorkerPage - E-001)",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message, "Ошибка (NewWorkerPage - E-001)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -15,8 +15,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Background="Transparent">
-                <Polygon 
-                    Points="200,0, 230,15, 600,15, 630,0" 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="430"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Polygon
+                    HorizontalAlignment="Center"
+                    Grid.Column="1"
+                    Points="0,0, 30,15, 400,15, 430,0" 
                     x:Name="PoligonName"
                     Fill="#2a2a2a"
                     Opacity="1">

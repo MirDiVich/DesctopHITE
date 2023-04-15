@@ -76,9 +76,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -101,9 +101,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -127,9 +127,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -155,9 +155,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -181,9 +181,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -218,9 +218,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <Button
@@ -247,9 +247,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -271,9 +271,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -295,9 +295,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -320,9 +320,9 @@
                                                             Direction="315"
                                                             Color="{DynamicResource ShadowColor}"
                                                             BlurRadius="5"
-                                                            ShadowDepth="2"
-                                                            Opacity="0.5"
-                                                            RenderingBias="Performance"/>
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
                                                     </Border.Effect>
                                                 </Border>
                                                 <ComboBox
@@ -345,9 +345,9 @@
                                                             Direction="315"
                                                             Color="{DynamicResource ShadowColor}"
                                                             BlurRadius="5"
-                                                            ShadowDepth="2"
-                                                            Opacity="0.5"
-                                                            RenderingBias="Performance"/>
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
                                                     </Border.Effect>
                                                 </Border>
                                                 <TextBox
@@ -372,9 +372,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -412,9 +412,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -440,9 +440,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -464,9 +464,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -488,9 +488,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -512,9 +512,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -537,9 +537,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -563,9 +563,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -603,9 +603,9 @@
                                             Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="2"
-                                            Opacity="0.5"
-                                            RenderingBias="Performance"/>
+                                            ShadowDepth="0.5"
+                                            Opacity="0.3"
+                                            RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
@@ -629,9 +629,9 @@
                                             Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="2"
-                                            Opacity="0.5"
-                                            RenderingBias="Performance"/>
+                                            ShadowDepth="0.5"
+                                            Opacity="0.3"
+                                            RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
@@ -654,9 +654,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -680,9 +680,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -705,9 +705,9 @@
                                             Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="2"
-                                            Opacity="0.5"
-                                            RenderingBias="Performance"/>
+                                            ShadowDepth="0.5"
+                                            Opacity="0.3"
+                                            RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
@@ -729,9 +729,9 @@
                                             Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="2"
-                                            Opacity="0.5"
-                                            RenderingBias="Performance"/>
+                                            ShadowDepth="0.5"
+                                            Opacity="0.3"
+                                            RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
@@ -753,9 +753,9 @@
                                             Direction="315"
                                             Color="{DynamicResource ShadowColor}"
                                             BlurRadius="5"
-                                            ShadowDepth="2"
-                                            Opacity="0.5"
-                                            RenderingBias="Performance"/>
+                                            ShadowDepth="0.5"
+                                            Opacity="0.3"
+                                            RenderingBias="Quality"/>
                                     </Border.Effect>
                                 </Border>
                                 <TextBox
@@ -788,9 +788,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -814,9 +814,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -852,9 +852,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -878,9 +878,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -906,9 +906,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -930,9 +930,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -968,9 +968,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -995,9 +995,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -1019,9 +1019,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -1046,9 +1046,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -1076,9 +1076,9 @@
                                                         Direction="315"
                                                         Color="{DynamicResource ShadowColor}"
                                                         BlurRadius="5"
-                                                        ShadowDepth="2"
-                                                        Opacity="0.5"
-                                                        RenderingBias="Performance"/>
+                                                        ShadowDepth="0.5"
+                                                        Opacity="0.3"
+                                                        RenderingBias="Quality"/>
                                                 </Border.Effect>
                                             </Border>
                                             <TextBox
@@ -1103,9 +1103,9 @@
                                                     Direction="315"
                                                     Color="{DynamicResource ShadowColor}"
                                                     BlurRadius="5"
-                                                    ShadowDepth="2"
-                                                    Opacity="0.5"
-                                                    RenderingBias="Performance"/>
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
@@ -1142,9 +1142,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -1166,9 +1166,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -1192,9 +1192,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <ComboBox
@@ -1218,9 +1218,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -1243,9 +1243,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <TextBox
@@ -1268,9 +1268,9 @@
                                                 Direction="315"
                                                 Color="{DynamicResource ShadowColor}"
                                                 BlurRadius="5"
-                                                ShadowDepth="2"
-                                                Opacity="0.5"
-                                                RenderingBias="Performance"/>
+                                                ShadowDepth="0.5"
+                                                Opacity="0.3"
+                                                RenderingBias="Quality"/>
                                         </Border.Effect>
                                     </Border>
                                     <PasswordBox
@@ -1293,9 +1293,9 @@
                                     Direction="315"
                                     Color="{DynamicResource ShadowColor}"
                                     BlurRadius="5"
-                                    ShadowDepth="2"
-                                    Opacity="0.5"
-                                    RenderingBias="Performance"/>
+                                    ShadowDepth="0.5"
+                                    Opacity="0.3"
+                                    RenderingBias="Quality"/>
                             </Border.Effect>
                         </Border>
                         <Button
