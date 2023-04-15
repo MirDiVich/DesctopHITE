@@ -1,13 +1,17 @@
-﻿using System;
+﻿///----------------------------------------------------------------------------------------------------------
+/// 
+///----------------------------------------------------------------------------------------------------------
+
+using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
+using System;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using DesctopHITE.AppDateFolder.ClassFolder;
-using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.WindowsFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
@@ -49,69 +53,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(DataContextWorker);
             deliteWorkerWindow.ShowDialog();
-
-            //DeliteWorkerMethod();
-        }
-        #endregion
-        #region Действие
-        private void DeliteWorkerMethod()
-        {
-            if (DataContextWorker == null)
-            {
-                // Перед удалением проверяем, что сотрудник выбран
-                MessageBox.Show(
-                    "Сотрудник не выбран", "Ошибка - E002",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else
-            {
-                try // помешаем рабочий код в "безопасную каробку"
-                {
-                    string SurnameNameWorker = DataContextWorker.PassportTable.Surname_Passport + " " + DataContextWorker.PassportTable.Name_Passport; // Получаем Фамилия и Имя для уведомления
-
-                    // Если пользователь подтверждает удаление сотрудника
-                    string MessageTitle = "Вы действительно хотите удалить: " + SurnameNameWorker + " ?";
-                    if (MessageBox.Show(
-                        MessageTitle, "Удаление",
-                        MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                    {
-                        // Выполняем удаление
-                        AppConnectClass.DataBase.PlaceResidenceTable.Remove(DataContextWorker.PlaceResidenceTable);
-                        AppConnectClass.DataBase.MedicalBookTable.Remove(DataContextWorker.MedicalBookTable);
-                        AppConnectClass.DataBase.SalaryCardTable.Remove(DataContextWorker.SalaryCardTable);
-                        AppConnectClass.DataBase.PassportTable.Remove(DataContextWorker.PassportTable);
-                        AppConnectClass.DataBase.SnilsTable.Remove(DataContextWorker.SnilsTable);
-                        AppConnectClass.DataBase.INNTable.Remove(DataContextWorker.INNTable);
-                        AppConnectClass.DataBase.WorkerTabe.Remove(DataContextWorker);
-
-                        // Сохраняем изменения
-                        AppConnectClass.DataBase.SaveChanges();
-
-                        // Выводим уведомление с переменными выше
-                        string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
-                        MessageBox.Show(
-                            MessageTitleDelit, "Удаление",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                }
-                //Если произошла ошибка в коде сверху, обрабатываем эту ошибку
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(
-                        Ex.Message.ToString(), "Ошибка - E003",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                // Действие после удачного или неудачного выполнения работы кода
-                finally
-                {
-                    // Обновляем содержимое ListBox
-                    ListWorkerListView.Items.Refresh();
-
-                    DataContextWorker = null;
-                    DeliteButton.IsEnabled = false;
-                    EditButton.IsEnabled = false;
-                }
-            }
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick

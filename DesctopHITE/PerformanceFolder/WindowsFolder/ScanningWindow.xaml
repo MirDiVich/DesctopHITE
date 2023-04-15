@@ -11,13 +11,13 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 10 0 0">
             <TextBlock
                 TextWrapping="Wrap"
-                FontSize="20"
+                FontSize="15"
                 Style="{DynamicResource MainStyleTextBlock}"
                 Text="Идёт сканирование приложения"/>
             <TextBlock
                 Foreground="#9a9a9a"
                 TextWrapping="Wrap"
-                FontSize="15"
+                FontSize="10"
                 Style="{DynamicResource MainStyleTextBlock}"
                 Text="Пожалуйста подождите конца загрузки"/>
         </StackPanel>

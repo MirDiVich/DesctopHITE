@@ -1,8 +1,9 @@
-﻿using DesctopHITE.AppDateFolder.ClassFolder;
-using DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder;
+﻿///----------------------------------------------------------------------------------------------------------
+/// 
+///----------------------------------------------------------------------------------------------------------
+
 using System;
 using System.Windows;
-using System.Linq;
 using System.Windows.Controls;
 
 namespace DesctopHITE.PerformanceFolder.UserControlFolder
