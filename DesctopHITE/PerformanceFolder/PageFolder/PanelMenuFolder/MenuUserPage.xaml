@@ -1,10 +1,11 @@
-﻿<Page x:Class="DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder.MenuUserPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      IsVisibleChanged="Page_IsVisibleChanged"
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder.MenuUserPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MenuUserPageStyle}">
     <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
         <ToggleButton

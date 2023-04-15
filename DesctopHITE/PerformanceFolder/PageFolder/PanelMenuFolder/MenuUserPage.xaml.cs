@@ -1,7 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿///----------------------------------------------------------------------------------------------------------
+/// На данной странице реализован код для работы меню
+///----------------------------------------------------------------------------------------------------------
+
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -54,15 +58,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             FrameNavigationClass.MainUser_FNC.Navigate(new SettingsPage());
         }
         #endregion
-        #region Действие
-        private void IsCheckedToggleButton()
+        #region Метод
+        private void IsCheckedToggleButton() // Отключение проверки кнопок
         {
             MainToggleButton.IsChecked = false;
             WorkersToggleButton.IsChecked = false;
             //MenuToggleButton.IsChecked = false;
             SettingsToggleButton.IsChecked = false;
         }
-        private void IsEnabledToggleButton()
+        private void IsEnabledToggleButton() // Включение кнопок
         {
             MainToggleButton.IsEnabled = true;
             WorkersToggleButton.IsEnabled = true;

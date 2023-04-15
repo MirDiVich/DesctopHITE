@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿///----------------------------------------------------------------------------------------------------------
+/// На данной странице реализован код для работы меню
+///----------------------------------------------------------------------------------------------------------
+
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -31,7 +23,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 AboutTheAppToggleButton.IsChecked = true;
                 AboutTheAppToggleButton.IsEnabled = false;
             }
-            
         }
         #region Click
         private void AboutTheAppToggleButton_Click(object sender, RoutedEventArgs e)
@@ -68,15 +59,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             FrameNavigationClass.BodySettings_FNC.Navigate(new ScanningPage());
         }
         #endregion
-        #region Действие
-        private void IsCheckedToggleButton()
+        #region Метод
+        private void IsCheckedToggleButton() // Отключение проверки кнопок
         {
             AboutTheAppToggleButton.IsChecked = false;
             UpdateToggleButton.IsChecked = false;
             DevelopersToggleButton.IsChecked = false;
             ScanningToggleButton.IsChecked = false;
         }
-        private void IsEnabledToggleButton()
+        private void IsEnabledToggleButton() // Включение кнопок
         {
             AboutTheAppToggleButton.IsEnabled = true;
             UpdateToggleButton.IsEnabled = true;
