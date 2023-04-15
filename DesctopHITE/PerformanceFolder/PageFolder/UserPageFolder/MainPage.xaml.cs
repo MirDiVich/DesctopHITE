@@ -6,19 +6,18 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
-using System.Windows;
 using System.Data.Entity;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
-using System.Linq;
-using DesctopHITE.AppDateFolder.ModelFolder;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
-        DateTime ToDay = DateTime.Now;
+        DateTime toDay = DateTime.Now;
         public static TimeClass GetTimeClass = new TimeClass();
         public static HolidayClass GetDayClass = new HolidayClass();
 
@@ -48,11 +47,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
 
             // Поиск сотрудников, у которых сегодня день рождение
-            var EmployeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
-                Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == ToDay.Day &&
-                            Birthday.PassportTable.DateOfBrich_Passport.Month == ToDay.Month);
+            var employeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
+                Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == toDay.Day &&
+                            Birthday.PassportTable.DateOfBrich_Passport.Month == toDay.Month);
 
-            EmployeesWhoHaveBirthdayToday.ItemsSource = EmployeesObjects.ToList();
+            EmployeesWhoHaveBirthdayToday.ItemsSource = employeesObjects.ToList();
 
             if (EmployeesWhoHaveBirthdayToday.Items.Count == 0)
             {
