@@ -32,6 +32,6 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Opacity" Value="1"/>
-        <Setter Property="BorderBrush" Value="#202020"/>
+        <Setter Property="BorderBrush" Value="#121212"/>
     </Style>
 </ResourceDictionary>

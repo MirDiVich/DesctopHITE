@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="ControlPanelTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#f5f5f5"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="Times New Roman"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -26,7 +26,7 @@
     </Style>
     <Style x:Key="HintTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#8c8a8c"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -39,11 +39,11 @@
     </Style>
     <Style x:Key="MainStyleTextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#f5f5f5"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="TextBlockDominatesTextBoxTextBlock" TargetType="TextBlock" BasedOn="{StaticResource MainStyleTextBlock}">

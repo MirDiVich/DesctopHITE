@@ -7,13 +7,16 @@
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource AuthorizationWindowStyle}">
-    <Border Style="{DynamicResource MainBorderStyle}">
+    <Border BorderBrush="#462AD8" BorderThickness="1" Style="{DynamicResource MainBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Background="Transparent">
+            <Grid 
+                x:Name="SpaseBarGrid"
+                MouseDown="SpaseBarGrid_MouseDown"
+                Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="430"/>
@@ -39,6 +42,12 @@
                 <TextBlock
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="Удаление сотрудника"/>
+                <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
+                    <Button 
+                        Style="{DynamicResource CloseControlButton}"
+                        x:Name="CloseButton"
+                        Click="CloseButton_Click"/>
+                </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -70,9 +79,9 @@
                 <StackPanel  Margin="10 5 10 0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <TextBlock
                         HorizontalAlignment="Left"
-                        Margin="0 0 0 5"
+                        Margin="0 0 0 15"
                         Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="25">
+                        FontSize="20">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
                                 Margin="0 0 5 0"
@@ -84,10 +93,10 @@
                                 Margin="5 0 0 0"
                                 Text="{Binding PassportTable.Middlename_Passport}"/>
                             <TextBlock
-                                Foreground="#202020"
+                                Foreground="#9a9a9a"
                                 VerticalAlignment="Bottom"
                                 Margin="5 0 0 0"
-                                FontSize="18">
+                                FontSize="13">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="("/>
                                     <TextBlock Text="{Binding RoleTable.Name_Role}"/>
@@ -96,40 +105,110 @@
                             </TextBlock>
                         </StackPanel>
                     </TextBlock>
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        Margin="0 5 0 0"
-                        Style="{DynamicResource MainStyleTextBlock}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock
-                                Margin="0 0 5 0"
-                                Text="Когда добавлен:"/>
-                            <TextBlock
-                                Margin="5 0 5 0"
-                                Text="{Binding DateWord_Worker, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                        </StackPanel>
-                    </TextBlock>
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        Margin="0 5 0 0"
-                        Style="{DynamicResource MainStyleTextBlock}">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock
-                                Margin="0 0 5 0"
-                                Text="Кем добавлен:"/>
-                            <StackPanel Margin="5 0 0 0" Orientation="Horizontal">
+                     <StackPanel Margin="15 15 0 0" HorizontalAlignment="Left" Orientation="Vertical">
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 0 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
-                                    x:Name="SNMAddedWhomWorkerTextBlock"/>
+                                    Text="Когда добавлен сотрудник:"/>
                                 <TextBlock
-                                    Foreground="#202020"
-                                    VerticalAlignment="Bottom"
-                                    Margin="5 0 0 0"
-                                    FontSize="18"
-                                    x:Name="RoleAddedWhomWorkerTextBlock"/>
+                                    Margin="5 0 5 0"
+                                    Text="{Binding DateWord_Worker, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                             </StackPanel>
-                        </StackPanel>
-                    </TextBlock>
+                         </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="Кем добавлен сотрудник:"/>
+                                <StackPanel Margin="30 6 0 0" Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="0 0 5 0"
+                                        x:Name="SNMAddedWhomWorkerTextBlock"/>
+                                    <TextBlock
+                                        Foreground="#9a9a9a"
+                                        VerticalAlignment="Bottom"
+                                        Margin="5 0 0 0"
+                                        FontSize="12"
+                                        x:Name="RoleAddedWhomWorkerTextBlock"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="ИНН сотрудника:"/>
+                                <TextBlock
+                                    Margin="5 0 5 0"
+                                    Text="{Binding INNTable.PersonalNumber_INN}"/>
+                            </StackPanel>
+                         </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="Снилс сотрудника:"/>
+                                <TextBlock
+                                    Margin="5 0 5 0"
+                                    Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
+                            </StackPanel>
+                         </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="Зарабатная карта сотрудника:"/>
+                                <TextBlock
+                                    Margin="5 0 5 0"
+                                    Text="{Binding SalaryCardTable.PersonalNumber_SalaryCard}"/>
+                            </StackPanel>
+                         </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="Медецинская книжка сотрудника:"/>
+                                <TextBlock
+                                    Margin="5 0 5 0"
+                                    Text="{Binding MedicalBookTable.PersonalNumber_MedicalBook}"/>
+                            </StackPanel>
+                         </TextBlock>
+                         <TextBlock
+                            HorizontalAlignment="Left"
+                            Margin="0 5 0 5"
+                            Style="{DynamicResource MainStyleTextBlock}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0 0 5 0"
+                                    Text="Паспорт сотрудника:"/>
+                                <TextBlock
+                                    Margin="5 0 5 0"
+                                    Text="{Binding PassportTable.Series_Passport}"/>
+                                <TextBlock
+                                    Margin="5 0 0 0"
+                                    Text="{Binding PassportTable.Number_Passport}"/>
+                            </StackPanel>
+                         </TextBlock>
+                     </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>

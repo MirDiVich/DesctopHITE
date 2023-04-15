@@ -14,7 +14,10 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Background="Transparent">
+            <Grid 
+                x:Name="SpaseBarGrid"
+                MouseDown="SpaseBarGrid_MouseDown"
+                Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="430"/>
@@ -41,7 +44,7 @@
                     Grid.Column="0"
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="АВТОРИЗАЦИЯ"/>
-                <StackPanel Grid.Column="22" Style="{DynamicResource ControlPanelStackPanelStyle}">
+                <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Style="{DynamicResource RollupControlButton}" 
                         x:Name="RollupButton" 
