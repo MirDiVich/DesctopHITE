@@ -1,6 +1,9 @@
-﻿<ResourceDictionary
+﻿<!--В данном файле находится код для стиля пользовательского элемента управления ScrollBar-->
+    
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <Style x:Key="ScrollBarLineButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
@@ -13,6 +16,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="ScrollBarLineButtonBottomStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
@@ -25,6 +29,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="ScrollBarPageButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Focusable" Value="False"/>
@@ -41,6 +46,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
     <Style x:Key="ScrollBarThumbStyle" TargetType="{x:Type Thumb}">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Focusable" Value="False"/>
@@ -55,6 +61,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
         <Grid Margin="0">
             <Grid.RowDefinitions>
@@ -85,8 +92,10 @@
             </RepeatButton>
         </Grid>
     </ControlTemplate>
+    
     <Style TargetType="{x:Type ScrollBar}">
         <Setter Property="Template" Value="{StaticResource VerticalScrollBar}"/>
         <Setter Property="Margin" Value="0 5 10 5"/>
     </Style>
+    
 </ResourceDictionary>

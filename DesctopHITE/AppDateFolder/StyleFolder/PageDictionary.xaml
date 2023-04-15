@@ -1,6 +1,9 @@
-﻿<ResourceDictionary 
+﻿<!--В данном файле находится код для стиля пользовательского элемента управления Page-->
+    
+<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <Style x:Key="MenuUserPageStyle" TargetType="Page"> <!--Меню слева-->
         <Setter Property="Width" Value="279"/>
         <Setter Property="Height" Value="870"/>
@@ -17,4 +20,5 @@
         <Setter Property="Width" Value="1321"/>
         <Setter Property="Height" Value="790"/>
     </Style>
+    
 </ResourceDictionary>
