@@ -38,6 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 InitializeComponent();
+
                 if (workerTabe != null) 
                 {
                     DataContext = workerTabe;
@@ -46,6 +47,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
                     TitleTextNewWorkerTextBlock.Text = "Сохранить изменения";
                 }
+
                 AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
                 pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
                 pnRoleWorkerComboBox.ItemsSource = AppConnectClass.DataBase.RoleTable.ToList(); // Выгружаем список Гендера в pnRoleWorkerComboBox    
