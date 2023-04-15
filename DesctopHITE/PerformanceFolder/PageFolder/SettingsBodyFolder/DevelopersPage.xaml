@@ -1,11 +1,11 @@
-﻿<Page x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.DevelopersPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder"
-      mc:Ignorable="d" 
-      Style="{DynamicResource BodySpacePageStyle}">
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.DevelopersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="250"/>
