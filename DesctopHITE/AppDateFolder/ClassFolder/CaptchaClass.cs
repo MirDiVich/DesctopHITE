@@ -68,10 +68,10 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             var fontWeightText = askFontWeights[randomStyle.Next(0, askFontWeights.Length)];
 
             // генерация рандомной "Стиля текста"
-            var fontStyleText = askFontWeights[randomStyle.Next(0, askFontStyle.Length)];
+            var fontStyleText = askFontStyle[randomStyle.Next(0, askFontStyle.Length)];
 
             // генерация рандомной "Декорации текста"
-            var fontDecorationsText = askFontWeights[randomStyle.Next(0, askTextDecorations.Length)];
+            var fontDecorationsText = askTextDecorations[randomStyle.Next(0, askTextDecorations.Length)];
 
             // генерация рандомной амплитуды и частоты волны
             var amplitudeText = randomStyle.Next(-20, 20); // Амплитуда
