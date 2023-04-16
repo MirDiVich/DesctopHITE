@@ -8,7 +8,7 @@
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
     Style="{StaticResource MainWinwosStyle}">
-    <Border Style="{DynamicResource MainBorderStyle}">
+    <Border BorderBrush="#2a2a2a" BorderThickness="1" Style="{DynamicResource MainBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>

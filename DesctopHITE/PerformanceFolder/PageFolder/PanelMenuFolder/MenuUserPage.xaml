@@ -36,8 +36,6 @@
                 </StackPanel>
             </ToggleButton>
             <ToggleButton 
-                IsEnabled="False"
-                Opacity="0.5"
                 Click="MenuToggleButton_Click"
                 x:Name="MenuToggleButton"
                 Style="{DynamicResource MainMenuToggleButtonStyle}">
@@ -65,16 +63,17 @@
             </ToggleButton>
         </StackPanel>
         <Border
-            Margin="0 1.5 0 1.5"
+            Margin="0 0 0 5"
             CornerRadius="10"
             Background="#202020"
             Height="70"
-            Width="246"
+            Width="270"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0" Orientation="Horizontal">
                 <Grid Margin="5 0 5 0" Grid.Column="0">
                     <Border 
+                        BorderBrush="#202020"
                         Height="35"
                         Width="35"
                         CornerRadius="17.5"

@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource  ScanningWindowStyle}">
-    <Border Style="{DynamicResource MainBorderStyle}">
+    <Border BorderBrush="#2a2a2a" BorderThickness="1" Style="{DynamicResource MainBorderStyle}">
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 10 0 0">
             <TextBlock
                 TextWrapping="Wrap"

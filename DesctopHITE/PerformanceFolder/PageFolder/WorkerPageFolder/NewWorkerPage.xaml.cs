@@ -1,11 +1,16 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// 
+/// На данной странице реализован код для добавления сотрудника или
+/// изменение информации об сотруднике, если тот уже существует в базе данных;
+/// На данной странице реализован код для проверки полей на пустоту и валидность данных,
+/// так же реализован код для возможности в текстовые поля писать определённый набор символов;
+/// Запрет в некоторые текстовые поля комбинации клавиш: ctrl + v.
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -19,19 +24,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
-        string PathImage = "";
-        DateTime ToDayDate = DateTime.Today; // Получаем сегодняшнюю дату
+        string pathImage = "";
+        DateTime toDayDate = DateTime.Today;
+        int personalNumber = 0;
 
-        string MessagePassportNull;
-        string MessagePlaceResidenceNull;
-        string MessageMedicalBookNull;
-        string MessageSnilsNull;
-        string MessageINNNull;
-        string MessageSalaryCardNull;
-        string MessageGeneralDataNull;
-        string MessageValidData;
-        string RandomPassword = null;
-        string EmailWorker = "";
+        string messagePassportNull;
+        string messagePlaceResidenceNull;
+        string messageMedicalBookNull;
+        string messageSnilsNull;
+        string messageINNNull;
+        string messageSalaryCardNull;
+        string messageGeneralDataNull;
+        string messageValidData;
+        string randomPassword = null;
+        string emailWorker = "";
 
         public NewWorkerPage(WorkerTabe workerTabe)
         {
@@ -39,16 +45,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 InitializeComponent();
 
-                if (workerTabe != null) 
+                if (workerTabe != null)
                 {
                     DataContext = workerTabe;
+                    personalNumber = workerTabe.PersonalNumber_Worker;
 
                     TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
                     TitleTextNewWorkerTextBlock.Text = "Сохранить изменения";
                 }
+                else
+                {
+                    ImageSource userImage = new BitmapImage(new Uri("/ContentFolder/ImageFolder/NoImage.png", UriKind.RelativeOrAbsolute)); // Вывод стандартного фото
+                    UserPhotoImage.Source = userImage;
+                }
 
-                AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаиможействовать этой странице с базой данных
+                AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаимодействовать этой странице с базой данных
                 pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
                 pnRoleWorkerComboBox.ItemsSource = AppConnectClass.DataBase.RoleTable.ToList(); // Выгружаем список Гендера в pnRoleWorkerComboBox    
             }
@@ -70,9 +82,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #region Color
         // Задал цвета, для того, что бы проще обращяться к ним, и менять их
-        SolidColorBrush RedColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
-        SolidColorBrush GreenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
-        SolidColorBrush StandardColor = new SolidColorBrush(Color.FromRgb(32, 32, 32));
+        SolidColorBrush redColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
+        SolidColorBrush greenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
+        SolidColorBrush standardColor = new SolidColorBrush(Color.FromRgb(32, 32, 32));
         #endregion
         #region Click
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
@@ -163,74 +175,80 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                MessagePassportNull = "";
-                MessagePlaceResidenceNull = "";
-                MessageMedicalBookNull = "";
-                MessageSnilsNull = "";
-                MessageINNNull = "";
-                MessageSalaryCardNull = "";
-                MessageGeneralDataNull = "";
-                MessageValidData = "";
+                messagePassportNull = "";
+                messagePlaceResidenceNull = "";
+                messageMedicalBookNull = "";
+                messageSnilsNull = "";
+                messageINNNull = "";
+                messageSalaryCardNull = "";
+                messageGeneralDataNull = "";
+                messageValidData = "";
 
                 MessageNull(); // Вызываем метод по проверки на ошибки
 
-                if (MessagePassportNull != "" || MessagePlaceResidenceNull != "" || MessageMedicalBookNull != "" || MessageSnilsNull != "" || MessageINNNull != "" || MessageSalaryCardNull != "" || MessageGeneralDataNull != "") // Проверка на пустые поля
+                if (messagePassportNull != "" || messagePlaceResidenceNull != "" || messageMedicalBookNull != "" || messageSnilsNull != "" || messageINNNull != "" || messageSalaryCardNull != "" || messageGeneralDataNull != "") // Проверка на пустые поля
                 {
+                    string MessagePassportNull = messagePassportNull + messagePlaceResidenceNull + messageMedicalBookNull + messageSnilsNull + messageINNNull + messageSalaryCardNull + messageGeneralDataNull;
                     MessageBox.Show(
-                        MessagePassportNull + MessagePlaceResidenceNull + MessageMedicalBookNull + MessageSnilsNull + MessageINNNull + MessageSalaryCardNull + MessageGeneralDataNull,
-                        "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
+                        MessagePassportNull, "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    if (MessageValidData != "") // Проверка на правилььную валлидность данных
+                    if (messageValidData != "") // Проверка на правильную валидность данных
                     {
                         MessageBox.Show(
-                            MessageValidData,
-                            "Ошибка добавления нового сотрудника (NewWorkerPage - E-005)",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
+                            messageValidData, "Ошибка добавления нового сотрудника (NewWorkerPage - E-005)",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {
-                        if (AppConnectClass.DataBase.WorkerTabe.Count(Log => Log.Login_Worker == LoginWorkerTextBox.Text) > 0) // Проверка на существующий Login в Базе данных
+                        if (personalNumber == 0)
                         {
-                            MessageBox.Show(
-                               "Сотрудник с данным Login уже существует",
-                               "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
-                               MessageBoxButton.OK,
-                               MessageBoxImage.Error);
+                            if (AppConnectClass.DataBase.WorkerTabe.Count(Log =>
+                                Log.Login_Worker == LoginWorkerTextBox.Text &&
+                                Log.Email_Worker == EmailWorkerTextBox.Text &&
+                                Log.SeriesPassport_Worker == SeriesPassportTextBox.Text || Log.NumberPassport_Worker == NumberPassportTextBox.Text &&
+                                Log.pnMedicalBook_Worker == PersonalNumberMedicalBookTextBox.Text &&
+                                Log.pnSalaryCard_Worker == PersonalNumberSalaryCardTextBox.Text &&
+                                Log.pnINN_Worker == PersonalNumberINNTextBox.Text &&
+                                Log.pnSnils_Worker == PersonalNumberSnilsTextBox.Text) > 0)
+                            {
+                                MessageBox.Show(
+                                   "Сотрудник с такими данными уже существует", "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
+                                   MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                         else
                         {
-                            EmailWorker = EmailWorkerTextBox.Text;
-                            bool isValidEmail = Regex.IsMatch(EmailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-
-                            if (isValidEmail)
-                            {
-                                AddDataDatabase();
-                                ClearText();
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                   "Введите корректную электронную почту",
-                                   "Ошибка добавления нового сотрудника (NewWorkerPage - E-011)",
-                                   MessageBoxButton.OK,
-                                   MessageBoxImage.Error);
-                            }
+                            AddDataDatabase();
+                            ClearText();
                         }
+
+
+                        //else
+                        //{
+                        //    emailWorker = EmailWorkerTextBox.Text;
+                        //    bool isValidEmail = Regex.IsMatch(emailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+                        //    if (isValidEmail)
+                        //    {
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show(
+                        //           "Введите корректную электронную почту", "Ошибка добавления нового сотрудника (NewWorkerPage - E-011)",
+                        //           MessageBoxButton.OK, MessageBoxImage.Error);
+                        //    }
+                        //}
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message,
-                    "Ошибка добавления (NewWorkerPage - E-004)",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message, "Ошибка добавления (NewWorkerPage - E-004)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -241,7 +259,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
             if (openFileDialog.ShowDialog() == true) // Если пользователь выбрал содержимое
             {
-                PathImage = openFileDialog.FileName; // Получение пути к выбранному файлу и записываем в переменную
+                pathImage = openFileDialog.FileName; // Получение пути к выбранному файлу и записываем в переменную
                 UserPhotoImage.Source = new BitmapImage(new Uri(openFileDialog.FileName)); // Вставить фото в пользовательский элемент управления
             }
         }
@@ -258,7 +276,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 // Конвертация изображения в байты
                 byte[] imageData;
-                using (FileStream fs = new FileStream(PathImage, FileMode.Open, FileAccess.Read))
+                using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
                 {
                     imageData = new byte[fs.Length];
                     fs.Read(imageData, 0, imageData.Length);
@@ -270,7 +288,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}",
                     Image_ImagePassport = imageData
                 };
-                AppConnectClass.DataBase.ImagePassportTable.Add(AddImagePassport);
+
+                if (personalNumber == 0)
+                {
+                    if (pathImage != "")
+                    {
+                        AppConnectClass.DataBase.ImagePassportTable.Add(AddImagePassport);
+                    }
+                }
+
 
                 PassportTable AddPassport = new PassportTable()
                 {
@@ -286,15 +312,32 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text),
                     DivisionCode_Passport = DivisionCodePassportTextBox.Text
                 };
-                if (PathImage == "")
+
+                if (personalNumber == 0)
                 {
-                    AddPassport.pnImage_Passport = "0";
+                    if (pathImage == "")
+                    {
+                        AddPassport.pnImage_Passport = "0";
+                    }
+                    else
+                    {
+                        AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
+                    }
+                    AppConnectClass.DataBase.PassportTable.Add(AddPassport);
                 }
                 else
                 {
-                    AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
+                    if (pathImage == "")
+                    {
+                        AddPassport.pnImage_Passport = "0";
+                    }
+                    else
+                    {
+                        AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
+                    }
+                    AppConnectClass.DataBase.PassportTable.AddOrUpdate(AddPassport);
                 }
-                AppConnectClass.DataBase.PassportTable.Add(AddPassport);
+
 
                 PlaceResidenceTable AddPlaceResidence = new PlaceResidenceTable()
                 {
@@ -307,7 +350,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     House_PlaceResidence = HousePlaceResidenceTextBox.Text,
                     Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text
                 };
-                AppConnectClass.DataBase.PlaceResidenceTable.Add(AddPlaceResidence);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.PlaceResidenceTable.Add(AddPlaceResidence);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(AddPlaceResidence);
+                }
 
                 MedicalBookTable AddMedicalBook = new MedicalBookTable()
                 {
@@ -319,14 +370,30 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Role_MedicalBook = RoleMedicalBookTextBox.Text,
                     Organization_MedicalBook = OrganizationMedicalBookTextBox.Text
                 };
-                AppConnectClass.DataBase.MedicalBookTable.Add(AddMedicalBook);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.MedicalBookTable.Add(AddMedicalBook);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(AddMedicalBook);
+                }
 
                 SnilsTable AddSnils = new SnilsTable()
                 {
                     PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text,
                     DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text)
                 };
-                AppConnectClass.DataBase.SnilsTable.Add(AddSnils);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.SnilsTable.Add(AddSnils);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(AddSnils);
+                }
 
                 INNTable AddINN = new INNTable()
                 {
@@ -335,7 +402,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text,
                     Date_INN = Convert.ToDateTime(DateINNTextBox.Text)
                 };
-                AppConnectClass.DataBase.INNTable.Add(AddINN);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.INNTable.Add(AddINN);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.INNTable.AddOrUpdate(AddINN);
+                }
 
                 SalaryCardTable AddSalaryCard = new SalaryCardTable()
                 {
@@ -346,7 +421,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Month_SalaryCard = MonthSalaryCardTextBox.Text,
                     Code_SalaryCard = CodeSalaryCardTextBox.Text
                 };
-                AppConnectClass.DataBase.SalaryCardTable.Add(AddSalaryCard);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.SalaryCardTable.Add(AddSalaryCard);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(AddSalaryCard);
+                }
 
                 WorkerTabe AddWorker = new WorkerTabe()
                 {
@@ -360,137 +443,141 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     pnPlaceResidence_Worker = AddPlaceResidence.PersonalNumber_PlaceResidence,
                     pnMedicalBook_Worker = AddMedicalBook.PersonalNumber_MedicalBook,
                     pnSalaryCard_Worker = AddSalaryCard.PersonalNumber_SalaryCard,
-                    DateWord_Worker = ToDayDate,
+                    DateWord_Worker = toDayDate,
                     pnStatus_Worker = 2,
                     pnINN_Worker = AddINN.PersonalNumber_INN,
                     pnSnils_Worker = AddSnils.PersonalNumber_Snils,
                     AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker
                 };
-                AppConnectClass.DataBase.WorkerTabe.Add(AddWorker);
+
+                if (personalNumber == 0)
+                {
+                    AppConnectClass.DataBase.WorkerTabe.Add(AddWorker);
+                }
+                else
+                {
+                    AppConnectClass.DataBase.WorkerTabe.AddOrUpdate(AddWorker);
+                }
 
                 AppConnectClass.DataBase.SaveChanges();
                 MessageBox.Show(
-                        "Новый сотрудник добавлен в базу данных",
-                        "Сохранение",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Information);
+                        "Новый сотрудник добавлен в базу данных", "Сохранение",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message,
-                    "Ошибка добавления (NewWorkerPage - E-002)",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message, "Ошибка добавления (NewWorkerPage - E-002)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void MessageNull() // Метод на проверки полей на валидность данных 
         {
-            #region MessagePassportNull
-            if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(NumberPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Номер' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(SurnamePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Фамилию' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(NamePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Имя' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(pnGenderComboBox.Text)) MessagePassportNull += "Вы не указали 'Пол' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(DateOfBrichPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Дату рождения' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(LocationOfBrichPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Место рождения' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(IssuedPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Кем выдан' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(DateIssuedPassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Дату выдачи' в 'Паспорт'\n";
-            if (string.IsNullOrWhiteSpace(DivisionCodePassportTextBox.Text)) MessagePassportNull += "Вы не указали 'Код подразделения' в 'Паспорт'\n";
+            #region messagePassportNull
+            if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NumberPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Номер' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(SurnamePassportTextBox.Text)) messagePassportNull += "Вы не указали 'Фамилию' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(NamePassportTextBox.Text)) messagePassportNull += "Вы не указали 'Имя' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(pnGenderComboBox.Text)) messagePassportNull += "Вы не указали 'Пол' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateOfBrichPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Дату рождения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(LocationOfBrichPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Место рождения' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(IssuedPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Кем выдан' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DateIssuedPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Дату выдачи' в 'Паспорт'\n";
+            if (string.IsNullOrWhiteSpace(DivisionCodePassportTextBox.Text)) messagePassportNull += "Вы не указали 'Код подразделения' в 'Паспорт'\n";
             #endregion
-            #region MessagePlaceResidenceNull
-            if (string.IsNullOrWhiteSpace(RegistrationDatePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Дату регистрации' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(RegionPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Регион' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(DistrictPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Район' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(PointPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Пункт' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(StreetPlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Улицу' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Дом' в 'Место жительства'\n";
-            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) MessagePlaceResidenceNull += "Вы не указали 'Квартиру' в 'Место жительства'\n";
+            #region messagePlaceResidenceNull
+            if (string.IsNullOrWhiteSpace(RegistrationDatePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Дату регистрации' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(RegionPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Регион' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(DistrictPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Район' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(PointPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Пункт' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(StreetPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Улицу' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Дом' в 'Место жительства'\n";
+            if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Квартиру' в 'Место жительства'\n";
             #endregion
-            #region MessageMedicalBookNull
-            if (string.IsNullOrWhiteSpace(PersonalNumberMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Номер' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(IssueMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Личная медецинская книжка выдана' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(SNMDirectorMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'ФИО руководителя' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(DateIssueMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Дату выдачи' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(HomeAdressMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Домашний адресс' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(RoleMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Должность' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(OrganizationMedicalBookTextBox.Text)) MessageMedicalBookNull += "Вы не указали 'Организацию (индивидуальный предприниматель)' в 'Медецинская книжка'\n";
+            #region messageMedicalBookNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Номер' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(IssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Личная медецинская книжка выдана' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(SNMDirectorMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'ФИО руководителя' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(DateIssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Дату выдачи' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(HomeAdressMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Домашний адресс' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(RoleMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Должность' в 'Медецинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(OrganizationMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Организацию (индивидуальный предприниматель)' в 'Медецинская книжка'\n";
             #endregion
-            #region MessageSnilsNull
-            if (string.IsNullOrWhiteSpace(PersonalNumberSnilsTextBox.Text)) MessageSnilsNull += "Вы не указали 'Номер' в 'СНИЛС'\n";
-            if (string.IsNullOrWhiteSpace(DateRegistrationSnilsTextBox.Text)) MessageSnilsNull += "Вы не указали 'Дату выдачи' в 'СНИЛС'\n";
+            #region messageSnilsNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberSnilsTextBox.Text)) messageSnilsNull += "Вы не указали 'Номер' в 'СНИЛС'\n";
+            if (string.IsNullOrWhiteSpace(DateRegistrationSnilsTextBox.Text)) messageSnilsNull += "Вы не указали 'Дату выдачи' в 'СНИЛС'\n";
             #endregion
-            #region MessageINNNull
-            if (string.IsNullOrWhiteSpace(PersonalNumberINNTextBox.Text)) MessageINNNull += "Вы не указали 'Номер' в 'ИНН'\n";
-            if (string.IsNullOrWhiteSpace(TaxAuthorityINNTextBox.Text)) MessageINNNull += "Вы не указали 'Налоговый огран' в 'ИНН'\n";
-            if (string.IsNullOrWhiteSpace(NumberTaxAuthorityINNTextBox.Text)) MessageINNNull += "Вы не указали 'Номер налогового органа' в 'ИНН'\n";
-            if (string.IsNullOrWhiteSpace(DateINNTextBox.Text)) MessageINNNull += "Вы не указали 'Дату выдачи' в 'ИНН'\n";
+            #region messageINNNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberINNTextBox.Text)) messageINNNull += "Вы не указали 'Номер' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(TaxAuthorityINNTextBox.Text)) messageINNNull += "Вы не указали 'Налоговый огран' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(NumberTaxAuthorityINNTextBox.Text)) messageINNNull += "Вы не указали 'Номер налогового органа' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(DateINNTextBox.Text)) messageINNNull += "Вы не указали 'Дату выдачи' в 'ИНН'\n";
             #endregion
-            #region MessageSalaryCardNull
-            if (string.IsNullOrWhiteSpace(PersonalNumberSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Номер' в 'Заработная карта'\n";
-            if (string.IsNullOrWhiteSpace(NameEndSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Имя (Eng)' в 'Заработная карта'\n";
-            if (string.IsNullOrWhiteSpace(SurnameEngSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Фамилия (Eng)' в 'Заработная карта'\n";
-            if (string.IsNullOrWhiteSpace(YearEndSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Год' в 'Заработная карта'\n";
-            if (string.IsNullOrWhiteSpace(MonthSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Месяц' в 'Заработная карта'\n";
-            if (string.IsNullOrWhiteSpace(CodeSalaryCardTextBox.Text)) MessageSalaryCardNull += "Вы не указали 'Код' в 'Заработная карта'\n";
+            #region messageSalaryCardNull
+            if (string.IsNullOrWhiteSpace(PersonalNumberSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Номер' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(NameEndSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Имя (Eng)' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(SurnameEngSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Фамилия (Eng)' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(YearEndSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Год' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(MonthSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Месяц' в 'Заработная карта'\n";
+            if (string.IsNullOrWhiteSpace(CodeSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Код' в 'Заработная карта'\n";
             #endregion
-            #region MessageGeneralDataNull
-            if (string.IsNullOrWhiteSpace(PhoneWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Номер телефона' в 'Общие данные'\n";
-            if (string.IsNullOrWhiteSpace(LoginWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Login' в 'Общие данные'\n";
-            if (string.IsNullOrWhiteSpace(EmailWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Электронную почту' в 'Общие данные'\n";
-            if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) MessageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
-            if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) MessageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
+            #region messageGeneralDataNull
+            if (string.IsNullOrWhiteSpace(PhoneWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Номер телефона' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(LoginWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Login' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(EmailWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Электронную почту' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
+            if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) messageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
             #endregion
-            #region MessageValidData
-            if (IssuedPassportTextBox.Text.Length <= 5) MessageValidData += "'Паспорт выдан' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
-            if (DateIssuedPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 6) MessageValidData += "'Код подразделения' в 'Паспорт' не может быть меньше или быть равным 6 символам\n";
-            if (SeriesPassportTextBox.Text.Length <= 3) MessageValidData += "'Серия паспорта' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
-            if (NumberPassportTextBox.Text.Length <= 5) MessageValidData += "'Номер паспорта' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
-            if (SurnamePassportTextBox.Text.Length <= 3) MessageValidData += "'Фамилия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
-            if (NamePassportTextBox.Text.Length <= 1) MessageValidData += "'Имя' в 'Паспорт' не может быть меньше или быть равным 1 символу\n";
-            if (DateOfBrichPassportTextBox.Text.Length <= 9) MessageValidData += "'Дата рождения' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (LocationOfBrichPassportTextBox.Text.Length <= 3) MessageValidData += "'Место рождеия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            #region messageValidData
+            if (IssuedPassportTextBox.Text.Length <= 5) messageValidData += "'Паспорт выдан' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
+            if (DateIssuedPassportTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 6) messageValidData += "'Код подразделения' в 'Паспорт' не может быть меньше или быть равным 6 символам\n";
+            if (SeriesPassportTextBox.Text.Length <= 3) messageValidData += "'Серия паспорта' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            if (NumberPassportTextBox.Text.Length <= 5) messageValidData += "'Номер паспорта' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
+            if (SurnamePassportTextBox.Text.Length <= 3) messageValidData += "'Фамилия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            if (NamePassportTextBox.Text.Length <= 1) messageValidData += "'Имя' в 'Паспорт' не может быть меньше или быть равным 1 символу\n";
+            if (DateOfBrichPassportTextBox.Text.Length <= 9) messageValidData += "'Дата рождения' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (LocationOfBrichPassportTextBox.Text.Length <= 3) messageValidData += "'Место рождеия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
 
-            if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) MessageValidData += "'Зарегистрирован' в 'Место жительства' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (RegionPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Регион' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
-            if (DistrictPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Район' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
-            if (PointPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Рункт' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
-            if (StreetPlaceResidenceTextBox.Text.Length <= 3) MessageValidData += "'Улица' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
-            if (DivisionCodePassportTextBox.Text.Length <= 5) MessageValidData += "'Код подразделения' в 'Место жительства' не может быть меньше или быть равным 6 символам\n";
-            if (HousePlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Дом' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
-            if (FlatPlaceResidenceTextBox.Text.Length <= 1) MessageValidData += "'Квартира' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
+            if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) messageValidData += "'Зарегистрирован' в 'Место жительства' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (RegionPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Регион' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (DistrictPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Район' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (PointPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Рункт' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (StreetPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Улица' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (DivisionCodePassportTextBox.Text.Length <= 5) messageValidData += "'Код подразделения' в 'Место жительства' не может быть меньше или быть равным 6 символам\n";
+            if (HousePlaceResidenceTextBox.Text.Length <= 1) messageValidData += "'Дом' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
+            if (FlatPlaceResidenceTextBox.Text.Length <= 1) messageValidData += "'Квартира' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
 
-            if (PersonalNumberMedicalBookTextBox.Text.Length <= 7) MessageValidData += "'Номер медецинской книжки' в 'Медецинская книжка' не может быть меньше или быть равным 7 символам\n";
-            if (IssueMedicalBookTextBox.Text.Length <= 3) MessageValidData += "'Личная медецинская книжка выдана' в 'Медецинская книжка' не может быть меньше или быть равным 3 символам\n";
-            if (DateIssueMedicalBookTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'Медецинская книжка' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (SNMDirectorMedicalBookTextBox.Text.Length <= 5) MessageValidData += "'ФИО руководителя' в 'Медецинская книжка' не может быть меньше или быть равным 5 символам\n";
-            if (HomeAdressMedicalBookTextBox.Text.Length <= 10) MessageValidData += "'Домашний адресс' в 'Медецинская книжка' не может быть меньше или быть равным 10 символам\n";
-            if (RoleMedicalBookTextBox.Text.Length <= 4) MessageValidData += "'Должность' в 'Медецинская книжка' не может быть меньше или быть равным 4 символам\n";
-            if (OrganizationMedicalBookTextBox.Text.Length <= 1) MessageValidData += "'Огранизация (индивидуальный предприниматель)' в 'Медецинская книжка' не может быть меньше или быть равным 1 символу\n";
+            if (PersonalNumberMedicalBookTextBox.Text.Length <= 7) messageValidData += "'Номер медецинской книжки' в 'Медецинская книжка' не может быть меньше или быть равным 7 символам\n";
+            if (IssueMedicalBookTextBox.Text.Length <= 3) messageValidData += "'Личная медецинская книжка выдана' в 'Медецинская книжка' не может быть меньше или быть равным 3 символам\n";
+            if (DateIssueMedicalBookTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'Медецинская книжка' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (SNMDirectorMedicalBookTextBox.Text.Length <= 5) messageValidData += "'ФИО руководителя' в 'Медецинская книжка' не может быть меньше или быть равным 5 символам\n";
+            if (HomeAdressMedicalBookTextBox.Text.Length <= 10) messageValidData += "'Домашний адресс' в 'Медецинская книжка' не может быть меньше или быть равным 10 символам\n";
+            if (RoleMedicalBookTextBox.Text.Length <= 4) messageValidData += "'Должность' в 'Медецинская книжка' не может быть меньше или быть равным 4 символам\n";
+            if (OrganizationMedicalBookTextBox.Text.Length <= 1) messageValidData += "'Огранизация (индивидуальный предприниматель)' в 'Медецинская книжка' не может быть меньше или быть равным 1 символу\n";
 
-            if (PersonalNumberSnilsTextBox.Text.Length <= 10) MessageValidData += "'Номер' в 'СНИЛС' не может быть меньше или быть равным 10 символам\n";
-            if (DateRegistrationSnilsTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'СНИЛС' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (PersonalNumberSnilsTextBox.Text.Length <= 10) messageValidData += "'Номер' в 'СНИЛС' не может быть меньше или быть равным 10 символам\n";
+            if (DateRegistrationSnilsTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'СНИЛС' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
-            if (PersonalNumberINNTextBox.Text.Length <= 11) MessageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 11 символам\n";
-            if (NumberTaxAuthorityINNTextBox.Text.Length <= 3) MessageValidData += "'Номер Налог. орган' в 'ИНН' не может быть меньше или быть равным 3 символам\n";
-            if (TaxAuthorityINNTextBox.Text.Length <= 5) MessageValidData += "'Налоговый огран' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
-            if (DateINNTextBox.Text.Length <= 9) MessageValidData += "'Дата выдачи' в 'ИНН' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (PersonalNumberINNTextBox.Text.Length <= 11) messageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 11 символам\n";
+            if (NumberTaxAuthorityINNTextBox.Text.Length <= 3) messageValidData += "'Номер Налог. орган' в 'ИНН' не может быть меньше или быть равным 3 символам\n";
+            if (TaxAuthorityINNTextBox.Text.Length <= 5) messageValidData += "'Налоговый огран' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
+            if (DateINNTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'ИНН' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
-            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) MessageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
-            if (SurnameEngSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Фимилия (Eng)' в 'Заработная карта' не может быть меньше или быть равным 3 символам\n";
-            if (NameEndSalaryCardTextBox.Text.Length <= 1) MessageValidData += "'Имя (Eng)' в 'Заработная карта' не может быть меньше или быть равным 1 символу\n";
-            if (MonthSalaryCardTextBox.Text.Length <= 1) MessageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
-            if (YearEndSalaryCardTextBox.Text.Length <= 3) MessageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
-            if (CodeSalaryCardTextBox.Text.Length <= 2) MessageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
+            if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) messageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
+            if (SurnameEngSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Фимилия (Eng)' в 'Заработная карта' не может быть меньше или быть равным 3 символам\n";
+            if (NameEndSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Имя (Eng)' в 'Заработная карта' не может быть меньше или быть равным 1 символу\n";
+            if (MonthSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
+            if (YearEndSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
+            if (CodeSalaryCardTextBox.Text.Length <= 2) messageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
             int MonthText = Convert.ToInt32(MonthSalaryCardTextBox.Text);
-            if (MonthText > 12) MessageValidData += "'Месяц' в 'Заработная карта' не может быть больше 12\n";
-            if (MonthText < 01) MessageValidData += "'Месяц' в 'Заработная карта' не может быть меньше 01\n";
+            if (MonthText > 12) messageValidData += "'Месяц' в 'Заработная карта' не может быть больше 12\n";
+            if (MonthText < 01) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше 01\n";
 
-            if (EmailWorkerTextBox.Text.Length <= 5) MessageValidData += "'Электронная почта' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
-            if (PhoneWorkerTextBox.Text.Length <= 10) MessageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";
-            if (LoginWorkerTextBox.Text.Length <= 5) MessageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
-            if (PasswordWorkerTextBox.Text.Length <= 5) MessageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+            if (EmailWorkerTextBox.Text.Length <= 5) messageValidData += "'Электронная почта' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+            if (PhoneWorkerTextBox.Text.Length <= 10) messageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";
+            if (LoginWorkerTextBox.Text.Length <= 5) messageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+            if (PasswordWorkerTextBox.Text.Length <= 5) messageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             #endregion
         }
         private void ClearText() // Очищаем все поля
@@ -502,15 +589,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message,
-                    "Ошибка добавления (NewWorkerPage - E-009)",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message, "Ошибка добавления (NewWorkerPage - E-009)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion
         #region ValidData
-        // Просто для валлидность данных (В одних TextBox разрешить писать только цифры и т.д.)
+        // Просто для валидность данных (В одних TextBox разрешить писать только цифры и т.д.)
         private void DateValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex DateRegex = new Regex("[^0-9/.]");
@@ -539,15 +624,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (PasswordText == "")
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = StandardColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = standardColor;
                 }
                 else if (PasswordPasword != PasswordText)
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = RedColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = redColor;
                 }
                 else
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = GreenColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = greenColor;
                     NewWorkerButton.IsEnabled = true;
                 }
 
@@ -578,15 +663,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
 
-            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5)
+            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && personalNumber == 0)
             {
-                RandomPassword = RandomTextSender().ToString("D6");
+                randomPassword = RandomTextSender().ToString("D6");
 
-                PasswordWorkerTextBox.Text = RandomPassword;
-                RepeatPasswordWorkerPasswordBox.Password = RandomPassword;
+                PasswordWorkerTextBox.Text = randomPassword;
+                RepeatPasswordWorkerPasswordBox.Password = randomPassword;
                 PasswordWorkerTextBox.IsEnabled = false;
                 RepeatPasswordWorkerPasswordBox.IsEnabled = false;
-                LoginWorkerTextBox.Text = RandomPassword;
+                LoginWorkerTextBox.Text = randomPassword;
                 LoginWorkerTextBox.IsEnabled = false;
             }
             else

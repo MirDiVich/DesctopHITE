@@ -7,7 +7,6 @@ using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -20,7 +19,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             DataContext = AppConnectClass.GetUser;
 
             var DataUser = AppConnectClass.GetUser.PassportTable;
-            SNMUsetTextBlock.Text = $"{DataUser.Surname_Passport} {DataUser.Name_Passport}";
+            SNMUsetTextBlock.Text = $"{DataUser.Surname_Passport} {DataUser.Name_Passport[0]}. {DataUser.Middlename_Passport[0]}.";
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -51,10 +50,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
         private void MenuToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            //IsCheckedToggleButton();
-            //IsEnabledToggleButton();
-            //MenuToggleButton.IsChecked = true;
-            //MenuToggleButton.IsEnabled = false;
+            IsCheckedToggleButton();
+            IsEnabledToggleButton();
+            MenuToggleButton.IsChecked = true;
+            MenuToggleButton.IsEnabled = false;
         }
         private void SettingsToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -70,14 +69,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             MainToggleButton.IsChecked = false;
             WorkersToggleButton.IsChecked = false;
-            //MenuToggleButton.IsChecked = false;
+            MenuToggleButton.IsChecked = false;
             SettingsToggleButton.IsChecked = false;
         }
         private void IsEnabledToggleButton() // Включение кнопок
         {
             MainToggleButton.IsEnabled = true;
             WorkersToggleButton.IsEnabled = true;
-            //MenuToggleButton.IsEnabled = true;
+            MenuToggleButton.IsEnabled = true;
             SettingsToggleButton.IsEnabled = true;
         }
         #endregion
