@@ -1,8 +1,8 @@
 ﻿///----------------------------------------------------------------------------------------------------------
 /// На данной странице реализован код для добавления сотрудника или
-/// изменение информации об сотруднике, если тот уже существует в базе данных;
+///     изменение информации об сотруднике, если тот уже существует в базе данных;
 /// На данной странице реализован код для проверки полей на пустоту и валидность данных,
-/// так же реализован код для возможности в текстовые поля писать определённый набор символов;
+///     так же реализован код для возможности в текстовые поля писать определённый набор символов;
 /// Запрет в некоторые текстовые поля комбинации клавиш: ctrl + v.
 ///----------------------------------------------------------------------------------------------------------
 
@@ -24,10 +24,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
-        string pathImage = "";
-        DateTime toDayDate = DateTime.Today;
         int personalNumber = 0;
 
+        DateTime toDayDate = DateTime.Today;
+
+        string pathImage = "";
         string messagePassportNull;
         string messagePlaceResidenceNull;
         string messageMedicalBookNull;
@@ -36,8 +37,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string messageSalaryCardNull;
         string messageGeneralDataNull;
         string messageValidData;
-        string randomPassword = null;
-        string emailWorker = "";
+        string randomPassword = "";
 
         public NewWorkerPage(WorkerTabe workerTabe)
         {
@@ -188,9 +188,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (messagePassportNull != "" || messagePlaceResidenceNull != "" || messageMedicalBookNull != "" || messageSnilsNull != "" || messageINNNull != "" || messageSalaryCardNull != "" || messageGeneralDataNull != "") // Проверка на пустые поля
                 {
-                    string MessagePassportNull = messagePassportNull + messagePlaceResidenceNull + messageMedicalBookNull + messageSnilsNull + messageINNNull + messageSalaryCardNull + messageGeneralDataNull;
+                    string messagePassport = 
+                        messagePassportNull + 
+                        messagePlaceResidenceNull + 
+                        messageMedicalBookNull +
+                        messageSnilsNull + 
+                        messageINNNull + 
+                        messageSalaryCardNull + 
+                        messageGeneralDataNull;
+
                     MessageBox.Show(
-                        MessagePassportNull, "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
+                        messagePassport, "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else

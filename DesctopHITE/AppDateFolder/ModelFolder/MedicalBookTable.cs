@@ -17,7 +17,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MedicalBookTable()
         {
-            this.WorkerTabe = new HashSet<WorkerTabe>();
+            this.WorkerTable = new HashSet<WorkerTable>();
         }
     
         public string PersonalNumber_MedicalBook { get; set; }
@@ -29,6 +29,6 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public string Organization_MedicalBook { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerTabe> WorkerTabe { get; set; }
+        public virtual ICollection<WorkerTable> WorkerTable { get; set; }
     }
 }

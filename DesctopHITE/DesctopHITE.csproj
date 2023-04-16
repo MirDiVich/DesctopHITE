@@ -256,7 +256,7 @@
     <Compile Include="AppDateFolder\ModelFolder\sysdiagrams.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\WorkerTabe.cs">
+    <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">

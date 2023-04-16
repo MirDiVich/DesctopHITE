@@ -51,20 +51,20 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         int personalNumberWorker = 0; // Переменная для дальнейших действий над сотрудником по его персональному номеру
 
-        public DeliteWorkerWindow(WorkerTabe workerTabe)
+        public DeliteWorkerWindow(WorkerTable workerTable)
         {
             try
             {
                 InitializeComponent();
                 AppConnectClass.DataBase = new DesctopHiteEntities();
 
-                if (workerTabe != null )
+                if (workerTable != null )
                 {
-                    DataContext = workerTabe; // Присваиваю DataContext на данном окне переданное значение из workerTabe
-                    personalNumberWorker = workerTabe.PersonalNumber_Worker; // Присваиваю переменной персональному номеру сотрудника, над которым и происходит действие
+                    DataContext = workerTable; // Присваиваю DataContext на данном окне переданное значение из workerTable
+                    personalNumberWorker = workerTable.PersonalNumber_Worker; // Присваиваю переменной персональному номеру сотрудника, над которым и происходит действие
 
-                    var addedWhomWorker = workerTabe.AddpnWorker_Worker; // Получаю персональный номер сотрудника, который добавил сотрудника над которым происходит действие
-                    var informationAddedWhomWorker = AppConnectClass.DataBase.WorkerTabe.Find(addedWhomWorker);
+                    var addedWhomWorker = workerTable.AddpnWorker_Worker; // Получаю персональный номер сотрудника, который добавил сотрудника над которым происходит действие
+                    var informationAddedWhomWorker = AppConnectClass.DataBase.WorkerTable.Find(addedWhomWorker);
 
                     SNMAddedWhomWorkerTextBlock.Text =
                         $"{informationAddedWhomWorker.PassportTable.Surname_Passport} " +
@@ -119,7 +119,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                var informationDeliteWorker = AppConnectClass.DataBase.WorkerTabe.Find(personalNumberWorker);
+                var informationDeliteWorker = AppConnectClass.DataBase.WorkerTable.Find(personalNumberWorker);
 
                 string SurnameNameWorker = $"{informationDeliteWorker.PassportTable.Surname_Passport} {informationDeliteWorker.PassportTable.Name_Passport}"; // Получаем Фамилия и Имя для уведомления
                 string MessageTitle = $"Вы действительно хотите удалить: {SurnameNameWorker} ?";
@@ -135,7 +135,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     AppConnectClass.DataBase.PassportTable.Remove(informationDeliteWorker.PassportTable);
                     AppConnectClass.DataBase.SnilsTable.Remove(informationDeliteWorker.SnilsTable);
                     AppConnectClass.DataBase.INNTable.Remove(informationDeliteWorker.INNTable);
-                    AppConnectClass.DataBase.WorkerTabe.Remove(informationDeliteWorker);
+                    AppConnectClass.DataBase.WorkerTable.Remove(informationDeliteWorker);
 
                     AppConnectClass.DataBase.SaveChanges();
 

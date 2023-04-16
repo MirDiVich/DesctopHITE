@@ -17,7 +17,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class ListWorkerPage : Page
     {
-        WorkerTabe DataContextWorker;
+        WorkerTable DataContextWorker;
         public ListWorkerPage()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
 
-                ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
                 ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
             }
         }

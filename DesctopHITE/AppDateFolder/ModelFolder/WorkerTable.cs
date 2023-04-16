@@ -12,7 +12,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class WorkerTabe
+    public partial class WorkerTable
     {
         public int PersonalNumber_Worker { get; set; }
         public string Phone_Worker { get; set; }

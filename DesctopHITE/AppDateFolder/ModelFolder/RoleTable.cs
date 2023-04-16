@@ -17,13 +17,13 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RoleTable()
         {
-            this.WorkerTabe = new HashSet<WorkerTabe>();
+            this.WorkerTable = new HashSet<WorkerTable>();
         }
     
         public int PersonalNumber_Role { get; set; }
         public string Name_Role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerTabe> WorkerTabe { get; set; }
+        public virtual ICollection<WorkerTable> WorkerTable { get; set; }
     }
 }

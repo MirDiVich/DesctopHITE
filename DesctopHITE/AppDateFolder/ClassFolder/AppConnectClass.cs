@@ -9,6 +9,6 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     internal class AppConnectClass
     {
         public static DesctopHiteEntities DataBase; // Строка подключения к базе данных
-        public static WorkerTabe GetUser; // Содержит в себе информацию об авторизированном пользователе
+        public static WorkerTable GetUser; // Содержит в себе информацию об авторизированном пользователе
     }
 }
