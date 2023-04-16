@@ -67,9 +67,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                // Закрытие приложения
-                Application.Current.Shutdown();
-
                 // Сохранение сохранения
                 Properties.Settings.Default.MeaningRemember = false;
 
@@ -79,6 +76,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                 // Сохранение
                 Properties.Settings.Default.Save();
+
+                // Закрытие приложения
+                AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+                authorizationWindow.Show();
+                Close();
 
             }
             catch (Exception ex)

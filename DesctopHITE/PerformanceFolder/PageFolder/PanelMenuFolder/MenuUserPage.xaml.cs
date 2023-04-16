@@ -3,9 +3,11 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -14,6 +16,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         public MenuUserPage()
         {
             InitializeComponent();
+            AppConnectClass.DataBase = new DesctopHiteEntities();
+            DataContext = AppConnectClass.GetUser;
+
+            var DataUser = AppConnectClass.GetUser.PassportTable;
+            SNMUsetTextBlock.Text = $"{DataUser.Surname_Passport} {DataUser.Name_Passport}";
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

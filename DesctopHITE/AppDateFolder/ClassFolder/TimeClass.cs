@@ -29,13 +29,13 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 }
                 else if (timeDay.Hour >= 12 && DateTime.Now.Hour <=17)
                 {
-                    titleNowHour = $"Доброе день \n " +
+                    titleNowHour = $"Добрый день \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 18 && DateTime.Now.Hour <= 23)
                 {
-                    titleNowHour = $"Доброе вечер \n " +
+                    titleNowHour = $"Добрый вечер \n " +
                         $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
                         $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
                 }

@@ -23,7 +23,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <ControlTemplate.Triggers>
+                    <ControlTemplate.Triggers> 
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#3e25c0"/>
                         </Trigger>

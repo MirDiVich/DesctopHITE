@@ -238,10 +238,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             var openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png"; // Выбираем в OpenFileDialog формат файла
+
             if (openFileDialog.ShowDialog() == true) // Если пользователь выбрал содержимое
             {
                 PathImage = openFileDialog.FileName; // Получение пути к выбранному файлу и записываем в переменную
-                UserPhotoImage.Source = new BitmapImage(new Uri(openFileDialog.FileName)); ; // Вставить фото в пользовательский элемент управления
+                UserPhotoImage.Source = new BitmapImage(new Uri(openFileDialog.FileName)); // Вставить фото в пользовательский элемент управления
             }
         }
         #endregion
@@ -576,6 +577,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         private void pnRoleWorkerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
+
             if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5)
             {
                 RandomPassword = RandomTextSender().ToString("D6");

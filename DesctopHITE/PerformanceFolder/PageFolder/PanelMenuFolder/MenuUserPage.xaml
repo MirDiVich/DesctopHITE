@@ -7,60 +7,98 @@
     mc:Ignorable="d" 
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MenuUserPageStyle}">
-    <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
-        <ToggleButton
-            x:Name="MainToggleButton"
-            Click="MainToggleButton_Click"
-            Style="{DynamicResource MainMenuToggleButtonStyle}">
-            <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
+    <Grid>
+        <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
+            <ToggleButton
+                x:Name="MainToggleButton"
+                Click="MainToggleButton_Click"
+                Style="{DynamicResource MainMenuToggleButtonStyle}">
+                <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
+                    <TextBlock
+                        Style="{DynamicResource IconButtonTextBlockStyle}"
+                        Text="&#xf175;"/>
+                    <TextBlock
+                        Margin="27 0 0 0"
+                        Text="ГЛАВНАЯ"/>
+                </StackPanel>
+            </ToggleButton>
+            <ToggleButton 
+                x:Name="WorkersToggleButton"
+                Click="WorkersToggleButton_Click"
+                Style="{DynamicResource MainMenuToggleButtonStyle}">
+                <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
+                    <TextBlock
+                        Style="{DynamicResource IconButtonTextBlockStyle}"
+                        Text="&#xf209;"/>
+                    <TextBlock
+                        Margin="27 0 0 0"
+                        Text="СОТРУДНИКИ"/>
+                </StackPanel>
+            </ToggleButton>
+            <ToggleButton 
+                IsEnabled="False"
+                Opacity="0.5"
+                Click="MenuToggleButton_Click"
+                x:Name="MenuToggleButton"
+                Style="{DynamicResource MainMenuToggleButtonStyle}">
+                <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
+                    <TextBlock
+                        Style="{DynamicResource IconButtonTextBlockStyle}"
+                        Text="&#xf197;"/>
+                    <TextBlock
+                        Margin="27 0 0 0"
+                        Text="МЕНЮ"/>
+                </StackPanel>
+            </ToggleButton>
+            <ToggleButton
+                Click="SettingsToggleButton_Click"
+                x:Name="SettingsToggleButton"
+                Style="{DynamicResource MainMenuToggleButtonStyle}">
+                <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
+                    <TextBlock
+                        Style="{DynamicResource IconButtonTextBlockStyle}"
+                        Text="&#xf1c6;"/>
+                    <TextBlock
+                        Margin="27 0 0 0"
+                        Text="НАСТРОЙКИ"/>
+                </StackPanel>
+            </ToggleButton>
+        </StackPanel>
+        <Border
+            Margin="0 1.5 0 1.5"
+            CornerRadius="10"
+            Background="#202020"
+            Height="70"
+            Width="246"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0" Orientation="Horizontal">
+                <Grid Margin="5 0 5 0" Grid.Column="0">
+                    <Border 
+                        Height="35"
+                        Width="35"
+                        CornerRadius="17.5"
+                        BorderThickness="17.5"
+                        VerticalAlignment="Top"
+                        x:Name="MaskMorderBorder" 
+                        Style="{StaticResource MaskBorder}"/>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                        </StackPanel.OpacityMask>
+                        <Image 
+                            Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"
+                            Height="35"
+                            Width="35"
+                            Stretch="UniformToFill"
+                            Opacity="1"/>
+                    </StackPanel>
+                </Grid>
                 <TextBlock
-                    Style="{DynamicResource IconButtonTextBlockStyle}"
-                    Text="&#xf175;"/>
-                <TextBlock
-                    Margin="27 0 0 0"
-                    Text="ГЛАВНАЯ"/>
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    x:Name="SNMUsetTextBlock"
+                    Text="Loading..."/>
             </StackPanel>
-        </ToggleButton>
-        <ToggleButton 
-            x:Name="WorkersToggleButton"
-            Click="WorkersToggleButton_Click"
-            Style="{DynamicResource MainMenuToggleButtonStyle}">
-            <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
-                <TextBlock
-                    Style="{DynamicResource IconButtonTextBlockStyle}"
-                    Text="&#xf209;"/>
-                <TextBlock
-                    Margin="27 0 0 0"
-                    Text="СОТРУДНИКИ"/>
-            </StackPanel>
-        </ToggleButton>
-        <ToggleButton 
-            IsEnabled="False"
-            Opacity="0.5"
-            Click="MenuToggleButton_Click"
-            x:Name="MenuToggleButton"
-            Style="{DynamicResource MainMenuToggleButtonStyle}">
-            <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
-                <TextBlock
-                    Style="{DynamicResource IconButtonTextBlockStyle}"
-                    Text="&#xf197;"/>
-                <TextBlock
-                    Margin="27 0 0 0"
-                    Text="МЕНЮ"/>
-            </StackPanel>
-        </ToggleButton>
-        <ToggleButton
-            Click="SettingsToggleButton_Click"
-            x:Name="SettingsToggleButton"
-            Style="{DynamicResource MainMenuToggleButtonStyle}">
-            <StackPanel Style="{DynamicResource MenuContentStackPanelStyle}">
-                <TextBlock
-                    Style="{DynamicResource IconButtonTextBlockStyle}"
-                    Text="&#xf1c6;"/>
-                <TextBlock
-                    Margin="27 0 0 0"
-                    Text="НАСТРОЙКИ"/>
-            </StackPanel>
-        </ToggleButton>
-    </StackPanel>
+        </Border>
+    </Grid>
 </Page>

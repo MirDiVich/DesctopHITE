@@ -8,11 +8,25 @@
     mc:Ignorable="d" 
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource MainUserPageStyle}">
-    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <StackPanel Orientation="Vertical" Margin="0 0 0 80">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Text="Loading..."
+            Padding="10 5"
+            FontSize="25"
+            Background="#462AD8"
+            TextAlignment="Center"
+            VerticalAlignment="Bottom"
+            x:Name="HelloyTextBlock"
+            Style="{DynamicResource MainStyleTextBlock}"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <TextBlock
                 Text="HTRE"
-                Margin="0 0 0 0"
                 FontSize="200"
                 Style="{StaticResource MainStyleTextBlock}"
                 FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint">
@@ -25,22 +39,12 @@
             </TextBlock>
             <TextBlock
                 Text="Вкусно / Быстро \ По дороге"
-                Margin="0 0 0 0"
                 FontSize="30"
                 Style="{StaticResource MainStyleTextBlock}"
                 FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint"
                 Foreground="#462AD8"/>
         </StackPanel>
-        <StackPanel Margin="0 80 0 0" Orientation="Vertical" VerticalAlignment="Center">
-            <TextBlock
-                Text="Loading..."
-                Padding="10 5"
-                FontSize="25"
-                Background="#462AD8"
-                TextAlignment="Center"
-                x:Name="HelloyTextBlock"
-                Style="{DynamicResource MainStyleTextBlock}"
-                Margin="0 0 0 2.5"/>
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock
                 Width="350"
                 HorizontalAlignment="Center"
@@ -48,9 +52,11 @@
                 x:Name="NowTimeTextBlock"
                 Style="{DynamicResource MainStyleTextBlock}"
                 FontSize="60"
+                Text="00:00:00"
                 FontFamily="\ContentFolder\FontFolder\#DM Mono Medium"
-                Margin="0 2.5 0 2.5"/>
+                Margin="0 0 0 2.5"/>
             <TextBlock
+                Text="...."
                 Margin="0 2.5 0 0"
                 HorizontalAlignment="Center"
                 TextAlignment="Center"
@@ -58,26 +64,28 @@
                 Style="{DynamicResource MainStyleTextBlock}"
                 FontSize="20"/>
             <TextBlock
-                Margin="0 2.5 0 2"
+                Text="00 ..... (00) 0000"
+                Margin="0 2.5 0 2.5"
                 HorizontalAlignment="Center"
                 TextAlignment="Center"
                 x:Name="NowDateTextBlock"
                 Style="{DynamicResource MainStyleTextBlock}"
                 FontSize="20"/>
             <TextBlock
-                Margin="0 2 0 2"
+                Margin="0 2.5 0 2.5"
                 HorizontalAlignment="Center"
                 TextAlignment="Center"
                 x:Name="BirthdayTextBlock"
                 Style="{DynamicResource MainStyleTextBlock}"
                 FontSize="25"/>
             <TextBlock
-                Margin="0 2 0 0"
+                Text="....."
+                Margin="0 2.5 0 0"
                 HorizontalAlignment="Center"
                 TextAlignment="Center"
                 x:Name="NowHolidayTextBlock"
                 Style="{DynamicResource MainStyleTextBlock}"
                 FontSize="20"/>
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Page>

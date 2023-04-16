@@ -47,6 +47,7 @@
                 <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Width="30"
+                        ToolTip="ВЫЙТИ"
                         Content="&#xf1cc;"
                         FontFamily="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
                         Style="{DynamicResource RollupControlButton}" 
