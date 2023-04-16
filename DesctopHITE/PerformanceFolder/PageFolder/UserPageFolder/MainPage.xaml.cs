@@ -6,8 +6,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
-using System.Data.Entity;
-using System.Linq;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -17,7 +16,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
-        DateTime toDay = DateTime.Now;
         public static TimeClass GetTimeClass = new TimeClass();
         public static HolidayClass GetDayClass = new HolidayClass();
 
@@ -27,14 +25,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             InitializeComponent();
         }
+
         #region Действие
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
-            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString(); // Текст приветствие
-            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss"); // xx:xx:xx
-            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy"); // xx Month(xx) xxxx
-            BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString(); // Поздравление с днём рождения
-            NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString(); // Поздравление с текущим праздником
+            // Работа с часами
+            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
+            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
+            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
+            BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString();
+            NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString();
+            DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
 
             if (GetDayClass.HappyBirthdayGreetings == "")
             {
@@ -46,27 +47,27 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
             }
 
-            // Поиск сотрудников, у которых сегодня день рождение
-            var employeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
-                Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == toDay.Day &&
-                            Birthday.PassportTable.DateOfBrich_Passport.Month == toDay.Month);
+            //// Поиск сотрудников, у которых сегодня день рождение
+            //var employeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
+            //    Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == toDay.Day &&
+            //                Birthday.PassportTable.DateOfBrich_Passport.Month == toDay.Month);
 
-            EmployeesWhoHaveBirthdayToday.ItemsSource = employeesObjects.ToList();
+            //EmployeesWhoHaveBirthdayToday.ItemsSource = employeesObjects.ToList();
 
-            if (EmployeesWhoHaveBirthdayToday.Items.Count == 0)
-            {
-                TitleTodayTheBirthdayBorder.Visibility = Visibility.Collapsed;
-            }
-            else if(EmployeesWhoHaveBirthdayToday.Items.Count == 1)
-            {
-                TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
-                TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечает:";
-            }
-            else if (EmployeesWhoHaveBirthdayToday.Items.Count > 1)
-            {
-                TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
-                TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечают:";
-            }
+            //if (EmployeesWhoHaveBirthdayToday.Items.Count == 0)
+            //{
+            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Collapsed;
+            //}
+            //else if(EmployeesWhoHaveBirthdayToday.Items.Count == 1)
+            //{
+            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
+            //    TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечает:";
+            //}
+            //else if (EmployeesWhoHaveBirthdayToday.Items.Count > 1)
+            //{
+            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
+            //    TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечают:";
+            //}
         }
         #endregion
 
