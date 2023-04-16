@@ -47,6 +47,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     PasswordUserPasswordBox.Password = Properties.Settings.Default.PasswordUserRemember;
                     RememberUserComboBox.SelectedItem = RememberItem;
 
+                    // Вызов метода
                     LoginUser();
                 }
             }
@@ -81,10 +82,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU001 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message.ToString(), "REBU001 - Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -97,10 +96,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU002 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message.ToString(), "REBU002 - Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -113,27 +110,25 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU003 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    ex.Message.ToString(), "REBU003 - Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         #endregion
         #region Click
 
-        // Действие при нажатии на кнопку "Войти"
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e) // Действие при нажатии на кнопку "Войти"
         {
+            // Вызов метода
             LoginUser();
         }
 
-        // Если пользователь, находясь в PasswordBox нажал на Enter
-        private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) 
+        private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
             if (e.Key == Key.Enter)
             {
+                // Вызов метода
                 LoginUser();
             }
         }
@@ -143,7 +138,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
-            RotateTransform LoadingAnimation = new RotateTransform();
+            RotateTransform loadingAnimation = new RotateTransform();
             currentRotationAngle += 10; // Поворот на 10 градусов
 
             if (currentRotationAngle >= 360)
@@ -151,15 +146,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 currentRotationAngle = 0;
             }
 
-            LoadingAnimation.Angle = currentRotationAngle;
+            loadingAnimation.Angle = currentRotationAngle;
             LoadingSpinnerTextBlock.RenderTransformOrigin = new Point(0.5, 0.5);
 
-            LoadingSpinnerTextBlock.RenderTransform = LoadingAnimation;
+            LoadingSpinnerTextBlock.RenderTransform = loadingAnimation;
         }
 
         private void LoginUser() // Действие для авторизации пользователя
         {
-            // Вызываю метод проверки текстовых полей на пустоту
+            // Вызов метода
             ErrorNullBox();
 
             if (quantityNoInputs >= 5)
@@ -182,7 +177,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 }
                 else
                 {
-                    // Вызываю метод для входа пользователя
+                    // Вызов метода
                     DateUser();
                 }
             }
@@ -193,6 +188,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) messageNullBox += "Поле Login пустое\n";
             if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) messageNullBox += "Поле Password пустое";
         }
+
         private async void DateUser() // Метод авторизации пользователя
         {
             try
@@ -208,37 +204,37 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 getTimer.Start();
 
                 // Стринговые переменные, потому что без этого код не работает (всё из-за 2-го потока)
-                string ReceiveLogin = LoginUserTextBox.Text;
-                string ReceivePassword = PasswordUserPasswordBox.Password;
+                string receiveLogin = LoginUserTextBox.Text;
+                string receivePassword = PasswordUserPasswordBox.Password;
 
                 // Переменная, которая содержит в себе информацию о пользователе
-                var LogInUser = await AppConnectClass.DataBase.WorkerTable.FirstOrDefaultAsync(
-                    DataUser => DataUser.Login_Worker == ReceiveLogin && DataUser.Password_Worker == ReceivePassword);
+                var logInUser = await AppConnectClass.DataBase.WorkerTable.FirstOrDefaultAsync(DataUser => 
+                        DataUser.Login_Worker == receiveLogin && DataUser.Password_Worker == receivePassword);
 
                 // Если данные которые ввел пользователь, существуют в базе данных
-                if (LogInUser != null)
+                if (logInUser != null)
                 {
                     MainUserWindow mainUserWindow = new MainUserWindow();
 
-                    switch (LogInUser.pnRole_Worker) // Проверяем должность пользователя
+                    switch (logInUser.pnRole_Worker) // Проверяем должность пользователя
                     {
                         case 1:
                             SaveSettings();
-                            AppConnectClass.GetUser = LogInUser;
+                            AppConnectClass.GetUser = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 2:
                             SaveSettings();
-                            AppConnectClass.GetUser = LogInUser;
+                            AppConnectClass.GetUser = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 3:
                             SaveSettings();
-                            AppConnectClass.GetUser = LogInUser;
+                            AppConnectClass.GetUser = logInUser;
                             MessageBox.Show("Для вас ещё не реализован код");
                             mainUserWindow.Show();
                             this.Close();
@@ -246,18 +242,18 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                         case 5:
                             SaveSettings();
-                            AppConnectClass.GetUser = LogInUser;
+                            AppConnectClass.GetUser = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         // Если у пользователя должность, которой не разрешён вход
                         default:
-                            string MessageDefault =
-                                $"Извините {LogInUser.PassportTable.Surname_Passport + " " + LogInUser.PassportTable.Name_Passport}" +
+                            string messageDefault =
+                                $"Извините {logInUser.PassportTable.Surname_Passport + " " + logInUser.PassportTable.Name_Passport}" +
                                 " " + "но для вас доступ в АИС закрыт!";
                             MessageBox.Show(
-                                MessageDefault, "Авторизация",
+                                messageDefault, "Авторизация",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                     }
@@ -265,13 +261,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 else
                 {
                     // Если данные которые ввел пользователь, не существуют в базе данных
-                    string MessageError = $"Извините, но пользователя с:\n\n" +
+                    string messageError = $"Извините, но пользователя с:\n\n" +
                         $"Login: {LoginUserTextBox.Text}\n" +
                         $"Password: {PasswordUserPasswordBox.Password}\n\n" +
                         $"не нашлось в нашей базе данных";
 
                     MessageBox.Show(
-                        MessageError, "Авторизация",
+                        messageError, "Авторизация",
                         MessageBoxButton.OK, MessageBoxImage.Error);
 
                     quantityNoInputs++;
@@ -279,12 +275,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                string MessageError =
+                string messageError =
                     $"Сообщение ошибки: {ex.Message}\n" +
                     $"Трассировка стека: {ex.StackTrace}";
 
                 MessageBox.Show(
-                    MessageError, "Ошибка - E002",
+                    messageError, "Ошибка - E002",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
@@ -303,9 +299,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         }
         private void GetCapsLock() // Метод, который реагирует на нажатый CapsLock
         {
-            bool IsCapsLockOn = Console.CapsLock;
+            bool isCapsLockOn = Console.CapsLock;
 
-            if (IsCapsLockOn)
+            if (isCapsLockOn)
             {
                 CapsLockTextBlock.Visibility = Visibility.Visible;
             }
@@ -340,8 +336,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         private void VisiblePasswordUserButton_PreviewMouseDown(object sender, MouseButtonEventArgs e) // Когда кнопка нажата
         {
             // Получаем содержимое PasswordBox и применяем к TextBox
-            string PasswordUser = Convert.ToString(PasswordUserPasswordBox.Password);
-            PasswordUserTextBox.Text = PasswordUser;
+            string passwordUser = Convert.ToString(PasswordUserPasswordBox.Password);
+            PasswordUserTextBox.Text = passwordUser;
 
             PasswordPasswordGrid.Visibility = Visibility.Collapsed;
             TextPasswordGrid.Visibility = Visibility.Visible;
@@ -350,8 +346,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         private void VisiblePasswordUserButton_PreviewMouseUp(object sender, MouseButtonEventArgs e) // Когда кнопка отпущена
         {
             // Получаем содержимое TextBox и применяем к PasswordBox
-            string PasswordUser = Convert.ToString(PasswordUserTextBox.Text);
-            PasswordUserPasswordBox.Password = PasswordUser;
+            string passwordUser = Convert.ToString(PasswordUserTextBox.Text);
+            PasswordUserPasswordBox.Password = passwordUser;
 
             PasswordPasswordGrid.Visibility = Visibility.Visible;
             TextPasswordGrid.Visibility = Visibility.Collapsed;
@@ -385,7 +381,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 HintTextPasswordTextBlock.Visibility = Visibility.Visible;
             }
 
-            // Проверка на CapsLock
+            // Вызов метода
             GetCapsLock();
         }
 
@@ -401,7 +397,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
             }
 
-            // Проверка на CapsLock
+            // Вызов метода
             GetCapsLock();
         }
 
