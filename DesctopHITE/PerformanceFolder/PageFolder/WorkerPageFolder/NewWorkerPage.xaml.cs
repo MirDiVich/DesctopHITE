@@ -24,12 +24,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
+        // Переменная, которая нужна для того, чтоб понять, идёт добавление пользователя или его редактирование
         int personalNumber = 0;
 
-        DateTime toDayDate = DateTime.Today;
-
         byte[] imageData;
-        string pathImage = null;
+        string pathImage = "";
         string messagePassportNull;
         string messagePlaceResidenceNull;
         string messageMedicalBookNull;
@@ -241,37 +240,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         }
                         else
                         {
-                            // Вызов методов
+                            // Вызов метода
                             AddDataDatabase();
-                            ClearText();
                         }
-
-
-                        //else
-                        //{
-                        //    emailWorker = EmailWorkerTextBox.Text;
-                        //    bool isValidEmail = Regex.IsMatch(emailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-
-                        //    if (isValidEmail)
-                        //    {
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show(
-                        //           "Введите корректную электронную почту", "Ошибка добавления нового сотрудника (NewWorkerPage - E-011)",
-                        //           MessageBoxButton.OK, MessageBoxImage.Error);
-                        //    }
-                        //}
                     }
                 }
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message, "Ошибка добавления (NewWorkerPage - E-004)",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+}
 
         private void NewPhotoButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
         {
@@ -294,43 +275,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             return random.Next(1000000000);
         }
 
-        private void AddDataDatabase() // Метод для добавления нового сотрудника или редактирование данных в базе данных
+        private void AddDataDatabase() // Метод для добавления нового сотрудника в баз данных
         {
             try
             {
-                if (pathImage != null)
-                {
-                    // Конвертация изображения в байты
-                    using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
-                    {
-                        imageData = new byte[fs.Length];
-                        fs.Read(imageData, 0, imageData.Length);
-                    }
-                }
-
-                ImagePassportTable addImagePassport = new ImagePassportTable()
-                {
-                    PersonalNumber_ImagePassport = SeriesPassportTextBox.Text + NumberPassportTextBox.Text,
-                    Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}",
-                    Image_ImagePassport = imageData
-                };
-
-                if (personalNumber == 0)
-                {
-                    if (pathImage != "")
-                    {
-                        AppConnectClass.DataBase.ImagePassportTable.Add(addImagePassport);
-                    }
-                }
-                else
-                {
-                    if (pathImage != "")
-                    {
-                        AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
-                    }
-                }
-
-
                 PassportTable addPassport = new PassportTable()
                 {
                     Series_Passport = SeriesPassportTextBox.Text,
@@ -346,34 +294,61 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     DivisionCode_Passport = DivisionCodePassportTextBox.Text
                 };
 
-                if (personalNumber == 0)
+                ImagePassportTable addImagePassport = new ImagePassportTable();
+                if (pathImage != "")
                 {
-                    if (pathImage == null)
+                    // Конвертация изображения в байты
+                    using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
                     {
-                        addPassport.pnImage_Passport = "0";
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
+                    }
+
+                    addImagePassport.PersonalNumber_ImagePassport = addPassport.Series_Passport + addPassport.Number_Passport;
+                    addImagePassport.Name_ImagePassport = $"{addPassport.Surname_Passport} {addPassport.Name_Passport}";
+                    addImagePassport.Image_ImagePassport = imageData;
+
+                    if (personalNumber != 0)
+                    {
+                        AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
                     }
                     else
                     {
-                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
+                        AppConnectClass.DataBase.ImagePassportTable.Add(addImagePassport);
                     }
-                    AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
-                else
+
+                if (personalNumber != 0)
                 {
-                    if (addPassport.pnImage_Passport == "0")
+                    if (addPassport.pnImage_Passport == "0         ")
                     {
-                        if (pathImage != null)
+                        if (pathImage != "")
                         {
                             addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
+                        }
+                        else
+                        {
+                            addPassport.pnImage_Passport = "0         ";
                         }
                     }
                     AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 }
-
+                else
+                {
+                    if (pathImage != "")
+                    {
+                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
+                    }
+                    else
+                    {
+                        addPassport.pnImage_Passport = "0         ";
+                    }
+                    AppConnectClass.DataBase.PassportTable.Add(addPassport);
+                }
 
                 PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable()
                 {
-                    PersonalNumber_PlaceResidence = SeriesPassportTextBox.Text + NumberPassportTextBox.Text,
+                    PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport,
                     RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text),
                     Region_PlaceResidence = RegionPlaceResidenceTextBox.Text,
                     District_PlaceResidence = DistrictPlaceResidenceTextBox.Text,
@@ -382,14 +357,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     House_PlaceResidence = HousePlaceResidenceTextBox.Text,
                     Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.PlaceResidenceTable.Add(addPlaceResidence);
+                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
+                    AppConnectClass.DataBase.PlaceResidenceTable.Add(addPlaceResidence);
                 }
 
                 MedicalBookTable addMedicalBook = new MedicalBookTable()
@@ -402,14 +376,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Role_MedicalBook = RoleMedicalBookTextBox.Text,
                     Organization_MedicalBook = OrganizationMedicalBookTextBox.Text
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.MedicalBookTable.Add(addMedicalBook);
+                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
+                    AppConnectClass.DataBase.MedicalBookTable.Add(addMedicalBook);
                 }
 
                 SnilsTable addSnils = new SnilsTable()
@@ -417,14 +390,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text,
                     DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text)
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.SnilsTable.Add(addSnils);
+                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
+                    AppConnectClass.DataBase.SnilsTable.Add(addSnils);
                 }
 
                 INNTable addINN = new INNTable()
@@ -434,14 +406,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text,
                     Date_INN = Convert.ToDateTime(DateINNTextBox.Text)
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.INNTable.Add(addINN);
+                    AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
+                    AppConnectClass.DataBase.INNTable.Add(addINN);
                 }
 
                 SalaryCardTable addSalaryCard = new SalaryCardTable()
@@ -453,14 +424,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     Month_SalaryCard = MonthSalaryCardTextBox.Text,
                     Code_SalaryCard = CodeSalaryCardTextBox.Text
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.SalaryCardTable.Add(addSalaryCard);
+                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
+                    AppConnectClass.DataBase.SalaryCardTable.Add(addSalaryCard);
                 }
 
                 WorkerTable addWorker = new WorkerTable()
@@ -475,20 +445,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence,
                     pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook,
                     pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard,
-                    DateWord_Worker = toDayDate,
-                    pnStatus_Worker = 2,
+                    DateWord_Worker = DateTime.Now,
                     pnINN_Worker = addINN.PersonalNumber_INN,
                     pnSnils_Worker = addSnils.PersonalNumber_Snils,
                     AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker
                 };
-
-                if (personalNumber == 0)
+                if (personalNumber != 0)
                 {
-                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
+                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
+                    addWorker.pnStatus_Worker = 2;
+                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
                 }
 
                 AppConnectClass.DataBase.SaveChanges();
@@ -496,14 +465,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 MessageBox.Show(
                         "Новый сотрудник добавлен в базу данных", "Сохранение",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+
+                // Вызов метода
+                ClearText();
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message, "Ошибка добавления (NewWorkerPage - E-002)",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+}
 
         private void MessageNull() // Метод на проверки полей на валидность данных 
         {
@@ -619,6 +591,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (MonthSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
             if (YearEndSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
             if (CodeSalaryCardTextBox.Text.Length <= 2) messageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
+            
             int MonthText = Convert.ToInt32(MonthSalaryCardTextBox.Text);
             if (MonthText > 12) messageValidData += "'Месяц' в 'Заработная карта' не может быть больше 12\n";
             if (MonthText < 01) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше 01\n";
@@ -627,6 +600,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (PhoneWorkerTextBox.Text.Length <= 10) messageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";
             if (LoginWorkerTextBox.Text.Length <= 5) messageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             if (PasswordWorkerTextBox.Text.Length <= 5) messageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+
+            string emailWorker = EmailWorkerTextBox.Text;
+            bool isValidEmail = Regex.IsMatch(emailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (isValidEmail){}
+            else
+            {
+                messageValidData += "'Email' в 'Общая информация' не не корректный";
+            }
 
             #endregion
         }
