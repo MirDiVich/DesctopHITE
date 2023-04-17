@@ -22,10 +22,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             if (Visibility == Visibility.Visible)
             {
-                var CountWorker = AppConnectClass.DataBase.WorkerTabe.Count();
+                var CountWorker = AppConnectClass.DataBase.WorkerTable.Count();
                 WorkerCountTextBlock.Text = CountWorker.ToString();
 
-                var CountOnline = AppConnectClass.DataBase.WorkerTabe.Count(status => status.pnStatus_Worker == 2);
+                var CountOnline = AppConnectClass.DataBase.WorkerTable.Count(status => status.pnStatus_Worker == 2);
                 TotalOnlineWorkerTextBlock.Text = CountOnline.ToString();
             }
         }

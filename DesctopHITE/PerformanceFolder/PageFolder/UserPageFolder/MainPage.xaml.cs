@@ -48,7 +48,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
 
             //// Поиск сотрудников, у которых сегодня день рождение
-            //var employeesObjects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
+            //var employeesObjects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
             //    Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == toDay.Day &&
             //                Birthday.PassportTable.DateOfBrich_Passport.Month == toDay.Month);
 

@@ -159,7 +159,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_INNTable">
+        <Association Name="FK_WorkerTable_INNTable">
           <End Role="INNTable" Type="Self.INNTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -171,7 +171,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_MedicalBookTable">
+        <Association Name="FK_WorkerTable_MedicalBookTable">
           <End Role="MedicalBookTable" Type="Self.MedicalBookTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,7 +183,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PassportTable">
+        <Association Name="FK_WorkerTable_PassportTable">
           <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +197,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+        <Association Name="FK_WorkerTable_PlaceResidenceTable">
           <End Role="PlaceResidenceTable" Type="Self.PlaceResidenceTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +209,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_RoleTable">
+        <Association Name="FK_WorkerTable_RoleTable">
           <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +221,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_SalaryCardTable">
+        <Association Name="FK_WorkerTable_SalaryCardTable">
           <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,7 +233,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_SnilsTable">
+        <Association Name="FK_WorkerTable_SnilsTable">
           <End Role="SnilsTable" Type="Self.SnilsTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_StatusTable">
+        <Association Name="FK_WorkerTable_StatusTable">
           <End Role="StatusTable" Type="Self.StatusTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -278,35 +278,35 @@
             <End Role="ImagePassportTable" EntitySet="ImagePassportTable" />
             <End Role="PassportTable" EntitySet="PassportTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_INNTable" Association="Self.FK_WorkerTabe_INNTable">
+          <AssociationSet Name="FK_WorkerTable_INNTable" Association="Self.FK_WorkerTable_INNTable">
             <End Role="INNTable" EntitySet="INNTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_MedicalBookTable" Association="Self.FK_WorkerTabe_MedicalBookTable">
+          <AssociationSet Name="FK_WorkerTable_MedicalBookTable" Association="Self.FK_WorkerTable_MedicalBookTable">
             <End Role="MedicalBookTable" EntitySet="MedicalBookTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="Self.FK_WorkerTabe_PassportTable">
+          <AssociationSet Name="FK_WorkerTable_PassportTable" Association="Self.FK_WorkerTable_PassportTable">
             <End Role="PassportTable" EntitySet="PassportTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="Self.FK_WorkerTabe_PlaceResidenceTable">
+          <AssociationSet Name="FK_WorkerTable_PlaceResidenceTable" Association="Self.FK_WorkerTable_PlaceResidenceTable">
             <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_RoleTable" Association="Self.FK_WorkerTabe_RoleTable">
+          <AssociationSet Name="FK_WorkerTable_RoleTable" Association="Self.FK_WorkerTable_RoleTable">
             <End Role="RoleTable" EntitySet="RoleTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_SalaryCardTable" Association="Self.FK_WorkerTabe_SalaryCardTable">
+          <AssociationSet Name="FK_WorkerTable_SalaryCardTable" Association="Self.FK_WorkerTable_SalaryCardTable">
             <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_SnilsTable" Association="Self.FK_WorkerTabe_SnilsTable">
+          <AssociationSet Name="FK_WorkerTable_SnilsTable" Association="Self.FK_WorkerTable_SnilsTable">
             <End Role="SnilsTable" EntitySet="SnilsTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_StatusTable" Association="Self.FK_WorkerTabe_StatusTable">
+          <AssociationSet Name="FK_WorkerTable_StatusTable" Association="Self.FK_WorkerTable_StatusTable">
             <End Role="StatusTable" EntitySet="StatusTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
@@ -336,35 +336,35 @@
             <End Role="ImagePassportTable" EntitySet="ImagePassportTable" />
             <End Role="PassportTable" EntitySet="PassportTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_INNTable" Association="DesctopHiteModel.FK_WorkerTabe_INNTable">
+          <AssociationSet Name="FK_WorkerTable_INNTable" Association="DesctopHiteModel.FK_WorkerTable_INNTable">
             <End Role="INNTable" EntitySet="INNTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_MedicalBookTable" Association="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable">
+          <AssociationSet Name="FK_WorkerTable_MedicalBookTable" Association="DesctopHiteModel.FK_WorkerTable_MedicalBookTable">
             <End Role="MedicalBookTable" EntitySet="MedicalBookTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="DesctopHiteModel.FK_WorkerTabe_PassportTable">
+          <AssociationSet Name="FK_WorkerTable_PassportTable" Association="DesctopHiteModel.FK_WorkerTable_PassportTable">
             <End Role="PassportTable" EntitySet="PassportTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_PlaceResidenceTable" Association="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable">
+          <AssociationSet Name="FK_WorkerTable_PlaceResidenceTable" Association="DesctopHiteModel.FK_WorkerTable_PlaceResidenceTable">
             <End Role="PlaceResidenceTable" EntitySet="PlaceResidenceTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_RoleTable" Association="DesctopHiteModel.FK_WorkerTabe_RoleTable">
+          <AssociationSet Name="FK_WorkerTable_RoleTable" Association="DesctopHiteModel.FK_WorkerTable_RoleTable">
             <End Role="RoleTable" EntitySet="RoleTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_SalaryCardTable" Association="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable">
+          <AssociationSet Name="FK_WorkerTable_SalaryCardTable" Association="DesctopHiteModel.FK_WorkerTable_SalaryCardTable">
             <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_SnilsTable" Association="DesctopHiteModel.FK_WorkerTabe_SnilsTable">
+          <AssociationSet Name="FK_WorkerTable_SnilsTable" Association="DesctopHiteModel.FK_WorkerTable_SnilsTable">
             <End Role="SnilsTable" EntitySet="SnilsTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTabe_StatusTable" Association="DesctopHiteModel.FK_WorkerTabe_StatusTable">
+          <AssociationSet Name="FK_WorkerTable_StatusTable" Association="DesctopHiteModel.FK_WorkerTable_StatusTable">
             <End Role="StatusTable" EntitySet="StatusTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
@@ -394,7 +394,7 @@
           <Property Name="TaxAuthority_INN" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="NumberTaxAuthority_INN" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="Date_INN" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_INNTable" FromRole="INNTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_INNTable" FromRole="INNTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="MedicalBookTable">
           <Key>
@@ -407,7 +407,7 @@
           <Property Name="HomeAdress_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Role_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Organization_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="MedicalBookTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_MedicalBookTable" FromRole="MedicalBookTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="PassportTable">
           <Key>
@@ -428,7 +428,7 @@
           <Property Name="pnImage_Passport" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="GenderTable" Relationship="DesctopHiteModel.FK_PassportTable_GenderTable" FromRole="PassportTable" ToRole="GenderTable" />
           <NavigationProperty Name="ImagePassportTable" Relationship="DesctopHiteModel.FK_PassportTable_ImagePassportTable1" FromRole="PassportTable" ToRole="ImagePassportTable" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PassportTable" FromRole="PassportTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_PassportTable" FromRole="PassportTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="PlaceResidenceTable">
           <Key>
@@ -442,7 +442,7 @@
           <Property Name="Street_PlaceResidence" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="House_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Flat_PlaceResidence" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" FromRole="PlaceResidenceTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_PlaceResidenceTable" FromRole="PlaceResidenceTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="RoleTable">
           <Key>
@@ -450,7 +450,7 @@
           </Key>
           <Property Name="PersonalNumber_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_Role" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_RoleTable" FromRole="RoleTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_RoleTable" FromRole="RoleTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
           <Key>
@@ -462,7 +462,7 @@
           <Property Name="YearEnd_SalaryCard" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="Month_SalaryCard" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="Code_SalaryCard" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" FromRole="SalaryCardTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_SalaryCardTable" FromRole="SalaryCardTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="SnilsTable">
           <Key>
@@ -470,7 +470,7 @@
           </Key>
           <Property Name="PersonalNumber_Snils" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="DateRegistration_Snils" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="SnilsTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_SnilsTable" FromRole="SnilsTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="StatusTable">
           <Key>
@@ -478,7 +478,7 @@
           </Key>
           <Property Name="PersonalNumber_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title_Status" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="StatusTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTable_StatusTable" FromRole="StatusTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -510,14 +510,14 @@
           <Property Name="pnINN_Worker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
           <Property Name="pnSnils_Worker" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="AddpnWorker_Worker" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="INNTable" Relationship="DesctopHiteModel.FK_WorkerTabe_INNTable" FromRole="WorkerTable" ToRole="INNTable" />
-          <NavigationProperty Name="MedicalBookTable" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="WorkerTable" ToRole="MedicalBookTable" />
-          <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PassportTable" FromRole="WorkerTable" ToRole="PassportTable" />
-          <NavigationProperty Name="PlaceResidenceTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PlaceResidenceTable" FromRole="WorkerTable" ToRole="PlaceResidenceTable" />
-          <NavigationProperty Name="RoleTable" Relationship="DesctopHiteModel.FK_WorkerTabe_RoleTable" FromRole="WorkerTable" ToRole="RoleTable" />
-          <NavigationProperty Name="SalaryCardTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
-          <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
-          <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
+          <NavigationProperty Name="INNTable" Relationship="DesctopHiteModel.FK_WorkerTable_INNTable" FromRole="WorkerTable" ToRole="INNTable" />
+          <NavigationProperty Name="MedicalBookTable" Relationship="DesctopHiteModel.FK_WorkerTable_MedicalBookTable" FromRole="WorkerTable" ToRole="MedicalBookTable" />
+          <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_WorkerTable_PassportTable" FromRole="WorkerTable" ToRole="PassportTable" />
+          <NavigationProperty Name="PlaceResidenceTable" Relationship="DesctopHiteModel.FK_WorkerTable_PlaceResidenceTable" FromRole="WorkerTable" ToRole="PlaceResidenceTable" />
+          <NavigationProperty Name="RoleTable" Relationship="DesctopHiteModel.FK_WorkerTable_RoleTable" FromRole="WorkerTable" ToRole="RoleTable" />
+          <NavigationProperty Name="SalaryCardTable" Relationship="DesctopHiteModel.FK_WorkerTable_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
+          <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTable_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
+          <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
         <Association Name="FK_PassportTable_GenderTable">
           <End Type="DesctopHiteModel.GenderTable" Role="GenderTable" Multiplicity="1" />
@@ -543,7 +543,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_INNTable">
+        <Association Name="FK_WorkerTable_INNTable">
           <End Type="DesctopHiteModel.INNTable" Role="INNTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -555,7 +555,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_MedicalBookTable">
+        <Association Name="FK_WorkerTable_MedicalBookTable">
           <End Type="DesctopHiteModel.MedicalBookTable" Role="MedicalBookTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -567,7 +567,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PassportTable">
+        <Association Name="FK_WorkerTable_PassportTable">
           <End Type="DesctopHiteModel.PassportTable" Role="PassportTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -581,7 +581,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_PlaceResidenceTable">
+        <Association Name="FK_WorkerTable_PlaceResidenceTable">
           <End Type="DesctopHiteModel.PlaceResidenceTable" Role="PlaceResidenceTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -593,7 +593,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_RoleTable">
+        <Association Name="FK_WorkerTable_RoleTable">
           <End Type="DesctopHiteModel.RoleTable" Role="RoleTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -605,7 +605,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_SalaryCardTable">
+        <Association Name="FK_WorkerTable_SalaryCardTable">
           <End Type="DesctopHiteModel.SalaryCardTable" Role="SalaryCardTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -617,7 +617,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_SnilsTable">
+        <Association Name="FK_WorkerTable_SnilsTable">
           <End Type="DesctopHiteModel.SnilsTable" Role="SnilsTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -629,7 +629,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTabe_StatusTable">
+        <Association Name="FK_WorkerTable_StatusTable">
           <End Type="DesctopHiteModel.StatusTable" Role="StatusTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>

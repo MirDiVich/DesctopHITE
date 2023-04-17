@@ -62,24 +62,24 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
-            DataContextWorker = (WorkerTabe)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+            DataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }
-        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTabe
+        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
         {
             try
             {
                 if (SearchTextBox.Text == "") // Если SearchTextBox пустой
                 {
                     HintSearchTextBlock.Visibility = Visibility.Visible;
-                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTabe.ToList();
+                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
                 }
                 else // Если же в SearchTextBox есть что-то то:
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.DataBase.WorkerTabe.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTabe по таблице PassportTable
+                    var Objects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTable по таблице PassportTable
 
                     var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
                         worker.PassportTable.Surname_Passport.ToString().Contains(SearchTextBox.Text.ToString()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox

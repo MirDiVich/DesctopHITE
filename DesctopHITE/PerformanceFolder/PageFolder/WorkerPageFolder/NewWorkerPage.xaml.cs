@@ -39,16 +39,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string messageValidData;
         string randomPassword = "";
 
-        public NewWorkerPage(WorkerTabe workerTabe)
+        public NewWorkerPage(WorkerTable workerTable)
         {
             try
             {
                 InitializeComponent();
 
-                if (workerTabe != null)
+                if (workerTable != null)
                 {
-                    DataContext = workerTabe;
-                    personalNumber = workerTabe.PersonalNumber_Worker;
+                    DataContext = workerTable;
+                    personalNumber = workerTable.PersonalNumber_Worker;
 
                     TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
@@ -61,6 +61,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
 
                 AppConnectClass.DataBase = new DesctopHiteEntities(); // Даём взаимодействовать этой странице с базой данных
+
                 pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList(); // Выгружаем список Гендера в pnGenderComboBox    
                 pnRoleWorkerComboBox.ItemsSource = AppConnectClass.DataBase.RoleTable.ToList(); // Выгружаем список Гендера в pnRoleWorkerComboBox    
             }
@@ -81,12 +82,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region Color
+
         // Задал цвета, для того, что бы проще обращяться к ним, и менять их
         SolidColorBrush redColor = new SolidColorBrush(Color.FromRgb(255, 7, 58));
         SolidColorBrush greenColor = new SolidColorBrush(Color.FromRgb(57, 255, 20));
         SolidColorBrush standardColor = new SolidColorBrush(Color.FromRgb(32, 32, 32));
+
         #endregion
         #region Click
+
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
             if (PassportToggleButton.IsChecked == true)
@@ -184,9 +188,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 messageGeneralDataNull = "";
                 messageValidData = "";
 
-                MessageNull(); // Вызываем метод по проверки на ошибки
+                // Вызов метода
+                MessageNull();
 
-                if (messagePassportNull != "" || messagePlaceResidenceNull != "" || messageMedicalBookNull != "" || messageSnilsNull != "" || messageINNNull != "" || messageSalaryCardNull != "" || messageGeneralDataNull != "") // Проверка на пустые поля
+                if (messagePassportNull != "" ||
+                    messagePlaceResidenceNull != "" ||
+                    messageMedicalBookNull != "" || 
+                    messageSnilsNull != "" ||
+                    messageINNNull != "" ||
+                    messageSalaryCardNull != "" || 
+                    messageGeneralDataNull != "") // Проверка на пустые поля
                 {
                     string messagePassport = 
                         messagePassportNull + 
@@ -213,7 +224,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     {
                         if (personalNumber == 0)
                         {
-                            if (AppConnectClass.DataBase.WorkerTabe.Count(Log =>
+                            if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
                                 Log.Login_Worker == LoginWorkerTextBox.Text &&
                                 Log.Email_Worker == EmailWorkerTextBox.Text &&
                                 Log.SeriesPassport_Worker == SeriesPassportTextBox.Text || Log.NumberPassport_Worker == NumberPassportTextBox.Text &&
@@ -229,6 +240,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         }
                         else
                         {
+                            // Вызов методов
                             AddDataDatabase();
                             ClearText();
                         }
@@ -271,13 +283,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 UserPhotoImage.Source = new BitmapImage(new Uri(openFileDialog.FileName)); // Вставить фото в пользовательский элемент управления
             }
         }
+
         #endregion
-        #region Действие
+        #region Метод
+
         private int RandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
         {
             Random random = new Random();
             return random.Next(1000000000);
         }
+
         private void AddDataDatabase() // Метод для добавления нового сотрудника в базу данных
         {
             try
@@ -290,7 +305,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     fs.Read(imageData, 0, imageData.Length);
                 }
 
-                ImagePassportTable AddImagePassport = new ImagePassportTable()
+                ImagePassportTable addImagePassport = new ImagePassportTable()
                 {
                     PersonalNumber_ImagePassport = SeriesPassportTextBox.Text + NumberPassportTextBox.Text,
                     Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}",
@@ -301,12 +316,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     if (pathImage != "")
                     {
-                        AppConnectClass.DataBase.ImagePassportTable.Add(AddImagePassport);
+                        AppConnectClass.DataBase.ImagePassportTable.Add(addImagePassport);
                     }
                 }
 
 
-                PassportTable AddPassport = new PassportTable()
+                PassportTable addPassport = new PassportTable()
                 {
                     Series_Passport = SeriesPassportTextBox.Text,
                     Number_Passport = NumberPassportTextBox.Text,
@@ -325,29 +340,29 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     if (pathImage == "")
                     {
-                        AddPassport.pnImage_Passport = "0";
+                        addPassport.pnImage_Passport = "0";
                     }
                     else
                     {
-                        AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
+                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
                     }
-                    AppConnectClass.DataBase.PassportTable.Add(AddPassport);
+                    AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
                 else
                 {
                     if (pathImage == "")
                     {
-                        AddPassport.pnImage_Passport = "0";
+                        addPassport.pnImage_Passport = "0";
                     }
                     else
                     {
-                        AddPassport.pnImage_Passport = AddImagePassport.PersonalNumber_ImagePassport;
+                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
                     }
-                    AppConnectClass.DataBase.PassportTable.AddOrUpdate(AddPassport);
+                    AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 }
 
 
-                PlaceResidenceTable AddPlaceResidence = new PlaceResidenceTable()
+                PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable()
                 {
                     PersonalNumber_PlaceResidence = SeriesPassportTextBox.Text + NumberPassportTextBox.Text,
                     RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text),
@@ -361,14 +376,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.PlaceResidenceTable.Add(AddPlaceResidence);
+                    AppConnectClass.DataBase.PlaceResidenceTable.Add(addPlaceResidence);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(AddPlaceResidence);
+                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
                 }
 
-                MedicalBookTable AddMedicalBook = new MedicalBookTable()
+                MedicalBookTable addMedicalBook = new MedicalBookTable()
                 {
                     PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text,
                     Issue_MedicalBook = IssueMedicalBookTextBox.Text,
@@ -381,14 +396,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.MedicalBookTable.Add(AddMedicalBook);
+                    AppConnectClass.DataBase.MedicalBookTable.Add(addMedicalBook);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(AddMedicalBook);
+                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
                 }
 
-                SnilsTable AddSnils = new SnilsTable()
+                SnilsTable addSnils = new SnilsTable()
                 {
                     PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text,
                     DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text)
@@ -396,14 +411,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.SnilsTable.Add(AddSnils);
+                    AppConnectClass.DataBase.SnilsTable.Add(addSnils);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(AddSnils);
+                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
                 }
 
-                INNTable AddINN = new INNTable()
+                INNTable addINN = new INNTable()
                 {
                     PersonalNumber_INN = PersonalNumberINNTextBox.Text,
                     TaxAuthority_INN = TaxAuthorityINNTextBox.Text,
@@ -413,14 +428,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.INNTable.Add(AddINN);
+                    AppConnectClass.DataBase.INNTable.Add(addINN);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.INNTable.AddOrUpdate(AddINN);
+                    AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
                 }
 
-                SalaryCardTable AddSalaryCard = new SalaryCardTable()
+                SalaryCardTable addSalaryCard = new SalaryCardTable()
                 {
                     PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text,
                     NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text,
@@ -432,39 +447,39 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.SalaryCardTable.Add(AddSalaryCard);
+                    AppConnectClass.DataBase.SalaryCardTable.Add(addSalaryCard);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(AddSalaryCard);
+                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
                 }
 
-                WorkerTabe AddWorker = new WorkerTabe()
+                WorkerTable addWorker = new WorkerTable()
                 {
                     Phone_Worker = PhoneWorkerTextBox.Text,
                     Login_Worker = LoginWorkerTextBox.Text,
                     Email_Worker = EmailWorkerTextBox.Text,
                     Password_Worker = PasswordWorkerTextBox.Text,
                     pnRole_Worker = (pnRoleWorkerComboBox.SelectedItem as RoleTable).PersonalNumber_Role,
-                    SeriesPassport_Worker = AddPassport.Series_Passport,
-                    NumberPassport_Worker = AddPassport.Number_Passport,
-                    pnPlaceResidence_Worker = AddPlaceResidence.PersonalNumber_PlaceResidence,
-                    pnMedicalBook_Worker = AddMedicalBook.PersonalNumber_MedicalBook,
-                    pnSalaryCard_Worker = AddSalaryCard.PersonalNumber_SalaryCard,
+                    SeriesPassport_Worker = addPassport.Series_Passport,
+                    NumberPassport_Worker = addPassport.Number_Passport,
+                    pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence,
+                    pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook,
+                    pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard,
                     DateWord_Worker = toDayDate,
                     pnStatus_Worker = 2,
-                    pnINN_Worker = AddINN.PersonalNumber_INN,
-                    pnSnils_Worker = AddSnils.PersonalNumber_Snils,
+                    pnINN_Worker = addINN.PersonalNumber_INN,
+                    pnSnils_Worker = addSnils.PersonalNumber_Snils,
                     AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker
                 };
 
                 if (personalNumber == 0)
                 {
-                    AppConnectClass.DataBase.WorkerTabe.Add(AddWorker);
+                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
                 }
                 else
                 {
-                    AppConnectClass.DataBase.WorkerTabe.AddOrUpdate(AddWorker);
+                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
                 }
 
                 AppConnectClass.DataBase.SaveChanges();
@@ -479,6 +494,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void MessageNull() // Метод на проверки полей на валидность данных 
         {
             #region messagePassportNull
@@ -588,6 +604,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (PasswordWorkerTextBox.Text.Length <= 5) messageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             #endregion
         }
+
         private void ClearText() // Очищаем все поля
         {
             try
@@ -601,6 +618,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         #endregion
         #region ValidData
         // Просто для валидность данных (В одних TextBox разрешить писать только цифры и т.д.)
@@ -621,8 +639,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region LayoutUpdated
-        // Проверка на пароль
-        private void RepeatPasswordWorkerPasswordBox_LayoutUpdated(object sender, EventArgs e)
+
+        private void RepeatPasswordWorkerPasswordBox_LayoutUpdated(object sender, EventArgs e) // Проверка на пароль
         {
             try
             {
@@ -655,18 +673,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxImage.Error);
             }
         }
+
         #endregion
         #region PreviewKeyDown
-        // Запретить использовать Ctrl + v в некоторых TextBox
-        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e)
+
+        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e) // Запретить использовать Ctrl + v в некоторых TextBox
         {
             if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
             {
                 e.Handled = true;
             }
         }
+
         #endregion
         #region SelectionChanged
+
         private void pnRoleWorkerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
@@ -689,6 +710,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 LoginWorkerTextBox.IsEnabled = true;
             }
         }
+
         #endregion
     }
 }
