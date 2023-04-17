@@ -28,7 +28,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         DateTime toDayDate = DateTime.Today;
 
-        string pathImage = "";
+        byte[] imageData;
+        string pathImage = null;
         string messagePassportNull;
         string messagePlaceResidenceNull;
         string messageMedicalBookNull;
@@ -193,19 +194,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (messagePassportNull != "" ||
                     messagePlaceResidenceNull != "" ||
-                    messageMedicalBookNull != "" || 
+                    messageMedicalBookNull != "" ||
                     messageSnilsNull != "" ||
                     messageINNNull != "" ||
-                    messageSalaryCardNull != "" || 
+                    messageSalaryCardNull != "" ||
                     messageGeneralDataNull != "") // Проверка на пустые поля
                 {
-                    string messagePassport = 
-                        messagePassportNull + 
-                        messagePlaceResidenceNull + 
+                    string messagePassport =
+                        messagePassportNull +
+                        messagePlaceResidenceNull +
                         messageMedicalBookNull +
-                        messageSnilsNull + 
-                        messageINNNull + 
-                        messageSalaryCardNull + 
+                        messageSnilsNull +
+                        messageINNNull +
+                        messageSalaryCardNull +
                         messageGeneralDataNull;
 
                     MessageBox.Show(
@@ -293,16 +294,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             return random.Next(1000000000);
         }
 
-        private void AddDataDatabase() // Метод для добавления нового сотрудника в базу данных
+        private void AddDataDatabase() // Метод для добавления нового сотрудника или редактирование данных в базе данных
         {
             try
             {
-                // Конвертация изображения в байты
-                byte[] imageData;
-                using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
+                if (pathImage != null)
                 {
-                    imageData = new byte[fs.Length];
-                    fs.Read(imageData, 0, imageData.Length);
+                    // Конвертация изображения в байты
+                    using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
+                    {
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
+                    }
                 }
 
                 ImagePassportTable addImagePassport = new ImagePassportTable()
@@ -317,6 +320,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     if (pathImage != "")
                     {
                         AppConnectClass.DataBase.ImagePassportTable.Add(addImagePassport);
+                    }
+                }
+                else
+                {
+                    if (pathImage != "")
+                    {
+                        AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
                     }
                 }
 
@@ -338,7 +348,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber == 0)
                 {
-                    if (pathImage == "")
+                    if (pathImage == null)
                     {
                         addPassport.pnImage_Passport = "0";
                     }
@@ -350,13 +360,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    if (pathImage == "")
+                    if (addPassport.pnImage_Passport == "0")
                     {
-                        addPassport.pnImage_Passport = "0";
-                    }
-                    else
-                    {
-                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
+                        if (pathImage != null)
+                        {
+                            addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
+                        }
                     }
                     AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 }
@@ -483,6 +492,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
 
                 AppConnectClass.DataBase.SaveChanges();
+
                 MessageBox.Show(
                         "Новый сотрудник добавлен в базу данных", "Сохранение",
                         MessageBoxButton.OK, MessageBoxImage.Information);
