@@ -498,6 +498,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         private void MessageNull() // Метод на проверки полей на валидность данных 
         {
             #region messagePassportNull
+
             if (string.IsNullOrWhiteSpace(SeriesPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Серию' в 'Паспорт'\n";
             if (string.IsNullOrWhiteSpace(NumberPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Номер' в 'Паспорт'\n";
             if (string.IsNullOrWhiteSpace(SurnamePassportTextBox.Text)) messagePassportNull += "Вы не указали 'Фамилию' в 'Паспорт'\n";
@@ -508,8 +509,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (string.IsNullOrWhiteSpace(IssuedPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Кем выдан' в 'Паспорт'\n";
             if (string.IsNullOrWhiteSpace(DateIssuedPassportTextBox.Text)) messagePassportNull += "Вы не указали 'Дату выдачи' в 'Паспорт'\n";
             if (string.IsNullOrWhiteSpace(DivisionCodePassportTextBox.Text)) messagePassportNull += "Вы не указали 'Код подразделения' в 'Паспорт'\n";
+
             #endregion
             #region messagePlaceResidenceNull
+
             if (string.IsNullOrWhiteSpace(RegistrationDatePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Дату регистрации' в 'Место жительства'\n";
             if (string.IsNullOrWhiteSpace(RegionPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Регион' в 'Место жительства'\n";
             if (string.IsNullOrWhiteSpace(DistrictPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Район' в 'Место жительства'\n";
@@ -517,42 +520,54 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (string.IsNullOrWhiteSpace(StreetPlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Улицу' в 'Место жительства'\n";
             if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Дом' в 'Место жительства'\n";
             if (string.IsNullOrWhiteSpace(HousePlaceResidenceTextBox.Text)) messagePlaceResidenceNull += "Вы не указали 'Квартиру' в 'Место жительства'\n";
+
             #endregion
             #region messageMedicalBookNull
-            if (string.IsNullOrWhiteSpace(PersonalNumberMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Номер' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(IssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Личная медецинская книжка выдана' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(SNMDirectorMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'ФИО руководителя' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(DateIssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Дату выдачи' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(HomeAdressMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Домашний адресс' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(RoleMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Должность' в 'Медецинская книжка'\n";
-            if (string.IsNullOrWhiteSpace(OrganizationMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Организацию (индивидуальный предприниматель)' в 'Медецинская книжка'\n";
+
+            if (string.IsNullOrWhiteSpace(PersonalNumberMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Номер' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(IssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Личная медицинская книжка выдана' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(SNMDirectorMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'ФИО руководителя' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(DateIssueMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Дату выдачи' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(HomeAdressMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Домашний адрес' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(RoleMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Должность' в 'медицинская книжка'\n";
+            if (string.IsNullOrWhiteSpace(OrganizationMedicalBookTextBox.Text)) messageMedicalBookNull += "Вы не указали 'Организацию (индивидуальный предприниматель)' в 'медицинская книжка'\n";
+
             #endregion
             #region messageSnilsNull
+
             if (string.IsNullOrWhiteSpace(PersonalNumberSnilsTextBox.Text)) messageSnilsNull += "Вы не указали 'Номер' в 'СНИЛС'\n";
             if (string.IsNullOrWhiteSpace(DateRegistrationSnilsTextBox.Text)) messageSnilsNull += "Вы не указали 'Дату выдачи' в 'СНИЛС'\n";
+
             #endregion
             #region messageINNNull
+
             if (string.IsNullOrWhiteSpace(PersonalNumberINNTextBox.Text)) messageINNNull += "Вы не указали 'Номер' в 'ИНН'\n";
-            if (string.IsNullOrWhiteSpace(TaxAuthorityINNTextBox.Text)) messageINNNull += "Вы не указали 'Налоговый огран' в 'ИНН'\n";
+            if (string.IsNullOrWhiteSpace(TaxAuthorityINNTextBox.Text)) messageINNNull += "Вы не указали 'Налоговый орган' в 'ИНН'\n";
             if (string.IsNullOrWhiteSpace(NumberTaxAuthorityINNTextBox.Text)) messageINNNull += "Вы не указали 'Номер налогового органа' в 'ИНН'\n";
             if (string.IsNullOrWhiteSpace(DateINNTextBox.Text)) messageINNNull += "Вы не указали 'Дату выдачи' в 'ИНН'\n";
+
             #endregion
             #region messageSalaryCardNull
+
             if (string.IsNullOrWhiteSpace(PersonalNumberSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Номер' в 'Заработная карта'\n";
             if (string.IsNullOrWhiteSpace(NameEndSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Имя (Eng)' в 'Заработная карта'\n";
             if (string.IsNullOrWhiteSpace(SurnameEngSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Фамилия (Eng)' в 'Заработная карта'\n";
             if (string.IsNullOrWhiteSpace(YearEndSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Год' в 'Заработная карта'\n";
             if (string.IsNullOrWhiteSpace(MonthSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Месяц' в 'Заработная карта'\n";
             if (string.IsNullOrWhiteSpace(CodeSalaryCardTextBox.Text)) messageSalaryCardNull += "Вы не указали 'Код' в 'Заработная карта'\n";
+
             #endregion
             #region messageGeneralDataNull
+
             if (string.IsNullOrWhiteSpace(PhoneWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Номер телефона' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(LoginWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Login' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(EmailWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Электронную почту' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(PasswordWorkerTextBox.Text)) messageGeneralDataNull += "Вы не указали 'Password' в 'Общие данные'\n";
             if (string.IsNullOrWhiteSpace(pnRoleWorkerComboBox.Text)) messageGeneralDataNull += "Вы не указали 'Должность' в 'Общие данные'\n";
+
             #endregion
             #region messageValidData
+
             if (IssuedPassportTextBox.Text.Length <= 5) messageValidData += "'Паспорт выдан' в 'Паспорт' не может быть меньше или быть равным 5 символам\n";
             if (DateIssuedPassportTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
             if (DivisionCodePassportTextBox.Text.Length <= 6) messageValidData += "'Код подразделения' в 'Паспорт' не может быть меньше или быть равным 6 символам\n";
@@ -561,35 +576,35 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (SurnamePassportTextBox.Text.Length <= 3) messageValidData += "'Фамилия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
             if (NamePassportTextBox.Text.Length <= 1) messageValidData += "'Имя' в 'Паспорт' не может быть меньше или быть равным 1 символу\n";
             if (DateOfBrichPassportTextBox.Text.Length <= 9) messageValidData += "'Дата рождения' в 'Паспорт' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (LocationOfBrichPassportTextBox.Text.Length <= 3) messageValidData += "'Место рождеия' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
+            if (LocationOfBrichPassportTextBox.Text.Length <= 3) messageValidData += "'Место рождения' в 'Паспорт' не может быть меньше или быть равным 3 символам\n";
 
             if (RegistrationDatePlaceResidenceTextBox.Text.Length <= 9) messageValidData += "'Зарегистрирован' в 'Место жительства' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
             if (RegionPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Регион' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
             if (DistrictPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Район' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
-            if (PointPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Рункт' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
+            if (PointPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Пункт' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
             if (StreetPlaceResidenceTextBox.Text.Length <= 3) messageValidData += "'Улица' в 'Место жительства' не может быть меньше или быть равным 3 символам\n";
             if (DivisionCodePassportTextBox.Text.Length <= 5) messageValidData += "'Код подразделения' в 'Место жительства' не может быть меньше или быть равным 6 символам\n";
             if (HousePlaceResidenceTextBox.Text.Length <= 1) messageValidData += "'Дом' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
             if (FlatPlaceResidenceTextBox.Text.Length <= 1) messageValidData += "'Квартира' в 'Место жительства' не может быть меньше или быть равным 1 символу\n";
 
-            if (PersonalNumberMedicalBookTextBox.Text.Length <= 7) messageValidData += "'Номер медецинской книжки' в 'Медецинская книжка' не может быть меньше или быть равным 7 символам\n";
-            if (IssueMedicalBookTextBox.Text.Length <= 3) messageValidData += "'Личная медецинская книжка выдана' в 'Медецинская книжка' не может быть меньше или быть равным 3 символам\n";
-            if (DateIssueMedicalBookTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'Медецинская книжка' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
-            if (SNMDirectorMedicalBookTextBox.Text.Length <= 5) messageValidData += "'ФИО руководителя' в 'Медецинская книжка' не может быть меньше или быть равным 5 символам\n";
-            if (HomeAdressMedicalBookTextBox.Text.Length <= 10) messageValidData += "'Домашний адресс' в 'Медецинская книжка' не может быть меньше или быть равным 10 символам\n";
-            if (RoleMedicalBookTextBox.Text.Length <= 4) messageValidData += "'Должность' в 'Медецинская книжка' не может быть меньше или быть равным 4 символам\n";
-            if (OrganizationMedicalBookTextBox.Text.Length <= 1) messageValidData += "'Огранизация (индивидуальный предприниматель)' в 'Медецинская книжка' не может быть меньше или быть равным 1 символу\n";
+            if (PersonalNumberMedicalBookTextBox.Text.Length <= 7) messageValidData += "'Номер медицинской книжки' в 'медицинская книжка' не может быть меньше или быть равным 7 символам\n";
+            if (IssueMedicalBookTextBox.Text.Length <= 3) messageValidData += "'Личная медицинская книжка выдана' в 'медицинская книжка' не может быть меньше или быть равным 3 символам\n";
+            if (DateIssueMedicalBookTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'медицинская книжка' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
+            if (SNMDirectorMedicalBookTextBox.Text.Length <= 5) messageValidData += "'ФИО руководителя' в 'медицинская книжка' не может быть меньше или быть равным 5 символам\n";
+            if (HomeAdressMedicalBookTextBox.Text.Length <= 10) messageValidData += "'Домашний адрес' в 'медицинская книжка' не может быть меньше или быть равным 10 символам\n";
+            if (RoleMedicalBookTextBox.Text.Length <= 4) messageValidData += "'Должность' в 'медицинская книжка' не может быть меньше или быть равным 4 символам\n";
+            if (OrganizationMedicalBookTextBox.Text.Length <= 1) messageValidData += "'Организация (индивидуальный предприниматель)' в 'медицинская книжка' не может быть меньше или быть равным 1 символу\n";
 
             if (PersonalNumberSnilsTextBox.Text.Length <= 10) messageValidData += "'Номер' в 'СНИЛС' не может быть меньше или быть равным 10 символам\n";
             if (DateRegistrationSnilsTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'СНИЛС' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
             if (PersonalNumberINNTextBox.Text.Length <= 11) messageValidData += "'Номер' в 'ИНН' не может быть меньше или быть равным 11 символам\n";
             if (NumberTaxAuthorityINNTextBox.Text.Length <= 3) messageValidData += "'Номер Налог. орган' в 'ИНН' не может быть меньше или быть равным 3 символам\n";
-            if (TaxAuthorityINNTextBox.Text.Length <= 5) messageValidData += "'Налоговый огран' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
+            if (TaxAuthorityINNTextBox.Text.Length <= 5) messageValidData += "'Налоговый орган' в 'ИНН' не может быть меньше или быть равным 5 символам\n";
             if (DateINNTextBox.Text.Length <= 9) messageValidData += "'Дата выдачи' в 'ИНН' не может быть меньше или быть равным 9 символам (Должно быть 10 символов(xx.xx.xxxx))\n";
 
             if (PersonalNumberSalaryCardTextBox.Text.Length <= 15) messageValidData += "'Номер' в 'Заработная карта' не может быть меньше или быть равным 15 символам\n";
-            if (SurnameEngSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Фимилия (Eng)' в 'Заработная карта' не может быть меньше или быть равным 3 символам\n";
+            if (SurnameEngSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Фамилия (Eng)' в 'Заработная карта' не может быть меньше или быть равным 3 символам\n";
             if (NameEndSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Имя (Eng)' в 'Заработная карта' не может быть меньше или быть равным 1 символу\n";
             if (MonthSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
             if (YearEndSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
@@ -602,6 +617,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (PhoneWorkerTextBox.Text.Length <= 10) messageValidData += "'Номер телефона' в 'Общая информация' не может быть меньше или быть равным 10 символам\n";
             if (LoginWorkerTextBox.Text.Length <= 5) messageValidData += "'Login' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
             if (PasswordWorkerTextBox.Text.Length <= 5) messageValidData += "'Password' в 'Общая информация' не может быть меньше или быть равным 5 символам\n";
+
             #endregion
         }
 
@@ -609,7 +625,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null)); // Я решил просто переоткрывать страницу, нечиго в неё не передовая, так она должна очищаться
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null)); // Переоткрытие страницы
             }
             catch (Exception ex)
             {

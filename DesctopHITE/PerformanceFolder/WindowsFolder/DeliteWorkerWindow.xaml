@@ -186,7 +186,7 @@
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
-                                    Text="Медецинская книжка сотрудника:"/>
+                                    Text="медицинская книжка сотрудника:"/>
                                 <TextBlock
                                     Margin="5 0 5 0"
                                     Text="{Binding MedicalBookTable.PersonalNumber_MedicalBook}"/>
