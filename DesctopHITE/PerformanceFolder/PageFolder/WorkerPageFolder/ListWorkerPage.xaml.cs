@@ -4,6 +4,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.ComponentModel;
@@ -45,7 +46,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             else
             {
+                // Переход на другую страницу
                 FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(DataContextWorker));
+
+                // Работа с кнопками для "Удобного использования приложения сотрудников"
+                MenuWorkerPage menuWorkerPage = new MenuWorkerPage();
+                menuWorkerPage.NewWorkerToggleButton.Content = "Редактирование сотрудника";
+
+                menuWorkerPage.NewWorkerToggleButton.IsChecked = true;
+                menuWorkerPage.ListWorkweToggleButton.IsChecked = false;
+                menuWorkerPage.GeneralInformationWorkerToggleButton.IsChecked = false;
+
+                menuWorkerPage.NewWorkerToggleButton.IsEnabled = false;
+                menuWorkerPage.ListWorkweToggleButton.IsEnabled = true;
+                menuWorkerPage.GeneralInformationWorkerToggleButton.IsEnabled = true;
             }
         }
 

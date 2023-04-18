@@ -245,14 +245,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         }
                     }
                 }
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message, "Ошибка добавления (NewWorkerPage - E-004)",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-}
+        }
 
         private void NewPhotoButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
         {
@@ -320,17 +320,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (personalNumber != 0)
                 {
-                    if (addPassport.pnImage_Passport == "0         ")
+                    if (pathImage != "")
                     {
-                        if (pathImage != "")
-                        {
-                            addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
-                        }
-                        else
-                        {
-                            addPassport.pnImage_Passport = "0         ";
-                        }
+                        addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
                     }
+                    else
+                    {
+                        addPassport.pnImage_Passport = "0         ";
+                    }
+
                     AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 }
                 else
@@ -468,14 +466,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 // Вызов метода
                 ClearText();
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message, "Ошибка добавления (NewWorkerPage - E-002)",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-}
+        }
 
         private void MessageNull() // Метод на проверки полей на валидность данных 
         {
@@ -591,7 +589,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (MonthSalaryCardTextBox.Text.Length <= 1) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше или быть равным 1 символу (Должно быть 2 символа(xx))\n";
             if (YearEndSalaryCardTextBox.Text.Length <= 3) messageValidData += "'Год' в 'Заработная карта' не может быть меньше или быть равным 3 символам (Должно быть 4 символа(xxxx))\n";
             if (CodeSalaryCardTextBox.Text.Length <= 2) messageValidData += "'Код' в 'Заработная карта' не может быть меньше или быть равным 2 символам (Должно быть 3 символа(xxx))\n";
-            
+
             int MonthText = Convert.ToInt32(MonthSalaryCardTextBox.Text);
             if (MonthText > 12) messageValidData += "'Месяц' в 'Заработная карта' не может быть больше 12\n";
             if (MonthText < 01) messageValidData += "'Месяц' в 'Заработная карта' не может быть меньше 01\n";
@@ -603,7 +601,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
             string emailWorker = EmailWorkerTextBox.Text;
             bool isValidEmail = Regex.IsMatch(emailWorker, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (isValidEmail){}
+            if (isValidEmail) { }
             else
             {
                 messageValidData += "'Email' в 'Общая информация' не не корректный";
