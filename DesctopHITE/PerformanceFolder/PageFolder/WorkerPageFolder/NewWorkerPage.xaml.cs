@@ -8,6 +8,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using Microsoft.Win32;
 using System;
 using System.Data.Entity.Migrations;

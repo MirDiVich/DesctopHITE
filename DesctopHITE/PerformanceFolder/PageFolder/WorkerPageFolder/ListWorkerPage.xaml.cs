@@ -4,7 +4,6 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.ComponentModel;
@@ -18,12 +17,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class ListWorkerPage : Page
     {
-        WorkerTable DataContextWorker;
+        public WorkerTable dataContextWorker;
+
         public ListWorkerPage()
         {
             InitializeComponent();
             AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
         }
+
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible) //Если страница видна
@@ -36,9 +37,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region Click
+
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            if (DataContextWorker == null)
+            if (dataContextWorker == null)
             {
                 MessageBox.Show(
                     "Сотрудник не выбран", "Ошибка - E001",
@@ -47,39 +49,31 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             else
             {
                 // Переход на другую страницу
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(DataContextWorker));
-
-                // Работа с кнопками для "Удобного использования приложения сотрудников"
-                MenuWorkerPage menuWorkerPage = new MenuWorkerPage();
-                menuWorkerPage.NewWorkerToggleButton.Content = "Редактирование сотрудника";
-
-                menuWorkerPage.NewWorkerToggleButton.IsChecked = true;
-                menuWorkerPage.ListWorkweToggleButton.IsChecked = false;
-                menuWorkerPage.GeneralInformationWorkerToggleButton.IsChecked = false;
-
-                menuWorkerPage.NewWorkerToggleButton.IsEnabled = false;
-                menuWorkerPage.ListWorkweToggleButton.IsEnabled = true;
-                menuWorkerPage.GeneralInformationWorkerToggleButton.IsEnabled = true;
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
             }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(DataContextWorker);
+            DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(dataContextWorker);
             deliteWorkerWindow.ShowDialog();
         }
+
         #endregion
         #region SelectionChanged_MouseDoubleClick
+
         private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
 
         }
+
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
-            DataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+            dataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
             EditButton.IsEnabled = true;
             DeliteButton.IsEnabled = true;
         }
+
         private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
         {
             try
@@ -110,6 +104,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         #endregion
     }
 }

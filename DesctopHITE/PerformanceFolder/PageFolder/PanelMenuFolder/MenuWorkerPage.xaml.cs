@@ -20,12 +20,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             if (Visibility == Visibility.Visible)
             {
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
+
                 NewWorkerToggleButton.IsChecked = true;
                 NewWorkerToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
             }
         }
+
         #region Click
+
         private void NewWorkerToggleButton_Click(object sender, RoutedEventArgs e)
         {
             IsCheckedToggleButton();
@@ -52,20 +55,24 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             GeneralInformationWorkerToggleButton.IsEnabled = false;
             FrameNavigationClass.BodyWorker_FNC.Navigate(new GeneralInformationWorkerPage());
         }
+
         #endregion
         #region Метод
+
         private void IsCheckedToggleButton() // Отключение проверки кнопок
         {
             NewWorkerToggleButton.IsChecked = false;
             ListWorkweToggleButton.IsChecked = false;
             GeneralInformationWorkerToggleButton.IsChecked = false;
         }
+
         private void IsEnabledToggleButton() // Отключение кнопок
         {
             NewWorkerToggleButton.IsEnabled = true;
             ListWorkweToggleButton.IsEnabled = true;
             GeneralInformationWorkerToggleButton.IsEnabled = true;
         }
+
         #endregion
     }
 }
