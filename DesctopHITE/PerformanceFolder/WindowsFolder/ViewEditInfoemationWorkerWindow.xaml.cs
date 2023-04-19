@@ -18,6 +18,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             FrameNavigationClass.ViewEditInformationWorker_FNC = ViewEditWorkerInformationFrame;
         }
 
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+           
+        }
+
         #region Управление окном
 
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
