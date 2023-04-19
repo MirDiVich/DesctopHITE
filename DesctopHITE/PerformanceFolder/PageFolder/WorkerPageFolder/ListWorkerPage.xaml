@@ -44,7 +44,7 @@
             <StackPanel Margin="0 0 10 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Button
                     x:Name="EditButton"
-                    Click="EditButton_Click"
+                    Click="ActionEditWorker"
                     Width="220"
                     Height="45"
                     Margin="0 0 5 0">
@@ -61,7 +61,7 @@
                 <Button
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"
-                    Click="DeliteButton_Click"
+                    Click="ActionDeliteWorker"
                     Width="180"
                     Height="45">
                     <StackPanel Orientation="Horizontal">
@@ -84,6 +84,14 @@
             x:Name="ListWorkerListView"
             Margin="0"
             ItemContainerStyle="{StaticResource ListViewItemSelected}">
+            <ListBox.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Просмотреть"/>
+                <MenuItem Header="Редактировать" Click="ActionEditWorker"/>
+                <Separator/>
+                <MenuItem Header="Удалить" Click="ActionDeliteWorker"/>
+            </ContextMenu>
+            </ListBox.ContextMenu>
             <ListView.ItemsPanel> 
                 <ItemsPanelTemplate>
                     <WrapPanel 

@@ -38,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #region Click
 
-        private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
+        private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
             if (dataContextWorker != null)
             {
@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
+        private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
             if (dataContextWorker != null)
             {
