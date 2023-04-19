@@ -108,8 +108,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                     if (ListWorkerListView.Items.Count == 0 && SearchTextBox.Text != null)
                     {
+                        HintSearchNullElementsTextBlock.Visibility = Visibility.Visible;
                         HintSearchNullElementsTextBlock.Text =
                             $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
+                    }
+                    else
+                    {
+                        HintSearchNullElementsTextBlock.Visibility = Visibility.Collapsed;
                     }
                 }
             }
