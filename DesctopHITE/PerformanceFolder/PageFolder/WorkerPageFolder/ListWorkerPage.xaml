@@ -76,68 +76,76 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <ListView
-            SelectionChanged="ListWorkerListView_SelectionChanged"
-            Grid.Row="1"
-            Background="Transparent"
-            MouseDoubleClick="ListWorkerListView_MouseDoubleClick"
-            x:Name="ListWorkerListView"
-            Margin="0"
-            ItemContainerStyle="{StaticResource ListViewItemSelected}">
-            <ListBox.ContextMenu>
-                <ContextMenu>
-                    <MenuItem
-                        InputGestureText="Ctrl+F1"
-                        Header="Просмотреть">
-                        <MenuItem.Icon>
-                            <TextBlock
-                                Foreground="#000000"
-                                Text="&#xf1f7;" 
-                                Style="{DynamicResource IconTextBlockStyle}"
-                                Margin="0"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem 
-                        InputGestureText="Ctrl+F2"
-                        Header="Редактировать" 
-                        Click="ActionEditWorker">
-                        <MenuItem.Icon>
-                            <TextBlock
-                                Foreground="#000000"
-                                Text="&#xf158;" 
-                                Style="{DynamicResource IconTextBlockStyle}"
-                                Margin="0"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator/>
-                    <MenuItem 
-                        InputGestureText="Ctrl+Delete"
-                        Header="Удалить" 
-                        Click="ActionDeliteWorker">
-                        <MenuItem.Icon>
-                            <TextBlock
-                                Foreground="#000000"
-                                Text="&#xF154;" 
-                                Style="{DynamicResource IconTextBlockStyle}"
-                                Margin="0"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </ContextMenu>
-            </ListBox.ContextMenu>
-            <ListView.ItemsPanel> 
-                <ItemsPanelTemplate>
-                    <WrapPanel 
-                        IsItemsHost="True" 
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Left" 
-                        Background="Transparent"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <UserControl:ListWorkerControl/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid Grid.Row="1">
+            <TextBlock
+                x:Name="HintSearchNullElementsTextBlock"
+                Margin="0"
+                FontSize="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Style="{DynamicResource HintTextBlockStyle}"/>
+            <ListView
+                SelectionChanged="ListWorkerListView_SelectionChanged"
+                Background="Transparent"
+                MouseDoubleClick="ListWorkerListView_MouseDoubleClick"
+                x:Name="ListWorkerListView"
+                Margin="0"
+                ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            InputGestureText="Ctrl+F1"
+                            Header="Просмотреть">
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#000000"
+                                    Text="&#xf1f7;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem 
+                            InputGestureText="Ctrl+F2"
+                            Header="Редактировать" 
+                            Click="ActionEditWorker">
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#000000"
+                                    Text="&#xf158;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem 
+                            InputGestureText="Ctrl+Delete"
+                            Header="Удалить" 
+                            Click="ActionDeliteWorker">
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#000000"
+                                    Text="&#xF154;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel 
+                            IsItemsHost="True" 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left" 
+                            Background="Transparent"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <UserControl:ListWorkerControl/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

@@ -105,6 +105,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         worker.PassportTable.Middlename_Passport.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
 
                     ListWorkerListView.ItemsSource = SearchResults.ToList();
+
+                    if (ListWorkerListView.Items.Count == 0 && SearchTextBox.Text != null)
+                    {
+                        HintSearchNullElementsTextBlock.Text =
+                            $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
+                    }
                 }
             }
             catch (Exception ex)
