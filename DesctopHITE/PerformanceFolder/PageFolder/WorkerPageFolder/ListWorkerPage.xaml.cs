@@ -43,9 +43,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (dataContextWorker != null)
             {
                 ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
                 viewEditInfoemationWorkerWindow.ShowDialog();
-
-                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new TestPage());
             }
             else
             {

@@ -7,6 +7,7 @@
     mc:Ignorable="d"
     Height="822"
     Width="1323"
+    WindowStartupLocation="CenterScreen"
     Style="{StaticResource MainWinwosStyle}">
     <Border BorderBrush="#2a2a2a" BorderThickness="1" Style="{DynamicResource MainBorderStyle}">
         <Grid>
