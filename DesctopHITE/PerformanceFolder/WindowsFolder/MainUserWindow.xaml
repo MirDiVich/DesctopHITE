@@ -48,7 +48,7 @@
                     <Button 
                         Width="30"
                         ToolTip="ВЫЙТИ"
-                        Content="&#xf1cc;"
+                        Content="&#xf1af;"
                         FontFamily="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
                         Style="{DynamicResource RollupControlButton}" 
                         x:Name="ExitUserButton" 

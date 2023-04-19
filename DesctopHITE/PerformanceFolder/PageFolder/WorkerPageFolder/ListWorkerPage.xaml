@@ -86,10 +86,42 @@
             ItemContainerStyle="{StaticResource ListViewItemSelected}">
             <ListBox.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Просмотреть"/>
-                    <MenuItem Header="Редактировать" Click="ActionEditWorker"/>
+                    <MenuItem
+                        InputGestureText="Ctrl+F1"
+                        Header="Просмотреть">
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Foreground="#000000"
+                                Text="&#xf1f7;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem 
+                        InputGestureText="Ctrl+F2"
+                        Header="Редактировать" 
+                        Click="ActionEditWorker">
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Foreground="#000000"
+                                Text="&#xf158;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <Separator/>
-                    <MenuItem Header="Удалить" Click="ActionDeliteWorker"/>
+                    <MenuItem 
+                        InputGestureText="Ctrl+Delete"
+                        Header="Удалить" 
+                        Click="ActionDeliteWorker">
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Foreground="#000000"
+                                Text="&#xF154;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </ContextMenu>
             </ListBox.ContextMenu>
             <ListView.ItemsPanel> 
