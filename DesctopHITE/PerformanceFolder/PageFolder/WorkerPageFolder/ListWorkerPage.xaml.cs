@@ -27,7 +27,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible) //Если страница видна
+            if (Visibility == Visibility.Visible) 
             {
                 EditButton.IsEnabled = false;
                 DeliteButton.IsEnabled = false;
@@ -40,23 +40,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void EditButton_Click(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            if (dataContextWorker == null)
+            if (dataContextWorker != null)
+            {
+                ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                viewEditInfoemationWorkerWindow.ShowDialog();
+
+                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+            }
+            else
             {
                 MessageBox.Show(
                     "Сотрудник не выбран", "Ошибка - E001",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
-            {
-                // Переход на другую страницу
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
-            }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(dataContextWorker);
-            deliteWorkerWindow.ShowDialog();
+            if (dataContextWorker != null)
+            {
+                DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(dataContextWorker);
+                deliteWorkerWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Сотрудник не выбран", "Ошибка - E001",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         #endregion

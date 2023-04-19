@@ -14,5 +14,6 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         public static Frame BodySettings_FNC;
         public static Frame MunuWorker_FNC;
         public static Frame BodyWorker_FNC;
+        public static Frame ViewEditInformationWorker_FNC;
     }
 }
