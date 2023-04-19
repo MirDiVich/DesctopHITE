@@ -85,12 +85,12 @@
             Margin="0"
             ItemContainerStyle="{StaticResource ListViewItemSelected}">
             <ListBox.ContextMenu>
-            <ContextMenu>
-                <MenuItem Header="Просмотреть"/>
-                <MenuItem Header="Редактировать" Click="ActionEditWorker"/>
-                <Separator/>
-                <MenuItem Header="Удалить" Click="ActionDeliteWorker"/>
-            </ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Просмотреть"/>
+                    <MenuItem Header="Редактировать" Click="ActionEditWorker"/>
+                    <Separator/>
+                    <MenuItem Header="Удалить" Click="ActionDeliteWorker"/>
+                </ContextMenu>
             </ListBox.ContextMenu>
             <ListView.ItemsPanel> 
                 <ItemsPanelTemplate>
