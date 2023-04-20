@@ -106,6 +106,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                     ListWorkerListView.ItemsSource = SearchResults.ToList();
 
+                    // Если пользователь делает поиск и в результате поиска ничего не нашлось то появляется сообщение о неудачном поиске "чтоб пользователь не думал, что приложение сломалось"
                     if (ListWorkerListView.Items.Count == 0 && SearchTextBox.Text != null)
                     {
                         HintSearchNullElementsTextBlock.Visibility = Visibility.Visible;
@@ -115,6 +116,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     else
                     {
                         HintSearchNullElementsTextBlock.Visibility = Visibility.Collapsed;
+                        HintSearchNullElementsTextBlock.Text = null;
                     }
                 }
             }
