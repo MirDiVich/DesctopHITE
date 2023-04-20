@@ -105,19 +105,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         worker.PassportTable.Middlename_Passport.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Middlename_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
 
                     ListWorkerListView.ItemsSource = SearchResults.ToList();
+                }
 
-                    // Если пользователь делает поиск и в результате поиска ничего не нашлось то появляется сообщение о неудачном поиске "чтоб пользователь не думал, что приложение сломалось"
-                    if (ListWorkerListView.Items.Count == 0 && SearchTextBox.Text != null)
-                    {
-                        HintSearchNullElementsTextBlock.Visibility = Visibility.Visible;
-                        HintSearchNullElementsTextBlock.Text =
-                            $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
-                    }
-                    else
-                    {
-                        HintSearchNullElementsTextBlock.Visibility = Visibility.Collapsed;
-                        HintSearchNullElementsTextBlock.Text = null;
-                    }
+                // Если пользователь делает поиск и в результате поиска ничего не нашлось то появляется сообщение о неудачном поиске "чтоб пользователь не думал, что приложение сломалось"
+                if (SearchTextBox.Text != null && ListWorkerListView.Items.Count == 0)
+                {
+                    HintSearchNullElementsTextBlock.Visibility = Visibility.Visible;
+                    HintSearchNullElementsTextBlock.Text =
+                        $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
+                }
+                else
+                {
+                    HintSearchNullElementsTextBlock.Visibility = Visibility.Collapsed;
+                    HintSearchNullElementsTextBlock.Text = "";
                 }
             }
             catch (Exception ex)

@@ -62,10 +62,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     messageError, "Ошибка - E001",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            finally 
-            {
-                getTimer.Stop();
-            }
         }
 
         #region Управление окном
