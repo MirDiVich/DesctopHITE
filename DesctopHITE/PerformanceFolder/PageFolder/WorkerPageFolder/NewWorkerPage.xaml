@@ -582,7 +582,7 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border Visibility="Visible" x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
+                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -1025,7 +1025,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <TextBox
-                                            Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"
+                                            Text="{Binding SalaryCardTable.NameEnd_SalaryCard}"
                                             MaxLength="80"
                                             x:Name="NameEndSalaryCardTextBox"
                                             Width="280"

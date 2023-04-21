@@ -19,6 +19,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class ViewInformationWorkerPage : Page
     {
+        public WorkerTable dataContextWorker;
+
         public ViewInformationWorkerPage(WorkerTable workerTable)
         {
             InitializeComponent();
@@ -27,12 +29,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             if (workerTable != null ) 
             { 
                 DataContext = workerTable;
+                dataContextWorker = workerTable;
             }
         }
 
-        private void EditWorkerButton_Click(object sender, RoutedEventArgs e)
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            if (Visibility == Visibility.Visible)
+            {
+                PassportToggleButton.IsChecked = true;
+                PassportBorder.Visibility = Visibility.Visible;
+            }
         }
 
         #region Click
@@ -119,6 +126,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 GeneralDataBorder.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void EditWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
         }
 
         #endregion

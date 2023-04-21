@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d"
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -301,7 +302,7 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border Visibility="Visible" x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
+                <Border x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
@@ -391,7 +392,7 @@
                                     Style="{DynamicResource OtherStyleTextBlock}"
                                     Text="{Binding MedicalBookTable.HomeAdress_MedicalBook}"/>
                             </StackPanel>
-                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                            <StackPanel Margin="0 3.5 0 0" Orientation="Horizontal">
                                 <TextBlock 
                                     VerticalAlignment="Top"
                                     Margin="0 0 3.5 0"
@@ -417,8 +418,27 @@
                             Style="{DynamicResource MainStyleTextBlock}"
                             FontSize="30"
                             Margin="0 10 0 10"/>
-                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            
+                        <StackPanel Margin="10" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Номер:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 0" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Дата выдачи:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SnilsTable.DateRegistration_Snils, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -430,8 +450,52 @@
                             Style="{DynamicResource MainStyleTextBlock}"
                             FontSize="30"
                             Margin="0 10 0 10"/>
-                        <StackPanel Margin="0 10 0 5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-
+                        <StackPanel Margin="10" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Номер:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding INNTable.PersonalNumber_INN}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Номер Налог. орган:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding INNTable.NumberTaxAuthority_INN}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Дата выдычи:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding INNTable.Date_INN, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 0" Orientation="Horizontal">
+                                <TextBlock 
+                                    VerticalAlignment="Top"
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Налоговый орган:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    MinWidth="0"
+                                    Width="Auto"
+                                    MaxWidth="400"
+                                    TextWrapping="Wrap"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding INNTable.TaxAuthority_INN}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -443,8 +507,64 @@
                             Style="{DynamicResource MainStyleTextBlock}"
                             FontSize="30"
                             Margin="0 10 0 10"/>
-                        <StackPanel Margin="0 10 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-                        
+                        <StackPanel Margin="10" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Номер карты:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SalaryCardTable.PersonalNumber_SalaryCard}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Фамилия (Eng):"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Имя (Eng):"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SalaryCardTable.NameEnd_SalaryCard}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Месяц\Год:"/>
+                                <StackPanel Margin="3.5 0 0 0" Orientation="Horizontal">
+                                    <TextBlock
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SalaryCardTable.Month_SalaryCard}"/>
+                                    <TextBlock
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="\"/>
+                                    <TextBlock
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SalaryCardTable.YearEnd_SalaryCard}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Код:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding SalaryCardTable.Code_SalaryCard}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -456,8 +576,72 @@
                             Style="{DynamicResource MainStyleTextBlock}"
                             FontSize="30"
                             Margin="0 10 0 10"/>
-                        <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-
+                        <StackPanel Margin="10" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Номер телефона:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding Phone_Worker}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Должность:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding RoleTable.Name_Role}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    VerticalAlignment="Top"
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Электронная почта:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    MinWidth="0"
+                                    Width="Auto"
+                                    MaxWidth="600"
+                                    TextWrapping="Wrap"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding Email_Worker}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    VerticalAlignment="Top"
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Login:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    MinWidth="0"
+                                    Width="Auto"
+                                    MaxWidth="600"
+                                    TextWrapping="Wrap"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding Login_Worker}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 3.5" Orientation="Horizontal">
+                                <TextBlock 
+                                    VerticalAlignment="Top"
+                                    Margin="0 0 3.5 0"
+                                    Style="{DynamicResource MainStyleTextBlock}"
+                                    Text="Password:"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    MinWidth="0"
+                                    Width="Auto"
+                                    MaxWidth="600"
+                                    TextWrapping="Wrap"
+                                    Style="{DynamicResource OtherStyleTextBlock}"
+                                    Text="{Binding Password_Worker}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
