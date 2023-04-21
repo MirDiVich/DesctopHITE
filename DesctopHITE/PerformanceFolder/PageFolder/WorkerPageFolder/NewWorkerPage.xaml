@@ -26,7 +26,7 @@
             <ToggleButton
                 x:Name="MedicalBookToggleButton"
                 Click="MedicalBookToggleButton_Click"
-                Content="медицинская книжка"
+                Content="Медицинская книжка"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
                 x:Name="SnilsToggleButton"
@@ -586,7 +586,7 @@
                     <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock
                             Foreground="#462AD8"
-                            Text="медицинская книжка"
+                            Text="Медицинская книжка"
                             Style="{DynamicResource MainStyleTextBlock}"
                             FontSize="30"
                             Margin="0 10 0 10"/>
