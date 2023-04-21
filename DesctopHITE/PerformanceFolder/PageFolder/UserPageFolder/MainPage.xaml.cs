@@ -78,7 +78,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 // Свойства для Таймера
                 GetTimer = new DispatcherTimer();
                 GetTimer.Tick += new EventHandler(GetTimer_Tick);
-                GetTimer.Interval = TimeSpan.FromSeconds(1);
+                GetTimer.Interval = TimeSpan.FromMilliseconds(1);
                 GetTimer.Start();
             }
             else

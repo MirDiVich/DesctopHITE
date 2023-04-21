@@ -82,7 +82,7 @@
                         Margin="0 0 0 15"
                         Style="{DynamicResource MainStyleTextBlock}"
                         FontSize="20">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
                             <TextBlock
                                 Margin="0 0 5 0"
                                 Text="{Binding PassportTable.Surname_Passport}"/>
@@ -97,7 +97,7 @@
                                 VerticalAlignment="Bottom"
                                 Margin="5 0 0 0"
                                 FontSize="13">
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
                                     <TextBlock Text="("/>
                                     <TextBlock Text="{Binding RoleTable.Name_Role}"/>
                                     <TextBlock Text=")"/>
@@ -218,7 +218,7 @@
                         Width="150"
                         Margin="0 0 5 0"
                         Height="40">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
                             <TextBlock
                                 Text="&#xf2ff;" 
                                 Style="{DynamicResource IconTextBlockStyle}"
@@ -235,7 +235,7 @@
                         Width="150"
                         Margin="5 0 0 0"
                         Height="40">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
                             <TextBlock
                                 Text="&#xF154;" 
                                 Style="{DynamicResource IconTextBlockStyle}"
