@@ -1303,7 +1303,7 @@
                             Click="NewWorkerButton_Click"
                             Width="350"
                             Height="50">
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <TextBlock
                                     x:Name="TitleIconNewWorkerTextBlock1"
                                     Text="&#xf1ff;" 

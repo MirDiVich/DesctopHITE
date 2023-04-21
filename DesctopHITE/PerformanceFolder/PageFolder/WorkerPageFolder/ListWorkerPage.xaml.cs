@@ -74,7 +74,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
-
+            if (dataContextWorker != null)
+            {
+                ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
+                viewEditInfoemationWorkerWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Сотрудник не выбран", "Ошибка - E001",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView

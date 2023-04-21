@@ -89,7 +89,7 @@
                             Click="EnterCaptchaButton_Click"
                             Width="220"
                             Height="40">
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="&#xf300;"
@@ -106,7 +106,7 @@
                             Width="190"
                             Style="{DynamicResource OtherButtonStyle}"
                             Height="40">
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                            <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="&#xf307;"

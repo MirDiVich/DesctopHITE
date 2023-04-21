@@ -73,100 +73,122 @@
                                 Stretch="Uniform"
                                 Height="240"/>
                             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <StackPanel Margin="0 0 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 0 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Паспорт выдан"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Паспорт выдан:"/>
                                     <TextBlock
+                                        Margin="2 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
                                         MaxWidth="400"
                                         TextWrapping="Wrap"
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Issued_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Дата выдачи"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Дата выдачи:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.DateIssued_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Серия паспорта"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Серия паспорта:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Series_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Номер паспорта"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер паспорта:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Number_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Код подразделения"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Код подразделения:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.DivisionCode_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Фамилия"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Фамилия:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Surname_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Имя"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Имя:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Name_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Отчество"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Отчество:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.Middlename_Passport}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Пол"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Пол:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.GenderTable.Title_Gender}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Дата рождения"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Дата рождения:"/>
                                     <TextBlock
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Margin="2 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.DateOfBrich_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                                 </StackPanel>
-                                <StackPanel Margin="0 5 0 0" Orientation="Horizontal">
+                                <StackPanel Margin="0 3 0 0" Orientation="Horizontal">
                                     <TextBlock 
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
-                                        Text="Место рождения"/>
+                                        Margin="0 0 2 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Место рождения:"/>
                                     <TextBlock
+                                        Margin="2 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
                                         MaxWidth="400"
                                         TextWrapping="Wrap"
-                                        Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
                                         Text="{Binding PassportTable.LocationOfBrich_Passport}"/>
                                 </StackPanel>
                             </StackPanel>
@@ -268,7 +290,7 @@
                             Click="EditWorkerButton_Click"
                             Width="350"
                             Height="50">
-                            <StackPanel Margin="0 5 0 5" Orientation="Horizontal">
+                            <StackPanel Margin="0 3 0 3" Orientation="Horizontal">
                                 <TextBlock
                                     Text="&#xf158;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
