@@ -38,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string messageValidData;
         string randomPassword = "";
 
-        WorkerTable workerInformation;
+        WorkerTable workerInformation = null;
 
         public NewWorkerPage(WorkerTable workerTable)
         {
@@ -197,6 +197,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                                 MessageBox.Show(
                                    "Сотрудник с такими данными уже существует", "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                            {
+                                // Вызов метода
+                                AddDataDatabase();
                             }
                         }
                         else
