@@ -8,6 +8,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
 using Microsoft.Win32;
 using System;
 using System.Data.Entity.Migrations;
@@ -18,6 +19,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
@@ -36,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string messageValidData;
         string randomPassword = "";
 
-        WorkerTable WorkerInformation;
+        WorkerTable workerInformation;
 
         public NewWorkerPage(WorkerTable workerTable)
         {
@@ -54,7 +56,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (workerTable != null)
                 {
                     DataContext = workerTable;
-                    WorkerInformation = workerTable;
+                    workerInformation = workerTable;
 
                     TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
@@ -181,7 +183,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     }
                     else
                     {
-                        if (WorkerInformation == null)
+                        if (workerInformation == null)
                         {
                             if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
                                 Log.Login_Worker == LoginWorkerTextBox.Text &&
@@ -218,9 +220,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             var openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png"; // Выбираем в OpenFileDialog формат файла
 
-            if (openFileDialog.ShowDialog() == true) // Если пользователь выбрал содержимое
+            if (openFileDialog.ShowDialog() == true)
             {
-                pathImage = openFileDialog.FileName; // Получение пути к выбранному файлу и записываем в переменную
+                pathImage = openFileDialog.FileName;
                 UserPhotoImage.Source = new BitmapImage(new Uri(openFileDialog.FileName)); // Вставить фото в пользовательский элемент управления
             }
         }
@@ -355,10 +357,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
             // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
-            // таблица "PassportTable" не может добавить в себя данные, кока не узнает, есть ли подходящие данные в таблице "ImagePassportTable", которая не 
+            // таблица "PassportTable" не может добавить в себя данные, пока не узнает, есть ли подходящие данные в таблице "ImagePassportTable", которая не 
             // может жить без таблицы "PassportTable", так и получается круговорот моего бреда между таблицами, данными и программой.
             // А так же, другие таблицы на прямую не взаимодействуют с таблицей "PassportTable", но берут от неё определённые данные, к примеру, в некоторых таблицах
-            // PersonalNumber_Имя таблицы - является серия и номер паспорта (слитно), поэтому перед добавление других данных, нужно сохранить данные в таблице "PassportTable",
+            // PersonalNumber_ИмяТаблицы - является серия и номер паспорта (слитно), поэтому перед добавление других данных, нужно сохранить данные в таблице "PassportTable",
             // так т получается, что у меня данные сохраняются 2 раза.
             // P.s. Да, я знаю, что я с "Дуба упал", но что поделать, такова моя задумка)
 
@@ -402,13 +404,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    if (WorkerInformation.PassportTable.pnImage_Passport == null)
+                    if (workerInformation.PassportTable.pnImage_Passport == null)
                     {
                         addPassport.pnImage_Passport = "0";
                     }
                     else
                     {
-                        addPassport.pnImage_Passport = WorkerInformation.PassportTable.pnImage_Passport;
+                        addPassport.pnImage_Passport = workerInformation.PassportTable.pnImage_Passport;
                     }
                 }
                 AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
@@ -479,22 +481,31 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
                 addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
                 addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
-                if (WorkerInformation == null)
+                if (workerInformation == null)
                 {
                     addWorker.pnStatus_Worker = 2;
                     AppConnectClass.DataBase.WorkerTable.Add(addWorker);
                 }
                 else
                 {
-                    addWorker.PersonalNumber_Worker = WorkerInformation.PersonalNumber_Worker;
-                    addWorker.pnStatus_Worker = WorkerInformation.pnStatus_Worker;
+                    addWorker.PersonalNumber_Worker = workerInformation.PersonalNumber_Worker;
+                    addWorker.pnStatus_Worker = workerInformation.pnStatus_Worker;
                     AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
                 }
 
                 AppConnectClass.DataBase.SaveChanges();
 
+                string MessadeSaveDataWorker;
+                if (workerInformation != null)
+                {
+                    MessadeSaveDataWorker = $"Данные об сотруднике {addPassport.Surname_Passport} {addPassport.Name_Passport} успешно изменены";
+                }
+                else
+                {
+                    MessadeSaveDataWorker = $"Сотрудник {addPassport.Surname_Passport} {addPassport.Name_Passport} добавлен в базу данных";
+                }
                 MessageBox.Show(
-                        "Новый сотрудник добавлен в базу данных", "Сохранение",
+                        MessadeSaveDataWorker, "Сохранение",
                         MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // Вызов метода
@@ -512,7 +523,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null)); // Переоткрытие страницы
+                // Переоткрытие страницы
+                if (workerInformation == null)
+                {
+                    FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null)); 
+                }
+                else
+                {
+                    FrameNavigationClass.BodyWorker_FNC.Navigate(new ListWorkerPage());
+                }
             }
             catch (Exception ex)
             {
@@ -589,7 +608,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
 
-            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && WorkerInformation == null)
+            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && workerInformation == null)
             {
                 randomPassword = RandomTextSender().ToString("D6");
 
