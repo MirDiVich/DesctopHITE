@@ -354,16 +354,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void AddDataDatabase() // Метод для добавления нового сотрудника в баз данных
         {
+            // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
+            // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
+            // таблица "PassportTable" не может добавить в себя данные, кока не узнает, есть ли подходящие данные в таблице "ImagePassportTable", которая не 
+            // может жить без таблицы "PassportTable", так и получается круговорот моего бреда между таблицами, данными и программой.
+            // А так же, другие таблицы на прямую не взаимодействуют с таблицей "PassportTable", но берут от неё определённые данные, к примеру, в некоторых таблицах
+            // PersonalNumber_Имя таблицы - является серия и номер паспорта (слитно), поэтому перед добавление других данных, нужно сохранить данные в таблице "PassportTable",
+            // так т получается, что у меня данные сохраняются 2 раза.
+            // P.s. Да, я знаю, что я с "Дуба упал", но что поделать, такова моя задумка)
+
             try
             {
-                // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
-                // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
-                // таблица "PassportTable" не может добавить в себя данные, кока не узнает, есть ли подходящие данные в таблице "ImagePassportTable", которая не 
-                // может жить без таблицы "PassportTable", так и получается круговорот моего бреда между таблицами, данными и программой.
-                // А так же, другие таблицы на прямую не взаимодействуют с таблицей "PassportTable", но берут от неё определённые данные, к примеру, в некоторых таблицах
-                // PersonalNumber_Имя таблицы - является серия и номер паспорта (слитно), поэтому перед добавление других данных, нужно сохранить данные в таблице "PassportTable",
-                // так т получается, что у меня данные сохраняются 2 раза.
-                // P.s. Да, я знаю, что я с "Дуба упал", но что поделать, такова моя задумка)
 
                 PassportTable addPassport = new PassportTable();
                 ImagePassportTable addImagePassport = new ImagePassportTable();
@@ -412,6 +413,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
                 AppConnectClass.DataBase.SaveChanges();
+                //TODO: Нельзя вставлять null в pnImage_Passport
 
                 PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable()
                 {
