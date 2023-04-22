@@ -84,7 +84,7 @@
                                         <TextBox
                                             Text="{Binding PassportTable.Issued_Passport}"
                                             x:Name="IssuedPassportTextBox"
-                                            MaxLength="400"
+                                            MaxLength="500"
                                             Style="{DynamicResource OtherTextBoxStyle}"
                                             Width="600"/>
                                     </Grid>
@@ -380,7 +380,7 @@
                                             <TextBox
                                                 Text="{Binding PassportTable.LocationOfBrich_Passport}"
                                                 x:Name="LocationOfBrichPassportTextBox"
-                                                MaxLength="400"
+                                                MaxLength="500"
                                                 Width="370"
                                                 Style="{DynamicResource OtherTextBoxStyle}"/>
                                         </Grid>
@@ -447,7 +447,7 @@
                                     </Border>
                                     <TextBox
                                         Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"
-                                        MaxLength="50"
+                                        MaxLength="80"
                                         x:Name="RegionPlaceResidenceTextBox"
                                         Width="600"
                                         Style="{DynamicResource OtherTextBoxStyle}"/>
