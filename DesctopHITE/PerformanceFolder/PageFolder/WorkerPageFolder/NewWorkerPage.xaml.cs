@@ -384,28 +384,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     addImagePassport.Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}";
                     addImagePassport.Image_ImagePassport = imageData;
 
-                    addPassport.pnImage_Passport = addImagePassport.PersonalNumber_ImagePassport;
-                }
-                else
-                {
-                    if (dataContextWorker == false)
-                    {
-                        addPassport.pnImage_Passport = "0";
-                    }
-                    else
-                    {
-                        if (pathImage != "")
-                        {
-                            AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
-                        }
-                    }
+                    addPassport.pnImage_Passport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
                 }
                 if (dataContextWorker == true)
                 {
+                    if (pathImage != "")
+                    {
+                        AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
+                    }
                     AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 }
                 else
                 {
+                    if (pathImage == "")
+                    {
+                        addPassport.pnImage_Passport = "0";
+                    }
                     AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
                 AppConnectClass.DataBase.SaveChanges();
