@@ -365,10 +365,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
             try
             {
-
                 PassportTable addPassport = new PassportTable();
-                ImagePassportTable addImagePassport = new ImagePassportTable();
-
                 addPassport.Series_Passport = SeriesPassportTextBox.Text;
                 addPassport.Number_Passport = NumberPassportTextBox.Text;
                 addPassport.Surname_Passport = SurnamePassportTextBox.Text;
@@ -381,6 +378,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addPassport.DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text);
                 addPassport.DivisionCode_Passport = DivisionCodePassportTextBox.Text;
 
+                ImagePassportTable addImagePassport = new ImagePassportTable();
                 if (pathImage != "")
                 {
                     // Конвертация изображения в байты
@@ -395,139 +393,82 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     addImagePassport.Image_ImagePassport = imageData;
 
                     addPassport.pnImage_Passport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
-                }
-                if (dataContextWorker == true)
-                {
-                    if (pathImage != "")
-                    {
-                        AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
-                    }
-                    AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
+
+                    AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
                 }
                 else
                 {
-                    if (pathImage == "")
+                    if (addPassport.pnImage_Passport == null)
                     {
                         addPassport.pnImage_Passport = "0";
                     }
-                    AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
+                AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 AppConnectClass.DataBase.SaveChanges();
-                //TODO: Нельзя вставлять null в pnImage_Passport при обновлении
 
-                PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable()
-                {
-                    PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport,
-                    RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text),
-                    Region_PlaceResidence = RegionPlaceResidenceTextBox.Text,
-                    District_PlaceResidence = DistrictPlaceResidenceTextBox.Text,
-                    Point_PlaceResidence = PointPlaceResidenceTextBox.Text,
-                    Street_PlaceResidence = StreetPlaceResidenceTextBox.Text,
-                    House_PlaceResidence = HousePlaceResidenceTextBox.Text,
-                    Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
-                }
-                else
-                {
-                    AppConnectClass.DataBase.PlaceResidenceTable.Add(addPlaceResidence);
-                }
+                PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable();
+                addPlaceResidence.PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport;
+                addPlaceResidence.RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text);
+                addPlaceResidence.Region_PlaceResidence = RegionPlaceResidenceTextBox.Text;
+                addPlaceResidence.District_PlaceResidence = DistrictPlaceResidenceTextBox.Text;
+                addPlaceResidence.Point_PlaceResidence = PointPlaceResidenceTextBox.Text;
+                addPlaceResidence.Street_PlaceResidence = StreetPlaceResidenceTextBox.Text;
+                addPlaceResidence.House_PlaceResidence = HousePlaceResidenceTextBox.Text;
+                addPlaceResidence.Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text;
+                AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
 
-                MedicalBookTable addMedicalBook = new MedicalBookTable()
-                {
-                    PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text,
-                    Issue_MedicalBook = IssueMedicalBookTextBox.Text,
-                    SNMDirector_MedicalBook = SNMDirectorMedicalBookTextBox.Text,
-                    DateIssue_MedicalBook = Convert.ToDateTime(DateIssueMedicalBookTextBox.Text),
-                    HomeAdress_MedicalBook = HomeAdressMedicalBookTextBox.Text,
-                    Role_MedicalBook = RoleMedicalBookTextBox.Text,
-                    Organization_MedicalBook = OrganizationMedicalBookTextBox.Text
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
-                }
-                else
-                {
-                    AppConnectClass.DataBase.MedicalBookTable.Add(addMedicalBook);
-                }
+                MedicalBookTable addMedicalBook = new MedicalBookTable();
+                addMedicalBook.PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text;
+                addMedicalBook.Issue_MedicalBook = IssueMedicalBookTextBox.Text;
+                addMedicalBook.SNMDirector_MedicalBook = SNMDirectorMedicalBookTextBox.Text;
+                addMedicalBook.DateIssue_MedicalBook = Convert.ToDateTime(DateIssueMedicalBookTextBox.Text);
+                addMedicalBook.HomeAdress_MedicalBook = HomeAdressMedicalBookTextBox.Text;
+                addMedicalBook.Role_MedicalBook = RoleMedicalBookTextBox.Text;
+                addMedicalBook.Organization_MedicalBook = OrganizationMedicalBookTextBox.Text;
+                AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
 
-                SnilsTable addSnils = new SnilsTable()
-                {
-                    PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text,
-                    DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text)
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
-                }
-                else
-                {
-                    AppConnectClass.DataBase.SnilsTable.Add(addSnils);
-                }
+                SnilsTable addSnils = new SnilsTable();
+                addSnils.PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text;
+                addSnils.DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text);
+                AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
 
-                INNTable addINN = new INNTable()
-                {
-                    PersonalNumber_INN = PersonalNumberINNTextBox.Text,
-                    TaxAuthority_INN = TaxAuthorityINNTextBox.Text,
-                    NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text,
-                    Date_INN = Convert.ToDateTime(DateINNTextBox.Text)
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
-                }
-                else
-                {
-                    AppConnectClass.DataBase.INNTable.Add(addINN);
-                }
+                INNTable addINN = new INNTable();
+                addINN.PersonalNumber_INN = PersonalNumberINNTextBox.Text;
+                addINN.TaxAuthority_INN = TaxAuthorityINNTextBox.Text;
+                addINN.NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text;
+                addINN.Date_INN = Convert.ToDateTime(DateINNTextBox.Text);
+                AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
 
-                SalaryCardTable addSalaryCard = new SalaryCardTable()
-                {
-                    PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text,
-                    NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text,
-                    SurnameEng_SalaryCard = SurnameEngSalaryCardTextBox.Text,
-                    YearEnd_SalaryCard = YearEndSalaryCardTextBox.Text,
-                    Month_SalaryCard = MonthSalaryCardTextBox.Text,
-                    Code_SalaryCard = CodeSalaryCardTextBox.Text
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
-                }
-                else
-                {
-                    AppConnectClass.DataBase.SalaryCardTable.Add(addSalaryCard);
-                }
+                SalaryCardTable addSalaryCard = new SalaryCardTable();
+                addSalaryCard.PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text;
+                addSalaryCard.NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text;
+                addSalaryCard.SurnameEng_SalaryCard = SurnameEngSalaryCardTextBox.Text;
+                addSalaryCard.YearEnd_SalaryCard = YearEndSalaryCardTextBox.Text;
+                addSalaryCard.Month_SalaryCard = MonthSalaryCardTextBox.Text;
+                addSalaryCard.Code_SalaryCard = CodeSalaryCardTextBox.Text;
+                AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
 
-                WorkerTable addWorker = new WorkerTable()
-                {
-                    Phone_Worker = PhoneWorkerTextBox.Text,
-                    Login_Worker = LoginWorkerTextBox.Text,
-                    Email_Worker = EmailWorkerTextBox.Text,
-                    Password_Worker = PasswordWorkerTextBox.Text,
-                    pnRole_Worker = (pnRoleWorkerComboBox.SelectedItem as RoleTable).PersonalNumber_Role,
-                    SeriesPassport_Worker = addPassport.Series_Passport,
-                    NumberPassport_Worker = addPassport.Number_Passport,
-                    pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence,
-                    pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook,
-                    pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard,
-                    DateWord_Worker = DateTime.Now,
-                    pnINN_Worker = addINN.PersonalNumber_INN,
-                    pnSnils_Worker = addSnils.PersonalNumber_Snils,
-                    AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker
-                };
-                if (dataContextWorker == true)
-                {
-                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
-                }
-                else
+                WorkerTable addWorker = new WorkerTable();
+                addWorker.Phone_Worker = PhoneWorkerTextBox.Text;
+                addWorker.Login_Worker = LoginWorkerTextBox.Text;
+                addWorker.Email_Worker = EmailWorkerTextBox.Text;
+                addWorker.Password_Worker = PasswordWorkerTextBox.Text;
+                addWorker.pnRole_Worker = (pnRoleWorkerComboBox.SelectedItem as RoleTable).PersonalNumber_Role;
+                addWorker.SeriesPassport_Worker = addPassport.Series_Passport;
+                addWorker.NumberPassport_Worker = addPassport.Number_Passport;
+                addWorker.pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence;
+                addWorker.pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook;
+                addWorker.pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard;
+                addWorker.DateWord_Worker = DateTime.Now;
+                addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
+                addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
+                addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
+                addWorker.pnStatus_Worker = addWorker.pnStatus_Worker;
+                if (dataContextWorker == false)
                 {
                     addWorker.pnStatus_Worker = 2;
-                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
                 }
+                AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
 
                 AppConnectClass.DataBase.SaveChanges();
 
