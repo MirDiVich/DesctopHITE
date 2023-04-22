@@ -24,9 +24,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class NewWorkerPage : Page
     {
-        // Переменная, которая нужна для того, чтоб понять, идёт добавление пользователя или его редактирование
-        bool dataContextWorker = false;
-
         byte[] imageData;
         string pathImage = "";
         string messagePassportNull;
@@ -38,6 +35,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         string messageGeneralDataNull;
         string messageValidData;
         string randomPassword = "";
+
+        WorkerTable WorkerInformation;
 
         public NewWorkerPage(WorkerTable workerTable)
         {
@@ -55,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (workerTable != null)
                 {
                     DataContext = workerTable;
-                    dataContextWorker = true;
+                    WorkerInformation = workerTable;
 
                     TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
@@ -182,7 +181,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     }
                     else
                     {
-                        if (dataContextWorker == false)
+                        if (WorkerInformation == null)
                         {
                             if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
                                 Log.Login_Worker == LoginWorkerTextBox.Text &&
@@ -365,7 +364,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
             try
             {
-                PassportTable addPassport = new PassportTable();
+                // Объявляем таблицы
+                var addPassport = new PassportTable();
+                var addImagePassport = new ImagePassportTable();
+
+                // Работа с паспортом
                 addPassport.Series_Passport = SeriesPassportTextBox.Text;
                 addPassport.Number_Passport = NumberPassportTextBox.Text;
                 addPassport.Surname_Passport = SurnamePassportTextBox.Text;
@@ -377,8 +380,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addPassport.Issued_Passport = IssuedPassportTextBox.Text;
                 addPassport.DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text);
                 addPassport.DivisionCode_Passport = DivisionCodePassportTextBox.Text;
+                addPassport.pnImage_Passport = addPassport.pnImage_Passport;
 
-                ImagePassportTable addImagePassport = new ImagePassportTable();
+                // Работа с фото
                 if (pathImage != "")
                 {
                     // Конвертация изображения в байты
@@ -398,15 +402,27 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    if (addPassport.pnImage_Passport == null)
+                    if (WorkerInformation.PassportTable.pnImage_Passport == null)
                     {
                         addPassport.pnImage_Passport = "0";
+                    }
+                    else
+                    {
+                        addPassport.pnImage_Passport = WorkerInformation.PassportTable.pnImage_Passport;
                     }
                 }
                 AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
                 AppConnectClass.DataBase.SaveChanges();
 
-                PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable();
+                // Объявляем таблицы
+                var addPlaceResidence = new PlaceResidenceTable();
+                var addMedicalBook = new MedicalBookTable();
+                var addSnils = new SnilsTable();
+                var addINN = new INNTable();
+                var addSalaryCard = new SalaryCardTable();
+                var addWorker = new WorkerTable();
+
+                // Работа с пропиской
                 addPlaceResidence.PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport;
                 addPlaceResidence.RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text);
                 addPlaceResidence.Region_PlaceResidence = RegionPlaceResidenceTextBox.Text;
@@ -417,7 +433,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addPlaceResidence.Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text;
                 AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
 
-                MedicalBookTable addMedicalBook = new MedicalBookTable();
+                // Работа с медицинской книжкой
                 addMedicalBook.PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text;
                 addMedicalBook.Issue_MedicalBook = IssueMedicalBookTextBox.Text;
                 addMedicalBook.SNMDirector_MedicalBook = SNMDirectorMedicalBookTextBox.Text;
@@ -427,19 +443,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addMedicalBook.Organization_MedicalBook = OrganizationMedicalBookTextBox.Text;
                 AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
 
-                SnilsTable addSnils = new SnilsTable();
+                // Работа с СНИЛС
                 addSnils.PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text;
                 addSnils.DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text);
                 AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
 
-                INNTable addINN = new INNTable();
+                // Работа с ИНН 
                 addINN.PersonalNumber_INN = PersonalNumberINNTextBox.Text;
                 addINN.TaxAuthority_INN = TaxAuthorityINNTextBox.Text;
                 addINN.NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text;
                 addINN.Date_INN = Convert.ToDateTime(DateINNTextBox.Text);
                 AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
 
-                SalaryCardTable addSalaryCard = new SalaryCardTable();
+                // Работа с заработной картой
                 addSalaryCard.PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text;
                 addSalaryCard.NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text;
                 addSalaryCard.SurnameEng_SalaryCard = SurnameEngSalaryCardTextBox.Text;
@@ -448,7 +464,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addSalaryCard.Code_SalaryCard = CodeSalaryCardTextBox.Text;
                 AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
 
-                WorkerTable addWorker = new WorkerTable();
+                // Работа с основной таблицей
                 addWorker.Phone_Worker = PhoneWorkerTextBox.Text;
                 addWorker.Login_Worker = LoginWorkerTextBox.Text;
                 addWorker.Email_Worker = EmailWorkerTextBox.Text;
@@ -463,12 +479,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
                 addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
                 addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
-                addWorker.pnStatus_Worker = addWorker.pnStatus_Worker;
-                if (dataContextWorker == false)
+                if (WorkerInformation == null)
                 {
                     addWorker.pnStatus_Worker = 2;
+                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
                 }
-                AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
+                else
+                {
+                    addWorker.PersonalNumber_Worker = WorkerInformation.PersonalNumber_Worker;
+                    addWorker.pnStatus_Worker = WorkerInformation.pnStatus_Worker;
+                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
+                }
 
                 AppConnectClass.DataBase.SaveChanges();
 
@@ -568,7 +589,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             int GetRoleWorker = Convert.ToInt32(pnRoleWorkerComboBox.SelectedValue);
 
-            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && dataContextWorker == false)
+            if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && WorkerInformation == null)
             {
                 randomPassword = RandomTextSender().ToString("D6");
 
