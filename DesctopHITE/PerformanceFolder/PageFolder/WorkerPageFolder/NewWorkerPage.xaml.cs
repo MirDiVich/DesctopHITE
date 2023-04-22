@@ -413,7 +413,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     AppConnectClass.DataBase.PassportTable.Add(addPassport);
                 }
                 AppConnectClass.DataBase.SaveChanges();
-                //TODO: Нельзя вставлять null в pnImage_Passport
+                //TODO: Нельзя вставлять null в pnImage_Passport при обновлении
 
                 PlaceResidenceTable addPlaceResidence = new PlaceResidenceTable()
                 {
