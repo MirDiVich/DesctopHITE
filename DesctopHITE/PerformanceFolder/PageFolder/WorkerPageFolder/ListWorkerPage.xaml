@@ -98,7 +98,7 @@
                             Header="Просмотреть">
                             <MenuItem.Icon>
                                 <TextBlock
-                                    Foreground="#000000"
+                                    Foreground="#462AD8"
                                     Text="&#xf1f7;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
                                     Margin="0"/>
@@ -110,7 +110,7 @@
                             Click="ActionEditWorker">
                             <MenuItem.Icon>
                                 <TextBlock
-                                    Foreground="#000000"
+                                    Foreground="#462AD8"
                                     Text="&#xf158;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
                                     Margin="0"/>
@@ -123,7 +123,7 @@
                             Click="ActionDeliteWorker">
                             <MenuItem.Icon>
                                 <TextBlock
-                                    Foreground="#000000"
+                                    Foreground="#462AD8"
                                     Text="&#xF154;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
                                     Margin="0"/>
