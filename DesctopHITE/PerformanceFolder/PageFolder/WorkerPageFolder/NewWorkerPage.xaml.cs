@@ -8,7 +8,6 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.WindowsFolder;
 using Microsoft.Win32;
 using System;
 using System.Data.Entity.Migrations;
@@ -19,7 +18,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
