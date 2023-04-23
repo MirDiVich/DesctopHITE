@@ -138,65 +138,71 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e) // Выполняем ряд действий, после чего добавляем нового сотрудника в базу данных
         {
-            //try
-            //{
-            messagePassportNull = "";
-            messagePlaceResidenceNull = "";
-            messageMedicalBookNull = "";
-            messageSnilsNull = "";
-            messageINNNull = "";
-            messageSalaryCardNull = "";
-            messageGeneralDataNull = "";
-            messageValidData = "";
-
-            // Вызов метода
-            MessageNull();
-
-            if (messagePassportNull != "" ||
-                messagePlaceResidenceNull != "" ||
-                messageMedicalBookNull != "" ||
-                messageSnilsNull != "" ||
-                messageINNNull != "" ||
-                messageSalaryCardNull != "" ||
-                messageGeneralDataNull != "") // Проверка на пустые поля
+            try
             {
-                string messagePassport =
-                    messagePassportNull +
-                    messagePlaceResidenceNull +
-                    messageMedicalBookNull +
-                    messageSnilsNull +
-                    messageINNNull +
-                    messageSalaryCardNull +
-                    messageGeneralDataNull;
+                messagePassportNull = "";
+                messagePlaceResidenceNull = "";
+                messageMedicalBookNull = "";
+                messageSnilsNull = "";
+                messageINNNull = "";
+                messageSalaryCardNull = "";
+                messageGeneralDataNull = "";
+                messageValidData = "";
 
-                MessageBox.Show(
-                    messagePassport, "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else
-            {
-                if (messageValidData != "") // Проверка на правильную валидность данных
+                // Вызов метода
+                MessageNull();
+
+                if (messagePassportNull != "" ||
+                    messagePlaceResidenceNull != "" ||
+                    messageMedicalBookNull != "" ||
+                    messageSnilsNull != "" ||
+                    messageINNNull != "" ||
+                    messageSalaryCardNull != "" ||
+                    messageGeneralDataNull != "") // Проверка на пустые поля
                 {
+                    string messagePassport =
+                        messagePassportNull +
+                        messagePlaceResidenceNull +
+                        messageMedicalBookNull +
+                        messageSnilsNull +
+                        messageINNNull +
+                        messageSalaryCardNull +
+                        messageGeneralDataNull;
+
                     MessageBox.Show(
-                        messageValidData, "Ошибка добавления нового сотрудника (NewWorkerPage - E-005)",
+                        messagePassport, "Ошибка добавления нового сотрудника (NewWorkerPage - E-003)",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    if (workerInformation == null)
+                    if (messageValidData != "") // Проверка на правильную валидность данных
                     {
-                        if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
-                            Log.Login_Worker == LoginWorkerTextBox.Text &&
-                            Log.Email_Worker == EmailWorkerTextBox.Text &&
-                            Log.SeriesPassport_Worker == SeriesPassportTextBox.Text || Log.NumberPassport_Worker == NumberPassportTextBox.Text &&
-                            Log.pnMedicalBook_Worker == PersonalNumberMedicalBookTextBox.Text &&
-                            Log.pnSalaryCard_Worker == PersonalNumberSalaryCardTextBox.Text &&
-                            Log.pnINN_Worker == PersonalNumberINNTextBox.Text &&
-                            Log.pnSnils_Worker == PersonalNumberSnilsTextBox.Text) > 0)
+                        MessageBox.Show(
+                            messageValidData, "Ошибка добавления нового сотрудника (NewWorkerPage - E-005)",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        if (workerInformation == null)
                         {
-                            MessageBox.Show(
-                               "Сотрудник с такими данными уже существует", "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
-                               MessageBoxButton.OK, MessageBoxImage.Error);
+                            if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
+                                Log.Login_Worker == LoginWorkerTextBox.Text &&
+                                Log.Email_Worker == EmailWorkerTextBox.Text &&
+                                Log.SeriesPassport_Worker == SeriesPassportTextBox.Text || Log.NumberPassport_Worker == NumberPassportTextBox.Text &&
+                                Log.pnMedicalBook_Worker == PersonalNumberMedicalBookTextBox.Text &&
+                                Log.pnSalaryCard_Worker == PersonalNumberSalaryCardTextBox.Text &&
+                                Log.pnINN_Worker == PersonalNumberINNTextBox.Text &&
+                                Log.pnSnils_Worker == PersonalNumberSnilsTextBox.Text) > 0)
+                            {
+                                MessageBox.Show(
+                                   "Сотрудник с такими данными уже существует", "Ошибка добавления нового сотрудника (NewWorkerPage - E-007)",
+                                   MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                            {
+                                // Вызов метода
+                                AddDataDatabase();
+                            }
                         }
                         else
                         {
@@ -204,20 +210,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             AddDataDatabase();
                         }
                     }
-                    else
-                    {
-                        // Вызов метода
-                        AddDataDatabase();
-                    }
                 }
             }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(
-            //        ex.Message, "Ошибка добавления (NewWorkerPage - E-004)",
-            //        MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message, "Ошибка добавления (NewWorkerPage - E-004)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void NewPhotoButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
@@ -369,163 +369,163 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             // так т получается, что у меня данные сохраняются 2 раза.
             // P.s. Да, я знаю, что я с "Дуба упал", но что поделать, такова моя задумка)
 
-            //try
-            //{
-            // Объявляем таблицы
-            var addPassport = new PassportTable();
-            var addImagePassport = new ImagePassportTable();
-
-            // Работа с паспортом
-            addPassport.Series_Passport = SeriesPassportTextBox.Text;
-            addPassport.Number_Passport = NumberPassportTextBox.Text;
-            addPassport.Surname_Passport = SurnamePassportTextBox.Text;
-            addPassport.Name_Passport = NamePassportTextBox.Text;
-            addPassport.Middlename_Passport = MiddlenamePassportTextBox.Text;
-            addPassport.pnGender_Passport = (pnGenderComboBox.SelectedItem as GenderTable).PersonalNumber_Gender;
-            addPassport.DateOfBrich_Passport = Convert.ToDateTime(DateOfBrichPassportTextBox.Text);
-            addPassport.LocationOfBrich_Passport = LocationOfBrichPassportTextBox.Text;
-            addPassport.Issued_Passport = IssuedPassportTextBox.Text;
-            addPassport.DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text);
-            addPassport.DivisionCode_Passport = DivisionCodePassportTextBox.Text;
-            addPassport.pnImage_Passport = addPassport.pnImage_Passport;
-
-            // Работа с фото
-            if (pathImage != "")
+            try
             {
-                // Конвертация изображения в байты
-                using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
+                // Объявляем таблицы
+                var addPassport = new PassportTable();
+                var addImagePassport = new ImagePassportTable();
+
+                // Работа с паспортом
+                addPassport.Series_Passport = SeriesPassportTextBox.Text;
+                addPassport.Number_Passport = NumberPassportTextBox.Text;
+                addPassport.Surname_Passport = SurnamePassportTextBox.Text;
+                addPassport.Name_Passport = NamePassportTextBox.Text;
+                addPassport.Middlename_Passport = MiddlenamePassportTextBox.Text;
+                addPassport.pnGender_Passport = (pnGenderComboBox.SelectedItem as GenderTable).PersonalNumber_Gender;
+                addPassport.DateOfBrich_Passport = Convert.ToDateTime(DateOfBrichPassportTextBox.Text);
+                addPassport.LocationOfBrich_Passport = LocationOfBrichPassportTextBox.Text;
+                addPassport.Issued_Passport = IssuedPassportTextBox.Text;
+                addPassport.DateIssued_Passport = Convert.ToDateTime(DateIssuedPassportTextBox.Text);
+                addPassport.DivisionCode_Passport = DivisionCodePassportTextBox.Text;
+                addPassport.pnImage_Passport = addPassport.pnImage_Passport;
+
+                // Работа с фото
+                if (pathImage != "")
                 {
-                    imageData = new byte[fs.Length];
-                    fs.Read(imageData, 0, imageData.Length);
+                    // Конвертация изображения в байты
+                    using (FileStream fs = new FileStream(pathImage, FileMode.Open, FileAccess.Read))
+                    {
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
+                    }
+                    addImagePassport.PersonalNumber_ImagePassport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
+                    addImagePassport.Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}";
+                    addImagePassport.Image_ImagePassport = imageData;
+
+                    addPassport.pnImage_Passport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
+
+                    AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
                 }
-                addImagePassport.PersonalNumber_ImagePassport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
-                addImagePassport.Name_ImagePassport = $"{SurnamePassportTextBox.Text} {NamePassportTextBox.Text}";
-                addImagePassport.Image_ImagePassport = imageData;
 
-                addPassport.pnImage_Passport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
-
-                AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
-            }
-
-            if (workerInformation == null)
-            {
-                if (pathImage == "")
+                if (workerInformation == null)
                 {
-                    addPassport.pnImage_Passport = "0";
+                    if (pathImage == "")
+                    {
+                        addPassport.pnImage_Passport = "0";
+                    }
                 }
-            }
-            else
-            {
-                if (pathImage == "")
+                else
                 {
-                    addPassport.pnImage_Passport = workerInformation.PassportTable.pnImage_Passport;
+                    if (pathImage == "")
+                    {
+                        addPassport.pnImage_Passport = workerInformation.PassportTable.pnImage_Passport;
+                    }
                 }
+
+                AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
+                AppConnectClass.DataBase.SaveChanges();
+
+                // Объявляем таблицы
+                var addPlaceResidence = new PlaceResidenceTable();
+                var addMedicalBook = new MedicalBookTable();
+                var addSnils = new SnilsTable();
+                var addINN = new INNTable();
+                var addSalaryCard = new SalaryCardTable();
+                var addWorker = new WorkerTable();
+
+                // Работа с пропиской
+                addPlaceResidence.PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport;
+                addPlaceResidence.RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text);
+                addPlaceResidence.Region_PlaceResidence = RegionPlaceResidenceTextBox.Text;
+                addPlaceResidence.District_PlaceResidence = DistrictPlaceResidenceTextBox.Text;
+                addPlaceResidence.Point_PlaceResidence = PointPlaceResidenceTextBox.Text;
+                addPlaceResidence.Street_PlaceResidence = StreetPlaceResidenceTextBox.Text;
+                addPlaceResidence.House_PlaceResidence = HousePlaceResidenceTextBox.Text;
+                addPlaceResidence.Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text;
+                AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
+
+                // Работа с медицинской книжкой
+                addMedicalBook.PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text;
+                addMedicalBook.Issue_MedicalBook = IssueMedicalBookTextBox.Text;
+                addMedicalBook.SNMDirector_MedicalBook = SNMDirectorMedicalBookTextBox.Text;
+                addMedicalBook.DateIssue_MedicalBook = Convert.ToDateTime(DateIssueMedicalBookTextBox.Text);
+                addMedicalBook.HomeAdress_MedicalBook = HomeAdressMedicalBookTextBox.Text;
+                addMedicalBook.Role_MedicalBook = RoleMedicalBookTextBox.Text;
+                addMedicalBook.Organization_MedicalBook = OrganizationMedicalBookTextBox.Text;
+                AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
+
+                // Работа с СНИЛС
+                addSnils.PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text;
+                addSnils.DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text);
+                AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
+
+                // Работа с ИНН 
+                addINN.PersonalNumber_INN = PersonalNumberINNTextBox.Text;
+                addINN.TaxAuthority_INN = TaxAuthorityINNTextBox.Text;
+                addINN.NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text;
+                addINN.Date_INN = Convert.ToDateTime(DateINNTextBox.Text);
+                AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
+
+                // Работа с заработной картой
+                addSalaryCard.PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text;
+                addSalaryCard.NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text;
+                addSalaryCard.SurnameEng_SalaryCard = SurnameEngSalaryCardTextBox.Text;
+                addSalaryCard.YearEnd_SalaryCard = YearEndSalaryCardTextBox.Text;
+                addSalaryCard.Month_SalaryCard = MonthSalaryCardTextBox.Text;
+                addSalaryCard.Code_SalaryCard = CodeSalaryCardTextBox.Text;
+                AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
+
+                // Работа с основной таблицей
+                addWorker.Phone_Worker = PhoneWorkerTextBox.Text;
+                addWorker.Login_Worker = LoginWorkerTextBox.Text;
+                addWorker.Email_Worker = EmailWorkerTextBox.Text;
+                addWorker.Password_Worker = PasswordWorkerTextBox.Text;
+                addWorker.pnRole_Worker = (pnRoleWorkerComboBox.SelectedItem as RoleTable).PersonalNumber_Role;
+                addWorker.SeriesPassport_Worker = addPassport.Series_Passport;
+                addWorker.NumberPassport_Worker = addPassport.Number_Passport;
+                addWorker.pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence;
+                addWorker.pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook;
+                addWorker.pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard;
+                addWorker.DateWord_Worker = DateTime.Now;
+                addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
+                addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
+                addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
+                if (workerInformation == null)
+                {
+                    addWorker.pnStatus_Worker = 2;
+                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
+                }
+                else
+                {
+                    addWorker.PersonalNumber_Worker = workerInformation.PersonalNumber_Worker;
+                    addWorker.pnStatus_Worker = workerInformation.pnStatus_Worker;
+                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
+                }
+
+                AppConnectClass.DataBase.SaveChanges();
+
+                string MessadeSaveDataWorker;
+                if (workerInformation != null)
+                {
+                    MessadeSaveDataWorker = $"Данные об сотруднике {addPassport.Surname_Passport} {addPassport.Name_Passport} успешно изменены";
+                }
+                else
+                {
+                    MessadeSaveDataWorker = $"Сотрудник {addPassport.Surname_Passport} {addPassport.Name_Passport} добавлен в базу данных";
+                }
+                MessageBox.Show(
+                        MessadeSaveDataWorker, "Сохранение",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+
+                // Вызов метода
+                ClearText();
             }
-
-            AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
-            AppConnectClass.DataBase.SaveChanges();
-
-            // Объявляем таблицы
-            var addPlaceResidence = new PlaceResidenceTable();
-            var addMedicalBook = new MedicalBookTable();
-            var addSnils = new SnilsTable();
-            var addINN = new INNTable();
-            var addSalaryCard = new SalaryCardTable();
-            var addWorker = new WorkerTable();
-
-            // Работа с пропиской
-            addPlaceResidence.PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport;
-            addPlaceResidence.RegistrationDate_PlaceResidence = Convert.ToDateTime(RegistrationDatePlaceResidenceTextBox.Text);
-            addPlaceResidence.Region_PlaceResidence = RegionPlaceResidenceTextBox.Text;
-            addPlaceResidence.District_PlaceResidence = DistrictPlaceResidenceTextBox.Text;
-            addPlaceResidence.Point_PlaceResidence = PointPlaceResidenceTextBox.Text;
-            addPlaceResidence.Street_PlaceResidence = StreetPlaceResidenceTextBox.Text;
-            addPlaceResidence.House_PlaceResidence = HousePlaceResidenceTextBox.Text;
-            addPlaceResidence.Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text;
-            AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
-
-            // Работа с медицинской книжкой
-            addMedicalBook.PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text;
-            addMedicalBook.Issue_MedicalBook = IssueMedicalBookTextBox.Text;
-            addMedicalBook.SNMDirector_MedicalBook = SNMDirectorMedicalBookTextBox.Text;
-            addMedicalBook.DateIssue_MedicalBook = Convert.ToDateTime(DateIssueMedicalBookTextBox.Text);
-            addMedicalBook.HomeAdress_MedicalBook = HomeAdressMedicalBookTextBox.Text;
-            addMedicalBook.Role_MedicalBook = RoleMedicalBookTextBox.Text;
-            addMedicalBook.Organization_MedicalBook = OrganizationMedicalBookTextBox.Text;
-            AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
-
-            // Работа с СНИЛС
-            addSnils.PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text;
-            addSnils.DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text);
-            AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
-
-            // Работа с ИНН 
-            addINN.PersonalNumber_INN = PersonalNumberINNTextBox.Text;
-            addINN.TaxAuthority_INN = TaxAuthorityINNTextBox.Text;
-            addINN.NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text;
-            addINN.Date_INN = Convert.ToDateTime(DateINNTextBox.Text);
-            AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
-
-            // Работа с заработной картой
-            addSalaryCard.PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text;
-            addSalaryCard.NameEnd_SalaryCard = NameEndSalaryCardTextBox.Text;
-            addSalaryCard.SurnameEng_SalaryCard = SurnameEngSalaryCardTextBox.Text;
-            addSalaryCard.YearEnd_SalaryCard = YearEndSalaryCardTextBox.Text;
-            addSalaryCard.Month_SalaryCard = MonthSalaryCardTextBox.Text;
-            addSalaryCard.Code_SalaryCard = CodeSalaryCardTextBox.Text;
-            AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
-
-            // Работа с основной таблицей
-            addWorker.Phone_Worker = PhoneWorkerTextBox.Text;
-            addWorker.Login_Worker = LoginWorkerTextBox.Text;
-            addWorker.Email_Worker = EmailWorkerTextBox.Text;
-            addWorker.Password_Worker = PasswordWorkerTextBox.Text;
-            addWorker.pnRole_Worker = (pnRoleWorkerComboBox.SelectedItem as RoleTable).PersonalNumber_Role;
-            addWorker.SeriesPassport_Worker = addPassport.Series_Passport;
-            addWorker.NumberPassport_Worker = addPassport.Number_Passport;
-            addWorker.pnPlaceResidence_Worker = addPlaceResidence.PersonalNumber_PlaceResidence;
-            addWorker.pnMedicalBook_Worker = addMedicalBook.PersonalNumber_MedicalBook;
-            addWorker.pnSalaryCard_Worker = addSalaryCard.PersonalNumber_SalaryCard;
-            addWorker.DateWord_Worker = DateTime.Now;
-            addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
-            addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
-            addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
-            if (workerInformation == null)
+            catch (Exception ex)
             {
-                addWorker.pnStatus_Worker = 2;
-                AppConnectClass.DataBase.WorkerTable.Add(addWorker);
+                MessageBox.Show(
+                    ex.Message, "Ошибка добавления (NewWorkerPage - E-002)",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
-            {
-                addWorker.PersonalNumber_Worker = workerInformation.PersonalNumber_Worker;
-                addWorker.pnStatus_Worker = workerInformation.pnStatus_Worker;
-                AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
-            }
-
-            AppConnectClass.DataBase.SaveChanges();
-
-            string MessadeSaveDataWorker;
-            if (workerInformation != null)
-            {
-                MessadeSaveDataWorker = $"Данные об сотруднике {addPassport.Surname_Passport} {addPassport.Name_Passport} успешно изменены";
-            }
-            else
-            {
-                MessadeSaveDataWorker = $"Сотрудник {addPassport.Surname_Passport} {addPassport.Name_Passport} добавлен в базу данных";
-            }
-            MessageBox.Show(
-                    MessadeSaveDataWorker, "Сохранение",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-
-            // Вызов метода
-            ClearText();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(
-            //        ex.Message, "Ошибка добавления (NewWorkerPage - E-002)",
-            //        MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
         }
 
         private void ClearText() // Очищаем все поля
