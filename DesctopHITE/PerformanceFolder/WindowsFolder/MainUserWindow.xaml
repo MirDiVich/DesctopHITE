@@ -45,14 +45,18 @@
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="ГЛАВНОЕ ОКНО"/>
                 <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
-                    <Button 
-                        Width="30"
-                        ToolTip="ВЫЙТИ"
-                        Content="&#xf1af;"
-                        FontFamily="\ContentFolder\FontFolder\#Material-Design-Iconic-Font"
-                        Style="{DynamicResource RollupControlButton}" 
-                        x:Name="ExitUserButton" 
-                        Click="ExitUserButton_Click"/>
+                    <Menu Style="{DynamicResource MenuButton}">
+                        <MenuItem 
+                            Width="30" 
+                            Height="30" 
+                            Header="&#xf1af;">
+                            <MenuItem
+                                x:Name="ExitUserButton"
+                                Click="ExitUserButton_Click"
+                                Header="Выйти"/>
+                            <MenuItem Header="Выйти и закрыть"/>
+                        </MenuItem>
+                    </Menu>
                     <Button 
                         Style="{DynamicResource RollupControlButton}" 
                         x:Name="RollupButton" 

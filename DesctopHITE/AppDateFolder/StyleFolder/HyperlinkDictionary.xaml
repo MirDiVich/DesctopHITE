@@ -3,12 +3,12 @@
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
     <Style TargetType="Hyperlink" x:Key="Hyperlink">
-        <Setter Property="Foreground" Value="#fff"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="TextDecorations" Value="None"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
+        <Setter Property="FontSize" Value="15"/>
     </Style>
     
 </ResourceDictionary>

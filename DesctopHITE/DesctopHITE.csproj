@@ -378,6 +378,7 @@
       <LastGenOutput>DesctopHiteModel.cs</LastGenOutput>
     </Content>
     <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
+    <Resource Include="ContentFolder\ImageFolder\GitHubQrCode.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />

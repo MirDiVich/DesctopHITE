@@ -29,6 +29,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             Process.Start("https://vk.com/vaskakavat"); //открытие ссылки в браузере
         }
+
+        private void GitHubHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/MaR1XyAnA/DesctopHITE"); //открытие ссылки в браузере
+        }
         #endregion
     }
 }
