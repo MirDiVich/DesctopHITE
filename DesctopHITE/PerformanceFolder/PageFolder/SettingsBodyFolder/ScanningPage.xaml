@@ -9,11 +9,11 @@
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Border 
-            Margin="10"
-            Height="200"
-            Width="600"
-            Visibility="Visible" 
-            Style="{DynamicResource BorderInformation}">
+                Margin="10"
+                Height="200"
+                Width="600"
+                Visibility="Visible" 
+                Style="{DynamicResource BorderInformation}">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock
                         Foreground="#462AD8"

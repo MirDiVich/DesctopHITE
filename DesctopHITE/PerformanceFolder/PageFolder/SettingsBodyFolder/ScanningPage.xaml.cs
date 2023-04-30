@@ -16,6 +16,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 {
     public partial class ScanningPage : Page
     {
+        DispatcherTimer timer;
+        int timeScan;
 
         public ScanningPage()
         {
@@ -31,7 +33,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 ProgressScanTextBlock.Visibility = Visibility.Visible;
 
-                CreatingFalseScan();
+                //CreatingFalseScan();
             }
             else
             {
@@ -42,32 +44,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
         }
 
-        private CancellationTokenSource cancellationTokenSource;
+        //private void CreatingFalseScan()
+        //{
+        //    Random randomScan = new Random();
+        //    timeScan = randomScan.Next(20, 151);
 
-        private async void CreatingFalseScan()
-        {
-            // если предыдущее сканирование еще не завершено, отменяем его
-            if (cancellationTokenSource != null && !cancellationTokenSource.IsCancellationRequested)
-            {
-                cancellationTokenSource.Cancel();
-            }
+        //    timer.Interval = TimeSpan.FromSeconds(timeScan);
+        //    timer.Tick += Timer_Tick;
+        //    timer.Start();
+        //}
 
-            cancellationTokenSource = new CancellationTokenSource();
-
-            Random randomScan = new Random();
-            var TimeScan = randomScan.Next(10, 121);
-            int sleepTime = TimeScan / 100;
-
-            for (int i = 0; i <= 100; i++)
-            {
-                if (cancellationTokenSource.IsCancellationRequested)
-                {
-                    break;
-                }
-
-                ProgressScanTextBlock.Text = $"{i}%";
-                await Task.Delay(sleepTime * 1000, cancellationTokenSource.Token);
-            }
-        }
+        //private void Timer_Tick(object sender, EventArgs e)
+        //{
+        //    ProgressScanTextBlock.Text = $"{timeScan}";
+        //}
     }
 }

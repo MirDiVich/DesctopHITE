@@ -8,7 +8,7 @@
         <Setter Property="TextDecorations" Value="Underline"/>
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="20"/>
     </Style>
     
 </ResourceDictionary>

@@ -12,6 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock
+            FontSize="20"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Margin="20"

@@ -39,6 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             UpdateToggleButton.IsChecked = true;
             UpdateToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
         }
 
         private void DevelopersToggleButton_Click(object sender, RoutedEventArgs e)
