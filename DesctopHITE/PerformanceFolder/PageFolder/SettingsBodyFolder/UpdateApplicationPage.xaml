@@ -311,7 +311,8 @@
                                 TextWrapping="Wrap"
                                 Style="{DynamicResource OtherStyleTextBlock}"
                                 Text="У вас стоит последняя стабильная версия обновления"
-                                Margin="3.5 0 0 0" TextAlignment="Center">
+                                Margin="3.5 0 0 0" 
+                                TextAlignment="Center">
                                 <TextBlock.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#00b59c"/>
