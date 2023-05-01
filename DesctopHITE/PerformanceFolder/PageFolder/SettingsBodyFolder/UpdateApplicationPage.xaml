@@ -6,100 +6,361 @@
     x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.UpdateApplicationPage" 
     mc:Ignorable="d"
     Style="{DynamicResource BodySpacePageStyle}">
-    <Grid>
+    <Grid Height="784">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
             <Border
                 Margin="10"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
-            <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                    <TextBlock
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        Text="Версия обновления:"
-                        Margin="0 0 3.5 0"/>
-                    <TextBlock
-                        Style="{DynamicResource OtherStyleTextBlock}"
-                        Text="1.12.2"
-                        Margin="3.5 0 0 0"/>
+                <Grid>
+                    <Border
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        CornerRadius="7"
+                        BorderThickness="2"
+                        Margin="10">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#00b59c"/>
+                                <GradientStop Color="#9CFFAC" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="New"
+                            Margin="3.5">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#00b59c"/>
+                                    <GradientStop Color="#9CFFAC" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </Border>
+                    <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                        <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Версия обновления:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                Text="4.12.202"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Дата обновления:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                Text="24/04/2023"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Название обновления:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                Text="Это не баг, это фича"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 20 0 0" Orientation="Vertical" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Что добавили:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                x:Name="TitleUpDateTextBlock"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border
+                Margin="10"
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                    <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Версия обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="4.11.105"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Дата обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="10/02/2023"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Название обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="Пора пришла добавлять что-то новое"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                    <TextBlock
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        Text="Дата обновления:"
-                        Margin="0 0 3.5 0"/>
-                    <TextBlock
-                        Style="{DynamicResource OtherStyleTextBlock}"
-                        Text="24/04/2023"
-                        Margin="3.5 0 0 0"/>
+            </Border>
+            <Border
+                Margin="10"
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                    <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Версия обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="4.10.56"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Дата обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="28/12/2022"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Название обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="С наступающим 2023 годом"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="0 20 0 0" Orientation="Vertical" Style="{DynamicResource HorizontalDataStackPanel}">
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        Text="Что добавили:"
-                        Margin="0 0 3.5 0"/>
-                    <TextBlock
-                        x:Name="TitleUpDateTextBlock"
-                        Style="{DynamicResource OtherStyleTextBlock}"
-                        Margin="3.5 0 0 0"/>
+            </Border>
+            <Border
+                Margin="10"
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                    <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Версия обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="4.9.10"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Дата обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="25/10/2022"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                        <TextBlock
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            Text="Название обновления:"
+                            Margin="0 0 3.5 0"/>
+                        <TextBlock
+                            Style="{DynamicResource OtherStyleTextBlock}"
+                            Text="Пора ввторизироваться"
+                            Margin="3.5 0 0 0"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </Border>
+            </Border>
         </StackPanel>
         <Grid
-            Height="500"
-            Width="600"
-            Margin="10"
+            Height="780"
+            Grid.Column="1"
             VerticalAlignment="Top"
-            HorizontalAlignment="Right">
-            <Grid Height="450" VerticalAlignment="Top" Margin="10 10 10 0">
+            HorizontalAlignment="Center">
+            <Grid VerticalAlignment="Top" Height="400" Margin="10 0 10 0">
                 <TextBlock
                     x:Name="ProgressScanTextBlock"
                     Visibility="Visible"
                     Foreground="#462AD8"
                     FontSize="40"
-                    Text="100%"
-                    Style="{DynamicResource MainStyleTextBlock}"/>
+                    Text="///"
+                    Style="{DynamicResource MainStyleTextBlock}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
                 <Ellipse 
                     x:Name="LoadingCircle0"
                     Width="150"
                     Height="150"
                     StrokeDashArray="25 20"
                     StrokeThickness="5" 
-                    Stroke="#f5f5f5"/>
+                    Stroke="#f5f5f5">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#f5f5f5"/>
+                    </Ellipse.Effect>
+                </Ellipse>
                 <Ellipse 
                     x:Name="LoadingCircle1"
                     Width="175"
                     Height="175"
                     StrokeDashArray="15 10"
                     StrokeThickness="7" 
-                    Stroke="#462AD8"/>
+                    Stroke="#462AD8">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </Ellipse.Effect>
+                </Ellipse>
                 <Ellipse 
                     x:Name="LoadingCircle2"
                     Width="207"
                     Height="207"
                     StrokeThickness="9" 
                     StrokeDashArray="10 7"
-                    Stroke="#f5f5f5"/>
+                    Stroke="#f5f5f5">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#f5f5f5"/>
+                    </Ellipse.Effect>
+                </Ellipse>
                 <Ellipse 
                     x:Name="LoadingCircle3"
                     Width="250"
                     Height="250"
                     StrokeThickness="11" 
                     StrokeDashArray="4 6"
-                    Stroke="#462AD8"/>
+                    Stroke="#462AD8">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </Ellipse.Effect>
+                </Ellipse>
+                <ToggleButton
+                    Style="{DynamicResource MainToggleButton}"
+                    x:Name="CheckUpdateButton"
+                    Click="CheckUpdateButton_Click"
+                    Width="270"
+                    Content="Проверить обновление"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 0 0"
+                    Height="40"/>
             </Grid>
-            <ToggleButton
-                Style="{DynamicResource MainToggleButton}"
-                x:Name="CheckUpdateButton"
-                Click="CheckUpdateButton_Click"
-                Width="320"
-                Content="Проверить обновление"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Center"
-                Margin="10"
-                Height="40"/>
+            <StackPanel Margin="10" VerticalAlignment="Bottom">
+                <Border
+                    x:Name="IndoVersionTodayBorder"
+                    Width="350"
+                    Height="60"
+                    Margin="10"
+                    Visibility="Visible"
+                    Style="{DynamicResource BorderInformation}">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#00b59c"/>
+                            <GradientStop Color="#9CFFAC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Width="320"
+                                TextWrapping="Wrap"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                Text="У вас стоит последняя стабильная версия обновления"
+                                Margin="3.5 0 0 0" TextAlignment="Center">
+                                <TextBlock.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#00b59c"/>
+                                        <GradientStop Color="#9CFFAC" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    x:Name="ResultScanBorder"
+                    Margin="10"
+                    Visibility="Visible"
+                    Style="{DynamicResource BorderInformation}">
+                    <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                        <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Когда проверялось:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                x:Name="WhenCheckedTextBlock"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Кем проверялось:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                x:Name="WhomCheckedTextBlock"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                Text="Результат:"
+                                Margin="0 0 3.5 0"/>
+                            <TextBlock
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                x:Name="ResultCheckedTextBlock"
+                                Margin="3.5 0 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

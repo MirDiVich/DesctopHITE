@@ -58,5 +58,41 @@ namespace DesctopHITE.Properties {
                 this["MeaningRemember"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SNMUpdateScan {
+            get {
+                return ((string)(this["SNMUpdateScan"]));
+            }
+            set {
+                this["SNMUpdateScan"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DateTimeUpdateScan {
+            get {
+                return ((string)(this["DateTimeUpdateScan"]));
+            }
+            set {
+                this["DateTimeUpdateScan"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ResultUpdateScan {
+            get {
+                return ((string)(this["ResultUpdateScan"]));
+            }
+            set {
+                this["ResultUpdateScan"] = value;
+            }
+        }
     }
 }

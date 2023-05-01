@@ -80,7 +80,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#3e25c0"/>
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="False">
+                        <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Background" Value="#2e1c90"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">

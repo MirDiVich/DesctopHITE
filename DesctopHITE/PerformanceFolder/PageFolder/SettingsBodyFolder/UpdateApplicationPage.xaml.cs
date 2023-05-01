@@ -1,16 +1,19 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// На данной странице реализован код для возможности проверки на обновление;
-/// На самом деле это страница пустышка. Никакой проверки на обновление нет. Код реализован тем
-///     что он просто выбирает рандомное время и выполняет анимацию за отведённое время и выдаёт 
-///     всегда результат, что стоит последняя версия приложения.
+/// На данной странице реализован код для возможности проверки на наличие обновление;
+/// На самом деле это страница пустышка. Никакой проверки на обновление НЕТ. Код реализован тем
+///     что он просто выбирает рандомное время (от 5 до 30 секунд) и выполняет анимацию за отведённое время и выдаёт 
+///     всегда результат, что стоит последняя версия приложения;
+/// Да, да, да.... Знаю.... Страница-пустышка на 189 строк кода в "cs" и 367 строк кода в xaml.
 ///----------------------------------------------------------------------------------------------------------
 
+using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 {
@@ -20,22 +23,32 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         private DateTime startTime;
         private DispatcherTimer dispatcherTimer;
 
-
         public UpdateApplicationPage()
         {
             InitializeComponent();
-            TitleUpDateTextBlock.Text =
-                $"- Исправлена ошибка при изменении данных о сотруднике;\n" +
-                $"- Исправлена ошибка при добавлении сотрудника;\n" +
-                $"- Добавлена капча;\n" +
-                $"- Изменён дизайн на более яркий;\n" +
-                $"- Добавлена данная страница;\n" +
-                $"- Сделан код более читаемый;\n" +
-                $"- Улучшина производительность приложения.";
 
+            // Работа с таймером
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
             dispatcherTimer.Tick += Timer_Tick;
+
+            TitleUpDateTextBlock.Text =
+                $"- Добавлена анимация на проверку обновления;\n" +
+                $"- Добавлена анимация сканирования;\n" +
+                $"- Добавлена капча;\n" +
+                $"- Добавлена страница для сканирования приложения на наличие ошибок;\n" +
+                $"- Добавлена страница обновления;\n" +
+                $"- Изменён дизайн на более яркий;\n" +
+                $"- Исправлена ошибка при добавлении сотрудника;\n" +
+                $"- Исправлена ошибка при изменении данных о сотруднике;\n" +
+                $"- Оптимизация приложения;\n" +
+                $"- Оптимизированный код;\n" +
+                $"- Реализован поиск сотрудников;\n" +
+                $"- Реализовано удаление сотрудников;\n" +
+                $"- Сделан код более читаемый;\n" +
+                $"- Улучшена производительность приложения.";
+
+            ReceivingDataWaitingForStorage();
         }
 
         #region Click
@@ -45,17 +58,26 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             {
                 StartLoadingAnimation();
                 ScanDeception();
+
+                CheckUpdateButton.Content = "Остановить";
+                ProgressScanTextBlock.Text = "0%";
+                IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
             }
             else
             {
                 StopLoadingAnimation();
+
                 dispatcherTimer.Stop();
+                CheckUpdateButton.Content = "Проверить обновление";
+                ProgressScanTextBlock.Text = "///";
+                IndoVersionTodayBorder.Visibility = Visibility.Visible;
             }
         }
         #endregion
         #region Метод
-        private void StartLoadingAnimation()
+        private void StartLoadingAnimation() // Запуск анимации
         {
+            // Задаю свойства для элементов
             LoadingCircle0.RenderTransformOrigin = new Point(0.5, 0.5);
             LoadingCircle0.RenderTransform = new RotateTransform();
 
@@ -68,36 +90,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             LoadingCircle3.RenderTransformOrigin = new Point(0.5, 0.5);
             LoadingCircle3.RenderTransform = new RotateTransform();
 
-            DoubleAnimation rotateAnimation0 = new DoubleAnimation();
-            rotateAnimation0.From = 0;
-            rotateAnimation0.To = 360;
-            rotateAnimation0.Duration = new Duration(TimeSpan.FromSeconds(2));
-            rotateAnimation0.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation0);
+            // Задаю свойства для анимации
+            DoubleAnimation animationLeft = new DoubleAnimation();
+            animationLeft.From = 0;
+            animationLeft.To = 360;
+            animationLeft.Duration = new Duration(TimeSpan.FromSeconds(2));
+            animationLeft.RepeatBehavior = RepeatBehavior.Forever;
 
-            DoubleAnimation rotateAnimation1 = new DoubleAnimation();
-            rotateAnimation1.From = 0;
-            rotateAnimation1.To = -360;
-            rotateAnimation1.Duration = new Duration(TimeSpan.FromSeconds(4));
-            rotateAnimation1.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation1);
+            DoubleAnimation animationRight = new DoubleAnimation();
+            animationRight.From = 0;
+            animationRight.To = -360;
+            animationRight.Duration = new Duration(TimeSpan.FromSeconds(4));
+            animationRight.RepeatBehavior = RepeatBehavior.Forever;
 
-            DoubleAnimation rotateAnimation2 = new DoubleAnimation();
-            rotateAnimation2.From = 0;
-            rotateAnimation2.To = 360;
-            rotateAnimation2.Duration = new Duration(TimeSpan.FromSeconds(6));
-            rotateAnimation2.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation2);
+            // Подключаю анимацию
+            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
+            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
 
-            DoubleAnimation rotateAnimation3 = new DoubleAnimation();
-            rotateAnimation3.From = 0;
-            rotateAnimation3.To = -360;
-            rotateAnimation3.Duration = new Duration(TimeSpan.FromSeconds(8));
-            rotateAnimation3.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation3);
+            // Меняю свойство анимации и подключаю её
+            animationLeft = new DoubleAnimation();
+            animationLeft.Duration = new Duration(TimeSpan.FromSeconds(6));
+            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
+
+            animationRight = new DoubleAnimation();
+            animationRight.Duration = new Duration(TimeSpan.FromSeconds(8));
+            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
         }
 
-        private void StopLoadingAnimation()
+        private void StopLoadingAnimation() // Остановка анимации
         {
             LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
             LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
@@ -107,14 +127,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
         private void ScanDeception()
         {
+            // Получаю рандомное время
             Random random = new Random();
-            targetTime = random.Next(10, 121);
+            targetTime = random.Next(5, 31);
             startTime = DateTime.Now;
 
             // создание и запуск таймера
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += Timer_Tick;
-            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Start();
         }
 
@@ -126,15 +147,41 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
             if (percentage >= 100)
             {
-                // остановка таймера
+                StopLoadingAnimation();
+                OutputDataWaitingForStorage();
+
                 dispatcherTimer.Stop();
                 ProgressScanTextBlock.Text = "100%";
-                StopLoadingAnimation();
+                FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
             }
             else
             {
                 ProgressScanTextBlock.Text = $"{percentage}%";
             }
+        }
+
+        private void ReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
+        {
+            if (Properties.Settings.Default.SNMUpdateScan == null)
+            {
+                ResultScanBorder.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                WhenCheckedTextBlock.Text = Properties.Settings.Default.SNMUpdateScan;
+                WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeUpdateScan;
+                ResultCheckedTextBlock.Text = Properties.Settings.Default.ResultUpdateScan;
+            }
+        }
+
+        private void OutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
+        {
+            var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
+
+            Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
+            Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
+            Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
+            Properties.Settings.Default.Save();
         }
         #endregion
     }
