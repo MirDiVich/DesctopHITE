@@ -21,14 +21,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 $"- Добавлена данная страница;\n" +
                 $"- Сделан код более читаемый;\n" +
                 $"- Улучшина производительность приложения.";
+        }
 
+        private void CheckUpdateButton_Click(object sender, RoutedEventArgs e)
+        {
             StartLoadingAnimation();
         }
 
         private void StartLoadingAnimation()
         {
-           
-
             LoadingCircle0.RenderTransformOrigin = new Point(0.5, 0.5);
             LoadingCircle0.RenderTransform = new RotateTransform();
 
@@ -71,7 +72,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             rotateAnimation.Duration = new Duration(TimeSpan.FromSeconds(8));
             rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
             LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-
         }
     }
 }

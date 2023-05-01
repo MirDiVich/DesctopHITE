@@ -7,14 +7,11 @@
     mc:Ignorable="d"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
-        <Border
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="10"
-            Width="600"
-            Height="270"
-            Visibility="Visible"
-            Style="{DynamicResource BorderInformation}">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Border
+                Margin="10"
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
             <StackPanel Margin="10" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                 <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
                     <TextBlock
@@ -49,59 +46,71 @@
                 </StackPanel>
             </StackPanel>
         </Border>
+        </StackPanel>
         <Grid
-            Height="400"
-            Width="400"
+            Height="500"
+            Width="600"
             Margin="10"
             VerticalAlignment="Top"
             HorizontalAlignment="Right">
-            <TextBlock
-                x:Name="ProgressScanTextBlock"
-                Visibility="Visible"
-                Foreground="#462AD8"
-                FontSize="60"
-                Text="100%"
-                Style="{DynamicResource MainStyleTextBlock}"/>
-            <Ellipse 
-                x:Name="LoadingCircle0"
-                Width="250"
-                Height="250"
-                StrokeDashArray="50 25"
-                StrokeThickness="5" 
-                Stroke="#f5f5f5"/>
-            <Ellipse 
-                x:Name="LoadingCircle1"
-                Width="300"
-                Height="300"
-                StrokeDashArray="15 30"
-                StrokeThickness="7" 
-                Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
-                <Ellipse.RenderTransform>
-                    <TransformGroup>
-                        <RotateTransform Angle="90"/>
-                    </TransformGroup>
-                </Ellipse.RenderTransform>
-            </Ellipse>
-            <Ellipse 
-                x:Name="LoadingCircle2"
-                Width="350"
-                Height="350"
-                StrokeThickness="9" 
-                StrokeDashArray="20 20"
-                Stroke="#f5f5f5"/>
-            <Ellipse 
-                x:Name="LoadingCircle3"
-                Width="400"
-                Height="400"
-                StrokeThickness="11" 
-                StrokeDashArray="10 8"
-                Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
-                <Ellipse.RenderTransform>
-                    <TransformGroup>
-                        <RotateTransform Angle="90"/>
-                    </TransformGroup>
-                </Ellipse.RenderTransform>
-            </Ellipse>
+            <Grid Height="450" VerticalAlignment="Top" Margin="10 10 10 0">
+                <TextBlock
+                    x:Name="ProgressScanTextBlock"
+                    Visibility="Visible"
+                    Foreground="#462AD8"
+                    FontSize="60"
+                    Text="100%"
+                    Style="{DynamicResource MainStyleTextBlock}"/>
+                <Ellipse 
+                    x:Name="LoadingCircle0"
+                    Width="250"
+                    Height="250"
+                    StrokeDashArray="50 25"
+                    StrokeThickness="5" 
+                    Stroke="#f5f5f5"/>
+                <Ellipse 
+                    x:Name="LoadingCircle1"
+                    Width="300"
+                    Height="300"
+                    StrokeDashArray="15 30"
+                    StrokeThickness="7" 
+                    Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse 
+                    x:Name="LoadingCircle2"
+                    Width="350"
+                    Height="350"
+                    StrokeThickness="9" 
+                    StrokeDashArray="20 20"
+                    Stroke="#f5f5f5"/>
+                <Ellipse 
+                    x:Name="LoadingCircle3"
+                    Width="400"
+                    Height="400"
+                    StrokeThickness="11" 
+                    StrokeDashArray="10 8"
+                    Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+            <Button
+                x:Name="CheckUpdateButton"
+                Click="CheckUpdateButton_Click"
+                Width="320"
+                Content="Проверить обновление"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Height="40"/>
         </Grid>
     </Grid>
 </Page>
