@@ -109,11 +109,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
             // Меняю свойство анимации и подключаю её
             animationLeft = new DoubleAnimation();
+            animationLeft.From = 0;
+            animationLeft.To = 360;
             animationLeft.Duration = new Duration(TimeSpan.FromSeconds(6));
-            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
+            animationLeft.RepeatBehavior = RepeatBehavior.Forever;
+
+            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
 
             animationRight = new DoubleAnimation();
+            animationRight.From = 0;
+            animationRight.To = -360;
             animationRight.Duration = new Duration(TimeSpan.FromSeconds(8));
+            animationRight.RepeatBehavior = RepeatBehavior.Forever;
             LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
         }
 
@@ -129,7 +136,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             // Получаю рандомное время
             Random random = new Random();
-            targetTime = random.Next(5, 31);
+            targetTime = random.Next(10, 181);
             startTime = DateTime.Now;
 
             // создание и запуск таймера
