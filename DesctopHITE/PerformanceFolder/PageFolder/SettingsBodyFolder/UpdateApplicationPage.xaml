@@ -58,51 +58,40 @@
                     x:Name="ProgressScanTextBlock"
                     Visibility="Visible"
                     Foreground="#462AD8"
-                    FontSize="60"
+                    FontSize="40"
                     Text="100%"
                     Style="{DynamicResource MainStyleTextBlock}"/>
                 <Ellipse 
                     x:Name="LoadingCircle0"
-                    Width="250"
-                    Height="250"
-                    StrokeDashArray="50 25"
+                    Width="150"
+                    Height="150"
+                    StrokeDashArray="25 20"
                     StrokeThickness="5" 
                     Stroke="#f5f5f5"/>
                 <Ellipse 
                     x:Name="LoadingCircle1"
-                    Width="300"
-                    Height="300"
-                    StrokeDashArray="15 30"
+                    Width="175"
+                    Height="175"
+                    StrokeDashArray="15 10"
                     StrokeThickness="7" 
-                    Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
-                    <Ellipse.RenderTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="90"/>
-                        </TransformGroup>
-                    </Ellipse.RenderTransform>
-                </Ellipse>
+                    Stroke="#462AD8"/>
                 <Ellipse 
                     x:Name="LoadingCircle2"
-                    Width="350"
-                    Height="350"
+                    Width="207"
+                    Height="207"
                     StrokeThickness="9" 
-                    StrokeDashArray="20 20"
+                    StrokeDashArray="10 7"
                     Stroke="#f5f5f5"/>
                 <Ellipse 
                     x:Name="LoadingCircle3"
-                    Width="400"
-                    Height="400"
+                    Width="250"
+                    Height="250"
                     StrokeThickness="11" 
-                    StrokeDashArray="10 8"
-                    Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
-                    <Ellipse.RenderTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="90"/>
-                        </TransformGroup>
-                    </Ellipse.RenderTransform>
-                </Ellipse>
+                    StrokeDashArray="4 6"
+                    Stroke="#462AD8"/>
             </Grid>
-            <Button
+            <ToggleButton
+                Style="{DynamicResource MainToggleButton}"
                 x:Name="CheckUpdateButton"
                 Click="CheckUpdateButton_Click"
                 Width="320"

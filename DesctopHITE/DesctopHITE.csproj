@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon_DesctopHITE.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -406,10 +409,9 @@
       <LastGenOutput>DesctopHiteModel.cs</LastGenOutput>
     </Content>
     <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
-    <Resource Include="ContentFolder\ImageFolder\GitHubQrCode.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Icon_DesctopHITE.ico" />
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
+    <Resource Include="ContentFolder\ImageFolder\GitHubQrCode.png" />
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="ContentFolder\ImageFolder\StartIconHTRE.png" />

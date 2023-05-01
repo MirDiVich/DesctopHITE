@@ -1,10 +1,14 @@
-﻿using System.Windows;
+﻿///----------------------------------------------------------------------------------------------------------
+/// На данной странице реализован код для возможности проверки на обновление;
+/// На самом деле это страница пустышка. Никакой проверки на обновление нет. Код реализован тем
+///     что он просто выбирает рандомное время и выполняет анимацию за отведённое время и выдаёт 
+///     всегда результат, что стоит последняя версия приложения.
+///----------------------------------------------------------------------------------------------------------
 using System;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using System.Windows.Media;
-using System.Windows.Shapes;
-using System.Collections.Generic;
+using System.Windows.Media.Animation;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 {
@@ -22,12 +26,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 $"- Сделан код более читаемый;\n" +
                 $"- Улучшина производительность приложения.";
         }
-
+        #region Click
         private void CheckUpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            StartLoadingAnimation();
+            if (CheckUpdateButton.IsChecked == true)
+            {
+                StartLoadingAnimation();
+            }
+            else
+            {
+                StopLoadingAnimation();
+            }
         }
-
+        #endregion
+        #region Метод
         private void StartLoadingAnimation()
         {
             LoadingCircle0.RenderTransformOrigin = new Point(0.5, 0.5);
@@ -73,5 +85,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
             LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
         }
+
+        private void StopLoadingAnimation()
+        {
+            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+        }
+        #endregion
     }
 }
