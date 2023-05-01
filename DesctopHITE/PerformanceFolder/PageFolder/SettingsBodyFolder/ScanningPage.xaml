@@ -111,6 +111,7 @@
                 Margin="0 0 5 50"
                 Style="{DynamicResource MainStyleTextBlock}"/>
             <Path
+                x:Name="Qwerty"
                 HorizontalAlignment ="Center"
                 VerticalAlignment ="Center"
                 Stroke ="#8c8a8c"
@@ -121,7 +122,7 @@
                 Data="M 0,100 A 100,100 0 1 1 300,100 A 100,100 0 1 1 0,100"/>
             <Path
                 x:Name="ProgressLoadingPath"
-                Opacity="0"
+                Opacity="1"
                 HorizontalAlignment ="Center"
                 VerticalAlignment ="Center"
                 Stroke ="#462AD8"
@@ -129,7 +130,7 @@
                 StrokeStartLineCap ="Flat"
                 StrokeEndLineCap ="Flat"
                 StrokeDashOffset ="0"
-                Data="M 0,100 A 100,100 0 1 1 300,100 A 100,100 0 1 1 0,100"/>
+                Data="M 100,0 A 100,100 0 0 1 200,100"/>
             <ToggleButton
                 Style="{DynamicResource OtherMenuToggleButtonStyle}"
                 Height="40"
@@ -139,43 +140,7 @@
                 Content="Запустить сканирование системы"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"
-                Margin="20">
-                <ToggleButton.Resources>
-                    <Storyboard RepeatBehavior="Forever" x:Key="Start_Animation">
-                        <DoubleAnimation 
-                            Storyboard.TargetName="ProgressLoadingPath"
-                            Storyboard.TargetProperty="StrokeDashOffset"
-                            Duration="0:0:1"
-                            From="0"
-                            To="300"/>
-                        <DoubleAnimation 
-                            AutoReverse="True"
-                            Storyboard.TargetProperty="Opacity"
-                            Storyboard.TargetName="ProgressLoadingPath"
-                            From="0"
-                            To="1"
-                            BeginTime="0:0:0"
-                            Duration="0:0:01"/>
-                    </Storyboard>
-                    <Storyboard x:Key="Stop_Animation">
-                        <DoubleAnimation 
-                            Storyboard.TargetProperty="Opacity"
-                            Storyboard.TargetName="ProgressLoadingPath"
-                            From="1"
-                            To="0"
-                            BeginTime="0:0:0"
-                            Duration="0:0:0"/>
-                    </Storyboard>
-                </ToggleButton.Resources>
-                <ToggleButton.Triggers>
-                    <EventTrigger RoutedEvent="ToggleButton.Checked">
-                        <BeginStoryboard Storyboard="{StaticResource Start_Animation}" />
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                        <BeginStoryboard Storyboard="{StaticResource Stop_Animation}" />
-                    </EventTrigger>
-                </ToggleButton.Triggers>
-            </ToggleButton>
+                Margin="20"/>
         </Grid>
     </Grid>
 </Page>

@@ -1,10 +1,10 @@
 ﻿<Page
-    x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.UpdateApplicationPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    mc:Ignorable="d" 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder.UpdateApplicationPage" 
+    mc:Ignorable="d"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <Border
@@ -49,5 +49,40 @@
                 </StackPanel>
             </StackPanel>
         </Border>
+        <Grid
+            Height="400"
+            Width="400"
+            Margin="10"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right">
+            <Ellipse 
+                x:Name="LoadingCircle0"
+                Width="250"
+                Height="250"
+                StrokeDashArray="30 25"
+                StrokeThickness="7" 
+                Stroke="#462AD8"/>
+            <Ellipse 
+                x:Name="LoadingCircle1"
+                Width="300"
+                Height="300"
+                StrokeDashArray="40 30"
+                StrokeThickness="7" 
+                Stroke="#462AD8"/>
+            <Ellipse 
+                x:Name="LoadingCircle2"
+                Width="350"
+                Height="350"
+                StrokeThickness="7" 
+                StrokeDashArray="40 35"
+                Stroke="#462AD8"/>
+            <Ellipse 
+                x:Name="LoadingCircle3"
+                Width="400"
+                Height="400"
+                StrokeThickness="7" 
+                StrokeDashArray="50 40"
+                Stroke="#462AD8"/>
+        </Grid>
     </Grid>
 </Page>

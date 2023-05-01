@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using System;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 {
@@ -20,7 +13,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         public UpdateApplicationPage()
         {
             InitializeComponent();
-
             TitleUpDateTextBlock.Text =
                 $"- Исправлена ошибка при изменении данных о сотруднике;\n" +
                 $"- Исправлена ошибка при добавлении сотрудника;\n" +
@@ -29,6 +21,57 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 $"- Добавлена данная страница;\n" +
                 $"- Сделан код более читаемый;\n" +
                 $"- Улучшина производительность приложения.";
+
+            StartLoadingAnimation();
+        }
+
+        private void StartLoadingAnimation()
+        {
+           
+
+            LoadingCircle0.RenderTransformOrigin = new Point(0.5, 0.5);
+            LoadingCircle0.RenderTransform = new RotateTransform();
+
+            LoadingCircle1.RenderTransformOrigin = new Point(0.5, 0.5);
+            LoadingCircle1.RenderTransform = new RotateTransform();
+
+            LoadingCircle2.RenderTransformOrigin = new Point(0.5, 0.5);
+            LoadingCircle2.RenderTransform = new RotateTransform();
+
+            LoadingCircle3.RenderTransformOrigin = new Point(0.5, 0.5);
+            LoadingCircle3.RenderTransform = new RotateTransform();
+
+            DoubleAnimation rotateAnimation = new DoubleAnimation();
+
+            rotateAnimation = new DoubleAnimation();
+            rotateAnimation.From = 0;
+            rotateAnimation.To = 360;
+            rotateAnimation.Duration = new Duration(TimeSpan.FromSeconds(2));
+            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+
+            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+            rotateAnimation = new DoubleAnimation();
+            rotateAnimation.From = 0;
+            rotateAnimation.To = -360;
+            rotateAnimation.Duration = new Duration(TimeSpan.FromSeconds(4));
+            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+            rotateAnimation = new DoubleAnimation();
+            rotateAnimation.From = 0;
+            rotateAnimation.To = 360;
+            rotateAnimation.Duration = new Duration(TimeSpan.FromSeconds(6));
+            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+            rotateAnimation = new DoubleAnimation();
+            rotateAnimation.From = 0;
+            rotateAnimation.To = -360;
+            rotateAnimation.Duration = new Duration(TimeSpan.FromSeconds(8));
+            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
         }
     }
 }
