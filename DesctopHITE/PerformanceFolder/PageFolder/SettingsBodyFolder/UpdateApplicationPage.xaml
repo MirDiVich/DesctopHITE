@@ -55,13 +55,20 @@
             Margin="10"
             VerticalAlignment="Top"
             HorizontalAlignment="Right">
+            <TextBlock
+                x:Name="ProgressScanTextBlock"
+                Visibility="Visible"
+                Foreground="#462AD8"
+                FontSize="60"
+                Text="100%"
+                Style="{DynamicResource MainStyleTextBlock}"/>
             <Ellipse 
                 x:Name="LoadingCircle0"
                 Width="250"
                 Height="250"
                 StrokeDashArray="50 25"
                 StrokeThickness="5" 
-                Stroke="#462AD8"/>
+                Stroke="#f5f5f5"/>
             <Ellipse 
                 x:Name="LoadingCircle1"
                 Width="300"
@@ -81,7 +88,7 @@
                 Height="350"
                 StrokeThickness="9" 
                 StrokeDashArray="20 20"
-                Stroke="#462AD8"/>
+                Stroke="#f5f5f5"/>
             <Ellipse 
                 x:Name="LoadingCircle3"
                 Width="400"
