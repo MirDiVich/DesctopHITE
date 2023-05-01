@@ -284,7 +284,7 @@
                     x:Name="CheckUpdateButton"
                     Click="CheckUpdateButton_Click"
                     Width="270"
-                    Content="Проверить обновление"
+                    Content="ПРОВЕРИТЬ ОБНОВЛЕНИЕ"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Center"
                     Margin="0 0 0 0"

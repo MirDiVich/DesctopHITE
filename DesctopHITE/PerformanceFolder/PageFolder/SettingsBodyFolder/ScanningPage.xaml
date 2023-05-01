@@ -7,6 +7,10 @@
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Border 
                 Margin="10"
@@ -98,49 +102,97 @@
             </Border>
         </StackPanel>
         <Grid
-            Height="450"
-            Width="450"
+            Height="780"
+            Grid.Column="1"
             VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Margin="0 30 150 0" RenderTransformOrigin="0.5,0.5">
-            <TextBlock
-                x:Name="ProgressScanTextBlock"
-                Visibility="Collapsed"
-                Foreground="#462AD8"
-                FontSize="60"
-                Margin="0 0 5 50"
-                Style="{DynamicResource MainStyleTextBlock}"/>
-            <Path
-                x:Name="Qwerty"
-                HorizontalAlignment ="Center"
-                VerticalAlignment ="Center"
-                Stroke ="#8c8a8c"
-                StrokeThickness ="15"
-                StrokeStartLineCap ="Flat"
-                StrokeEndLineCap ="Flat"
-                StrokeDashOffset ="0"
-                Data="M 0,100 A 100,100 0 1 1 300,100 A 100,100 0 1 1 0,100"/>
-            <Path
-                x:Name="ProgressLoadingPath"
-                Opacity="1"
-                HorizontalAlignment ="Center"
-                VerticalAlignment ="Center"
-                Stroke ="#462AD8"
-                StrokeThickness ="15"
-                StrokeStartLineCap ="Flat"
-                StrokeEndLineCap ="Flat"
-                StrokeDashOffset ="0"
-                Data="M 100,0 A 100,100 0 0 1 200,100"/>
-            <ToggleButton
-                Style="{DynamicResource OtherMenuToggleButtonStyle}"
-                Height="40"
-                Width="360"
-                x:Name="TestButton"
-                Click="TestButton_Click"
-                Content="Запустить сканирование системы"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Center"
-                Margin="20"/>
+            HorizontalAlignment="Center">
+            <Grid VerticalAlignment="Top" Height="400" Margin="10 0 10 0">
+                <TextBlock
+                    x:Name="ProgressScanTextBlock"
+                    Visibility="Visible"
+                    Foreground="#462AD8"
+                    FontSize="40"
+                    Text="///"
+                    Style="{DynamicResource MainStyleTextBlock}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Ellipse 
+                    x:Name="LoadingCircle0"
+                    Width="150"
+                    Height="150"
+                    StrokeDashArray="25 20"
+                    StrokeThickness="5" 
+                    Stroke="#f5f5f5">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#f5f5f5"/>
+                    </Ellipse.Effect>
+                </Ellipse>
+                <Ellipse 
+                    x:Name="LoadingCircle1"
+                    Width="175"
+                    Height="175"
+                    StrokeDashArray="15 10"
+                    StrokeThickness="7" 
+                    Stroke="#462AD8">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </Ellipse.Effect>
+                </Ellipse>
+                <Ellipse 
+                    x:Name="LoadingCircle2"
+                    Width="207"
+                    Height="207"
+                    StrokeThickness="9" 
+                    StrokeDashArray="10 7"
+                    Stroke="#f5f5f5">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#f5f5f5"/>
+                    </Ellipse.Effect>
+                </Ellipse>
+                <Ellipse 
+                    x:Name="LoadingCircle3"
+                    Width="250"
+                    Height="250"
+                    StrokeThickness="11" 
+                    StrokeDashArray="4 6"
+                    Stroke="#462AD8">
+                    <Ellipse.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="30"
+                            ShadowDepth="2"
+                            Direction="-90"
+                            Color="#462AD8"/>
+                    </Ellipse.Effect>
+                </Ellipse>
+                <ToggleButton
+                    Style="{DynamicResource MainToggleButton}"
+                    x:Name="CheckScanButton"
+                    Click="CheckScanButton_Click"
+                    Width="270"
+                    Content="СКАНИРОВАТЬ"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 0 0"
+                    Height="40"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
