@@ -59,30 +59,42 @@
                 x:Name="LoadingCircle0"
                 Width="250"
                 Height="250"
-                StrokeDashArray="30 25"
-                StrokeThickness="7" 
+                StrokeDashArray="50 25"
+                StrokeThickness="5" 
                 Stroke="#462AD8"/>
             <Ellipse 
                 x:Name="LoadingCircle1"
                 Width="300"
                 Height="300"
-                StrokeDashArray="40 30"
+                StrokeDashArray="15 30"
                 StrokeThickness="7" 
-                Stroke="#462AD8"/>
+                Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
             <Ellipse 
                 x:Name="LoadingCircle2"
                 Width="350"
                 Height="350"
-                StrokeThickness="7" 
-                StrokeDashArray="40 35"
+                StrokeThickness="9" 
+                StrokeDashArray="20 20"
                 Stroke="#462AD8"/>
             <Ellipse 
                 x:Name="LoadingCircle3"
                 Width="400"
                 Height="400"
-                StrokeThickness="7" 
-                StrokeDashArray="50 40"
-                Stroke="#462AD8"/>
+                StrokeThickness="11" 
+                StrokeDashArray="10 8"
+                Stroke="#462AD8" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
         </Grid>
     </Grid>
 </Page>
