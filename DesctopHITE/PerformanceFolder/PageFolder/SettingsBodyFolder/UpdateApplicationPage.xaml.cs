@@ -113,7 +113,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             animationLeft.To = 360;
             animationLeft.Duration = new Duration(TimeSpan.FromSeconds(6));
             animationLeft.RepeatBehavior = RepeatBehavior.Forever;
-
             LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
 
             animationRight = new DoubleAnimation();

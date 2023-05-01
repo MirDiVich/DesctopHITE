@@ -22,6 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 AboutTheAppToggleButton.IsChecked = true;
                 AboutTheAppToggleButton.IsEnabled = false;
+                FrameNavigationClass.BodySettings_FNC.Navigate(new AboutAppPage());
             }
         }
         #region Click
@@ -31,6 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             IsEnabledToggleButton();
             AboutTheAppToggleButton.IsChecked = true;
             AboutTheAppToggleButton.IsEnabled = false;
+            FrameNavigationClass.BodySettings_FNC.Navigate(new AboutAppPage());
         }
 
         private void UpdateToggleButton_Click(object sender, RoutedEventArgs e)

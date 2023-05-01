@@ -153,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\SettingsBodyFolder\AboutAppPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\SettingsBodyFolder\UpdateApplicationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,6 +295,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuWorkerPage.xaml.cs">
       <DependentUpon>MenuWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\AboutAppPage.xaml.cs">
+      <DependentUpon>AboutAppPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\SettingsBodyFolder\UpdateApplicationPage.xaml.cs">
       <DependentUpon>UpdateApplicationPage.xaml</DependentUpon>
