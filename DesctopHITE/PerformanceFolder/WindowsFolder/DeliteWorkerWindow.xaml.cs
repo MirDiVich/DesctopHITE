@@ -12,43 +12,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class DeliteWorkerWindow : Window
     {
-        #region Управление окном
-        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
-        {
-            try
-            {
-                if (e.ChangedButton == MouseButton.Left)
-                {
-                    this.DragMove();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU001 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
-        {
-            try
-            {
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU002 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
-        }
-        #endregion
-
         int personalNumberWorker = 0; // Переменная для дальнейших действий над сотрудником по его персональному номеру
 
         public DeliteWorkerWindow(WorkerTable workerTable)
@@ -75,13 +38,51 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         $"({informationAddedWhomWorker.RoleTable.Name_Role})";
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
+                var nameMessageOne = $"Ошибка (DwWE - 001)";
+                var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
-                    ex.Message, "Ошибка (NewWorkerPage - E-001)",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
+        #region Управление окном
+        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception exSpaseBar)
+            {
+                var nameMessageSpaseBar = $"Ошибка (DwWE - 002)";
+                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
+                MessageBox.Show(
+                    nameMessageSpaseBar, titleMessageSpaseBar,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
+        {
+            try
+            {
+                Application.Current.Shutdown();
+            }
+            catch (Exception exClose)
+            {
+                var nameMessageClose = $"Ошибка (DwWE - 003)";
+                var titleMessageClose = $"{exClose.Message}";
+                MessageBox.Show(
+                    nameMessageClose, titleMessageClose,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
+        }
+        #endregion
         #region Click
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -90,27 +91,38 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 this.Close();
                 personalNumberWorker = 0;
             }
-            catch (Exception ex)
+            catch (Exception exCancel)
             {
+                var nameMessageCancel = $"Ошибка (DwWE - 004)";
+                var titleMessageCancel = $"{exCancel.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU002 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    nameMessageCancel, titleMessageCancel,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
         private void DeliteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (personalNumberWorker == 0)
+            try
             {
-                MessageBox.Show(
-                    "Сотрудник не выбран", "Ошибка - E002",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                if (personalNumberWorker == 0)
+                {
+                    MessageBox.Show(
+                        "Сотрудник не выбран", "Ошибка - E005",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    DeliteWorkerMethod();
+                }
             }
-            else
+            catch (Exception exDelite)
             {
-                DeliteWorkerMethod();
+                var nameMessageDelite = $"Ошибка (DwWE - 006)";
+                var titleMessageDelite = $"{exDelite.Message}";
+                MessageBox.Show(
+                    nameMessageDelite, titleMessageDelite,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
         #endregion
@@ -124,20 +136,19 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 string SurnameNameWorker = $"{informationDeliteWorker.PassportTable.Surname_Passport} {informationDeliteWorker.PassportTable.Name_Passport}"; // Получаем Фамилия и Имя для уведомления
                 string MessageTitle = $"Вы действительно хотите удалить: {SurnameNameWorker} ?";
 
-                if (MessageBox.Show(
-                    MessageTitle, "Удаление",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show( MessageTitle, "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    AppConnectClass.DataBase.ImagePassportTable.Remove(informationDeliteWorker.PassportTable.ImagePassportTable);
-                    AppConnectClass.DataBase.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
-                    AppConnectClass.DataBase.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
-                    AppConnectClass.DataBase.SalaryCardTable.Remove(informationDeliteWorker.SalaryCardTable);
-                    AppConnectClass.DataBase.PassportTable.Remove(informationDeliteWorker.PassportTable);
-                    AppConnectClass.DataBase.SnilsTable.Remove(informationDeliteWorker.SnilsTable);
-                    AppConnectClass.DataBase.INNTable.Remove(informationDeliteWorker.INNTable);
-                    AppConnectClass.DataBase.WorkerTable.Remove(informationDeliteWorker);
+                    var dataDelitWorker = AppConnectClass.DataBase;
+                    dataDelitWorker.ImagePassportTable.Remove(informationDeliteWorker.PassportTable.ImagePassportTable);
+                    dataDelitWorker.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
+                    dataDelitWorker.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
+                    dataDelitWorker.SalaryCardTable.Remove(informationDeliteWorker.SalaryCardTable);
+                    dataDelitWorker.PassportTable.Remove(informationDeliteWorker.PassportTable);
+                    dataDelitWorker.SnilsTable.Remove(informationDeliteWorker.SnilsTable);
+                    dataDelitWorker.INNTable.Remove(informationDeliteWorker.INNTable);
+                    dataDelitWorker.WorkerTable.Remove(informationDeliteWorker);
 
-                    AppConnectClass.DataBase.SaveChanges();
+                    dataDelitWorker.SaveChanges();
 
                     string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
 
@@ -148,11 +159,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.Close();
                 }
             }
-            catch (Exception Ex)
+            catch (Exception exDeliteWorkerMethod)
             {
+                var nameMessageDeliteWorkerMethod = $"Ошибка (DwWE - 007)";
+                var titleMessageDeliteWorkerMethod = $"{exDeliteWorkerMethod.Message}";
                 MessageBox.Show(
-                    Ex.Message.ToString(), "Ошибка - E003",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageDeliteWorkerMethod, titleMessageDeliteWorkerMethod,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
         #endregion
