@@ -148,7 +148,7 @@
             </Border>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="10">
-            <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
+            <Border MaxHeight="350" MinHeight="0" Height="auto" Visibility="Visible" Style="{DynamicResource BorderInformation}">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock
                         Foreground="#462AD8"
@@ -168,7 +168,7 @@
                     </ListView>
                 </StackPanel>
             </Border>
-            <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
+            <Border MaxHeight="350" MinHeight="0" Height="auto" Visibility="Visible" Style="{DynamicResource BorderInformation}">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock
                         Foreground="#462AD8"
