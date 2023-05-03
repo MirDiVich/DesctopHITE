@@ -45,7 +45,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void GetBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
-
+            var birthdayComingSoon = AppConnectClass.DataBase.PassportTable;
         }
 
         private void GetTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
