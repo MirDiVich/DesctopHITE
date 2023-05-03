@@ -48,22 +48,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void GetBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
-            var behindDay = toDay.AddDays(- 3);
-            var birthdayComingSoon = AppConnectClass.DataBase.PassportTable;
+            var www = toDay.AddDays(-3);
 
-            BirthdayComingSoonListView.ItemsSource = birthdayComingSoon.Where(dateOfBrith =>
-               ((dateOfBrith.DateOfBrich_Passport.Day <= behindDay.Day && dateOfBrith.DateOfBrich_Passport.Day != toDay.Day) &&
-                 dateOfBrith.DateOfBrich_Passport.Month <= behindDay.Month) &&
-                 dateOfBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
+            // Выведи мне только тех сотрудников у которых: день рождение в этом месяце, не сегодня,
+            BirthdayComingSoonListView.ItemsSource = 
+                AppConnectClass.DataBase.PassportTable.Where(dateOfBrith =>
+                    dateOfBrith.DateOfBrich_Passport.Month == toDay.Month &&
+                    dateOfBrith.DateOfBrich_Passport.Day != toDay.Day).ToList();
         }
 
         private void GetTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
         {
-            var toDayBirthday = AppConnectClass.DataBase.PassportTable;
-
-            TodayBirthdayListView.ItemsSource = toDayBirthday.Where(toDayBrith =>
-                toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
-                toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
+            TodayBirthdayListView.ItemsSource = 
+                AppConnectClass.DataBase.PassportTable.Where(toDayBrith =>
+                    toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
+                    toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
         }
 
         private void GetGenderWorker() // Считаю количество сотрудников мужского \ женского гендера
