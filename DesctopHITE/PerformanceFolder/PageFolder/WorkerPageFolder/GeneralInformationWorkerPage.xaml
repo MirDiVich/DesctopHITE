@@ -9,7 +9,7 @@
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-        <StackPanel Orientation="Vertical" Margin="10 10 20 10">
+        <StackPanel Orientation="Vertical" Margin="10">
             <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock
@@ -147,7 +147,7 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="20 10 10 10">
+        <StackPanel Orientation="Vertical" Margin="10">
             <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
                 <StackPanel Orientation="Vertical" Margin="10">
                     <TextBlock
@@ -157,7 +157,7 @@
                         FontSize="30"
                         Margin="0 10 0 10"/>
                     <ListView
-                        x:Name="BirthdayComingSoonListView"
+                        x:Name="TodayBirthdayListView"
                         Margin="10"
                         ItemContainerStyle="{StaticResource ListViewItemSelected}">
                         <ListView.ItemTemplate>
@@ -177,7 +177,7 @@
                         FontSize="30"
                         Margin="0 10 0 10"/>
                     <ListView
-                        x:Name="TodayBirthdayListView"
+                        x:Name="BirthdayComingSoonListView"
                         Margin="10"
                         ItemContainerStyle="{StaticResource ListViewItemSelected}">
                         <ListView.ItemTemplate>
@@ -188,6 +188,12 @@
                     </ListView>
                 </StackPanel>
             </Border>
+            <Button
+                x:Name="uhtiur"
+                Content="Укйегр"
+                Click="uhtiur_Click"
+                Height="40"
+                Width="180"/>
         </StackPanel>
     </StackPanel>
 </Page>

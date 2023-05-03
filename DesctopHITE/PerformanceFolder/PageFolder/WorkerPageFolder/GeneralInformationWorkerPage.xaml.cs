@@ -8,6 +8,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 {
     public partial class GeneralInformationWorkerPage : Page
     {
+        DateTime toDay = DateTime.Today;
+
         public GeneralInformationWorkerPage()
         {
             InitializeComponent();
@@ -45,12 +48,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void GetBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
+            var behindDay = toDay.AddDays(- 3);
             var birthdayComingSoon = AppConnectClass.DataBase.PassportTable;
+
+            BirthdayComingSoonListView.ItemsSource = birthdayComingSoon.Where(dateOfBrith =>
+               ((dateOfBrith.DateOfBrich_Passport.Day <= behindDay.Day && dateOfBrith.DateOfBrich_Passport.Day != toDay.Day) &&
+                 dateOfBrith.DateOfBrich_Passport.Month <= behindDay.Month) &&
+                 dateOfBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
         }
 
         private void GetTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
         {
+            var toDayBirthday = AppConnectClass.DataBase.PassportTable;
 
+            TodayBirthdayListView.ItemsSource = toDayBirthday.Where(toDayBrith =>
+                toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
+                toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
         }
 
         private void GetGenderWorker() // Считаю количество сотрудников мужского \ женского гендера
@@ -70,6 +83,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             NumberEmployeesWithPositionCashierTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 3)}";
             NumberEmployeesWithPositionCleanerTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 4)}";
             NumberEmployeesWithPositionDirectorTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 5)}";
+        }
+
+        private void uhtiur_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime dateTime = DateTime.Today;
+            try
+            {
+                MessageBox.Show(dateTime.Day.ToString());
+            }
+            catch (Exception ex)
+            {
+                string tututut = $"{ex.Message}";
+
+                MessageBox.Show(tututut);
+            }
         }
     }
 }

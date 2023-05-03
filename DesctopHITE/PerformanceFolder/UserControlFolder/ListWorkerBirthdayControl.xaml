@@ -32,7 +32,7 @@
                     Stretch="UniformToFill"
                     Opacity="1"
                     x:Name="UserImage" 
-                    Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"/>
+                    Source="{Binding ImagePassportTable.Image_ImagePassport}"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0">
@@ -41,13 +41,13 @@
                 Style="{DynamicResource MainStyleTextBlock}">
                 <TextBlock 
                     Margin="0 0 2 0" 
-                    Text="{Binding PassportTable.Surname_Passport}"/>
+                    Text="{Binding Surname_Passport}"/>
                 <TextBlock 
                     Margin="2 0 2 0" 
-                    Text="{Binding PassportTable.Name_Passport}"/>
+                    Text="{Binding Name_Passport}"/>
                 <TextBlock 
                     Margin="2 0 0 0"
-                    Text="{Binding PassportTable.Middlename_Passport}"/>
+                    Text="{Binding Middlename_Passport}"/>
                 <TextBlock 
                     x:Name="TurnedYearsOld"
                     Margin="2 0 0 0"/>
