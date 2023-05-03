@@ -135,7 +135,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             // Получаю рандомное время
             Random random = new Random();
-            targetTime = random.Next(10, 181);
+            targetTime = random.Next(10, 30);
             startTime = DateTime.Now;
 
             // создание и запуск таймера
@@ -154,10 +154,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             if (percentage >= 100)
             {
                 StopLoadingAnimation();
-                OutputDataWaitingForStorage();
 
                 dispatcherTimer.Stop();
                 ProgressScanTextBlock.Text = "100%";
+
+                OutputDataWaitingForStorage();
+
                 FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
             }
             else

@@ -14,9 +14,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 {
     public partial class ScanningPage : Page
     {
-        private int targetTime;
-        private DateTime startTime;
-        private DispatcherTimer dispatcherTimer;
+        int targetTime;
+        DateTime startTime;
+        DispatcherTimer dispatcherTimer;
+        int durationScan;
 
         public ScanningPage()
         {
@@ -26,6 +27,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
             dispatcherTimer.Tick += Timer_Tick;
+            ReceivingDataWaitingForStorage();
         }
 
         #region Click
@@ -38,6 +40,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 CheckScanButton.Content = "Остановить";
                 ProgressScanTextBlock.Text = "0%";
+                ResultScanTextBlock.Visibility = Visibility.Collapsed;
+
+                WhomCheckedTextBlock2.Visibility = Visibility.Visible;
+                ResultScanTextBlock2.Visibility = Visibility.Visible;
+                WhenCheckedTextBlock2.Visibility = Visibility.Visible;
+                DurationScanTextBlock2.Visibility = Visibility.Visible;
+                TitleErrorTextBlock2.Visibility = Visibility.Visible;
+
+                WhomCheckedTextBlock.Visibility = Visibility.Collapsed;
+                ResultScanTextBlock.Visibility = Visibility.Collapsed;
+                WhenCheckedTextBlock.Visibility = Visibility.Collapsed;
+                DurationScanTextBlock.Visibility = Visibility.Collapsed;
+                TitleErrorTextBlock.Visibility = Visibility.Collapsed;
+
+                FilesAtTimeScanningTextBlock.Text = "0";
             }
             else
             {
@@ -110,7 +127,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             // Получаю рандомное время
             Random random = new Random();
-            targetTime = random.Next(10, 181);
+            targetTime = random.Next(30, 181);
             startTime = DateTime.Now;
 
             // создание и запуск таймера
@@ -126,27 +143,42 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             int elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
             int percentage = (int)(elapsedSeconds / (float)targetTime * 100);
 
+            int filesAtTimeScanning = (int)(elapsedSeconds / (float)targetTime * 591);
+
             if (percentage >= 100)
             {
                 StopLoadingAnimation();
 
                 dispatcherTimer.Stop();
                 ProgressScanTextBlock.Text = "100%";
+                durationScan = (int)(DateTime.Now - startTime).TotalSeconds;
+
+                OutputDataWaitingForStorage();
+
+                FrameNavigationClass.BodySettings_FNC.Navigate(new ScanningPage());
             }
             else
             {
                 ProgressScanTextBlock.Text = $"{percentage}%";
+                FilesAtTimeScanningTextBlock.Text = $"{filesAtTimeScanning}";
             }
         }
 
         private void ReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
         {
-           
+            WhenCheckedTextBlock.Text = Properties.Settings.Default.SNMScan;
+            WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeScan;
+            DurationScanTextBlock.Text = Properties.Settings.Default.DurationScan;
         }
 
         private void OutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
         {
-            
+            var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
+
+            Properties.Settings.Default.SNMScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
+            Properties.Settings.Default.DateTimeScan = DateTime.Now.ToString();
+            Properties.Settings.Default.DurationScan = $"{durationScan} секунд";
+            Properties.Settings.Default.Save();
         }
         #endregion
     }
