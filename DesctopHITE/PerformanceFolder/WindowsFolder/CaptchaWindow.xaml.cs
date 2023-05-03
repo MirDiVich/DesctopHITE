@@ -23,158 +23,268 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         public CaptchaWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                var nameMessageOne = $"Ошибка (CWE - 001)";
+                var titleMessageOne = $"{ex.Message}";
+                MessageBox.Show(
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            try
             {
-                // Вызов методов
-                RandomGeneratedCaptcha();
-                GetStyleCaptcha();
+                if (Visibility == Visibility.Visible)
+                {
+                    
+                    RandomGeneratedCaptcha();
+                    GetStyleCaptcha();
 
-                // Свойства для Таймера
-                getTimer = new DispatcherTimer(); 
-                getTimer.Tick += new EventHandler(GetTimer_Tick); 
-                getTimer.Interval = TimeSpan.FromSeconds(5); 
-                getTimer.Stop();
+                    // Свойства для Таймера
+                    getTimer = new DispatcherTimer();
+                    getTimer.Tick += new EventHandler(GetTimer_Tick);
+                    getTimer.Interval = TimeSpan.FromSeconds(5);
+                    getTimer.Stop();
+                }
+                else
+                {
+                    NewCaptchaButton.IsEnabled = true;
+                    getTimer.Stop();
+                }
             }
-            else
+            catch (Exception exVisible)
+            {
+                var nameMessageVisible = $"Ошибка (CWE - 002)";
+                var titleMessageVisible = $"{exVisible.Message}";
+                MessageBox.Show(
+                    nameMessageVisible, titleMessageVisible,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
+        }
+        #region Метод
+        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        {
+            try
             {
                 NewCaptchaButton.IsEnabled = true;
                 getTimer.Stop();
             }
-        }
-
-        #region Метод
-
-        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
-        {
-            NewCaptchaButton.IsEnabled = true;
-            getTimer.Stop();
+            catch (Exception exGetTimer)
+            {
+                var nameMessageGetTimer = $"Ошибка (CWE - 003)";
+                var titleMessageGetTimer = $"{exGetTimer.Message}";
+                MessageBox.Show(
+                    nameMessageGetTimer, titleMessageGetTimer,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void ErrorNullBox() // Метод проверки текстового поля на пустоту
         {
-            if (string.IsNullOrWhiteSpace(CaptchaTextBox.Text)) messageNullBox += "Поле 'Капча' пустое";
+            try
+            {
+                if (string.IsNullOrWhiteSpace(CaptchaTextBox.Text)) messageNullBox += "Поле 'Капча' пустое";
+            }
+            catch (Exception exErrorNullBox)
+            {
+                var nameMessageErrorNullBox = $"Ошибка (CWE - 004)";
+                var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
+                MessageBox.Show(
+                    nameMessageErrorNullBox, titleMessageErrorNullBox,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void GetEnter() // Вызываемый метод для проверки введённой капчи
         {
-            // Вызов метода
-            ErrorNullBox();
-
-            if (messageNullBox == null)
+            try
             {
-                if (CaptchaTextBox.Text == getCaptchaText)
+                ErrorNullBox();
+
+                if (messageNullBox == null)
                 {
-                    this.Close();
+                    if (CaptchaTextBox.Text == getCaptchaText)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "То, что вы ввели, не совпадает с Капчей", "Капча",
+                            MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                        CaptchaTextBox.Text = "";
+
+                        
+                        RandomGeneratedCaptcha();
+                        GetStyleCaptcha();
+                    }
                 }
                 else
                 {
                     MessageBox.Show(
-                        "То, что вы ввели, не совпадает с Капчей", "Капча",
-                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                        messageNullBox, "Капча",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    CaptchaTextBox.Text = "";
-
-                    // Вызов методов
-                    RandomGeneratedCaptcha();
-                    GetStyleCaptcha();
+                    messageNullBox = null;
                 }
             }
-            else
+            catch (Exception exGetEnter)
             {
+                var nameMessageGetEnter = $"Ошибка (CWE - 005)";
+                var titleMessageGetEnter = $"{exGetEnter.Message}";
                 MessageBox.Show(
-                    messageNullBox, "Капча",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-
-                messageNullBox = null;
+                    nameMessageGetEnter, titleMessageGetEnter,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
         public void RandomGeneratedCaptcha() // Метод для рандомного содержимого TextCaptcha 
         {
-            Random textRandom = new Random();
+            try
+            {
+                Random textRandom = new Random();
 
-            // Символы, которые будут присутствовать в капче
-            string charText =
-                "1234567890" +
-                "!@#$%^&*()№;:?{}[]<>" +
-                "QWERTYUIOPASDFGHJKLZXCVBNM" +
-                "qwertyuiopasdfghjklzxcvbnm";
+                // Символы, которые будут присутствовать в капче
+                string charText =
+                    "1234567890" +
+                    "!@#$%^&*()№;:?{}[]<>" +
+                    "QWERTYUIOPASDFGHJKLZXCVBNM" +
+                    "qwertyuiopasdfghjklzxcvbnm";
 
-            // Генерируем длину капчу от 5 до 10 символов
-            int lengthCaptcha = textRandom.Next(5, 10);
+                // Генерируем длину капчу от 5 до 10 символов
+                int lengthCaptcha = textRandom.Next(5, 10);
 
-            // Генератор самой капчи
-            string CaptchaText = new string(Enumerable.Repeat(charText, lengthCaptcha).Select(s => s[textRandom.Next(s.Length)]).ToArray());
+                // Генератор самой капчи
+                string CaptchaText = new string(Enumerable.Repeat(charText, lengthCaptcha).Select(s => s[textRandom.Next(s.Length)]).ToArray());
 
-            getCaptchaText = CaptchaText;
-            TextCaptchaTextBlock.Text = getCaptchaText;
+                getCaptchaText = CaptchaText;
+                TextCaptchaTextBlock.Text = getCaptchaText;
+            }
+            catch (Exception exRandomGeneratedCaptcha)
+            {
+                var nameMessageRandomGeneratedCaptcha = $"Ошибка (CWE - 006)";
+                var titleMessageRandomGeneratedCaptcha = $"{exRandomGeneratedCaptcha.Message}";
+                MessageBox.Show(
+                    nameMessageRandomGeneratedCaptcha, titleMessageRandomGeneratedCaptcha,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void GetStyleCaptcha() // Метод для рандомного свойства TextCaptcha 
         {
-            // Обращение к классу
-            var styleText = CaptchaClass.GetStyle();
+            try
+            {
+                // Обращение к классу
+                var styleText = CaptchaClass.GetStyle();
 
-            // Присваивание TextCaptchaTextBlock определённых свойст из класса
-            TextCaptchaTextBlock.Opacity = styleText.GetOpacityText;
-            TextCaptchaTextBlock.Foreground = styleText.GetColorText;
-            TextCaptchaTextBlock.FontSize = styleText.GetFontSizeText;
-            TextCaptchaTextBlock.RenderTransform = new RotateTransform(styleText.GetRotationText);
-            TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / styleText.GetFrequencyText) * styleText.GetAmplitudeText);
-            TextCaptchaTextBlock.FontWeight = styleText.GetFontWeightText;
-            TextCaptchaTextBlock.FontStyle = styleText.GetFontStyleText;
-            TextCaptchaTextBlock.TextDecorations = styleText.GetTextDecorationText;
+                // Присваивание TextCaptchaTextBlock определённых свойст из класса
+                TextCaptchaTextBlock.Opacity = styleText.GetOpacityText;
+                TextCaptchaTextBlock.Foreground = styleText.GetColorText;
+                TextCaptchaTextBlock.FontSize = styleText.GetFontSizeText;
+                TextCaptchaTextBlock.RenderTransform = new RotateTransform(styleText.GetRotationText);
+                TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / styleText.GetFrequencyText) * styleText.GetAmplitudeText);
+                TextCaptchaTextBlock.FontWeight = styleText.GetFontWeightText;
+                TextCaptchaTextBlock.FontStyle = styleText.GetFontStyleText;
+                TextCaptchaTextBlock.TextDecorations = styleText.GetTextDecorationText;
+            }
+            catch (Exception exGetStyleCaptcha)
+            {
+                var nameMessageGetStyleCaptcha = $"Ошибка (CWE - 007)";
+                var titleMessageGetStyleCaptcha = $"{exGetStyleCaptcha.Message}";
+                MessageBox.Show(
+                    nameMessageGetStyleCaptcha, titleMessageGetStyleCaptcha,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }   
-
         #endregion
         #region Click
-
         private void NewCaptchaButton_Click(object sender, RoutedEventArgs e) // Сгенерировать новую капчу
         {
-            // Вызов методов
-            RandomGeneratedCaptcha();
-            GetStyleCaptcha();
+            try
+            {
+                RandomGeneratedCaptcha();
+                GetStyleCaptcha();
 
-            // Отключение кнопки, чтоб пользователь не "спамил"
-            NewCaptchaButton.IsEnabled = false; 
-            getTimer.Start();
+                // Отключение кнопки, чтоб пользователь не "спамил"
+                NewCaptchaButton.IsEnabled = false;
+                getTimer.Start();
+            }
+            catch (Exception exNewCaptcha)
+            {
+                var nameMessageNewCaptcha = $"Ошибка (CWE - 008)";
+                var titleMessageNewCaptcha = $"{exNewCaptcha.Message}";
+                MessageBox.Show(
+                    nameMessageNewCaptcha, titleMessageNewCaptcha,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void EnterCaptchaButton_Click(object sender, RoutedEventArgs e) // Нажатие кнопка "ПРОДОЛЖИТЬ"
         {
-            // Вызов метода
-            GetEnter();
+            try
+            {
+                GetEnter();
+            }
+            catch (Exception exEnterCaptcha)
+            {
+                var nameMessageEnterCaptcha = $"Ошибка (CWE - 009)";
+                var titleMessageEnterCaptcha = $"{exEnterCaptcha.Message}";
+                MessageBox.Show(
+                    nameMessageEnterCaptcha, titleMessageEnterCaptcha,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void CaptchaTextBox_KeyDown(object sender, KeyEventArgs e) // Нажатие Enter в TextBox
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                // Вызов метода
-                GetEnter();
+                if (e.Key == Key.Enter)
+                {
+                    GetEnter();
+                }
+            }
+            catch (Exception exCaptchaTextBox)
+            {
+                var nameMessageCaptchaTextBox = $"Ошибка (CWE - 010)";
+                var titleMessageCaptchaTextBox = $"{exCaptchaTextBox.Message}";
+                MessageBox.Show(
+                    nameMessageCaptchaTextBox, titleMessageCaptchaTextBox,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #endregion
         #region Показать\Скрыть текстовую подсказку
-
         private void CaptchaTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (CaptchaTextBox.Text.Length > 0)
+            try
             {
-                HintCaptchaTextBlock.Visibility = Visibility.Collapsed;
+                if (CaptchaTextBox.Text.Length > 0)
+                {
+                    HintCaptchaTextBlock.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    HintCaptchaTextBlock.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception exTextChanged)
             {
-                HintCaptchaTextBlock.Visibility = Visibility.Visible;
+                var nameMessageTextChanged = $"Ошибка (CWE - 011)";
+                var titleMessageTextChanged = $"{exTextChanged.Message}";
+                MessageBox.Show(
+                    nameMessageTextChanged, titleMessageTextChanged,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #endregion
     }
 }
