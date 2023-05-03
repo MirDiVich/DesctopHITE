@@ -48,13 +48,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void GetBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
-            var www = toDay.AddDays(-3);
+            var www = toDay.AddDays(-5);
 
-            // Выведи мне только тех сотрудников у которых: день рождение в этом месяце, не сегодня,
+            // Выведи мне в виде списка только тех сотрудников у которых: день рождение в этом месяце, не сегодня,
             BirthdayComingSoonListView.ItemsSource = 
                 AppConnectClass.DataBase.PassportTable.Where(dateOfBrith =>
                     dateOfBrith.DateOfBrich_Passport.Month == toDay.Month &&
-                    dateOfBrith.DateOfBrich_Passport.Day != toDay.Day).ToList();
+                    dateOfBrith.DateOfBrich_Passport.Day != toDay.Day &&
+                    dateOfBrith.DateOfBrich_Passport <= www).ToList();
+
+            /// Вся проблема заключается в том, что он берёт всех сотрудников, которые
+            /// соответствуют условию, а условие следующее:
+            /// возьми всех сотрудников и выведи только тех, кто соответствует следующему условию (25.04.2023 - 5 = 20.04.2023) <= 25.04.2023
+            /// Результат такой, ок, я выведу тебе сотрудников, у которых дени рождение раньше или попало в следующию дату "20.04.2023",
+            /// а я пытаюсь написать условие, на вывод тольел тех, у кого через 5 дней день рождение.
+
+            /// Поэтому это пока что останется тут. Если этот коммент* не пропал, значит, я ещё не исправил свою проблему!
         }
 
         private void GetTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
