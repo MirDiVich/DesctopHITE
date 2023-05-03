@@ -188,12 +188,6 @@
                     </ListView>
                 </StackPanel>
             </Border>
-            <Button
-                x:Name="uhtiur"
-                Content="Укйегр"
-                Click="uhtiur_Click"
-                Height="40"
-                Width="180"/>
         </StackPanel>
     </StackPanel>
 </Page>
