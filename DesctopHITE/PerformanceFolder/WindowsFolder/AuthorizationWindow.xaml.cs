@@ -47,25 +47,20 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     PasswordUserPasswordBox.Password = Properties.Settings.Default.PasswordUserRemember;
                     RememberUserComboBox.SelectedItem = RememberItem;
 
-                    // Вызов метода
+                    
                     LoginUser();
                 }
             }
             catch (Exception ex)
             {
-                string messageError =
-                    $"Вызвало ошибку: {ex.Source}\n" +
-                    $"Сообщение ошибки: {ex.Message}\n" +
-                    $"Трассировка стека: {ex.StackTrace}";
-
+               var nameMessageOne = $"Ошибка (AWE - 001)";
+               var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
-                    messageError, "Ошибка - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #region Управление окном
-
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
         {
             try
@@ -75,11 +70,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception ex)
+            catch (Exception exSpaseBar)
             {
+                var nameMessageSpaseBar = $"Ошибка (AWE - 002)";
+                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU001 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageSpaseBar, titleMessageSpaseBar,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -89,11 +86,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 Application.Current.Shutdown();
             }
-            catch (Exception ex)
+            catch (Exception exClose)
             {
+                var nameMessageClose = $"Ошибка (AWE - 003)";
+                var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU002 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageClose, titleMessageClose,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -103,86 +102,138 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 WindowState = WindowState.Minimized;
             }
-            catch (Exception ex)
+            catch (Exception exRollup)
             {
+                var nameMessageRollup = $"Ошибка (AWE - 004)";
+                var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU003 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageRollup, titleMessageRollup,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #endregion
         #region Click
-
         private void LoginButton_Click(object sender, RoutedEventArgs e) // Действие при нажатии на кнопку "Войти"
         {
-            // Вызов метода
-            LoginUser();
+            try
+            {
+                LoginUser();
+            }
+            catch (Exception exLogin0)
+            {
+                var nameMessageLogin0 = $"Ошибка (AWE - 005)";
+                var titleMessageLogin0 = $"{exLogin0.Message}";
+                MessageBox.Show(
+                    nameMessageLogin0, titleMessageLogin0,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }   
         }
 
         private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
             if (e.Key == Key.Enter)
             {
-                // Вызов метода
-                LoginUser();
+                try
+                {
+                    LoginUser();
+                }
+                catch (Exception exLogin1)
+                {
+                    var nameMessageLogin1 = $"Ошибка (AWE - 006)";
+                    var titleMessageLogin1 = $"{exLogin1.Message}";
+                    MessageBox.Show(
+                        nameMessageLogin1, titleMessageLogin1,
+                        MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                }
             }
         }
-
         #endregion
         #region Метод
-
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
-            RotateTransform loadingAnimation = new RotateTransform();
-            currentRotationAngle += 10; // Поворот на 10 градусов
-
-            if (currentRotationAngle >= 360)
+            try
             {
-                currentRotationAngle = 0;
+                RotateTransform loadingAnimation = new RotateTransform();
+
+                // Поворот на 10 градусов
+                currentRotationAngle += 10; 
+
+                if (currentRotationAngle >= 360)
+                {
+                    currentRotationAngle = 0;
+                }
+
+                loadingAnimation.Angle = currentRotationAngle;
+                LoadingSpinnerTextBlock.RenderTransformOrigin = new Point(0.5, 0.5);
+
+                LoadingSpinnerTextBlock.RenderTransform = loadingAnimation;
             }
-
-            loadingAnimation.Angle = currentRotationAngle;
-            LoadingSpinnerTextBlock.RenderTransformOrigin = new Point(0.5, 0.5);
-
-            LoadingSpinnerTextBlock.RenderTransform = loadingAnimation;
+            catch (Exception exGetTimer)
+            {
+                var nameMessageGetTimer = $"Ошибка (AWE - 007)";
+                var titleMessageGetTimer = $"{exGetTimer.Message}";
+                MessageBox.Show(
+                    nameMessageGetTimer, titleMessageGetTimer,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void LoginUser() // Действие для авторизации пользователя
         {
-            // Вызов метода
-            ErrorNullBox();
-
-            if (quantityNoInputs >= 5)
+            try
             {
-                // Если неправильный Login или Password введён не правильно 5 или более раз
-                CaptchaWindow captchaWindow = new CaptchaWindow();
-                captchaWindow.ShowDialog();
+                ErrorNullBox();
 
-                quantityNoInputs = 0;
-            }
-            else
-            {
-                if (messageNullBox != null)
+                if (quantityNoInputs >= 5)
                 {
-                    MessageBox.Show(
-                        messageNullBox, "Авторизация",
-                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    // Если неправильный Login или Password введён не правильно 5 или более раз
+                    CaptchaWindow captchaWindow = new CaptchaWindow();
+                    captchaWindow.ShowDialog();
 
-                    messageNullBox = null;
+                    quantityNoInputs = 0;
                 }
                 else
                 {
-                    // Вызов метода
-                    DateUser();
+                    if (messageNullBox != null)
+                    {
+                        MessageBox.Show(
+                            messageNullBox, "Авторизация",
+                            MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                        messageNullBox = null;
+                    }
+                    else
+                    {
+                        
+                        DateUser();
+                    }
                 }
+            }
+            catch (Exception exLoginUser)
+            {
+                var nameMessageLoginUser = $"Ошибка (AWE - 008)";
+                var titleMessageLoginUser = $"{exLoginUser.Message}";
+                MessageBox.Show(
+                    nameMessageLoginUser, titleMessageLoginUser,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
         private void ErrorNullBox() // Метод проверки текстовых полей на пустоту
         {
-            if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) messageNullBox += "Поле Login пустое\n";
-            if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) messageNullBox += "Поле Password пустое";
+            try
+            {
+                if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) messageNullBox += "Поле Login пустое\n";
+                if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) messageNullBox += "Поле Password пустое";
+            }
+            catch (Exception exErrorNullBox)
+            {
+                var nameMessageErrorNullBox = $"Ошибка (AWE - 009)";
+                var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
+                MessageBox.Show(
+                    nameMessageErrorNullBox, titleMessageErrorNullBox,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private async void DateUser() // Метод авторизации пользователя
@@ -269,15 +320,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     quantityNoInputs++;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exDateUser)
             {
-                string messageError =
-                    $"Сообщение ошибки: {ex.Message}\n" +
-                    $"Трассировка стека: {ex.StackTrace}";
-
+                var nameMessageDateUser = $"Ошибка (AWE - 010)";
+                var titleMessageDateUser = $"{exDateUser.Message}";
                 MessageBox.Show(
-                    messageError, "Ошибка - E002",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageDateUser, titleMessageDateUser,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
             finally
             {
@@ -293,110 +342,180 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
 
         }
+
         private void GetCapsLock() // Метод, который реагирует на нажатый CapsLock
         {
-            bool isCapsLockOn = Console.CapsLock;
+            try
+            {
+                bool isCapsLockOn = Console.CapsLock;
 
-            if (isCapsLockOn)
-            {
-                CapsLockTextBlock.Visibility = Visibility.Visible;
+                if (isCapsLockOn)
+                {
+                    CapsLockTextBlock.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    CapsLockTextBlock.Visibility = Visibility.Collapsed;
+                }
             }
-            else
+            catch (Exception exGetCapsLock)
             {
-                CapsLockTextBlock.Visibility = Visibility.Collapsed;
+                var nameMessageGetCapsLock = $"Ошибка (AWE - 011)";
+                var titleMessageGetCapsLock = $"{exGetCapsLock.Message}";
+                MessageBox.Show(
+                    nameMessageGetCapsLock, titleMessageGetCapsLock,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
+
         public void SaveSettings() // Сохранение пользовательской информации для входа
         {
-            if (RememberUserComboBox.SelectedItem == RememberItem)
+            try
             {
-                Properties.Settings.Default.MeaningRemember = true;
-                Properties.Settings.Default.LoginUserRemember = LoginUserTextBox.Text;
-                Properties.Settings.Default.PasswordUserRemember = PasswordUserPasswordBox.Password;
+                if (RememberUserComboBox.SelectedItem == RememberItem)
+                {
+                    Properties.Settings.Default.MeaningRemember = true;
+                    Properties.Settings.Default.LoginUserRemember = LoginUserTextBox.Text;
+                    Properties.Settings.Default.PasswordUserRemember = PasswordUserPasswordBox.Password;
 
-                Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.MeaningRemember = false;
+                    Properties.Settings.Default.LoginUserRemember = null;
+                    Properties.Settings.Default.PasswordUserRemember = null;
+
+                    Properties.Settings.Default.Save();
+                }
             }
-            else
+            catch (Exception exSaveSettings)
             {
-                Properties.Settings.Default.MeaningRemember = false;
-                Properties.Settings.Default.LoginUserRemember = null;
-                Properties.Settings.Default.PasswordUserRemember = null;
-
-                Properties.Settings.Default.Save();
+                var nameMessageSaveSettings = $"Ошибка (AWE - 012)";
+                var titleMessageSaveSettings = $"{exSaveSettings.Message}";
+                MessageBox.Show(
+                    nameMessageSaveSettings, titleMessageSaveSettings,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #endregion
         #region Показать\Скрыть пароль
-
         private void VisiblePasswordUserButton_PreviewMouseDown(object sender, MouseButtonEventArgs e) // Когда кнопка нажата
         {
-            // Получаем содержимое PasswordBox и применяем к TextBox
-            string passwordUser = Convert.ToString(PasswordUserPasswordBox.Password);
-            PasswordUserTextBox.Text = passwordUser;
+            try
+            {
+                // Получаем содержимое PasswordBox и применяем к TextBox
+                string passwordUser = Convert.ToString(PasswordUserPasswordBox.Password);
+                PasswordUserTextBox.Text = passwordUser;
 
-            PasswordPasswordGrid.Visibility = Visibility.Collapsed;
-            TextPasswordGrid.Visibility = Visibility.Visible;
+                PasswordPasswordGrid.Visibility = Visibility.Collapsed;
+                TextPasswordGrid.Visibility = Visibility.Visible;
+            }
+            catch (Exception exVisiblePasswordUserButton0)
+            {
+                var nameMessageVisiblePasswordUserButton0 = $"Ошибка (AWE - 013)";
+                var titleMessageVisiblePasswordUserButton0 = $"{exVisiblePasswordUserButton0.Message}";
+                MessageBox.Show(
+                    nameMessageVisiblePasswordUserButton0, titleMessageVisiblePasswordUserButton0,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void VisiblePasswordUserButton_PreviewMouseUp(object sender, MouseButtonEventArgs e) // Когда кнопка отпущена
         {
-            // Получаем содержимое TextBox и применяем к PasswordBox
-            string passwordUser = Convert.ToString(PasswordUserTextBox.Text);
-            PasswordUserPasswordBox.Password = passwordUser;
+            try
+            {
+                // Получаем содержимое TextBox и применяем к PasswordBox
+                string passwordUser = Convert.ToString(PasswordUserTextBox.Text);
+                PasswordUserPasswordBox.Password = passwordUser;
 
-            PasswordPasswordGrid.Visibility = Visibility.Visible;
-            TextPasswordGrid.Visibility = Visibility.Collapsed;
+                PasswordPasswordGrid.Visibility = Visibility.Visible;
+                TextPasswordGrid.Visibility = Visibility.Collapsed;
+            }
+            catch (Exception exVisiblePasswordUserButton1)
+            {
+                var nameMessageVisiblePasswordUserButton1 = $"Ошибка (AWE - 014)";
+                var titleMessageVisiblePasswordUserButton1 = $"{exVisiblePasswordUserButton1.Message}";
+                MessageBox.Show(
+                    nameMessageVisiblePasswordUserButton1, titleMessageVisiblePasswordUserButton1,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
-
         #endregion
         #region Показать\Скрыть текстовае подсказки
-
         private void LoginUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Если в текстовом поле есть какие то символы
-            if (LoginUserTextBox.Text.Length > 0)
+            try
             {
-                HintLoginTextBlock.Visibility = Visibility.Collapsed;
+                // Если в текстовом поле есть какие то символы
+                if (LoginUserTextBox.Text.Length > 0)
+                {
+                    HintLoginTextBlock.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    HintLoginTextBlock.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception exLoginUserTextBox)
             {
-                HintLoginTextBlock.Visibility = Visibility.Visible;
+                var nameMessageLoginUserTextBox = $"Ошибка (AWE - 015)";
+                var titleMessageLoginUserTextBox = $"{exLoginUserTextBox.Message}";
+                MessageBox.Show(
+                    nameMessageLoginUserTextBox, titleMessageLoginUserTextBox,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
         private void PasswordUserPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            // Если в текстовом поле есть какие то символы
-            if (PasswordUserPasswordBox.Password.Length > 0)
+            try
             {
-                HintTextPasswordTextBlock.Visibility = Visibility.Collapsed;
+                // Если в текстовом поле есть какие то символы
+                if (PasswordUserPasswordBox.Password.Length > 0)
+                {
+                    HintTextPasswordTextBlock.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    HintTextPasswordTextBlock.Visibility = Visibility.Visible;
+                }
+                GetCapsLock();
             }
-            else
+            catch (Exception exPasswordUserPasswordBox0)
             {
-                HintTextPasswordTextBlock.Visibility = Visibility.Visible;
+                var nameMessagePasswordUserPasswordBox0 = $"Ошибка (AWE - 016)";
+                var titleMessagePasswordUserPasswordBox0 = $"{exPasswordUserPasswordBox0.Message}";
+                MessageBox.Show(
+                    nameMessagePasswordUserPasswordBox0, titleMessagePasswordUserPasswordBox0,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
-
-            // Вызов метода
-            GetCapsLock();
         }
 
         private void PasswordUserTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Если в текстовом поле есть какие то символы
-            if (PasswordUserTextBox.Text.Length > 0)
+            try
             {
-                HintPasswordPasswordTextBlock.Visibility = Visibility.Collapsed;
+                // Если в текстовом поле есть какие то символы
+                if (PasswordUserTextBox.Text.Length > 0)
+                {
+                    HintPasswordPasswordTextBlock.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
+                }
+                GetCapsLock();
             }
-            else
+            catch (Exception exPasswordUserPasswordBox1)
             {
-                HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
+                var nameMessagePasswordUserPasswordBox1 = $"Ошибка (AWE - 017)";
+                var titleMessagePasswordUserPasswordBox1 = $"{exPasswordUserPasswordBox1.Message}";
+                MessageBox.Show(
+                    nameMessagePasswordUserPasswordBox1, titleMessagePasswordUserPasswordBox1,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
-
-            // Вызов метода
-            GetCapsLock();
         }
-
         #endregion
     }
 }

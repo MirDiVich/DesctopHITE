@@ -28,7 +28,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception ex) 
             {
-                var nameMessageOne = $"Ошибка (GE - 001)";
+                var nameMessageOne = $"Ошибка (GPE - 001)";
                 var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -51,7 +51,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exVisibility)
             {
-                var nameMessageVisibility = $"Ошибка (GE - 002)";
+                var nameMessageVisibility = $"Ошибка (GPE - 002)";
                 var titleMessageVisibility = $"{exVisibility.Message}";
                 MessageBox.Show(
                     nameMessageVisibility, titleMessageVisibility,
@@ -72,7 +72,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetDataCountWorker)
             {
-                var nameMessageGetDataCountWorker = $"Ошибка (GE - 003)";
+                var nameMessageGetDataCountWorker = $"Ошибка (GPE - 003)";
                 var titleMessageGetDataCountWorker = $"{exGetDataCountWorker.Message}";
                 MessageBox.Show(
                     nameMessageGetDataCountWorker, titleMessageGetDataCountWorker,
@@ -103,7 +103,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetBirthdayComingSoonWorker)
             {
-                var nameMessageGetBirthdayComingSoonWorker = $"Ошибка (GE - 004)";
+                var nameMessageGetBirthdayComingSoonWorker = $"Ошибка (GPE - 004)";
                 var titleMessageGetBirthdayComingSoonWorker = $"{exGetBirthdayComingSoonWorker.Message}";
                 MessageBox.Show(
                     nameMessageGetBirthdayComingSoonWorker, titleMessageGetBirthdayComingSoonWorker,
@@ -122,7 +122,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetTodayBirthdayWorker)
             {
-                var nameMessageGetTodayBirthdayWorker = $"Ошибка (GE - 005)";
+                var nameMessageGetTodayBirthdayWorker = $"Ошибка (GPE - 005)";
                 var titleMessageGetTodayBirthdayWorker = $"{exGetTodayBirthdayWorker.Message}";
                 MessageBox.Show(
                     nameMessageGetTodayBirthdayWorker, titleMessageGetTodayBirthdayWorker,
@@ -141,7 +141,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetGenderWorker)
             {
-                var nameMessageGetGenderWorker = $"Ошибка (GE - 006)";
+                var nameMessageGetGenderWorker = $"Ошибка (GPE - 006)";
                 var titleMessageGetGenderWorker = $"{exGetGenderWorker.Message}";
                 MessageBox.Show(
                     nameMessageGetGenderWorker, titleMessageGetGenderWorker,
@@ -163,7 +163,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetNumberEmployeesWithPosition)
             {
-                var nameMessageetNumberEmployeesWithPosition = $"Ошибка (GE - 007)";
+                var nameMessageetNumberEmployeesWithPosition = $"Ошибка (GPE - 007)";
                 var titleMessageetNumberEmployeesWithPosition = $"{exGetNumberEmployeesWithPosition.Message}";
                 MessageBox.Show(
                     nameMessageetNumberEmployeesWithPosition, titleMessageetNumberEmployeesWithPosition,
