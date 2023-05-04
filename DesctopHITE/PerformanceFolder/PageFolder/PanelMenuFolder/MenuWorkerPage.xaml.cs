@@ -4,6 +4,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,66 +14,125 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
     {
         public MenuWorkerPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие MenuWorkerPage в MenuWorkerPage:\n\n " +
+                       $"{ex.Message}");
+            }
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            try
             {
-                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
+                if (Visibility == Visibility.Visible)
+                {
+                    FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
 
-                NewWorkerToggleButton.IsChecked = true;
-                NewWorkerToggleButton.IsEnabled = false;
+                    NewWorkerToggleButton.IsChecked = true;
+                    NewWorkerToggleButton.IsEnabled = false;
+                }
+            }
+            catch (Exception exPage_IsVisibleChanged)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие Page_IsVisibleChanged в MenuWorkerPage:\n\n " +
+                       $"{exPage_IsVisibleChanged.Message}");
             }
         }
 
         #region Click
-
         private void NewWorkerToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            IsCheckedToggleButton();
-            IsEnabledToggleButton();
-            NewWorkerToggleButton.IsChecked = true;
-            NewWorkerToggleButton.IsEnabled = false;
-            FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
+            try
+            {
+                IsCheckedToggleButton();
+                IsEnabledToggleButton();
+                NewWorkerToggleButton.IsChecked = true;
+                NewWorkerToggleButton.IsEnabled = false;
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
+            }
+            catch (Exception exNewWorkerToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие NewWorkerToggleButton_Click в MenuWorkerPage:\n\n " +
+                       $"{exNewWorkerToggleButton_Click.Message}");
+            }
         }
 
         private void ListWorkweToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            IsCheckedToggleButton();
-            IsEnabledToggleButton();
-            ListWorkweToggleButton.IsChecked = true;
-            ListWorkweToggleButton.IsEnabled = false;
-            FrameNavigationClass.BodyWorker_FNC.Navigate(new ListWorkerPage());
+            try
+            {
+                IsCheckedToggleButton();
+                IsEnabledToggleButton();
+                ListWorkweToggleButton.IsChecked = true;
+                ListWorkweToggleButton.IsEnabled = false;
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new ListWorkerPage());
+            }
+            catch (Exception exListWorkweToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие ListWorkweToggleButton_Click в MenuWorkerPage:\n\n " +
+                       $"{exListWorkweToggleButton_Click.Message}");
+            }
         }
 
         private void GeneralInformationWorkerToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            IsCheckedToggleButton();
-            IsEnabledToggleButton();
-            GeneralInformationWorkerToggleButton.IsChecked = true;
-            GeneralInformationWorkerToggleButton.IsEnabled = false;
-            FrameNavigationClass.BodyWorker_FNC.Navigate(new GeneralInformationWorkerPage());
+            try
+            {
+                IsCheckedToggleButton();
+                IsEnabledToggleButton();
+                GeneralInformationWorkerToggleButton.IsChecked = true;
+                GeneralInformationWorkerToggleButton.IsEnabled = false;
+                FrameNavigationClass.BodyWorker_FNC.Navigate(new GeneralInformationWorkerPage());
+            }
+            catch (Exception exGeneralInformationWorkerToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие GeneralInformationWorkerToggleButton_Click в MenuWorkerPage:\n\n " +
+                       $"{exGeneralInformationWorkerToggleButton_Click.Message}");
+            }
         }
-
         #endregion
         #region Метод
-
         private void IsCheckedToggleButton() // Отключение проверки кнопок
         {
-            NewWorkerToggleButton.IsChecked = false;
-            ListWorkweToggleButton.IsChecked = false;
-            GeneralInformationWorkerToggleButton.IsChecked = false;
+            try
+            {
+                NewWorkerToggleButton.IsChecked = false;
+                ListWorkweToggleButton.IsChecked = false;
+                GeneralInformationWorkerToggleButton.IsChecked = false;
+            }
+            catch (Exception exIsCheckedToggleButton)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие IsCheckedToggleButton в MenuWorkerPage:\n\n " +
+                       $"{exIsCheckedToggleButton.Message}");
+            }
         }
 
         private void IsEnabledToggleButton() // Отключение кнопок
         {
-            NewWorkerToggleButton.IsEnabled = true;
-            ListWorkweToggleButton.IsEnabled = true;
-            GeneralInformationWorkerToggleButton.IsEnabled = true;
+            try
+            {
+                NewWorkerToggleButton.IsEnabled = true;
+                ListWorkweToggleButton.IsEnabled = true;
+                GeneralInformationWorkerToggleButton.IsEnabled = true;
+            }
+            catch (Exception exIsEnabledToggleButton)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие IsEnabledToggleButton в MenuWorkerPage:\n\n " +
+                       $"{exIsEnabledToggleButton.Message}");
+            }
         }
-
         #endregion
     }
 }
