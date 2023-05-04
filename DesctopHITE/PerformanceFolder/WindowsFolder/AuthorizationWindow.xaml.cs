@@ -495,11 +495,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         }
         #endregion
 
-        private void TestButton_Click(object sender, RoutedEventArgs e)
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            MainCashWindow mainCashWindow = new MainCashWindow();
-            mainCashWindow.Show();
-            Close();
+            if (e.Key == Key.Apps)
+            {
+                MainCashWindow mainCashWindow = new MainCashWindow();
+                mainCashWindow.Show();
+                Close();
+            }
         }
     }
 }
