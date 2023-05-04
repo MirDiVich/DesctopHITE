@@ -15,6 +15,18 @@
         <Setter Property="Width" Value="1600"/>
     </Style>
 
+    <Style x:Key="MainCashWinwosStyle" TargetType="Window">
+        <Setter Property="WindowState" Value="Maximized"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ShowInTaskbar" Value="True"/>
+        <Setter Property="Topmost" Value="False"/>
+        <Setter Property="Height" Value="1080"/>
+        <Setter Property="Width" Value="1920"/>
+    </Style>
+
     <Style x:Key="AuthorizationWindowStyle" TargetType="Window" BasedOn="{StaticResource MainWinwosStyle}">
         <Setter Property="Height" Value="450"/>
         <Setter Property="Width" Value="800"/>

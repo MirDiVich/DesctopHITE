@@ -15,5 +15,8 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         public static Frame MunuWorker_FNC;
         public static Frame BodyWorker_FNC;
         public static Frame ViewEditInformationWorker_FNC;
+
+        public static Frame MunuCash_FNC;
+        public static Frame BodyCash_FNC;
     }
 }

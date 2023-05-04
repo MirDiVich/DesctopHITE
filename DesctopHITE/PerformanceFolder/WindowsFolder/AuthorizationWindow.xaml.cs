@@ -494,5 +494,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainCashWindow mainCashWindow = new MainCashWindow();
+            mainCashWindow.Show();
+            Close();
+        }
     }
 }

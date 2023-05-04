@@ -11,7 +11,17 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
-    
+
+    <Style TargetType="ListView" x:Key="MenuCashListView">
+        <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="95"/>
+        <Setter Property="Width" Value="495"/>
+    </Style>
+
     <Style x:Key="ListViewItemSelected" TargetType="ListViewItem">
         <Setter Property="Margin" Value="5 10 5 10"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -49,5 +59,47 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <Style x:Key="MenuCashItemSelected" TargetType="ListViewItem">
+        <Setter Property="Margin" Value="0 1.5 0 1.5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="#9a9a9a"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border 
+                        x:Name="border"
+                        CornerRadius="10"
+                        BorderThickness="2" 
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#2a2a2a"/>
+                            <Setter Property="Foreground" Value="#a4a4a4"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
+                                        <GradientStop Color="#19462AD8" Offset="1"/>
+                                        <GradientStop Color="#196B55E0"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#f5f5f5"/>
+                            <Setter Property="Background" Value="#202020"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -38,6 +38,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
     <Style x:Key="OtherMenuToggleButtonStyle" TargetType="ToggleButton" BasedOn="{StaticResource MainMenuToggleButtonStyle}">
         <Setter Property="Margin" Value="1.5 0 1.5 0"/>
         <Setter Property="Template">
