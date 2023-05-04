@@ -231,6 +231,7 @@
     <Compile Include="AppDateFolder\ClassFolder\CaptchaClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\HolidayClass.cs" />
+    <Compile Include="AppDateFolder\ClassFolder\MessageBoxClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
     <Compile Include="AppDateFolder\ModelFolder\DesctopHiteModel.Context.cs">
       <AutoGen>True</AutoGen>

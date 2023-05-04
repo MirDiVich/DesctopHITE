@@ -1,5 +1,11 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// 
+/// Данная страница нужна для того, чтоб выгружать всех сотрудников из базы данных;
+/// Так же помимо всего, с выгружаемыми сотрудниками можно взаимодействовать;
+/// Пользователю для взаимодействия доступно всего 4 возможности:
+///     1. Найти через поиск;
+///     2. Просмотреть подробную информацию;
+///     3. Отредактировать информацию;
+///     4. Удалить сотрудника.
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
@@ -21,36 +27,69 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         public ListWorkerPage()
         {
-            InitializeComponent();
-            AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
+            try
+            {
+                InitializeComponent();
+                AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
+            }
+            catch (Exception ex)
+            {
+                var nameMessageOne = $"Ошибка (ListWorkerPageError - 001)";
+                var titleMessageOne = $"{ex.Message}";
+                MessageBox.Show(
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible) 
+            try
             {
-                EditButton.IsEnabled = false;
-                DeliteButton.IsEnabled = false;
+                if (Visibility == Visibility.Visible)
+                {
+                    EditButton.IsEnabled = false;
+                    DeliteButton.IsEnabled = false;
 
-                ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
-                ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
+                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
+                    ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
+                }
+            }
+            catch (Exception exVisible)
+            {
+                var nameMessageVisible = $"Ошибка (ListWorkerPageError - 002)";
+                var titleMessageVisible = $"{exVisible.Message}";
+                MessageBox.Show(
+                    nameMessageVisible, titleMessageVisible,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
         #region Click
 
         private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            if (dataContextWorker != null)
+            try
             {
-                ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
-                viewEditInfoemationWorkerWindow.ShowDialog();
+                if (dataContextWorker != null)
+                {
+                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+                    viewEditInfoemationWorkerWindow.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Сотрудник не выбран", "Ошибка - E001",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception exActionEditWorker)
             {
+                var nameMessageActionEditWorker = $"Ошибка (ListWorkerPageError - 003)";
+                var titleMessageActionEditWorker = $"{exActionEditWorker.Message}";
                 MessageBox.Show(
-                    "Сотрудник не выбран", "Ошибка - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageActionEditWorker, titleMessageActionEditWorker,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 

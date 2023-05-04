@@ -53,11 +53,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-               var nameMessageOne = $"Ошибка (AuthorizationWindowError - 001)";
-               var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"Событие AuthorizationWindow в AuthorizationWindow:\n\n " +
+                    $"{ex.Message}");
             }
         }
         #region Управление окном
@@ -72,11 +70,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (AuthorizationWindowError - 002)";
-                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
-                MessageBox.Show(
-                    nameMessageSpaseBar, titleMessageSpaseBar,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие SpaseBarGrid_MouseDown в AuthorizationWindow:\n\n " +
+                    $"{exSpaseBar.Message}");
             }
         }
 
@@ -88,11 +84,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (AuthorizationWindowError - 003)";
-                var titleMessageClose = $"{exClose.Message}";
-                MessageBox.Show(
-                    nameMessageClose, titleMessageClose,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие CloseButton_Click в AuthorizationWindow:\n\n " +
+                     $"{exClose.Message}");
             }
         }
 
@@ -104,11 +98,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (AuthorizationWindowError - 004)";
-                var titleMessageRollup = $"{exRollup.Message}";
-                MessageBox.Show(
-                    nameMessageRollup, titleMessageRollup,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие RollupButton_Click в AuthorizationWindow:\n\n " +
+                    $"{exRollup.Message}");
             }
         }
         #endregion
@@ -121,30 +113,37 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLogin0)
             {
-                var nameMessageLogin0 = $"Ошибка (AuthorizationWindowError - 005)";
-                var titleMessageLogin0 = $"{exLogin0.Message}";
-                MessageBox.Show(
-                    nameMessageLogin0, titleMessageLogin0,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
-            }   
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие LoginButton_Click в AuthorizationWindow:\n\n " +
+                    $"{exLogin0.Message}");
+            }
         }
 
         private void PasswordUserPasswordBox_KeyDown(object sender, KeyEventArgs e) // Если пользователь, находясь в PasswordBox нажал на Enter
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                try
+                if (e.Key == Key.Enter)
                 {
-                    LoginUser();
+                    try
+                    {
+                        LoginUser();
+                    }
+                    catch (Exception exLogin1)
+                    {
+                        var nameMessageLogin1 = $"Ошибка (AuthorizationWindowError - 006)";
+                        var titleMessageLogin1 = $"{exLogin1.Message}";
+                        MessageBox.Show(
+                            nameMessageLogin1, titleMessageLogin1,
+                            MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                    }
                 }
-                catch (Exception exLogin1)
-                {
-                    var nameMessageLogin1 = $"Ошибка (AuthorizationWindowError - 006)";
-                    var titleMessageLogin1 = $"{exLogin1.Message}";
-                    MessageBox.Show(
-                        nameMessageLogin1, titleMessageLogin1,
-                        MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                }
+            }
+            catch (Exception exPasswordUserPasswordBox_KeyDown)
+            {
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие PasswordUserPasswordBox_KeyDown в AuthorizationWindow:\n\n " +
+                    $"{exPasswordUserPasswordBox_KeyDown.Message}");
             }
         }
         #endregion
@@ -170,11 +169,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                var nameMessageGetTimer = $"Ошибка (AuthorizationWindowError - 007)";
-                var titleMessageGetTimer = $"{exGetTimer.Message}";
-                MessageBox.Show(
-                    nameMessageGetTimer, titleMessageGetTimer,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие GetTimer_Tick в AuthorizationWindow:\n\n " +
+                    $"{exGetTimer.Message}");
             }
         }
 
@@ -211,11 +208,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUser)
             {
-                var nameMessageLoginUser = $"Ошибка (AuthorizationWindowError - 008)";
-                var titleMessageLoginUser = $"{exLoginUser.Message}";
-                MessageBox.Show(
-                    nameMessageLoginUser, titleMessageLoginUser,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие LoginUser в AuthorizationWindow:\n\n " +
+                    $"{exLoginUser.Message}");
             }
         }
 
@@ -228,11 +223,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                var nameMessageErrorNullBox = $"Ошибка (AuthorizationWindowError - 009)";
-                var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
-                MessageBox.Show(
-                    nameMessageErrorNullBox, titleMessageErrorNullBox,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие ErrorNullBox в AuthorizationWindow:\n\n " +
+                    $"{exErrorNullBox.Message}");
             }
         }
 
@@ -322,11 +315,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDateUser)
             {
-                var nameMessageDateUser = $"Ошибка (AuthorizationWindowError - 010)";
-                var titleMessageDateUser = $"{exDateUser.Message}";
-                MessageBox.Show(
-                    nameMessageDateUser, titleMessageDateUser,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие DateUser в AuthorizationWindow:\n\n " +
+                    $"{exDateUser.Message}");
             }
             finally
             {
@@ -360,11 +351,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetCapsLock)
             {
-                var nameMessageGetCapsLock = $"Ошибка (AuthorizationWindowError - 011)";
-                var titleMessageGetCapsLock = $"{exGetCapsLock.Message}";
-                MessageBox.Show(
-                    nameMessageGetCapsLock, titleMessageGetCapsLock,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"$\"Событие GetCapsLock в AuthorizationWindow:\n\n " +
+                    $"{exGetCapsLock.Message}");
             }
         }
 
@@ -391,11 +380,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSaveSettings)
             {
-                var nameMessageSaveSettings = $"Ошибка (AuthorizationWindowError - 012)";
-                var titleMessageSaveSettings = $"{exSaveSettings.Message}";
-                MessageBox.Show(
-                    nameMessageSaveSettings, titleMessageSaveSettings,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие SaveSettings в AuthorizationWindow:\n\n " +
+                     $"{exSaveSettings.Message}");
             }
         }
         #endregion
@@ -413,11 +400,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton0)
             {
-                var nameMessageVisiblePasswordUserButton0 = $"Ошибка (AuthorizationWindowError - 013)";
-                var titleMessageVisiblePasswordUserButton0 = $"{exVisiblePasswordUserButton0.Message}";
-                MessageBox.Show(
-                    nameMessageVisiblePasswordUserButton0, titleMessageVisiblePasswordUserButton0,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseDown в AuthorizationWindow:\n\n " +
+                     $"{exVisiblePasswordUserButton0.Message}");
             }
         }
 
@@ -434,11 +419,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton1)
             {
-                var nameMessageVisiblePasswordUserButton1 = $"Ошибка (AuthorizationWindowError - 014)";
-                var titleMessageVisiblePasswordUserButton1 = $"{exVisiblePasswordUserButton1.Message}";
-                MessageBox.Show(
-                    nameMessageVisiblePasswordUserButton1, titleMessageVisiblePasswordUserButton1,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseUp в AuthorizationWindow:\n\n " +
+                     $"{exVisiblePasswordUserButton1.Message}");
             }
         }
         #endregion
@@ -459,11 +442,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUserTextBox)
             {
-                var nameMessageLoginUserTextBox = $"Ошибка (AuthorizationWindowError - 015)";
-                var titleMessageLoginUserTextBox = $"{exLoginUserTextBox.Message}";
-                MessageBox.Show(
-                    nameMessageLoginUserTextBox, titleMessageLoginUserTextBox,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие LoginUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
+                     $"{exLoginUserTextBox.Message}");
             }
         }
 
@@ -484,11 +465,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox0)
             {
-                var nameMessagePasswordUserPasswordBox0 = $"Ошибка (AuthorizationWindowError - 016)";
-                var titleMessagePasswordUserPasswordBox0 = $"{exPasswordUserPasswordBox0.Message}";
-                MessageBox.Show(
-                    nameMessagePasswordUserPasswordBox0, titleMessagePasswordUserPasswordBox0,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие PasswordUserPasswordBox_PasswordChanged в AuthorizationWindow:\n\n " +
+                     $"{exPasswordUserPasswordBox0.Message}");
             }
         }
 
@@ -509,11 +488,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox1)
             {
-                var nameMessagePasswordUserPasswordBox1 = $"Ошибка (AuthorizationWindowError - 017)";
-                var titleMessagePasswordUserPasswordBox1 = $"{exPasswordUserPasswordBox1.Message}";
-                MessageBox.Show(
-                    nameMessagePasswordUserPasswordBox1, titleMessagePasswordUserPasswordBox1,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"$\"Событие PasswordUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
+                     $"{exPasswordUserPasswordBox1.Message}");
             }
         }
         #endregion

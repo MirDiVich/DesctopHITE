@@ -102,6 +102,25 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
+
+        private void ExitUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Сохранение сохранения
+            Properties.Settings.Default.MeaningRemember = false;
+
+            // Сохранение информации
+            Properties.Settings.Default.LoginUserRemember = null; 
+            Properties.Settings.Default.PasswordUserRemember = null;
+
+            // Сохранение
+            Properties.Settings.Default.Save();
+
+            // Закрытие приложения
+            AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+            authorizationWindow.Show(); 
+
+            Close();
+        }
         #endregion
     }
 }
