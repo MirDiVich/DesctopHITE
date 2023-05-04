@@ -23,68 +23,72 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 
         public MainPage()
         {
-            InitializeComponent();
-        }
-
-        #region Действие
-        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
-        {
-            // Работа с часами
-            HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
-            NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
-            NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
-            BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString();
-            NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString();
-            DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
-
-            if (GetDayClass.HappyBirthdayGreetings == "")
+            try
             {
-                BirthdayTextBlock.Visibility = Visibility.Collapsed;
+                InitializeComponent();
             }
-            if (GetDayClass.WhatDayIsIt == "Сегодня нет праздников")
+            catch (Exception ex) 
             {
-                NowHolidayTextBlock.FontSize = 15;
-                NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие MainPage в MainPage:\n\n " +
+                       $"{ex.Message}");
             }
-
-            //// Поиск сотрудников, у которых сегодня день рождение
-            //var employeesObjects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).Where(
-            //    Birthday => Birthday.PassportTable.DateOfBrich_Passport.Day == toDay.Day &&
-            //                Birthday.PassportTable.DateOfBrich_Passport.Month == toDay.Month);
-
-            //EmployeesWhoHaveBirthdayToday.ItemsSource = employeesObjects.ToList();
-
-            //if (EmployeesWhoHaveBirthdayToday.Items.Count == 0)
-            //{
-            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Collapsed;
-            //}
-            //else if(EmployeesWhoHaveBirthdayToday.Items.Count == 1)
-            //{
-            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
-            //    TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечает:";
-            //}
-            //else if (EmployeesWhoHaveBirthdayToday.Items.Count > 1)
-            //{
-            //    TitleTodayTheBirthdayBorder.Visibility = Visibility.Visible;
-            //    TitleTodayTheBirthdayTextBlock.Text = "Сегодня день рождение отмечают:";
-            //}
         }
-        #endregion
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            try
             {
-                // Свойства для Таймера
-                GetTimer = new DispatcherTimer();
-                GetTimer.Tick += new EventHandler(GetTimer_Tick);
-                GetTimer.Interval = TimeSpan.FromMilliseconds(1);
-                GetTimer.Start();
+                if (Visibility == Visibility.Visible)
+                {
+                    // Свойства для Таймера
+                    GetTimer = new DispatcherTimer();
+                    GetTimer.Tick += new EventHandler(GetTimer_Tick);
+                    GetTimer.Interval = TimeSpan.FromMilliseconds(1);
+                    GetTimer.Start();
+                }
+                else
+                {
+                    GetTimer.Stop();
+                }
             }
-            else
+            catch (Exception exPage_IsVisibleChanged)
             {
-                GetTimer.Stop();
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие Page_IsVisibleChanged в MainPage:\n\n " +
+                       $"{exPage_IsVisibleChanged.Message}");
             }
         }
+        #region Действие
+        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        {
+            try
+            {
+                // Работа с часами
+                HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
+                NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
+                NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
+                BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString();
+                NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString();
+                DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
+
+                if (GetDayClass.HappyBirthdayGreetings == "")
+                {
+                    BirthdayTextBlock.Visibility = Visibility.Collapsed;
+                }
+                if (GetDayClass.WhatDayIsIt == "Сегодня нет праздников")
+                {
+                    NowHolidayTextBlock.FontSize = 15;
+                    NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
+                }
+            }
+            catch (Exception exGetTimer_Tick)
+            {
+                MessageBoxClass.ExceptionMessage(
+                      textMessage: $"Событие GetTimer_Tick в MainPage:\n\n " +
+                      $"{exGetTimer_Tick.Message}");
+            }
+        }
+        #endregion
     }
 }

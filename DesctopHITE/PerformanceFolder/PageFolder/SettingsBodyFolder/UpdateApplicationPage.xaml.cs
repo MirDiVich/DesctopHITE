@@ -25,171 +25,244 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
         public UpdateApplicationPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            // Работа с таймером
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
-            dispatcherTimer.Tick += Timer_Tick;
+                // Работа с таймером
+                dispatcherTimer = new DispatcherTimer();
+                dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
+                dispatcherTimer.Tick += Timer_Tick;
 
-            TitleUpDateTextBlock.Text =
-                $"- Добавлена анимация на проверку обновления;\n" +
-                $"- Добавлена анимация сканирования;\n" +
-                $"- Добавлена капча;\n" +
-                $"- Добавлена страница для сканирования приложения на наличие ошибок;\n" +
-                $"- Добавлена страница обновления;\n" +
-                $"- Изменён дизайн на более яркий;\n" +
-                $"- Исправлена ошибка при добавлении сотрудника;\n" +
-                $"- Исправлена ошибка при изменении данных о сотруднике;\n" +
-                $"- Оптимизация приложения;\n" +
-                $"- Оптимизированный код;\n" +
-                $"- Реализован поиск сотрудников;\n" +
-                $"- Реализовано удаление сотрудников;\n" +
-                $"- Сделан код более читаемый;\n" +
-                $"- Улучшена производительность приложения.";
+                TitleUpDateTextBlock.Text =
+                    $"- Добавлена анимация на проверку обновления;\n" +
+                    $"- Добавлена анимация сканирования;\n" +
+                    $"- Добавлена капча;\n" +
+                    $"- Добавлена страница для сканирования приложения на наличие ошибок;\n" +
+                    $"- Добавлена страница обновления;\n" +
+                    $"- Изменён дизайн на более яркий;\n" +
+                    $"- Исправлена ошибка при добавлении сотрудника;\n" +
+                    $"- Исправлена ошибка при изменении данных о сотруднике;\n" +
+                    $"- Оптимизация приложения;\n" +
+                    $"- Оптимизированный код;\n" +
+                    $"- Реализован поиск сотрудников;\n" +
+                    $"- Реализовано удаление сотрудников;\n" +
+                    $"- Сделан код более читаемый;\n" +
+                    $"- Улучшена производительность приложения.";
 
-            ReceivingDataWaitingForStorage();
+                ReceivingDataWaitingForStorage();
+            }
+            catch (Exception ex)
+            {
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие UpdateApplicationPage в UpdateApplicationPage:\n\n " +
+                   $"{ex.Message}");
+            }
         }
-
         #region Click
         private void CheckUpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckUpdateButton.IsChecked == true)
+            try
             {
-                StartLoadingAnimation();
-                ScanDeception();
+                if (CheckUpdateButton.IsChecked == true)
+                {
+                    StartLoadingAnimation();
+                    ScanDeception();
 
-                CheckUpdateButton.Content = "Остановить";
-                ProgressScanTextBlock.Text = "0%";
-                IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
+                    CheckUpdateButton.Content = "Остановить";
+                    ProgressScanTextBlock.Text = "0%";
+                    IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    StopLoadingAnimation();
+
+                    dispatcherTimer.Stop();
+                    CheckUpdateButton.Content = "Проверить обновление";
+                    ProgressScanTextBlock.Text = "///";
+                    IndoVersionTodayBorder.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception exCheckUpdateButton_Click)
             {
-                StopLoadingAnimation();
-
-                dispatcherTimer.Stop();
-                CheckUpdateButton.Content = "Проверить обновление";
-                ProgressScanTextBlock.Text = "///";
-                IndoVersionTodayBorder.Visibility = Visibility.Visible;
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие CheckUpdateButton_Click в UpdateApplicationPage:\n\n " +
+                   $"{exCheckUpdateButton_Click.Message}");
             }
         }
         #endregion
         #region Метод
         private void StartLoadingAnimation() // Запуск анимации
         {
-            // Задаю свойства для элементов
-            LoadingCircle0.RenderTransformOrigin = new Point(0.5, 0.5);
-            LoadingCircle0.RenderTransform = new RotateTransform();
+            try
+            {
+                var point = new Point(0.5, 0.5);
 
-            LoadingCircle1.RenderTransformOrigin = new Point(0.5, 0.5);
-            LoadingCircle1.RenderTransform = new RotateTransform();
+                // Задаю свойства для элементов
+                LoadingCircle0.RenderTransformOrigin = point;
+                LoadingCircle0.RenderTransform = new RotateTransform();
 
-            LoadingCircle2.RenderTransformOrigin = new Point(0.5, 0.5);
-            LoadingCircle2.RenderTransform = new RotateTransform();
+                LoadingCircle1.RenderTransformOrigin = point;
+                LoadingCircle1.RenderTransform = new RotateTransform();
 
-            LoadingCircle3.RenderTransformOrigin = new Point(0.5, 0.5);
-            LoadingCircle3.RenderTransform = new RotateTransform();
+                LoadingCircle2.RenderTransformOrigin = point;
+                LoadingCircle2.RenderTransform = new RotateTransform();
 
-            // Задаю свойства для анимации
-            DoubleAnimation animationLeft = new DoubleAnimation();
-            animationLeft.From = 0;
-            animationLeft.To = 360;
-            animationLeft.Duration = new Duration(TimeSpan.FromSeconds(2));
-            animationLeft.RepeatBehavior = RepeatBehavior.Forever;
+                LoadingCircle3.RenderTransformOrigin = point;
+                LoadingCircle3.RenderTransform = new RotateTransform();
 
-            DoubleAnimation animationRight = new DoubleAnimation();
-            animationRight.From = 0;
-            animationRight.To = -360;
-            animationRight.Duration = new Duration(TimeSpan.FromSeconds(4));
-            animationRight.RepeatBehavior = RepeatBehavior.Forever;
+                // Задаю свойства для анимации
+                DoubleAnimation animationLeft = new DoubleAnimation();
+                animationLeft.From = 0;
+                animationLeft.To = 360;
+                animationLeft.Duration = new Duration(TimeSpan.FromSeconds(2));
+                animationLeft.RepeatBehavior = RepeatBehavior.Forever;
 
-            // Подключаю анимацию
-            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
-            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
+                DoubleAnimation animationRight = new DoubleAnimation();
+                animationRight.From = 0;
+                animationRight.To = -360;
+                animationRight.Duration = new Duration(TimeSpan.FromSeconds(4));
+                animationRight.RepeatBehavior = RepeatBehavior.Forever;
 
-            // Меняю свойство анимации и подключаю её
-            animationLeft = new DoubleAnimation();
-            animationLeft.From = 0;
-            animationLeft.To = 360;
-            animationLeft.Duration = new Duration(TimeSpan.FromSeconds(6));
-            animationLeft.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
+                // Подключаю анимацию
+                LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
+                LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
 
-            animationRight = new DoubleAnimation();
-            animationRight.From = 0;
-            animationRight.To = -360;
-            animationRight.Duration = new Duration(TimeSpan.FromSeconds(8));
-            animationRight.RepeatBehavior = RepeatBehavior.Forever;
-            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
+                // Меняю свойство анимации и подключаю её
+                animationLeft = new DoubleAnimation();
+                animationLeft.From = 0;
+                animationLeft.To = 360;
+                animationLeft.Duration = new Duration(TimeSpan.FromSeconds(6));
+                animationLeft.RepeatBehavior = RepeatBehavior.Forever;
+                LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationLeft);
+
+                animationRight = new DoubleAnimation();
+                animationRight.From = 0;
+                animationRight.To = -360;
+                animationRight.Duration = new Duration(TimeSpan.FromSeconds(8));
+                animationRight.RepeatBehavior = RepeatBehavior.Forever;
+                LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
+            }
+            catch (Exception exStartLoadingAnimation)
+            {
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие StartLoadingAnimation в UpdateApplicationPage:\n\n " +
+                   $"{exStartLoadingAnimation.Message}");
+            }
         }
 
         private void StopLoadingAnimation() // Остановка анимации
         {
-            LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
-            LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
-            LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
-            LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+            try
+            {
+                LoadingCircle0.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+                LoadingCircle1.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+                LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+                LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
+            }
+            catch (Exception exStopLoadingAnimation)
+            {
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие StopLoadingAnimation в UpdateApplicationPage:\n\n " +
+                   $"{exStopLoadingAnimation.Message}");
+            }
         }
 
         private void ScanDeception()
         {
-            // Получаю рандомное время
-            Random random = new Random();
-            targetTime = random.Next(10, 30);
-            startTime = DateTime.Now;
+            try
+            {
+                // Получаю рандомное время
+                Random random = new Random();
+                targetTime = random.Next(10, 30);
+                startTime = DateTime.Now;
 
-            // создание и запуск таймера
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += Timer_Tick;
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
-            dispatcherTimer.Start();
+                // создание и запуск таймера
+                dispatcherTimer = new DispatcherTimer();
+                dispatcherTimer.Tick += Timer_Tick;
+                dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+                dispatcherTimer.Start();
+            }
+            catch (Exception exScanDeception)
+            {
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие ScanDeception в UpdateApplicationPage:\n\n " +
+                   $"{exScanDeception.Message}");
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // определение интервала времени в процентах
-            int elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
-            int percentage = (int)(elapsedSeconds / (float)targetTime * 100);
-
-            if (percentage >= 100)
+            try
             {
-                StopLoadingAnimation();
+                // определение интервала времени в процентах
+                int elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
+                int percentage = (int)(elapsedSeconds / (float)targetTime * 100);
 
-                dispatcherTimer.Stop();
-                ProgressScanTextBlock.Text = "100%";
+                if (percentage >= 100)
+                {
+                    StopLoadingAnimation();
 
-                OutputDataWaitingForStorage();
+                    dispatcherTimer.Stop();
+                    ProgressScanTextBlock.Text = "100%";
 
-                FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
+                    OutputDataWaitingForStorage();
+
+                    FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
+                }
+                else
+                {
+                    ProgressScanTextBlock.Text = $"{percentage}%";
+                }
             }
-            else
+            catch (Exception exTimer_Tick)
             {
-                ProgressScanTextBlock.Text = $"{percentage}%";
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие Timer_Tick в UpdateApplicationPage:\n\n " +
+                   $"{exTimer_Tick.Message}");
             }
         }
 
         private void ReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
         {
-            if (Properties.Settings.Default.SNMUpdateScan == null)
+            try
             {
-                ResultScanBorder.Visibility = Visibility.Collapsed;
+                if (Properties.Settings.Default.SNMUpdateScan == null)
+                {
+                    ResultScanBorder.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    WhenCheckedTextBlock.Text = Properties.Settings.Default.SNMUpdateScan;
+                    WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeUpdateScan;
+                    ResultCheckedTextBlock.Text = Properties.Settings.Default.ResultUpdateScan;
+                }
             }
-            else
+            catch (Exception exReceivingDataWaitingForStorage)
             {
-                WhenCheckedTextBlock.Text = Properties.Settings.Default.SNMUpdateScan;
-                WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeUpdateScan;
-                ResultCheckedTextBlock.Text = Properties.Settings.Default.ResultUpdateScan;
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие ReceivingDataWaitingForStorage в UpdateApplicationPage:\n\n " +
+                   $"{exReceivingDataWaitingForStorage.Message}");
             }
         }
 
         private void OutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
         {
-            var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
+            try
+            {
+                var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
 
-            Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
-            Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
-            Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
-            Properties.Settings.Default.Save();
+                Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
+                Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
+                Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception exOutputDataWaitingForStorage)
+            {
+                MessageBoxClass.ExceptionMessage(
+                   textMessage: $"Событие OutputDataWaitingForStorage в UpdateApplicationPage:\n\n " +
+                   $"{exOutputDataWaitingForStorage.Message}");
+            }
         }
         #endregion
     }
