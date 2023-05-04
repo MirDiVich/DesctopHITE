@@ -29,11 +29,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (CaptchaWindowError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                    textMessage: $"Событие CaptchaWindow в CaptchaWindow:\n\n " +
+                    $"{ex.Message}");
             }
         }
 
@@ -61,11 +59,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisible)
             {
-                var nameMessageVisible = $"Ошибка (CaptchaWindowError - 002)";
-                var titleMessageVisible = $"{exVisible.Message}";
-                MessageBox.Show(
-                    nameMessageVisible, titleMessageVisible,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"Событие Window_IsVisibleChanged в CaptchaWindow:\n\n " +
+                     $"{exVisible.Message}");
             }
         }
         #region Метод
@@ -78,11 +74,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                var nameMessageGetTimer = $"Ошибка (CaptchaWindowError - 003)";
-                var titleMessageGetTimer = $"{exGetTimer.Message}";
-                MessageBox.Show(
-                    nameMessageGetTimer, titleMessageGetTimer,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"Событие GetTimer_Tick в CaptchaWindow:\n\n " +
+                     $"{exGetTimer.Message}");
             }
         }
 
@@ -94,11 +88,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                var nameMessageErrorNullBox = $"Ошибка (CaptchaWindowError - 004)";
-                var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
-                MessageBox.Show(
-                    nameMessageErrorNullBox, titleMessageErrorNullBox,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                     textMessage: $"Событие ErrorNullBox в CaptchaWindow:\n\n " +
+                     $"{exErrorNullBox.Message}");
             }
         }
 
@@ -138,11 +130,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetEnter)
             {
-                var nameMessageGetEnter = $"Ошибка (CaptchaWindowError - 005)";
-                var titleMessageGetEnter = $"{exGetEnter.Message}";
-                MessageBox.Show(
-                    nameMessageGetEnter, titleMessageGetEnter,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                      textMessage: $"Событие GetEnter в CaptchaWindow:\n\n " +
+                      $"{exGetEnter.Message}");
             }
         }
 
@@ -170,11 +160,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRandomGeneratedCaptcha)
             {
-                var nameMessageRandomGeneratedCaptcha = $"Ошибка (CaptchaWindowError - 006)";
-                var titleMessageRandomGeneratedCaptcha = $"{exRandomGeneratedCaptcha.Message}";
-                MessageBox.Show(
-                    nameMessageRandomGeneratedCaptcha, titleMessageRandomGeneratedCaptcha,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие RandomGeneratedCaptcha в CaptchaWindow:\n\n " +
+                       $"{exRandomGeneratedCaptcha.Message}");
             }
         }
 
@@ -197,11 +185,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetStyleCaptcha)
             {
-                var nameMessageGetStyleCaptcha = $"Ошибка (CaptchaWindowError - 007)";
-                var titleMessageGetStyleCaptcha = $"{exGetStyleCaptcha.Message}";
-                MessageBox.Show(
-                    nameMessageGetStyleCaptcha, titleMessageGetStyleCaptcha,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие GetStyleCaptcha в CaptchaWindow:\n\n " +
+                       $"{exGetStyleCaptcha.Message}");
             }
         }   
         #endregion
@@ -219,11 +205,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exNewCaptcha)
             {
-                var nameMessageNewCaptcha = $"Ошибка (CaptchaWindowError - 008)";
-                var titleMessageNewCaptcha = $"{exNewCaptcha.Message}";
-                MessageBox.Show(
-                    nameMessageNewCaptcha, titleMessageNewCaptcha,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие NewCaptchaButton_Click в CaptchaWindow:\n\n " +
+                        $"{exNewCaptcha.Message}");
             }
         }
 
@@ -235,11 +219,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exEnterCaptcha)
             {
-                var nameMessageEnterCaptcha = $"Ошибка (CaptchaWindowError - 009)";
-                var titleMessageEnterCaptcha = $"{exEnterCaptcha.Message}";
-                MessageBox.Show(
-                    nameMessageEnterCaptcha, titleMessageEnterCaptcha,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие EnterCaptchaButton_Click в CaptchaWindow:\n\n " +
+                        $"{exEnterCaptcha.Message}");
             }
         }
 
@@ -254,11 +236,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCaptchaTextBox)
             {
-                var nameMessageCaptchaTextBox = $"Ошибка (CaptchaWindowError - 010)";
-                var titleMessageCaptchaTextBox = $"{exCaptchaTextBox.Message}";
-                MessageBox.Show(
-                    nameMessageCaptchaTextBox, titleMessageCaptchaTextBox,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CaptchaTextBox_KeyDown в CaptchaWindow:\n\n " +
+                        $"{exCaptchaTextBox.Message}");
             }
         }
         #endregion
@@ -278,11 +258,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exTextChanged)
             {
-                var nameMessageTextChanged = $"Ошибка (CaptchaWindowError - 011)";
-                var titleMessageTextChanged = $"{exTextChanged.Message}";
-                MessageBox.Show(
-                    nameMessageTextChanged, titleMessageTextChanged,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CaptchaTextBox_TextChanged в CaptchaWindow:\n\n " +
+                        $"{exTextChanged.Message}");
             }
         }
         #endregion

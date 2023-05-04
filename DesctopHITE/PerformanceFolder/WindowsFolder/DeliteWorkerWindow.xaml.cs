@@ -40,11 +40,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (DeliteWorkerWindowError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие DeliteWorkerWindow в DeliteWorkerWindow:\n\n " +
+                        $"{ex.Message}");
             }
         }
         #region Управление окном
@@ -59,11 +57,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (DeliteWorkerWindowError - 002)";
-                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
-                MessageBox.Show(
-                    nameMessageSpaseBar, titleMessageSpaseBar,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие SpaseBarGrid_MouseDown в DeliteWorkerWindow:\n\n " +
+                        $"{exSpaseBar.Message}");
             }
         }
 
@@ -75,11 +71,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (DeliteWorkerWindowError - 003)";
-                var titleMessageClose = $"{exClose.Message}";
-                MessageBox.Show(
-                    nameMessageClose, titleMessageClose,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CloseButton_Click в DeliteWorkerWindow:\n\n " +
+                        $"{exClose.Message}");
             }
         }
         #endregion
@@ -93,11 +87,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCancel)
             {
-                var nameMessageCancel = $"Ошибка (DeliteWorkerWindowError - 004)";
-                var titleMessageCancel = $"{exCancel.Message}";
-                MessageBox.Show(
-                    nameMessageCancel, titleMessageCancel,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CancelButton_Click в DeliteWorkerWindow:\n\n " +
+                        $"{exCancel.Message}");
             }
         }
 
@@ -118,11 +110,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDelite)
             {
-                var nameMessageDelite = $"Ошибка (DeliteWorkerWindowError - 006)";
-                var titleMessageDelite = $"{exDelite.Message}";
-                MessageBox.Show(
-                    nameMessageDelite, titleMessageDelite,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие DeliteButton_Click в DeliteWorkerWindow:\n\n " +
+                        $"{exDelite.Message}");
             }
         }
         #endregion
@@ -161,11 +151,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteWorkerMethod)
             {
-                var nameMessageDeliteWorkerMethod = $"Ошибка (DeliteWorkerWindowError - 007)";
-                var titleMessageDeliteWorkerMethod = $"{exDeliteWorkerMethod.Message}";
-                MessageBox.Show(
-                    nameMessageDeliteWorkerMethod, titleMessageDeliteWorkerMethod,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие DeliteWorkerMethod в DeliteWorkerWindow:\n\n " +
+                        $"{exDeliteWorkerMethod.Message}");
             }
         }
         #endregion

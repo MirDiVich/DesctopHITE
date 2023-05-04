@@ -21,11 +21,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (ViewEditInfoemationWorkerWindowError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ViewEditInfoemationWorkerWindow в ViewEditInfoemationWorkerWindow:\n\n " +
+                        $"{ex.Message}");
             }
         }
         #region Управление окном
@@ -40,11 +38,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (ViewEditInfoemationWorkerWindowError - 002)";
-                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
-                MessageBox.Show(
-                    nameMessageSpaseBar, titleMessageSpaseBar,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие SpaseBarGrid_MouseDown в ViewEditInfoemationWorkerWindow:\n\n " +
+                        $"{exSpaseBar.Message}");
             }
         }
 
@@ -56,11 +52,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (ViewEditInfoemationWorkerWindowError - 003)";
-                var titleMessageClose = $"{exClose.Message}";
-                MessageBox.Show(
-                    nameMessageClose, titleMessageClose,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CloseButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
+                        $"{exClose.Message}");
             }
         }
 
@@ -72,11 +66,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (ViewEditInfoemationWorkerWindowError - 004)";
-                var titleMessageRollup = $"{exRollup.Message}";
-                MessageBox.Show(
-                    nameMessageRollup, titleMessageRollup,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие RollupButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
+                        $"{exRollup.Message}");
             }
         }
         #endregion

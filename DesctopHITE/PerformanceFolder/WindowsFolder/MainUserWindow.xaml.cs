@@ -25,11 +25,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (MainUserWindowError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие MainUserWindow в MainUserWindow:\n\n " +
+                        $"{ex.Message}");
             }
         }
 
@@ -44,11 +42,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisible)
             {
-                var nameMessageVisible = $"Ошибка (MainUserWindowError - 002)";
-                var titleMessageVisible = $"{exVisible.Message}";
-                MessageBox.Show(
-                    nameMessageVisible, titleMessageVisible,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие Window_IsVisibleChanged в MainUserWindow:\n\n " +
+                        $"{exVisible.Message}");
             }
         }
         #region Управление окном
@@ -63,11 +59,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (MainUserWindowError - 003)";
-                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
-                MessageBox.Show(
-                    nameMessageSpaseBar, titleMessageSpaseBar,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие SpaseBarGrid_MouseDown в MainUserWindow:\n\n " +
+                        $"{exSpaseBar.Message}");
             }
         }
 
@@ -79,11 +73,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (MainUserWindowError - 004)";
-                var titleMessageClose = $"{exClose.Message}";
-                MessageBox.Show(
-                    nameMessageClose, titleMessageClose,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие CloseButton_Click в MainUserWindow:\n\n " +
+                        $"{exClose.Message}");
             }
         }
 
@@ -95,31 +87,38 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (MainUserWindowError - 005)";
-                var titleMessageRollup = $"{exRollup.Message}";
-                MessageBox.Show(
-                    nameMessageRollup, titleMessageRollup,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие RollupButton_Click в MainUserWindow:\n\n " +
+                       $"{exRollup.Message}");
             }
         }
 
         private void ExitUserButton_Click(object sender, RoutedEventArgs e)
         {
-            // Сохранение сохранения
-            Properties.Settings.Default.MeaningRemember = false;
+            try
+            {
+                // Сохранение сохранения
+                Properties.Settings.Default.MeaningRemember = false;
 
-            // Сохранение информации
-            Properties.Settings.Default.LoginUserRemember = null; 
-            Properties.Settings.Default.PasswordUserRemember = null;
+                // Сохранение информации
+                Properties.Settings.Default.LoginUserRemember = null;
+                Properties.Settings.Default.PasswordUserRemember = null;
 
-            // Сохранение
-            Properties.Settings.Default.Save();
+                // Сохранение
+                Properties.Settings.Default.Save();
 
-            // Закрытие приложения
-            AuthorizationWindow authorizationWindow = new AuthorizationWindow();
-            authorizationWindow.Show(); 
+                // Закрытие приложения
+                AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+                authorizationWindow.Show();
 
-            Close();
+                Close();
+            }
+            catch (Exception exExitUser)
+            {
+                MessageBoxClass.ExceptionMessage(
+                       textMessage: $"Событие ExitUserButton_Click в MainUserWindow:\n\n " +
+                       $"{exExitUser.Message}");
+            }
         }
         #endregion
     }
