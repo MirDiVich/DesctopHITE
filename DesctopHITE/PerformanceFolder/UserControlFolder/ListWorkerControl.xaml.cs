@@ -4,8 +4,8 @@
 ///     отображение сущьностей из таблицы.
 ///----------------------------------------------------------------------------------------------------------
 
+using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace DesctopHITE.PerformanceFolder.UserControlFolder
@@ -20,11 +20,9 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (ListWorkerControlError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerControl в ListWorkerControl:\n\n " +
+                        $"{ex.Message}");
             }
         }
     }

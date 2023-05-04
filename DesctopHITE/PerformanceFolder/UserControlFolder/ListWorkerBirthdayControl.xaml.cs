@@ -5,7 +5,7 @@
 ///     что позволяет сократить код.
 ///----------------------------------------------------------------------------------------------------------
 
-using System.Windows;
+using DesctopHITE.AppDateFolder.ClassFolder;
 using System;
 using System.Windows.Controls;
 
@@ -21,11 +21,9 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (LwbCE - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerBirthdayControl в ListWorkerBirthdayControl:\n\n " +
+                        $"{ex.Message}");
             }
         }
     }
