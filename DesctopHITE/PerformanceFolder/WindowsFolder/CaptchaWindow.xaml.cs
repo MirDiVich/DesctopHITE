@@ -29,7 +29,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (CWE - 001)";
+                var nameMessageOne = $"Ошибка (CaptchaWindowError - 001)";
                 var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -61,7 +61,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisible)
             {
-                var nameMessageVisible = $"Ошибка (CWE - 002)";
+                var nameMessageVisible = $"Ошибка (CaptchaWindowError - 002)";
                 var titleMessageVisible = $"{exVisible.Message}";
                 MessageBox.Show(
                     nameMessageVisible, titleMessageVisible,
@@ -78,7 +78,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                var nameMessageGetTimer = $"Ошибка (CWE - 003)";
+                var nameMessageGetTimer = $"Ошибка (CaptchaWindowError - 003)";
                 var titleMessageGetTimer = $"{exGetTimer.Message}";
                 MessageBox.Show(
                     nameMessageGetTimer, titleMessageGetTimer,
@@ -94,7 +94,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                var nameMessageErrorNullBox = $"Ошибка (CWE - 004)";
+                var nameMessageErrorNullBox = $"Ошибка (CaptchaWindowError - 004)";
                 var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
                 MessageBox.Show(
                     nameMessageErrorNullBox, titleMessageErrorNullBox,
@@ -138,7 +138,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetEnter)
             {
-                var nameMessageGetEnter = $"Ошибка (CWE - 005)";
+                var nameMessageGetEnter = $"Ошибка (CaptchaWindowError - 005)";
                 var titleMessageGetEnter = $"{exGetEnter.Message}";
                 MessageBox.Show(
                     nameMessageGetEnter, titleMessageGetEnter,
@@ -170,7 +170,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRandomGeneratedCaptcha)
             {
-                var nameMessageRandomGeneratedCaptcha = $"Ошибка (CWE - 006)";
+                var nameMessageRandomGeneratedCaptcha = $"Ошибка (CaptchaWindowError - 006)";
                 var titleMessageRandomGeneratedCaptcha = $"{exRandomGeneratedCaptcha.Message}";
                 MessageBox.Show(
                     nameMessageRandomGeneratedCaptcha, titleMessageRandomGeneratedCaptcha,
@@ -197,7 +197,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetStyleCaptcha)
             {
-                var nameMessageGetStyleCaptcha = $"Ошибка (CWE - 007)";
+                var nameMessageGetStyleCaptcha = $"Ошибка (CaptchaWindowError - 007)";
                 var titleMessageGetStyleCaptcha = $"{exGetStyleCaptcha.Message}";
                 MessageBox.Show(
                     nameMessageGetStyleCaptcha, titleMessageGetStyleCaptcha,
@@ -219,7 +219,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exNewCaptcha)
             {
-                var nameMessageNewCaptcha = $"Ошибка (CWE - 008)";
+                var nameMessageNewCaptcha = $"Ошибка (CaptchaWindowError - 008)";
                 var titleMessageNewCaptcha = $"{exNewCaptcha.Message}";
                 MessageBox.Show(
                     nameMessageNewCaptcha, titleMessageNewCaptcha,
@@ -235,7 +235,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exEnterCaptcha)
             {
-                var nameMessageEnterCaptcha = $"Ошибка (CWE - 009)";
+                var nameMessageEnterCaptcha = $"Ошибка (CaptchaWindowError - 009)";
                 var titleMessageEnterCaptcha = $"{exEnterCaptcha.Message}";
                 MessageBox.Show(
                     nameMessageEnterCaptcha, titleMessageEnterCaptcha,
@@ -254,7 +254,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCaptchaTextBox)
             {
-                var nameMessageCaptchaTextBox = $"Ошибка (CWE - 010)";
+                var nameMessageCaptchaTextBox = $"Ошибка (CaptchaWindowError - 010)";
                 var titleMessageCaptchaTextBox = $"{exCaptchaTextBox.Message}";
                 MessageBox.Show(
                     nameMessageCaptchaTextBox, titleMessageCaptchaTextBox,
@@ -278,7 +278,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exTextChanged)
             {
-                var nameMessageTextChanged = $"Ошибка (CWE - 011)";
+                var nameMessageTextChanged = $"Ошибка (CaptchaWindowError - 011)";
                 var titleMessageTextChanged = $"{exTextChanged.Message}";
                 MessageBox.Show(
                     nameMessageTextChanged, titleMessageTextChanged,

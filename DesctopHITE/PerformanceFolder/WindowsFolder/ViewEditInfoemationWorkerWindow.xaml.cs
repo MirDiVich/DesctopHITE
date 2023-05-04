@@ -21,7 +21,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (VeWE - 001)";
+                var nameMessageOne = $"Ошибка (ViewEditInfoemationWorkerWindowError - 001)";
                 var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (VeWE - 002)";
+                var nameMessageSpaseBar = $"Ошибка (ViewEditInfoemationWorkerWindowError - 002)";
                 var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
                     nameMessageSpaseBar, titleMessageSpaseBar,
@@ -56,7 +56,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (VeWE - 003)";
+                var nameMessageClose = $"Ошибка (ViewEditInfoemationWorkerWindowError - 003)";
                 var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
                     nameMessageClose, titleMessageClose,
@@ -72,7 +72,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (VeWE - 004)";
+                var nameMessageRollup = $"Ошибка (ViewEditInfoemationWorkerWindowError - 004)";
                 var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
                     nameMessageRollup, titleMessageRollup,

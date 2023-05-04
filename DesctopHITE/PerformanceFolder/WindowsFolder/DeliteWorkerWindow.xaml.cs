@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (DwWE - 001)";
+                var nameMessageOne = $"Ошибка (DeliteWorkerWindowError - 001)";
                 var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -59,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (DwWE - 002)";
+                var nameMessageSpaseBar = $"Ошибка (DeliteWorkerWindowError - 002)";
                 var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
                     nameMessageSpaseBar, titleMessageSpaseBar,
@@ -75,7 +75,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (DwWE - 003)";
+                var nameMessageClose = $"Ошибка (DeliteWorkerWindowError - 003)";
                 var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
                     nameMessageClose, titleMessageClose,
@@ -93,7 +93,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCancel)
             {
-                var nameMessageCancel = $"Ошибка (DwWE - 004)";
+                var nameMessageCancel = $"Ошибка (DeliteWorkerWindowError - 004)";
                 var titleMessageCancel = $"{exCancel.Message}";
                 MessageBox.Show(
                     nameMessageCancel, titleMessageCancel,
@@ -118,7 +118,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDelite)
             {
-                var nameMessageDelite = $"Ошибка (DwWE - 006)";
+                var nameMessageDelite = $"Ошибка (DeliteWorkerWindowError - 006)";
                 var titleMessageDelite = $"{exDelite.Message}";
                 MessageBox.Show(
                     nameMessageDelite, titleMessageDelite,
@@ -161,7 +161,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteWorkerMethod)
             {
-                var nameMessageDeliteWorkerMethod = $"Ошибка (DwWE - 007)";
+                var nameMessageDeliteWorkerMethod = $"Ошибка (DeliteWorkerWindowError - 007)";
                 var titleMessageDeliteWorkerMethod = $"{exDeliteWorkerMethod.Message}";
                 MessageBox.Show(
                     nameMessageDeliteWorkerMethod, titleMessageDeliteWorkerMethod,

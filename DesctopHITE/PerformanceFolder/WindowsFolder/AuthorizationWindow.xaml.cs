@@ -53,7 +53,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-               var nameMessageOne = $"Ошибка (AWE - 001)";
+               var nameMessageOne = $"Ошибка (AuthorizationWindowError - 001)";
                var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -72,7 +72,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (AWE - 002)";
+                var nameMessageSpaseBar = $"Ошибка (AuthorizationWindowError - 002)";
                 var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
                     nameMessageSpaseBar, titleMessageSpaseBar,
@@ -88,7 +88,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (AWE - 003)";
+                var nameMessageClose = $"Ошибка (AuthorizationWindowError - 003)";
                 var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
                     nameMessageClose, titleMessageClose,
@@ -104,7 +104,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (AWE - 004)";
+                var nameMessageRollup = $"Ошибка (AuthorizationWindowError - 004)";
                 var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
                     nameMessageRollup, titleMessageRollup,
@@ -121,7 +121,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLogin0)
             {
-                var nameMessageLogin0 = $"Ошибка (AWE - 005)";
+                var nameMessageLogin0 = $"Ошибка (AuthorizationWindowError - 005)";
                 var titleMessageLogin0 = $"{exLogin0.Message}";
                 MessageBox.Show(
                     nameMessageLogin0, titleMessageLogin0,
@@ -139,7 +139,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 }
                 catch (Exception exLogin1)
                 {
-                    var nameMessageLogin1 = $"Ошибка (AWE - 006)";
+                    var nameMessageLogin1 = $"Ошибка (AuthorizationWindowError - 006)";
                     var titleMessageLogin1 = $"{exLogin1.Message}";
                     MessageBox.Show(
                         nameMessageLogin1, titleMessageLogin1,
@@ -170,7 +170,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                var nameMessageGetTimer = $"Ошибка (AWE - 007)";
+                var nameMessageGetTimer = $"Ошибка (AuthorizationWindowError - 007)";
                 var titleMessageGetTimer = $"{exGetTimer.Message}";
                 MessageBox.Show(
                     nameMessageGetTimer, titleMessageGetTimer,
@@ -211,7 +211,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUser)
             {
-                var nameMessageLoginUser = $"Ошибка (AWE - 008)";
+                var nameMessageLoginUser = $"Ошибка (AuthorizationWindowError - 008)";
                 var titleMessageLoginUser = $"{exLoginUser.Message}";
                 MessageBox.Show(
                     nameMessageLoginUser, titleMessageLoginUser,
@@ -228,7 +228,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                var nameMessageErrorNullBox = $"Ошибка (AWE - 009)";
+                var nameMessageErrorNullBox = $"Ошибка (AuthorizationWindowError - 009)";
                 var titleMessageErrorNullBox = $"{exErrorNullBox.Message}";
                 MessageBox.Show(
                     nameMessageErrorNullBox, titleMessageErrorNullBox,
@@ -322,7 +322,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDateUser)
             {
-                var nameMessageDateUser = $"Ошибка (AWE - 010)";
+                var nameMessageDateUser = $"Ошибка (AuthorizationWindowError - 010)";
                 var titleMessageDateUser = $"{exDateUser.Message}";
                 MessageBox.Show(
                     nameMessageDateUser, titleMessageDateUser,
@@ -360,7 +360,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetCapsLock)
             {
-                var nameMessageGetCapsLock = $"Ошибка (AWE - 011)";
+                var nameMessageGetCapsLock = $"Ошибка (AuthorizationWindowError - 011)";
                 var titleMessageGetCapsLock = $"{exGetCapsLock.Message}";
                 MessageBox.Show(
                     nameMessageGetCapsLock, titleMessageGetCapsLock,
@@ -391,7 +391,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSaveSettings)
             {
-                var nameMessageSaveSettings = $"Ошибка (AWE - 012)";
+                var nameMessageSaveSettings = $"Ошибка (AuthorizationWindowError - 012)";
                 var titleMessageSaveSettings = $"{exSaveSettings.Message}";
                 MessageBox.Show(
                     nameMessageSaveSettings, titleMessageSaveSettings,
@@ -413,7 +413,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton0)
             {
-                var nameMessageVisiblePasswordUserButton0 = $"Ошибка (AWE - 013)";
+                var nameMessageVisiblePasswordUserButton0 = $"Ошибка (AuthorizationWindowError - 013)";
                 var titleMessageVisiblePasswordUserButton0 = $"{exVisiblePasswordUserButton0.Message}";
                 MessageBox.Show(
                     nameMessageVisiblePasswordUserButton0, titleMessageVisiblePasswordUserButton0,
@@ -434,7 +434,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton1)
             {
-                var nameMessageVisiblePasswordUserButton1 = $"Ошибка (AWE - 014)";
+                var nameMessageVisiblePasswordUserButton1 = $"Ошибка (AuthorizationWindowError - 014)";
                 var titleMessageVisiblePasswordUserButton1 = $"{exVisiblePasswordUserButton1.Message}";
                 MessageBox.Show(
                     nameMessageVisiblePasswordUserButton1, titleMessageVisiblePasswordUserButton1,
@@ -459,7 +459,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUserTextBox)
             {
-                var nameMessageLoginUserTextBox = $"Ошибка (AWE - 015)";
+                var nameMessageLoginUserTextBox = $"Ошибка (AuthorizationWindowError - 015)";
                 var titleMessageLoginUserTextBox = $"{exLoginUserTextBox.Message}";
                 MessageBox.Show(
                     nameMessageLoginUserTextBox, titleMessageLoginUserTextBox,
@@ -484,7 +484,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox0)
             {
-                var nameMessagePasswordUserPasswordBox0 = $"Ошибка (AWE - 016)";
+                var nameMessagePasswordUserPasswordBox0 = $"Ошибка (AuthorizationWindowError - 016)";
                 var titleMessagePasswordUserPasswordBox0 = $"{exPasswordUserPasswordBox0.Message}";
                 MessageBox.Show(
                     nameMessagePasswordUserPasswordBox0, titleMessagePasswordUserPasswordBox0,
@@ -509,7 +509,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox1)
             {
-                var nameMessagePasswordUserPasswordBox1 = $"Ошибка (AWE - 017)";
+                var nameMessagePasswordUserPasswordBox1 = $"Ошибка (AuthorizationWindowError - 017)";
                 var titleMessagePasswordUserPasswordBox1 = $"{exPasswordUserPasswordBox1.Message}";
                 MessageBox.Show(
                     nameMessagePasswordUserPasswordBox1, titleMessagePasswordUserPasswordBox1,

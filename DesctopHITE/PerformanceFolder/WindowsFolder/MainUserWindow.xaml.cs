@@ -25,7 +25,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (MuWE - 001)";
+                var nameMessageOne = $"Ошибка (MainUserWindowError - 001)";
                 var titleMessageOne = $"{ex.Message}";
                 MessageBox.Show(
                     nameMessageOne, titleMessageOne,
@@ -44,7 +44,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisible)
             {
-                var nameMessageVisible = $"Ошибка (MuWE - 002)";
+                var nameMessageVisible = $"Ошибка (MainUserWindowError - 002)";
                 var titleMessageVisible = $"{exVisible.Message}";
                 MessageBox.Show(
                     nameMessageVisible, titleMessageVisible,
@@ -63,7 +63,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                var nameMessageSpaseBar = $"Ошибка (MuWE - 003)";
+                var nameMessageSpaseBar = $"Ошибка (MainUserWindowError - 003)";
                 var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
                     nameMessageSpaseBar, titleMessageSpaseBar,
@@ -79,7 +79,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                var nameMessageClose = $"Ошибка (MuWE - 004)";
+                var nameMessageClose = $"Ошибка (MainUserWindowError - 004)";
                 var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
                     nameMessageClose, titleMessageClose,
@@ -95,7 +95,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                var nameMessageRollup = $"Ошибка (MuWE - 005)";
+                var nameMessageRollup = $"Ошибка (MainUserWindowError - 005)";
                 var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
                     nameMessageRollup, titleMessageRollup,
