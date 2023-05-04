@@ -6,6 +6,7 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,25 +18,42 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         public ViewInformationWorkerPage(WorkerTable workerTable)
         {
-            InitializeComponent();
-            AppConnectClass.DataBase = new DesctopHiteEntities();
+            try
+            {
+                InitializeComponent();
+                AppConnectClass.DataBase = new DesctopHiteEntities();
 
-            if (workerTable != null ) 
-            { 
-                DataContext = workerTable;
-                dataContextWorker = workerTable;
+                if (workerTable != null)
+                {
+                    DataContext = workerTable;
+                    dataContextWorker = workerTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ViewInformationWorkerPage в ViewInformationWorkerPage:\n\n " +
+                        $"{ex.Message}");
             }
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            try
             {
-                PassportToggleButton.IsChecked = true;
-                PassportBorder.Visibility = Visibility.Visible;
+                if (Visibility == Visibility.Visible)
+                {
+                    PassportToggleButton.IsChecked = true;
+                    PassportBorder.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception exPage_IsVisibleChanged)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие Page_IsVisibleChanged в ViewInformationWorkerPage:\n\n " +
+                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
-
         #region Click
         // Так как код очень простой и короткий, было принято решение написать его в "длину"
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
@@ -82,7 +100,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void EditWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+            try
+            {
+                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+            }
+            catch (Exception exEditWorkerButton_Click)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие EditWorkerButton_Click в ViewInformationWorkerPage:\n\n " +
+                        $"{exEditWorkerButton_Click.Message}");
+            }
         }
         #endregion
     }
