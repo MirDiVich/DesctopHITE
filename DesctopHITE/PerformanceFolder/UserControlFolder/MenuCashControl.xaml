@@ -8,6 +8,11 @@
     d:DesignHeight="95"
     d:DesignWidth="495">
     <Grid>
-            
+        <TextBlock
+            HorizontalAlignment="Left"
+            Margin="3.5 0 0 0"
+            FontSize="30"
+            Text="{Binding Title_MenuCategory}"
+            Style="{DynamicResource OtherStyleTextBlock}"/>
     </Grid>
 </UserControl>

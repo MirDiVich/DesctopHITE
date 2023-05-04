@@ -14,6 +14,12 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     
     public partial class WorkerTable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public WorkerTable()
+        {
+            this.ChequeTable = new HashSet<ChequeTable>();
+        }
+    
         public int PersonalNumber_Worker { get; set; }
         public string Phone_Worker { get; set; }
         public string Login_Worker { get; set; }
@@ -31,6 +37,8 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public string pnSnils_Worker { get; set; }
         public int AddpnWorker_Worker { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChequeTable> ChequeTable { get; set; }
         public virtual INNTable INNTable { get; set; }
         public virtual MedicalBookTable MedicalBookTable { get; set; }
         public virtual PassportTable PassportTable { get; set; }

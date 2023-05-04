@@ -5,6 +5,7 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using System;
 using System.Windows;
 
@@ -32,7 +33,10 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-
+                if (Visibility == Visibility.Visible)
+                {
+                    FrameNavigationClass.MunuCash_FNC.Navigate(new MenuCashPage());
+                }
             }
             catch (Exception exWindow_IsVisibleChanged)
             {

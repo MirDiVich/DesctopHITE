@@ -5,12 +5,29 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище DesctopHiteModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChequeTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Cheque" />
+          </Key>
+          <Property Name="PersonalNumber_Cheque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataTime_Cheque" Type="datetime" />
+          <Property Name="pnCash_Cheque" Type="nvarchar" MaxLength="50" />
+          <Property Name="pnWorker_Cheque" Type="int" />
+        </EntityType>
         <EntityType Name="GenderTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Gender" />
           </Key>
           <Property Name="PersonalNumber_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title_Gender" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImageMenuTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_ImageMenu" />
+          </Key>
+          <Property Name="PersonalNumber_ImageMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_ImageMenu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image_ImageMenu" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="ImagePassportTable">
           <Key>
@@ -19,6 +36,13 @@
           <Property Name="PersonalNumber_ImagePassport" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Name_ImagePassport" Type="nvarchar" MaxLength="400" Nullable="false" />
           <Property Name="Image_ImagePassport" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Ingredients" />
+          </Key>
+          <Property Name="PersonalNumber_Ingredients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Ingredients" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="INNTable">
           <Key>
@@ -40,6 +64,40 @@
           <Property Name="HomeAdress_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Role_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Organization_MedicalBook" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuCategoryTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_MenuCategory" />
+          </Key>
+          <Property Name="PersonalNumber_MenuCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title_MenuCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Menu" />
+          </Key>
+          <Property Name="PersonalNumber_Menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Menu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description_Menu" Type="text" Nullable="false" />
+          <Property Name="pnImageMunu_Menu" Type="int" Nullable="false" />
+          <Property Name="pnMenuCategory_Menu" Type="int" Nullable="false" />
+          <Property Name="Prise_Menu" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MTM_ChequeMenu">
+          <Key>
+            <PropertyRef Name="pnCheque" />
+            <PropertyRef Name="pnMenu" />
+          </Key>
+          <Property Name="pnCheque" Type="int" Nullable="false" />
+          <Property Name="pnMenu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MTM_MenuIngredients">
+          <Key>
+            <PropertyRef Name="pnMenu" />
+            <PropertyRef Name="pnIngredients" />
+          </Key>
+          <Property Name="pnMenu" Type="int" Nullable="false" />
+          <Property Name="pnIngredients" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PassportTable">
           <Key>
@@ -135,6 +193,90 @@
           <Property Name="pnSnils_Worker" Type="nchar" MaxLength="11" Nullable="false" />
           <Property Name="AddpnWorker_Worker" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_ChequeTable_WorkerTable">
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="0..1" />
+          <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerTable">
+              <PropertyRef Name="PersonalNumber_Worker" />
+            </Principal>
+            <Dependent Role="ChequeTable">
+              <PropertyRef Name="pnWorker_Cheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuTable_ImageMenuTable">
+          <End Role="ImageMenuTable" Type="Self.ImageMenuTable" Multiplicity="1" />
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageMenuTable">
+              <PropertyRef Name="PersonalNumber_ImageMenu" />
+            </Principal>
+            <Dependent Role="MenuTable">
+              <PropertyRef Name="pnImageMunu_Menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuTable_MenuCategoryTable">
+          <End Role="MenuCategoryTable" Type="Self.MenuCategoryTable" Multiplicity="1" />
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategoryTable">
+              <PropertyRef Name="PersonalNumber_MenuCategory" />
+            </Principal>
+            <Dependent Role="MenuTable">
+              <PropertyRef Name="pnMenuCategory_Menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTM_ChequeMenu_ChequeTable">
+          <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="1" />
+          <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChequeTable">
+              <PropertyRef Name="PersonalNumber_Cheque" />
+            </Principal>
+            <Dependent Role="MTM_ChequeMenu">
+              <PropertyRef Name="pnCheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTM_ChequeMenu_MenuTable">
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1" />
+          <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuTable">
+              <PropertyRef Name="PersonalNumber_Menu" />
+            </Principal>
+            <Dependent Role="MTM_ChequeMenu">
+              <PropertyRef Name="pnMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTM_MenuIngredients_IngredientsTable">
+          <End Role="IngredientsTable" Type="Self.IngredientsTable" Multiplicity="1" />
+          <End Role="MTM_MenuIngredients" Type="Self.MTM_MenuIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngredientsTable">
+              <PropertyRef Name="PersonalNumber_Ingredients" />
+            </Principal>
+            <Dependent Role="MTM_MenuIngredients">
+              <PropertyRef Name="pnIngredients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTM_MenuIngredients_MenuTable">
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1" />
+          <End Role="MTM_MenuIngredients" Type="Self.MTM_MenuIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuTable">
+              <PropertyRef Name="PersonalNumber_Menu" />
+            </Principal>
+            <Dependent Role="MTM_MenuIngredients">
+              <PropertyRef Name="pnMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PassportTable_GenderTable">
           <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
           <End Role="PassportTable" Type="Self.PassportTable" Multiplicity="*" />
@@ -258,10 +400,17 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище DesctopHiteModelContainer">
+          <EntitySet Name="ChequeTable" EntityType="Self.ChequeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderTable" EntityType="Self.GenderTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageMenuTable" EntityType="Self.ImageMenuTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImagePassportTable" EntityType="Self.ImagePassportTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="INNTable" EntityType="Self.INNTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicalBookTable" EntityType="Self.MedicalBookTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCategoryTable" EntityType="Self.MenuCategoryTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuTable" EntityType="Self.MenuTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MTM_ChequeMenu" EntityType="Self.MTM_ChequeMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MTM_MenuIngredients" EntityType="Self.MTM_MenuIngredients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PassportTable" EntityType="Self.PassportTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceResidenceTable" EntityType="Self.PlaceResidenceTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleTable" EntityType="Self.RoleTable" Schema="dbo" store:Type="Tables" />
@@ -270,6 +419,34 @@
           <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="Self.FK_ChequeTable_WorkerTable">
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+            <End Role="ChequeTable" EntitySet="ChequeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuTable_ImageMenuTable" Association="Self.FK_MenuTable_ImageMenuTable">
+            <End Role="ImageMenuTable" EntitySet="ImageMenuTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuTable_MenuCategoryTable" Association="Self.FK_MenuTable_MenuCategoryTable">
+            <End Role="MenuCategoryTable" EntitySet="MenuCategoryTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTM_ChequeMenu_ChequeTable" Association="Self.FK_MTM_ChequeMenu_ChequeTable">
+            <End Role="ChequeTable" EntitySet="ChequeTable" />
+            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTM_ChequeMenu_MenuTable" Association="Self.FK_MTM_ChequeMenu_MenuTable">
+            <End Role="MenuTable" EntitySet="MenuTable" />
+            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTM_MenuIngredients_IngredientsTable" Association="Self.FK_MTM_MenuIngredients_IngredientsTable">
+            <End Role="IngredientsTable" EntitySet="IngredientsTable" />
+            <End Role="MTM_MenuIngredients" EntitySet="MTM_MenuIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTM_MenuIngredients_MenuTable" Association="Self.FK_MTM_MenuIngredients_MenuTable">
+            <End Role="MenuTable" EntitySet="MenuTable" />
+            <End Role="MTM_MenuIngredients" EntitySet="MTM_MenuIngredients" />
+          </AssociationSet>
           <AssociationSet Name="FK_PassportTable_GenderTable" Association="Self.FK_PassportTable_GenderTable">
             <End Role="GenderTable" EntitySet="GenderTable" />
             <End Role="PassportTable" EntitySet="PassportTable" />
@@ -316,10 +493,15 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DesctopHiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DesctopHiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChequeTable" EntityType="DesctopHiteModel.ChequeTable" />
           <EntitySet Name="GenderTable" EntityType="DesctopHiteModel.GenderTable" />
+          <EntitySet Name="ImageMenuTable" EntityType="DesctopHiteModel.ImageMenuTable" />
           <EntitySet Name="ImagePassportTable" EntityType="DesctopHiteModel.ImagePassportTable" />
+          <EntitySet Name="IngredientsTable" EntityType="DesctopHiteModel.IngredientsTable" />
           <EntitySet Name="INNTable" EntityType="DesctopHiteModel.INNTable" />
           <EntitySet Name="MedicalBookTable" EntityType="DesctopHiteModel.MedicalBookTable" />
+          <EntitySet Name="MenuCategoryTable" EntityType="DesctopHiteModel.MenuCategoryTable" />
+          <EntitySet Name="MenuTable" EntityType="DesctopHiteModel.MenuTable" />
           <EntitySet Name="PassportTable" EntityType="DesctopHiteModel.PassportTable" />
           <EntitySet Name="PlaceResidenceTable" EntityType="DesctopHiteModel.PlaceResidenceTable" />
           <EntitySet Name="RoleTable" EntityType="DesctopHiteModel.RoleTable" />
@@ -328,9 +510,17 @@
           <EntitySet Name="StatusTable" EntityType="DesctopHiteModel.StatusTable" />
           <EntitySet Name="sysdiagrams" EntityType="DesctopHiteModel.sysdiagrams" />
           <EntitySet Name="WorkerTable" EntityType="DesctopHiteModel.WorkerTable" />
+          <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="DesctopHiteModel.FK_ChequeTable_WorkerTable">
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+            <End Role="ChequeTable" EntitySet="ChequeTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_PassportTable_GenderTable" Association="DesctopHiteModel.FK_PassportTable_GenderTable">
             <End Role="GenderTable" EntitySet="GenderTable" />
             <End Role="PassportTable" EntitySet="PassportTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuTable_ImageMenuTable" Association="DesctopHiteModel.FK_MenuTable_ImageMenuTable">
+            <End Role="ImageMenuTable" EntitySet="ImageMenuTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
           </AssociationSet>
           <AssociationSet Name="FK_PassportTable_ImagePassportTable1" Association="DesctopHiteModel.FK_PassportTable_ImagePassportTable1">
             <End Role="ImagePassportTable" EntitySet="ImagePassportTable" />
@@ -343,6 +533,10 @@
           <AssociationSet Name="FK_WorkerTabe_MedicalBookTable" Association="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable">
             <End Role="MedicalBookTable" EntitySet="MedicalBookTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuTable_MenuCategoryTable" Association="DesctopHiteModel.FK_MenuTable_MenuCategoryTable">
+            <End Role="MenuCategoryTable" EntitySet="MenuCategoryTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="DesctopHiteModel.FK_WorkerTabe_PassportTable">
             <End Role="PassportTable" EntitySet="PassportTable" />
@@ -368,7 +562,26 @@
             <End Role="StatusTable" EntitySet="StatusTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
+          <AssociationSet Name="MTM_ChequeMenu" Association="DesctopHiteModel.MTM_ChequeMenu">
+            <End Role="ChequeTable" EntitySet="ChequeTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
+          </AssociationSet>
+          <AssociationSet Name="MTM_MenuIngredients" Association="DesctopHiteModel.MTM_MenuIngredients">
+            <End Role="IngredientsTable" EntitySet="IngredientsTable" />
+            <End Role="MenuTable" EntitySet="MenuTable" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ChequeTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Cheque" />
+          </Key>
+          <Property Name="PersonalNumber_Cheque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataTime_Cheque" Type="DateTime" Precision="3" />
+          <Property Name="pnCash_Cheque" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pnWorker_Cheque" Type="Int32" />
+          <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_ChequeTable_WorkerTable" FromRole="ChequeTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.MTM_ChequeMenu" FromRole="ChequeTable" ToRole="MenuTable" />
+        </EntityType>
         <EntityType Name="GenderTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Gender" />
@@ -376,6 +589,15 @@
           <Property Name="PersonalNumber_Gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title_Gender" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_PassportTable_GenderTable" FromRole="GenderTable" ToRole="PassportTable" />
+        </EntityType>
+        <EntityType Name="ImageMenuTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_ImageMenu" />
+          </Key>
+          <Property Name="PersonalNumber_ImageMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_ImageMenu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image_ImageMenu" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_MenuTable_ImageMenuTable" FromRole="ImageMenuTable" ToRole="MenuTable" />
         </EntityType>
         <EntityType Name="ImagePassportTable">
           <Key>
@@ -385,6 +607,14 @@
           <Property Name="Name_ImagePassport" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="Image_ImagePassport" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_PassportTable_ImagePassportTable1" FromRole="ImagePassportTable" ToRole="PassportTable" />
+        </EntityType>
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Ingredients" />
+          </Key>
+          <Property Name="PersonalNumber_Ingredients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.MTM_MenuIngredients" FromRole="IngredientsTable" ToRole="MenuTable" />
         </EntityType>
         <EntityType Name="INNTable">
           <Key>
@@ -408,6 +638,29 @@
           <Property Name="Role_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Organization_MedicalBook" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="MedicalBookTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="MenuCategoryTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_MenuCategory" />
+          </Key>
+          <Property Name="PersonalNumber_MenuCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title_MenuCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_MenuTable_MenuCategoryTable" FromRole="MenuCategoryTable" ToRole="MenuTable" />
+        </EntityType>
+        <EntityType Name="MenuTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_Menu" />
+          </Key>
+          <Property Name="PersonalNumber_Menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description_Menu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pnImageMunu_Menu" Type="Int32" Nullable="false" />
+          <Property Name="pnMenuCategory_Menu" Type="Int32" Nullable="false" />
+          <Property Name="Prise_Menu" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <NavigationProperty Name="ImageMenuTable" Relationship="DesctopHiteModel.FK_MenuTable_ImageMenuTable" FromRole="MenuTable" ToRole="ImageMenuTable" />
+          <NavigationProperty Name="MenuCategoryTable" Relationship="DesctopHiteModel.FK_MenuTable_MenuCategoryTable" FromRole="MenuTable" ToRole="MenuCategoryTable" />
+          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.MTM_ChequeMenu" FromRole="MenuTable" ToRole="ChequeTable" />
+          <NavigationProperty Name="IngredientsTable" Relationship="DesctopHiteModel.MTM_MenuIngredients" FromRole="MenuTable" ToRole="IngredientsTable" />
         </EntityType>
         <EntityType Name="PassportTable">
           <Key>
@@ -510,6 +763,7 @@
           <Property Name="pnINN_Worker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
           <Property Name="pnSnils_Worker" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="AddpnWorker_Worker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.FK_ChequeTable_WorkerTable" FromRole="WorkerTable" ToRole="ChequeTable" />
           <NavigationProperty Name="INNTable" Relationship="DesctopHiteModel.FK_WorkerTabe_INNTable" FromRole="WorkerTable" ToRole="INNTable" />
           <NavigationProperty Name="MedicalBookTable" Relationship="DesctopHiteModel.FK_WorkerTabe_MedicalBookTable" FromRole="WorkerTable" ToRole="MedicalBookTable" />
           <NavigationProperty Name="PassportTable" Relationship="DesctopHiteModel.FK_WorkerTabe_PassportTable" FromRole="WorkerTable" ToRole="PassportTable" />
@@ -519,6 +773,18 @@
           <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
           <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
+        <Association Name="FK_ChequeTable_WorkerTable">
+          <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="0..1" />
+          <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerTable">
+              <PropertyRef Name="PersonalNumber_Worker" />
+            </Principal>
+            <Dependent Role="ChequeTable">
+              <PropertyRef Name="pnWorker_Cheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PassportTable_GenderTable">
           <End Type="DesctopHiteModel.GenderTable" Role="GenderTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.PassportTable" Role="PassportTable" Multiplicity="*" />
@@ -528,6 +794,18 @@
             </Principal>
             <Dependent Role="PassportTable">
               <PropertyRef Name="pnGender_Passport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuTable_ImageMenuTable">
+          <End Type="DesctopHiteModel.ImageMenuTable" Role="ImageMenuTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageMenuTable">
+              <PropertyRef Name="PersonalNumber_ImageMenu" />
+            </Principal>
+            <Dependent Role="MenuTable">
+              <PropertyRef Name="pnImageMunu_Menu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -564,6 +842,18 @@
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="pnMedicalBook_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuTable_MenuCategoryTable">
+          <End Type="DesctopHiteModel.MenuCategoryTable" Role="MenuCategoryTable" Multiplicity="1" />
+          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategoryTable">
+              <PropertyRef Name="PersonalNumber_MenuCategory" />
+            </Principal>
+            <Dependent Role="MenuTable">
+              <PropertyRef Name="pnMenuCategory_Menu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -641,17 +931,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="MTM_ChequeMenu">
+          <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="*" />
+          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="*" />
+        </Association>
+        <Association Name="MTM_MenuIngredients">
+          <End Type="DesctopHiteModel.IngredientsTable" Role="IngredientsTable" Multiplicity="*" />
+          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище DesctopHiteModelContainer" CdmEntityContainer="DesctopHiteEntities">
+          <EntitySetMapping Name="ChequeTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.ChequeTable">
+              <MappingFragment StoreEntitySet="ChequeTable">
+                <ScalarProperty Name="pnWorker_Cheque" ColumnName="pnWorker_Cheque" />
+                <ScalarProperty Name="pnCash_Cheque" ColumnName="pnCash_Cheque" />
+                <ScalarProperty Name="DataTime_Cheque" ColumnName="DataTime_Cheque" />
+                <ScalarProperty Name="PersonalNumber_Cheque" ColumnName="PersonalNumber_Cheque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="GenderTable">
             <EntityTypeMapping TypeName="DesctopHiteModel.GenderTable">
               <MappingFragment StoreEntitySet="GenderTable">
                 <ScalarProperty Name="Title_Gender" ColumnName="Title_Gender" />
                 <ScalarProperty Name="PersonalNumber_Gender" ColumnName="PersonalNumber_Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageMenuTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.ImageMenuTable">
+              <MappingFragment StoreEntitySet="ImageMenuTable">
+                <ScalarProperty Name="Image_ImageMenu" ColumnName="Image_ImageMenu" />
+                <ScalarProperty Name="Name_ImageMenu" ColumnName="Name_ImageMenu" />
+                <ScalarProperty Name="PersonalNumber_ImageMenu" ColumnName="PersonalNumber_ImageMenu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -661,6 +978,14 @@
                 <ScalarProperty Name="Image_ImagePassport" ColumnName="Image_ImagePassport" />
                 <ScalarProperty Name="Name_ImagePassport" ColumnName="Name_ImagePassport" />
                 <ScalarProperty Name="PersonalNumber_ImagePassport" ColumnName="PersonalNumber_ImagePassport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientsTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.IngredientsTable">
+              <MappingFragment StoreEntitySet="IngredientsTable">
+                <ScalarProperty Name="Name_Ingredients" ColumnName="Name_Ingredients" />
+                <ScalarProperty Name="PersonalNumber_Ingredients" ColumnName="PersonalNumber_Ingredients" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -684,6 +1009,26 @@
                 <ScalarProperty Name="SNMDirector_MedicalBook" ColumnName="SNMDirector_MedicalBook" />
                 <ScalarProperty Name="Issue_MedicalBook" ColumnName="Issue_MedicalBook" />
                 <ScalarProperty Name="PersonalNumber_MedicalBook" ColumnName="PersonalNumber_MedicalBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCategoryTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.MenuCategoryTable">
+              <MappingFragment StoreEntitySet="MenuCategoryTable">
+                <ScalarProperty Name="Title_MenuCategory" ColumnName="Title_MenuCategory" />
+                <ScalarProperty Name="PersonalNumber_MenuCategory" ColumnName="PersonalNumber_MenuCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.MenuTable">
+              <MappingFragment StoreEntitySet="MenuTable">
+                <ScalarProperty Name="Prise_Menu" ColumnName="Prise_Menu" />
+                <ScalarProperty Name="pnMenuCategory_Menu" ColumnName="pnMenuCategory_Menu" />
+                <ScalarProperty Name="pnImageMunu_Menu" ColumnName="pnImageMunu_Menu" />
+                <ScalarProperty Name="Description_Menu" ColumnName="Description_Menu" />
+                <ScalarProperty Name="Name_Menu" ColumnName="Name_Menu" />
+                <ScalarProperty Name="PersonalNumber_Menu" ColumnName="PersonalNumber_Menu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -788,6 +1133,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="MTM_ChequeMenu" TypeName="DesctopHiteModel.MTM_ChequeMenu" StoreEntitySet="MTM_ChequeMenu">
+            <EndProperty Name="MenuTable">
+              <ScalarProperty Name="PersonalNumber_Menu" ColumnName="pnMenu" />
+            </EndProperty>
+            <EndProperty Name="ChequeTable">
+              <ScalarProperty Name="PersonalNumber_Cheque" ColumnName="pnCheque" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MTM_MenuIngredients" TypeName="DesctopHiteModel.MTM_MenuIngredients" StoreEntitySet="MTM_MenuIngredients">
+            <EndProperty Name="MenuTable">
+              <ScalarProperty Name="PersonalNumber_Menu" ColumnName="pnMenu" />
+            </EndProperty>
+            <EndProperty Name="IngredientsTable">
+              <ScalarProperty Name="PersonalNumber_Ingredients" ColumnName="pnIngredients" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

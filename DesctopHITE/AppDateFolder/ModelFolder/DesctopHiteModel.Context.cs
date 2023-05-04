@@ -25,10 +25,15 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ChequeTable> ChequeTable { get; set; }
         public virtual DbSet<GenderTable> GenderTable { get; set; }
+        public virtual DbSet<ImageMenuTable> ImageMenuTable { get; set; }
         public virtual DbSet<ImagePassportTable> ImagePassportTable { get; set; }
+        public virtual DbSet<IngredientsTable> IngredientsTable { get; set; }
         public virtual DbSet<INNTable> INNTable { get; set; }
         public virtual DbSet<MedicalBookTable> MedicalBookTable { get; set; }
+        public virtual DbSet<MenuCategoryTable> MenuCategoryTable { get; set; }
+        public virtual DbSet<MenuTable> MenuTable { get; set; }
         public virtual DbSet<PassportTable> PassportTable { get; set; }
         public virtual DbSet<PlaceResidenceTable> PlaceResidenceTable { get; set; }
         public virtual DbSet<RoleTable> RoleTable { get; set; }

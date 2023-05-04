@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +224,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,6 +261,9 @@
     <Compile Include="AppDateFolder\ClassFolder\HolidayClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\MessageBoxClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
+    <Compile Include="AppDateFolder\ModelFolder\ChequeTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\DesctopHiteModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,13 +282,25 @@
     <Compile Include="AppDateFolder\ModelFolder\GenderTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ImageMenuTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\ImagePassportTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\IngredientsTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\INNTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\MedicalBookTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\MenuCategoryTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\MenuTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PassportTable.cs">
@@ -303,6 +326,9 @@
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml.cs">
+      <DependentUpon>MenuCashPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">
       <DependentUpon>MenuSettingsPage.xaml</DependentUpon>
@@ -351,6 +377,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml.cs">
       <DependentUpon>ListWorkerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml.cs">
+      <DependentUpon>MenuCashControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
