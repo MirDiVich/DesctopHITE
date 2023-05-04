@@ -229,6 +229,7 @@
   <ItemGroup>
     <Compile Include="AppDateFolder\ClassFolder\AppConnectClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\CaptchaClass.cs" />
+    <Compile Include="AppDateFolder\ClassFolder\ColorClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\FrameNavigationClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\HolidayClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\MessageBoxClass.cs" />

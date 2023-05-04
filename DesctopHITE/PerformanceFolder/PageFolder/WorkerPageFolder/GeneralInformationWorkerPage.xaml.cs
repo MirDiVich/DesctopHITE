@@ -28,11 +28,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception ex) 
             {
-                var nameMessageOne = $"Ошибка (GeneralInformationWorkerPageError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GeneralInformationWorkerPage в GeneralInformationWorkerPage:\n\n " +
+                        $"{ex.Message}");
             }
         }
 
@@ -51,11 +49,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exVisibility)
             {
-                var nameMessageVisibility = $"Ошибка (GeneralInformationWorkerPageError - 002)";
-                var titleMessageVisibility = $"{exVisibility.Message}";
-                MessageBox.Show(
-                    nameMessageVisibility, titleMessageVisibility,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие Page_IsVisibleChanged в GeneralInformationWorkerPage:\n\n " +
+                        $"{exVisibility.Message}");
             }
         }
 
@@ -72,11 +68,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetDataCountWorker)
             {
-                var nameMessageGetDataCountWorker = $"Ошибка (GeneralInformationWorkerPageError - 003)";
-                var titleMessageGetDataCountWorker = $"{exGetDataCountWorker.Message}";
-                MessageBox.Show(
-                    nameMessageGetDataCountWorker, titleMessageGetDataCountWorker,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetDataCountWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exGetDataCountWorker.Message}");
             }
         }
 
@@ -103,11 +97,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetBirthdayComingSoonWorker)
             {
-                var nameMessageGetBirthdayComingSoonWorker = $"Ошибка (GeneralInformationWorkerPageError - 004)";
-                var titleMessageGetBirthdayComingSoonWorker = $"{exGetBirthdayComingSoonWorker.Message}";
-                MessageBox.Show(
-                    nameMessageGetBirthdayComingSoonWorker, titleMessageGetBirthdayComingSoonWorker,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exGetBirthdayComingSoonWorker.Message}");
             }
         }
 
@@ -122,11 +114,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetTodayBirthdayWorker)
             {
-                var nameMessageGetTodayBirthdayWorker = $"Ошибка (GeneralInformationWorkerPageError - 005)";
-                var titleMessageGetTodayBirthdayWorker = $"{exGetTodayBirthdayWorker.Message}";
-                MessageBox.Show(
-                    nameMessageGetTodayBirthdayWorker, titleMessageGetTodayBirthdayWorker,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exGetTodayBirthdayWorker.Message}");
             }
         }
 
@@ -141,11 +131,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetGenderWorker)
             {
-                var nameMessageGetGenderWorker = $"Ошибка (GeneralInformationWorkerPageError - 006)";
-                var titleMessageGetGenderWorker = $"{exGetGenderWorker.Message}";
-                MessageBox.Show(
-                    nameMessageGetGenderWorker, titleMessageGetGenderWorker,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetGenderWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exGetGenderWorker.Message}");
             }
         }
 
@@ -163,11 +151,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetNumberEmployeesWithPosition)
             {
-                var nameMessageetNumberEmployeesWithPosition = $"Ошибка (GeneralInformationWorkerPageError - 007)";
-                var titleMessageetNumberEmployeesWithPosition = $"{exGetNumberEmployeesWithPosition.Message}";
-                MessageBox.Show(
-                    nameMessageetNumberEmployeesWithPosition, titleMessageetNumberEmployeesWithPosition,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
+                        $"{exGetNumberEmployeesWithPosition.Message}");
             }
         }
         #endregion

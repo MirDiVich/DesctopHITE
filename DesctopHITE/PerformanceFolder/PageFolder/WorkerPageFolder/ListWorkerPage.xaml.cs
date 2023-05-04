@@ -34,11 +34,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception ex)
             {
-                var nameMessageOne = $"Ошибка (ListWorkerPageError - 001)";
-                var titleMessageOne = $"{ex.Message}";
-                MessageBox.Show(
-                    nameMessageOne, titleMessageOne,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerPage в ListWorkerPage:\n\n " +
+                        $"{ex.Message}");
             }
         }
 
@@ -57,15 +55,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exVisible)
             {
-                var nameMessageVisible = $"Ошибка (ListWorkerPageError - 002)";
-                var titleMessageVisible = $"{exVisible.Message}";
-                MessageBox.Show(
-                    nameMessageVisible, titleMessageVisible,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие Page_IsVisibleChanged в ListWorkerPage:\n\n " +
+                        $"{exVisible.Message}");
             }
         }
         #region Click
-
         private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
             try
@@ -85,53 +80,76 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exActionEditWorker)
             {
-                var nameMessageActionEditWorker = $"Ошибка (ListWorkerPageError - 003)";
-                var titleMessageActionEditWorker = $"{exActionEditWorker.Message}";
-                MessageBox.Show(
-                    nameMessageActionEditWorker, titleMessageActionEditWorker,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ActionEditWorker в ListWorkerPage:\n\n " +
+                        $"{exActionEditWorker.Message}");
             }
         }
 
         private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            if (dataContextWorker != null)
+            try
             {
-                DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(dataContextWorker);
-                deliteWorkerWindow.ShowDialog();
+                if (dataContextWorker != null)
+                {
+                    DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(dataContextWorker);
+                    deliteWorkerWindow.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Сотрудник не выбран", "Ошибка - E001",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception exActionDelite)
             {
-                MessageBox.Show(
-                    "Сотрудник не выбран", "Ошибка - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ActionDeliteWorker в ListWorkerPage:\n\n " +
+                        $"{exActionDelite.Message}");
             }
         }
-
         #endregion
         #region SelectionChanged_MouseDoubleClick
-
         private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
-            if (dataContextWorker != null)
+            try
             {
-                ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
-                viewEditInfoemationWorkerWindow.ShowDialog();
+                if (dataContextWorker != null)
+                {
+                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
+                    viewEditInfoemationWorkerWindow.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Сотрудник не выбран", "Ошибка - E001",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception exListWorkerListView_MouseDoubleClick)
             {
-                MessageBox.Show(
-                    "Сотрудник не выбран", "Ошибка - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerListView_MouseDoubleClick в ListWorkerPage:\n\n " +
+                        $"{exListWorkerListView_MouseDoubleClick.Message}");
             }
         }
 
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
-            dataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
-            EditButton.IsEnabled = true;
-            DeliteButton.IsEnabled = true;
+            try
+            {
+                dataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+                EditButton.IsEnabled = true;
+                DeliteButton.IsEnabled = true;
+            }
+            catch (Exception exListWorkerListView_SelectionChanged)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerListView_SelectionChanged в ListWorkerPage:\n\n " +
+                        $"{exListWorkerListView_SelectionChanged.Message}");
+            }
         }
 
         private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
@@ -170,14 +188,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     HintSearchNullElementsTextBlock.Text = "";
                 }
             }
-            catch (Exception ex)
+            catch (Exception exSearchTextBox_SelectionChanged)
             {
-                MessageBox.Show(
-                    ex.Message.ToString(), "Ошибка поиска - E001",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие SearchTextBox_SelectionChanged в ListWorkerPage:\n\n " +
+                        $"{exSearchTextBox_SelectionChanged.Message}");
             }
         }
-
         #endregion
     }
 }
