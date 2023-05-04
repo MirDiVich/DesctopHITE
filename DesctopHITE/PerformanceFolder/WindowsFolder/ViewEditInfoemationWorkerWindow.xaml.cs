@@ -1,5 +1,5 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// Данное окно вызывается для того, чтобы продимонстрировать информацию о сотруднике
+/// Данное окно вызывается для того, чтобы продемонстрировать информацию о сотруднике
 ///     или дать возможность изменить эту самую информацию.
 ///----------------------------------------------------------------------------------------------------------
 
@@ -14,17 +14,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     {
         public ViewEditInfoemationWorkerWindow()
         {
-            InitializeComponent();
-            FrameNavigationClass.ViewEditInformationWorker_FNC = ViewEditWorkerInformationFrame;
+            try
+            {
+                InitializeComponent();
+                FrameNavigationClass.ViewEditInformationWorker_FNC = ViewEditWorkerInformationFrame;
+            }
+            catch (Exception ex)
+            {
+                var nameMessageOne = $"Ошибка (VeWE - 001)";
+                var titleMessageOne = $"{ex.Message}";
+                MessageBox.Show(
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
         }
-
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-           
-        }
-
         #region Управление окном
-
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
         {
             try
@@ -34,11 +38,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception ex)
+            catch (Exception exSpaseBar)
             {
+                var nameMessageSpaseBar = $"Ошибка (VeWE - 002)";
+                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU001 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageSpaseBar, titleMessageSpaseBar,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -46,13 +52,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                Close();
+                Application.Current.Shutdown();
             }
-            catch (Exception ex)
+            catch (Exception exClose)
             {
+                var nameMessageClose = $"Ошибка (VeWE - 003)";
+                var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU002 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageClose, titleMessageClose,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -62,14 +70,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 WindowState = WindowState.Minimized;
             }
-            catch (Exception ex)
+            catch (Exception exRollup)
             {
+                var nameMessageRollup = $"Ошибка (VeWE - 004)";
+                var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(), "REBU003 - Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    nameMessageRollup, titleMessageRollup,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
-
         #endregion
     }
 }

@@ -221,10 +221,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\WindowsFolder\ScanningWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWorkerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -346,9 +342,6 @@
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml.cs">
       <DependentUpon>MainUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PerformanceFolder\WindowsFolder\ScanningWindow.xaml.cs">
-      <DependentUpon>ScanningWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWorkerWindow.xaml.cs">
       <DependentUpon>ViewEditInfoemationWorkerWindow.xaml</DependentUpon>

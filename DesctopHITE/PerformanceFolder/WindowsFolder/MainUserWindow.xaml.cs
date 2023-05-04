@@ -1,5 +1,8 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-/// 
+/// Просто главное окно, которое нужно для того, чтоб туда выгружать страницы, с
+///     которыми уже и взаимодействует пользователь.
+/// На данный момент, окно представляет из себя пустышку, с 2 "Frame" и 3 кнопками, 
+///     для управления данным окном.
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
@@ -12,6 +15,42 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class MainUserWindow : Window
     {
+        public MainUserWindow()
+        {
+            try
+            {
+                InitializeComponent();
+                FrameNavigationClass.MunuUser_FNC = MenuFrame;
+                FrameNavigationClass.MainUser_FNC = MainFrame;
+            }
+            catch (Exception ex)
+            {
+                var nameMessageOne = $"Ошибка (MuWE - 001)";
+                var titleMessageOne = $"{ex.Message}";
+                MessageBox.Show(
+                    nameMessageOne, titleMessageOne,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            try
+            {
+                if (Visibility == Visibility.Visible)
+                {
+                    FrameNavigationClass.MunuUser_FNC.Navigate(new MenuUserPage());
+                }
+            }
+            catch (Exception exVisible)
+            {
+                var nameMessageVisible = $"Ошибка (MuWE - 002)";
+                var titleMessageVisible = $"{exVisible.Message}";
+                MessageBox.Show(
+                    nameMessageVisible, titleMessageVisible,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
+            }
+        }
         #region Управление окном
         private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы перетаскивать окно  
         {
@@ -22,13 +61,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception ex)
+            catch (Exception exSpaseBar)
             {
+                var nameMessageSpaseBar = $"Ошибка (MuWE - 003)";
+                var titleMessageSpaseBar = $"{exSpaseBar.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU001 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    nameMessageSpaseBar, titleMessageSpaseBar,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -38,13 +77,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 Application.Current.Shutdown();
             }
-            catch (Exception ex)
+            catch (Exception exClose)
             {
+                var nameMessageClose = $"Ошибка (MuWE - 004)";
+                var titleMessageClose = $"{exClose.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU002 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    nameMessageClose, titleMessageClose,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
 
@@ -54,58 +93,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 WindowState = WindowState.Minimized;
             }
-            catch (Exception ex)
+            catch (Exception exRollup)
             {
+                var nameMessageRollup = $"Ошибка (MuWE - 005)";
+                var titleMessageRollup = $"{exRollup.Message}";
                 MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU003 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
-        }
-        private void ExitUserButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы пользователь вышел, но данные для входа в АИС не сохранились
-        {
-            try
-            {
-                // Сохранение сохранения
-                Properties.Settings.Default.MeaningRemember = false;
-
-                // Сохранение информации
-                Properties.Settings.Default.LoginUserRemember = null;
-                Properties.Settings.Default.PasswordUserRemember = null;
-
-                // Сохранение
-                Properties.Settings.Default.Save();
-
-                // Закрытие приложения
-                AuthorizationWindow authorizationWindow = new AuthorizationWindow();
-                authorizationWindow.Show();
-                Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message.ToString(),
-                    "REBU003 - Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    nameMessageRollup, titleMessageRollup,
+                    MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
         }
         #endregion
-        public MainUserWindow()
-        {
-            InitializeComponent();
-            FrameNavigationClass.MunuUser_FNC = MenuFrame;
-            FrameNavigationClass.MainUser_FNC = MainFrame;
-        }
-
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Visibility == Visibility.Visible)
-            {
-                FrameNavigationClass.MunuUser_FNC.Navigate(new MenuUserPage());
-            }
-        }
     }
 }
