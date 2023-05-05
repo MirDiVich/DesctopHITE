@@ -60,8 +60,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         $"{exVisible.Message}");
             }
         }
-        #region Click
-        private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
+
+        #region Метод
+        private void ViewDataWorker() // Просмотр информации об сотруднике
+        {
+            try
+            {
+                if (dataContextWorker != null)
+                {
+                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
+                    viewEditInfoemationWorkerWindow.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Сотрудник не выбран", "Ошибка - E001",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception exListWorkerListView_MouseDoubleClick)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие ListWorkerListView_MouseDoubleClick в ListWorkerPage:\n\n " +
+                        $"{exListWorkerListView_MouseDoubleClick.Message}");
+            }
+        }
+
+        private void GetEditWorker() // Редактирование информации об сотруднике
         {
             try
             {
@@ -86,7 +112,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
+        private void GetDeleteWorker() // Удаление информации об сотруднике
         {
             try
             {
@@ -110,30 +136,49 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #endregion
-        #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
+        #region Click
+        private void KeyboardShortcuts(object sender, KeyEventArgs e)
         {
             try
             {
                 if (dataContextWorker != null)
                 {
-                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
-                    viewEditInfoemationWorkerWindow.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E001",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (e.Key == Key.F1)
+                    {
+                        ViewDataWorker();
+                    }
+                    if (e.Key == Key.F2)
+                    {
+                        GetEditWorker();
+                    }
+                    if (e.Key == Key.Delete)
+                    {
+                        GetDeleteWorker();
+                    }
                 }
             }
-            catch (Exception exListWorkerListView_MouseDoubleClick)
+            catch(Exception exKeyboardShortcuts)
             {
                 MessageBoxClass.ExceptionMessage(
-                        textMessage: $"Событие ListWorkerListView_MouseDoubleClick в ListWorkerPage:\n\n " +
-                        $"{exListWorkerListView_MouseDoubleClick.Message}");
+                       textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
+                       $"{exKeyboardShortcuts.Message}");
             }
+        }
+
+        private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
+        {
+            GetEditWorker();
+        }
+
+        private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
+        {
+            GetDeleteWorker();
+        }
+        #endregion
+        #region SelectionChanged_MouseDoubleClick
+        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
+        {
+            ViewDataWorker();
         }
 
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
