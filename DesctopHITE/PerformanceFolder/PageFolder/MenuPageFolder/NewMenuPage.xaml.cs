@@ -183,6 +183,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
 
                 AppConnectClass.DataBase.SaveChanges();
+
+                var nameMenu = AppConnectClass.DataBase.MenuTable.Find(personlNumberMenu);
+                MessageBox.Show(
+                    $"{nameMenu.Name_Menu} успешно добавленно", "Уведомление о добавлении",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+
+                FrameNavigationClass.BodyMenu_FNC.Navigate(new NewMenuPage());
             }
             catch (Exception exGetSelectedIngredients)
             {
@@ -217,7 +224,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-        #region _SelectionChanged _MouseDoubleClick
+        #region _SelectionChanged _MouseDoubleClick _PreviewKeyDown
         private void AllIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -247,6 +254,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.ExceptionMessage(
                         textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
                         $"{exIngredientsListListView_SelectionChanged.Message}");
+            }
+        }
+
+        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e) // Запретить использовать Ctrl + v в некоторых TextBox
+        {
+            try
+            {
+                if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception exCtrlV_PreviewKeyDown)
+            {
+                MessageBoxClass.ExceptionMessage(
+                         textMessage: $"Событие CtrlV_PreviewKeyDown в NewMenuPage:\n\n " +
+                         $"{exCtrlV_PreviewKeyDown.Message}");
             }
         }
         #endregion
