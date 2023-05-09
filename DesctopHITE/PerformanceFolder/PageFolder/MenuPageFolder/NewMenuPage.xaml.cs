@@ -4,7 +4,6 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.UserControlFolder;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -58,7 +57,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         #region Click
         private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            GetSelectedIngredients();
         }
 
         private void NewMenuImageButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
@@ -147,9 +146,27 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void GetSelectedIngredients()
+        private void GetSelectedIngredients() // Добавление списка в связь многие ко многим
         {
-            IngredientsMenuControl ingredientsMenuControl = new IngredientsMenuControl();
+            try
+            {
+                var objectMenu = AppConnectClass.DataBase.MenuTable.Find(personlNumberMenu);
+
+                // Цикл для того, чтоб добавить несколько элементов в таблицу
+                foreach (var ingredient in SelectionIngredientsListListView.Items) 
+                {
+                    var objectListIngredients = ingredient as IngredientsTable;
+                    objectMenu.IngredientsTable.Add(objectListIngredients);
+                }
+
+                AppConnectClass.DataBase.SaveChanges();
+            }
+            catch (Exception exGetSelectedIngredients)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие GetSelectedIngredients в NewMenuPage:\n\n " +
+                        $"{exGetSelectedIngredients.Message}");
+            }
         }
         #endregion
 
@@ -158,7 +175,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem; // Получаем информацию
-                SelectionIngredientsListListView.Items.Remove(selectionIngredients);
+                //SelectionIngredientsListListView.Items.Remove(selectionIngredients);
                 SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
