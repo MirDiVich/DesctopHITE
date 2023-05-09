@@ -11,17 +11,17 @@
         <ToggleButton
             Click="NewMenuToggleButton_Click"
             x:Name="NewMenuToggleButton"
-            Content="ДОБАВИТЬ"
+            Content="ДОБАВИТЬ БЛЮДО"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
             Click="ListMenuToggleButton_Click"
             x:Name="ListMenuToggleButton"
-            Content="СПИСОК"
+            Content="МЕНЮ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
             Click="GeneralInformationToggleButton_Click"
             x:Name="GeneralInformationToggleButton"
-            Content="ОБЩЕЕ"
+            Content="ОБЩЕЯ ИНФОРМАЦИЯ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
     </StackPanel>
 </Page>
