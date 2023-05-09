@@ -8,7 +8,7 @@
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
     <ScrollViewer>
-        <Grid>
+        <Grid Margin="0 0 0 10">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Margin="3.5" Orientation="Horizontal">
                     <Border 
@@ -116,7 +116,7 @@
                                             </Border>
                                             <TextBox
                                                 Text="{Binding Prise_Menu}"
-                                                MaxLength="1000"
+                                                MaxLength="6"
                                                 x:Name="PriseMenuTextBox"
                                                 Style="{DynamicResource OtherTextBoxStyle}"
                                                 Width="500"/>
@@ -258,7 +258,7 @@
                                     Height="auto"
                                     MinHeight="0"
                                     MaxHeight="220"
-                                    SelectionChanged="SelectionIngredientsListListView_SelectionChanged"
+                                    MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
                                     ItemContainerStyle="{StaticResource ListViewItemSelected}"
                                     x:Name="SelectionIngredientsListListView">
                                     <ListView.ItemsPanel>

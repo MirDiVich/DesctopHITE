@@ -6,7 +6,6 @@ using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity.Migrations;
 using System.IO;
@@ -20,10 +19,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
     public partial class NewMenuPage : Page
     {
+        byte[] imageData;
+
         int personlNumberMenu;
 
-        byte[] imageData;
         string pathImage = "";
+        string messagePassportNull;
+        string messageValidData;
 
         public NewMenuPage()
         {
@@ -57,7 +59,31 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         #region Click
         private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedIngredients();
+            messagePassportNull = "";
+            MessageNull();
+            
+            if (messagePassportNull != "")
+            {
+                MessageBox.Show(
+                       messagePassportNull, "Ошибка добавления нового блюда",
+                       MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                messageValidData = "";
+                MessageNull();
+
+                if (messageValidData != "")
+                {
+                    MessageBox.Show(
+                           messagePassportNull, "Ошибка добавления нового блюда",
+                           MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    NewDataMenu();
+                }
+            }
         }
 
         private void NewMenuImageButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
@@ -82,7 +108,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
         #endregion
         #region Метод
-        public void NewDataMenu()
+        public void NewDataMenu() // Добавление нового меню в базу данных
         {
             try
             {
@@ -124,19 +150,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     {
                         addEditMenuTable.pnImageMunu_Menu = 404;
                     }
-                    personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
-                }
-                else
-                {
-                    if (pathImage == "")
-                    {
-                        addEditMenuTable.pnImageMunu_Menu = addEditMenuTable.pnImageMunu_Menu;
-                    }
                 }
 
                 AppConnectClass.DataBase.MenuTable.AddOrUpdate(addEditMenuTable);
+                personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
                 AppConnectClass.DataBase.SaveChanges();
-                MessageBox.Show("Ок", "200");
+
+                GetSelectedIngredients();
             }
             catch (Exception exNewDataMenu)
             {
@@ -168,14 +188,39 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exGetSelectedIngredients.Message}");
             }
         }
-        #endregion
 
-        private void SelectionIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MessageNull() // Метод на проверки полей на валидность данных 
         {
             try
             {
-                var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem; // Получаем информацию
-                //SelectionIngredientsListListView.Items.Remove(selectionIngredients);
+                if (string.IsNullOrWhiteSpace(NameMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Название'\n";
+                if (string.IsNullOrWhiteSpace(DescriptionMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Описание'\n";
+                if (string.IsNullOrWhiteSpace(pnCategoryMenuComboBox.Text)) messagePassportNull += "Вы не указали 'Категорию'\n";
+                if (string.IsNullOrWhiteSpace(PriseMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Стоимость'\n";
+                if (string.IsNullOrWhiteSpace(WeightMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Вес (грамм)'\n";
+
+                if (NameMenuTextBox.Text.Length <= 1) messageValidData += "'Название' не может быть меньше или быть равным 1 символу\n";
+                if (DescriptionMenuTextBox.Text.Length <= 5) messageValidData += "'Описание' не может быть меньше или быть равным 5 символам\n";
+                if (pnCategoryMenuComboBox.Text == "") messageValidData += "'Категория' не выбрана\n";
+                if (PriseMenuTextBox.Text.Length <= 1) messageValidData += "'Стоимость' не может быть меньше или быть равным 1 символу\n";
+                if (WeightMenuTextBox.Text.Length <= 1) messageValidData += "'Вес (грамм)' не может быть меньше или быть равным 1 символу\n";
+                if (SelectionIngredientsListListView.Items.Count == 0) messageValidData += "'Ингредиенты' должны быть\n";
+            }
+            catch (Exception exMessageNull)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие MessageNull в NewMenuPage:\n\n " +
+                        $"{exMessageNull.Message}");
+            }
+        }
+        #endregion
+        #region _SelectionChanged _MouseDoubleClick
+        private void AllIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
+                SelectionIngredientsListListView.Items.Add(allIngredients);
                 SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
@@ -186,13 +231,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void AllIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SelectionIngredientsListListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             try
             {
-                var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
-                SelectionIngredientsListListView.Items.Add(allIngredients);
-                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending)); 
+                var selectionIngredients = SelectionIngredientsListListView.SelectedItem; // Получаем информацию
+                SelectionIngredientsListListView.Items.Remove(selectionIngredients);
+                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
             {
@@ -201,5 +246,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exIngredientsListListView_SelectionChanged.Message}");
             }
         }
+        #endregion
     }
 }
