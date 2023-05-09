@@ -4,8 +4,11 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.UserControlFolder;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
@@ -18,7 +21,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
     public partial class NewMenuPage : Page
     {
-        IngredientsTable ingredientsTable;
+        int personlNumberMenu;
 
         byte[] imageData;
         string pathImage = "";
@@ -31,7 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 if (DataContext != null)
                 {
-
+                    
                 }
                 else
                 {
@@ -41,7 +44,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 AppConnectClass.DataBase = new DesctopHiteEntities();
                 pnCategoryMenuComboBox.ItemsSource = AppConnectClass.DataBase.MenuCategoryTable.ToList();
-                IngredientsListListView.ItemsSource = AppConnectClass.DataBase.IngredientsTable.ToList();
+                AllIngredientsListListView.ItemsSource = AppConnectClass.DataBase.IngredientsTable.ToList();
+                AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception ex)
             {
@@ -52,12 +56,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
 
         #region Click
-        private void NewMenuButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            NewDataMenu();
+            
         }
 
-        private void NewMenuImageButton_Click(object sender, System.Windows.RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
+        private void NewMenuImageButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
         {
             try
             {
@@ -121,6 +125,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     {
                         addEditMenuTable.pnImageMunu_Menu = 404;
                     }
+                    personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
                 }
                 else
                 {
@@ -144,15 +149,33 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
         private void GetSelectedIngredients()
         {
-
+            IngredientsMenuControl ingredientsMenuControl = new IngredientsMenuControl();
         }
         #endregion
 
-        private void IngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SelectionIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                ingredientsTable = (IngredientsTable)IngredientsListListView.SelectedItem; // Получаем информацию
+                var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem; // Получаем информацию
+                SelectionIngredientsListListView.Items.Remove(selectionIngredients);
+                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+            }
+            catch (Exception exIngredientsListListView_SelectionChanged)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
+                        $"{exIngredientsListListView_SelectionChanged.Message}");
+            }
+        }
+
+        private void AllIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
+                SelectionIngredientsListListView.Items.Add(allIngredients);
+                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending)); 
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
             {
