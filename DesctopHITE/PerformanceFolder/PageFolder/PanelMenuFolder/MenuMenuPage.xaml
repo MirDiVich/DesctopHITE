@@ -1,0 +1,27 @@
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder.MenuMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
+    Style="{DynamicResource MenuSpacePageStyle}">
+    <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
+        <ToggleButton
+            Click="NewMenuToggleButton_Click"
+            x:Name="NewMenuToggleButton"
+            Content="ДОБАВИТЬ"
+            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
+        <ToggleButton
+            Click="ListMenuToggleButton_Click"
+            x:Name="ListMenuToggleButton"
+            Content="СПИСОК"
+            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
+        <ToggleButton
+            Click="GeneralInformationToggleButton_Click"
+            x:Name="GeneralInformationToggleButton"
+            Content="ОБЩЕЕ"
+            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
+    </StackPanel>
+</Page>

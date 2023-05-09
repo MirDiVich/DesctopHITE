@@ -27,6 +27,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public int pnImageMunu_Menu { get; set; }
         public int pnMenuCategory_Menu { get; set; }
         public decimal Prise_Menu { get; set; }
+        public int Weight_Menu { get; set; }
     
         public virtual ImageMenuTable ImageMenuTable { get; set; }
         public virtual MenuCategoryTable MenuCategoryTable { get; set; }

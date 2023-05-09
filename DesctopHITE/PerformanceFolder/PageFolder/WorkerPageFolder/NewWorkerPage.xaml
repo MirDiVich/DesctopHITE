@@ -224,6 +224,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <Button
+                                            Style="{DynamicResource OtherButtonStyle}"
                                             Width="190"
                                             Height="55"
                                             x:Name="NewPhotoButton"
@@ -1301,7 +1302,7 @@
                         <Button
                             x:Name="NewWorkerButton"
                             Click="NewWorkerButton_Click"
-                            Width="350"
+                            Width="380"
                             Height="50">
                             <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <TextBlock

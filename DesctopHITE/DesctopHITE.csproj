@@ -156,7 +156,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\UserPageFolder\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\PageFolder\WorkerPageFolder\ViewInformationWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\IngredientsMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,8 +343,14 @@
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml.cs">
+      <DependentUpon>NewMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml.cs">
       <DependentUpon>MenuCashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuMenuPage.xaml.cs">
+      <DependentUpon>MenuMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuSettingsPage.xaml.cs">
       <DependentUpon>MenuSettingsPage.xaml</DependentUpon>
@@ -354,6 +376,9 @@
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\UserPageFolder\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -371,6 +396,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\ViewInformationWorkerPage.xaml.cs">
       <DependentUpon>ViewInformationWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\IngredientsMenuControl.xaml.cs">
+      <DependentUpon>IngredientsMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerBirthdayControl.xaml.cs">
       <DependentUpon>ListWorkerBirthdayControl.xaml</DependentUpon>

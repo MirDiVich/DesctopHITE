@@ -76,12 +76,13 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Menu" />
           </Key>
-          <Property Name="PersonalNumber_Menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalNumber_Menu" Type="int" Nullable="false" />
           <Property Name="Name_Menu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description_Menu" Type="text" Nullable="false" />
           <Property Name="pnImageMunu_Menu" Type="int" Nullable="false" />
           <Property Name="pnMenuCategory_Menu" Type="int" Nullable="false" />
           <Property Name="Prise_Menu" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="Weight_Menu" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MTM_ChequeMenu">
           <Key>
@@ -651,12 +652,13 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Menu" />
           </Key>
-          <Property Name="PersonalNumber_Menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalNumber_Menu" Type="Int32" Nullable="false" />
           <Property Name="Name_Menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description_Menu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pnImageMunu_Menu" Type="Int32" Nullable="false" />
           <Property Name="pnMenuCategory_Menu" Type="Int32" Nullable="false" />
           <Property Name="Prise_Menu" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="Weight_Menu" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ImageMenuTable" Relationship="DesctopHiteModel.FK_MenuTable_ImageMenuTable" FromRole="MenuTable" ToRole="ImageMenuTable" />
           <NavigationProperty Name="MenuCategoryTable" Relationship="DesctopHiteModel.FK_MenuTable_MenuCategoryTable" FromRole="MenuTable" ToRole="MenuCategoryTable" />
           <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.MTM_ChequeMenu" FromRole="MenuTable" ToRole="ChequeTable" />
@@ -1023,6 +1025,7 @@
           <EntitySetMapping Name="MenuTable">
             <EntityTypeMapping TypeName="DesctopHiteModel.MenuTable">
               <MappingFragment StoreEntitySet="MenuTable">
+                <ScalarProperty Name="Weight_Menu" ColumnName="Weight_Menu" />
                 <ScalarProperty Name="Prise_Menu" ColumnName="Prise_Menu" />
                 <ScalarProperty Name="pnMenuCategory_Menu" ColumnName="pnMenuCategory_Menu" />
                 <ScalarProperty Name="pnImageMunu_Menu" ColumnName="pnImageMunu_Menu" />

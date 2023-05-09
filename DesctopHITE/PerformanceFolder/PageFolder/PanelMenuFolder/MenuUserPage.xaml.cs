@@ -93,6 +93,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 IsEnabledToggleButton();
                 MenuToggleButton.IsChecked = true;
                 MenuToggleButton.IsEnabled = false;
+                FrameNavigationClass.MainUser_FNC.Navigate(new MenuPage());
             }
             catch (Exception exMenuToggleButton_Click)
             {
