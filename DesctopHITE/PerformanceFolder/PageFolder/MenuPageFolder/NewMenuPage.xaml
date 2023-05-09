@@ -8,7 +8,7 @@
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
     <ScrollViewer>
-        <Grid Margin="0 0 0 10">
+        <Grid Margin="10">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Margin="3.5" Orientation="Horizontal">
                     <Border 
@@ -17,204 +17,219 @@
                         Visibility="Visible" 
                         Width="570" 
                         Style="{DynamicResource BorderInformation}">
-                        <Grid Margin="10">
-                            <ScrollViewer>
-                                <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock
-                                        Foreground="#462AD8"
-                                        Text="ОБЩЕЕ"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        FontSize="30"
-                                        Margin="0 10 0 10"/>
-                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                        <Grid>
+                            <Border Style="{DynamicResource NeonBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                </Border.Effect>
+                            </Border>
+                            <Grid Margin="10">
+                                <ScrollViewer>
+                                    <StackPanel HorizontalAlignment="Center">
                                         <TextBlock
-                                            Text="Название"
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                        <Grid>
-                                            <Border Style="{DynamicResource OtherShadowBorder}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect 
-                                                        Direction="315"
-                                                        Color="{DynamicResource ShadowColor}"
-                                                        BlurRadius="5"
-                                                        ShadowDepth="0.5"
-                                                        Opacity="0.3"
-                                                        RenderingBias="Quality"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <TextBox
-                                                PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                Text="{Binding Name_Menu}"
-                                                MaxLength="50"
-                                                x:Name="NameMenuTextBox"
-                                                Style="{DynamicResource OtherTextBoxStyle}"
-                                                Width="500"/>
-                                        </Grid>
+                                            Foreground="#462AD8"
+                                            Text="ОБЩЕЕ"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            FontSize="30"
+                                            Margin="0 10 0 10"/>
+                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Text="Название"
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                            <Grid>
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect 
+                                                            Direction="315"
+                                                            Color="{DynamicResource ShadowColor}"
+                                                            BlurRadius="5"
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
+                                                    </Border.Effect>
+                                                </Border>
+                                                <TextBox
+                                                    PreviewKeyDown="CtrlV_PreviewKeyDown"
+                                                    Text="{Binding Name_Menu}"
+                                                    MaxLength="50"
+                                                    x:Name="NameMenuTextBox"
+                                                    Style="{DynamicResource OtherTextBoxStyle}"
+                                                    Width="500"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Text="Описание"
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                            <Grid>
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect 
+                                                            Direction="315"
+                                                            Color="{DynamicResource ShadowColor}"
+                                                            BlurRadius="5"
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
+                                                    </Border.Effect>
+                                                </Border>
+                                                <TextBox
+                                                    PreviewKeyDown="CtrlV_PreviewKeyDown"
+                                                    Text="{Binding Description_Menu}"
+                                                    MaxLength="1000"
+                                                    x:Name="DescriptionMenuTextBox"
+                                                    Style="{DynamicResource OtherTextBoxStyle}"
+                                                    Width="500"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Text="Категория"
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                            <Grid>
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect 
+                                                            Direction="315"
+                                                            Color="{DynamicResource ShadowColor}"
+                                                            BlurRadius="5"
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
+                                                    </Border.Effect>
+                                                </Border>
+                                                <ComboBox
+                                                    DisplayMemberPath="Title_MenuCategory"
+                                                    SelectedValuePath="PersonalNumber_MenuCategory"
+                                                    Text="{Binding MenuCategoryTableю.Title_MenuCategory}"
+                                                    x:Name="pnCategoryMenuComboBox"
+                                                    Width="500"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock
+                                                        Margin="0 0 3.5 0"
+                                                        Text="Стоимость"/>
+                                                    <TextBlock
+                                                        VerticalAlignment="Top"
+                                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                                        Margin="3.5 0 0 0"
+                                                        FontSize="10"
+                                                        Text="указывается через запятую [ххх,хх]" 
+                                                        FontStyle="Italic"/>
+                                                </StackPanel>
+                                            </TextBlock>
+                                            <Grid>
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect 
+                                                            Direction="315"
+                                                            Color="{DynamicResource ShadowColor}"
+                                                            BlurRadius="5"
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
+                                                    </Border.Effect>
+                                                </Border>
+                                                <TextBox
+                                                    PreviewKeyDown="CtrlV_PreviewKeyDown"
+                                                    PreviewTextInput="PriseValidationTextBox"
+                                                    Text="{Binding Prise_Menu}"
+                                                    MaxLength="6"
+                                                    x:Name="PriseMenuTextBox"
+                                                    Style="{DynamicResource OtherTextBoxStyle}"
+                                                    Width="500"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                            <TextBlock
+                                                Text="Вес (грамм)"
+                                                Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                            <Grid>
+                                                <Border Style="{DynamicResource OtherShadowBorder}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect 
+                                                            Direction="315"
+                                                            Color="{DynamicResource ShadowColor}"
+                                                            BlurRadius="5"
+                                                            ShadowDepth="0.5"
+                                                            Opacity="0.3"
+                                                            RenderingBias="Quality"/>
+                                                    </Border.Effect>
+                                                </Border>
+                                                <TextBox
+                                                    PreviewKeyDown="CtrlV_PreviewKeyDown"
+                                                    PreviewTextInput="NumberValidationTextBox"
+                                                    Text="{Binding Prise_Menu}"
+                                                    MaxLength="6"
+                                                    x:Name="WeightMenuTextBox"
+                                                    Style="{DynamicResource OtherTextBoxStyle}"
+                                                    Width="500"/>
+                                            </Grid>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Text="Описание"
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                        <Grid>
-                                            <Border Style="{DynamicResource OtherShadowBorder}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect 
-                                                        Direction="315"
-                                                        Color="{DynamicResource ShadowColor}"
-                                                        BlurRadius="5"
-                                                        ShadowDepth="0.5"
-                                                        Opacity="0.3"
-                                                        RenderingBias="Quality"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <TextBox
-                                                PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                Text="{Binding Description_Menu}"
-                                                MaxLength="1000"
-                                                x:Name="DescriptionMenuTextBox"
-                                                Style="{DynamicResource OtherTextBoxStyle}"
-                                                Width="500"/>
-                                        </Grid>
-                                    </StackPanel>
-                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Text="Категория"
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                        <Grid>
-                                            <Border Style="{DynamicResource OtherShadowBorder}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect 
-                                                        Direction="315"
-                                                        Color="{DynamicResource ShadowColor}"
-                                                        BlurRadius="5"
-                                                        ShadowDepth="0.5"
-                                                        Opacity="0.3"
-                                                        RenderingBias="Quality"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <ComboBox
-                                                DisplayMemberPath="Title_MenuCategory"
-                                                SelectedValuePath="PersonalNumber_MenuCategory"
-                                                Text="{Binding MenuCategoryTableю.Title_MenuCategory}"
-                                                x:Name="pnCategoryMenuComboBox"
-                                                Width="500"/>
-                                        </Grid>
-                                    </StackPanel>
-                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock
-                                                    Margin="0 0 3.5 0"
-                                                    Text="Стоимость"/>
-                                                <TextBlock
-                                                    VerticalAlignment="Top"
-                                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                                    Margin="3.5 0 0 0"
-                                                    FontSize="10"
-                                                    Text="указывается через запятую [ххх,хх]" 
-                                                    FontStyle="Italic"/>
-                                            </StackPanel>
-                                        </TextBlock>
-                                        <Grid>
-                                            <Border Style="{DynamicResource OtherShadowBorder}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect 
-                                                        Direction="315"
-                                                        Color="{DynamicResource ShadowColor}"
-                                                        BlurRadius="5"
-                                                        ShadowDepth="0.5"
-                                                        Opacity="0.3"
-                                                        RenderingBias="Quality"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <TextBox
-                                                PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput="PriseValidationTextBox"
-                                                Text="{Binding Prise_Menu}"
-                                                MaxLength="6"
-                                                x:Name="PriseMenuTextBox"
-                                                Style="{DynamicResource OtherTextBoxStyle}"
-                                                Width="500"/>
-                                        </Grid>
-                                    </StackPanel>
-                                    <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
-                                        <TextBlock
-                                            Text="Вес (грамм)"
-                                            Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                        <Grid>
-                                            <Border Style="{DynamicResource OtherShadowBorder}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect 
-                                                        Direction="315"
-                                                        Color="{DynamicResource ShadowColor}"
-                                                        BlurRadius="5"
-                                                        ShadowDepth="0.5"
-                                                        Opacity="0.3"
-                                                        RenderingBias="Quality"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <TextBox
-                                                PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                PreviewTextInput="NumberValidationTextBox"
-                                                Text="{Binding Prise_Menu}"
-                                                MaxLength="6"
-                                                x:Name="WeightMenuTextBox"
-                                                Style="{DynamicResource OtherTextBoxStyle}"
-                                                Width="500"/>
-                                        </Grid>
-                                    </StackPanel>
-                                </StackPanel>
-                            </ScrollViewer>
+                                </ScrollViewer>
+                            </Grid>
                         </Grid>
                     </Border>
                     <Border 
+                        BorderBrush="Transparent"
                         VerticalAlignment="Top"
                         Height="450"
                         Margin="3.5"
                         Visibility="Visible" 
                         Width="330" 
                         Style="{DynamicResource BorderInformation}">
-                        <Grid Margin="10">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock
-                                    Foreground="#462AD8"
-                                    Text="ФОТО"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    FontSize="30"
-                                    Margin="0 10 0 10"/>
-                                <Image
-                                    x:Name="MenuPhotoImage"
-                                    Source="{Binding ImageMenuTable.Image_ImageMenu}"
-                                    Width="300"
-                                    Stretch="Uniform"
-                                    Height="300"
-                                    Margin="0 0 0 10"/>
-                                <Grid Margin="0 10 0 0">
-                                    <Border Width="250" Style="{DynamicResource OtherShadowBorder}">
-                                        <Border.Effect>
-                                            <DropShadowEffect 
-                                                Direction="315"
-                                                Color="{DynamicResource ShadowColor}"
-                                                BlurRadius="5"
-                                                ShadowDepth="0.5"
-                                                Opacity="0.3"
-                                                RenderingBias="Quality"/>
-                                        </Border.Effect>
-                                    </Border>
-                                    <Button
-                                        Style="{DynamicResource OtherButtonStyle}"
-                                        Width="250"
-                                        Height="45"
-                                        x:Name="NewMenuImageButton"
-                                        Click="NewMenuImageButton_Click">
-                                        <TextBlock
-                                            Text="Загрузить изображение"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Center"/>
-                                    </Button>
-                                </Grid>
-                            </StackPanel>
+                        <Grid>
+                            <Border Style="{DynamicResource NeonBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                </Border.Effect>
+                            </Border>
+                            <Grid Margin="10">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock
+                                        Foreground="#462AD8"
+                                        Text="ФОТО"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        FontSize="30"
+                                        Margin="0 10 0 10"/>
+                                    <Image
+                                        x:Name="MenuPhotoImage"
+                                        Source="{Binding ImageMenuTable.Image_ImageMenu}"
+                                        Width="300"
+                                        Stretch="Uniform"
+                                        Height="300"
+                                        Margin="0 0 0 10"/>
+                                    <Grid Margin="0 10 0 0">
+                                        <Border Width="250" Style="{DynamicResource OtherShadowBorder}">
+                                            <Border.Effect>
+                                                <DropShadowEffect 
+                                                    Direction="315"
+                                                    Color="{DynamicResource ShadowColor}"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0.5"
+                                                    Opacity="0.3"
+                                                    RenderingBias="Quality"/>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Button
+                                            Style="{DynamicResource OtherButtonStyle}"
+                                            Width="250"
+                                            Height="45"
+                                            x:Name="NewMenuImageButton"
+                                            Click="NewMenuImageButton_Click">
+                                            <TextBlock
+                                                Text="Загрузить изображение"
+                                                TextWrapping="Wrap"
+                                                TextAlignment="Center"/>
+                                        </Button>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
                     </Border>
                 </StackPanel>
@@ -225,37 +240,44 @@
                         Visibility="Visible" 
                         Width="500" 
                         Style="{DynamicResource BorderInformation}">
-                        <Grid Margin="10">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock
-                                    Foreground="#462AD8"
-                                    Text="ВСЕ ИНГРИДИЕНТЫ"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    FontSize="30"
-                                    Margin="0 10 0 10"/>
-                                <ListView
-                                    Height="auto"
-                                    MinHeight="0"
-                                    MaxHeight="220"
-                                    SelectionChanged="AllIngredientsListListView_SelectionChanged"
-                                    ItemContainerStyle="{StaticResource ListViewItemSelected}"
-                                    x:Name="AllIngredientsListListView">
-                                    <ListView.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel 
-                                                IsItemsHost="True" 
-                                                VerticalAlignment="Top"
-                                                HorizontalAlignment="Left" 
-                                                Background="Transparent"/>
-                                        </ItemsPanelTemplate>
-                                    </ListView.ItemsPanel>
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <UserControl:IngredientsMenuControl/>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </StackPanel>
+                        <Grid>
+                            <Border Style="{DynamicResource NeonBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                </Border.Effect>
+                            </Border>
+                            <Grid Margin="10">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock
+                                        Foreground="#462AD8"
+                                        Text="ВСЕ ИНГРИДИЕНТЫ"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        FontSize="30"
+                                        Margin="0 10 0 10"/>
+                                    <ListView
+                                        Height="auto"
+                                        MinHeight="0"
+                                        MaxHeight="220"
+                                        SelectionChanged="AllIngredientsListListView_SelectionChanged"
+                                        ItemContainerStyle="{StaticResource ListViewItemSelected}"
+                                        x:Name="AllIngredientsListListView">
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel 
+                                                    IsItemsHost="True" 
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Left" 
+                                                    Background="Transparent"/>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <UserControl:IngredientsMenuControl/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
                     </Border>
                     <Border
@@ -264,37 +286,44 @@
                         Visibility="Visible" 
                         Width="500" 
                         Style="{DynamicResource BorderInformation}">
-                        <Grid Margin="10">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock
-                                    Foreground="#462AD8"
-                                    Text="ИНГРИДИЕНТЫ"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    FontSize="30"
-                                    Margin="0 10 0 10"/>
-                                <ListView
-                                    Height="auto"
-                                    MinHeight="0"
-                                    MaxHeight="220"
-                                    MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
-                                    ItemContainerStyle="{StaticResource ListViewItemSelected}"
-                                    x:Name="SelectionIngredientsListListView">
-                                    <ListView.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel 
-                                                IsItemsHost="True" 
-                                                VerticalAlignment="Top"
-                                                HorizontalAlignment="Left" 
-                                                Background="Transparent"/>
-                                        </ItemsPanelTemplate>
-                                    </ListView.ItemsPanel>
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <UserControl:IngredientsMenuControl/>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </StackPanel>
+                        <Grid>
+                            <Border Style="{DynamicResource NeonBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                </Border.Effect>
+                            </Border>
+                            <Grid Margin="10">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock
+                                        Foreground="#462AD8"
+                                        Text="ИНГРЕДИЕНТЫ"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        FontSize="30"
+                                        Margin="0 10 0 10"/>
+                                    <ListView
+                                        Height="auto"
+                                        MinHeight="0"
+                                        MaxHeight="220"
+                                        MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
+                                        ItemContainerStyle="{StaticResource ListViewItemSelected}"
+                                        x:Name="SelectionIngredientsListListView">
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel 
+                                                    IsItemsHost="True" 
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Left" 
+                                                    Background="Transparent"/>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <UserControl:IngredientsMenuControl/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
                     </Border>
                 </StackPanel>

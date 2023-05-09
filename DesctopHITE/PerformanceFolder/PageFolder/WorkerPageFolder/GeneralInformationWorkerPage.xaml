@@ -10,183 +10,230 @@
     Style="{DynamicResource BodySpacePageStyle}">
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
         <StackPanel Orientation="Vertical" Margin="10">
-            <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <TextBlock
-                        Foreground="#462AD8"
-                        Text="Информация по онлайну"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"
-                        Margin="0 10 0 10"/>
-                    <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Всего:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                Margin="3.5 0 0 0"
-                                x:Name="WorkerCountTextBlock"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Online:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                Margin="3.5 0 0 0"
-                                x:Name="TotalOnlineWorkerTextBlock"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Offline:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                Margin="3.5 0 0 0"
-                                x:Name="TotalOfflineWorkerTextBlock"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
+            <Border
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                        </Border.Effect>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Информация по онлайну"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Всего:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    x:Name="WorkerCountTextBlock"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Online:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    x:Name="TotalOnlineWorkerTextBlock"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Offline:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    Margin="3.5 0 0 0"
+                                    x:Name="TotalOfflineWorkerTextBlock"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
             </Border>
             <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <TextBlock
-                        Foreground="#462AD8"
-                        Text="Информация по гендеру"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"
-                        Margin="0 10 0 10"/>
-                    <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <StackPanel Margin="0 0 7 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Мужчин:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="GenderManTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Margin="7 0 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Женщин:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="GenderWomenTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                        </Border.Effect>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Информация по гендеру"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 7 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Мужчин:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="GenderManTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Margin="7 0 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Женщин:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="GenderWomenTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
             </Border>
             <Border Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <TextBlock
-                        Foreground="#462AD8"
-                        Text="Информация по должности"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"
-                        Margin="0 10 0 10"/>
-                    <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Программист:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="NumberEmployeesWithPositionProgrammerTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Администратор:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="NumberEmployeesWithPositionAdministratorTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Кассир:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="NumberEmployeesWithPositionCashierTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Уборщик:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="NumberEmployeesWithPositionCleanerTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
-                        </StackPanel>
-                        <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                            <TextBlock
-                                Margin="0 0 3.5 0"
-                                Text="Директор:"
-                                Style="{DynamicResource MainStyleTextBlock}"/>
-                            <TextBlock
-                                x:Name="NumberEmployeesWithPositionDirectorTextBlock"
-                                Margin="3.5 0 0 0"
-                                Style="{DynamicResource OtherStyleTextBlock}"/>
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                        </Border.Effect>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Информация по должности"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Программист:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="NumberEmployeesWithPositionProgrammerTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Администратор:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="NumberEmployeesWithPositionAdministratorTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Кассир:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="NumberEmployeesWithPositionCashierTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Уборщик:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="NumberEmployeesWithPositionCleanerTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <TextBlock
+                                    Margin="0 0 3.5 0"
+                                    Text="Директор:"
+                                    Style="{DynamicResource MainStyleTextBlock}"/>
+                                <TextBlock
+                                    x:Name="NumberEmployeesWithPositionDirectorTextBlock"
+                                    Margin="3.5 0 0 0"
+                                    Style="{DynamicResource OtherStyleTextBlock}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
             </Border>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="10">
-            <Border MaxHeight="350" MinHeight="0" Height="auto" Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <TextBlock
-                        Foreground="#462AD8"
-                        Text="Сегодня день рождение"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"
-                        Margin="0 10 0 10"/>
-                    <ListView
-                        x:Name="TodayBirthdayListView"
-                        Margin="10"
-                        ItemContainerStyle="{StaticResource ListViewItemSelected}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <UserControl:ListWorkerBirthdayControl/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackPanel>
+            <Border 
+                MaxHeight="350" 
+                MinHeight="0"
+                Height="auto" 
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                        </Border.Effect>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Сегодня день рождение"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <ListView
+                            x:Name="TodayBirthdayListView"
+                            Margin="10"
+                            ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <UserControl:ListWorkerBirthdayControl/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
             </Border>
-            <Border MaxHeight="350" MinHeight="0" Height="auto" Visibility="Visible" Style="{DynamicResource BorderInformation}">
-                <StackPanel Orientation="Vertical" Margin="10">
-                    <TextBlock
-                        Foreground="#462AD8"
-                        Text="Скоро день рождение"
-                        Style="{DynamicResource MainStyleTextBlock}"
-                        FontSize="30"
-                        Margin="0 10 0 10"/>
-                    <ListView
-                        x:Name="BirthdayComingSoonListView"
-                        Margin="10"
-                        ItemContainerStyle="{StaticResource ListViewItemSelected}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <UserControl:ListWorkerBirthdayControl/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackPanel>
+            <Border 
+                MaxHeight="350"
+                MinHeight="0" 
+                Height="auto" 
+                Visibility="Visible"
+                Style="{DynamicResource BorderInformation}">
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                        </Border.Effect>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock
+                            Foreground="#462AD8"
+                            Text="Скоро день рождение"
+                            Style="{DynamicResource MainStyleTextBlock}"
+                            FontSize="30"
+                            Margin="0 10 0 10"/>
+                        <ListView
+                            x:Name="BirthdayComingSoonListView"
+                            Margin="10"
+                            ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <UserControl:ListWorkerBirthdayControl/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
             </Border>
         </StackPanel>
     </StackPanel>
