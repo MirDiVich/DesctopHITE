@@ -10,8 +10,10 @@ using System.ComponentModel;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -24,7 +26,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         int personlNumberMenu;
 
         string pathImage = "";
-        string messagePassportNull;
+        string messageNull;
         string messageValidData;
 
         public NewMenuPage()
@@ -59,13 +61,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         #region Click
         private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            messagePassportNull = "";
+            messageNull = "";
             MessageNull();
             
-            if (messagePassportNull != "")
+            if (messageNull != "")
             {
                 MessageBox.Show(
-                       messagePassportNull, "Ошибка добавления нового блюда",
+                       messageNull, "Ошибка добавления нового блюда",
                        MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
@@ -76,7 +78,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (messageValidData != "")
                 {
                     MessageBox.Show(
-                           messagePassportNull, "Ошибка добавления нового блюда",
+                           messageValidData, "Ошибка добавления нового блюда",
                            MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
@@ -120,7 +122,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 addEditMenuTable.Name_Menu = NameMenuTextBox.Text;
                 addEditMenuTable.Description_Menu = DescriptionMenuTextBox.Text;
                 addEditMenuTable.pnMenuCategory_Menu = (pnCategoryMenuComboBox.SelectedItem as MenuCategoryTable).PersonalNumber_MenuCategory;
-                addEditMenuTable.Prise_Menu = Convert.ToInt32(PriseMenuTextBox.Text);
+                addEditMenuTable.Prise_Menu = Convert.ToDecimal(PriseMenuTextBox.Text);
                 addEditMenuTable.Weight_Menu = Convert.ToInt32(WeightMenuTextBox.Text);
 
                 // Работа с фото
@@ -153,8 +155,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
 
                 AppConnectClass.DataBase.MenuTable.AddOrUpdate(addEditMenuTable);
-                personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
                 AppConnectClass.DataBase.SaveChanges();
+
+                personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
 
                 GetSelectedIngredients();
             }
@@ -164,7 +167,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                          textMessage: $"Событие NewDataMenu в NewMenuPage:\n\n " +
                          $"{exNewDataMenu.Message}");
             }
-        }
+}
 
         private void GetSelectedIngredients() // Добавление списка в связь многие ко многим
         {
@@ -193,18 +196,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(NameMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Название'\n";
-                if (string.IsNullOrWhiteSpace(DescriptionMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Описание'\n";
-                if (string.IsNullOrWhiteSpace(pnCategoryMenuComboBox.Text)) messagePassportNull += "Вы не указали 'Категорию'\n";
-                if (string.IsNullOrWhiteSpace(PriseMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Стоимость'\n";
-                if (string.IsNullOrWhiteSpace(WeightMenuTextBox.Text)) messagePassportNull += "Вы не указали 'Вес (грамм)'\n";
+                if (string.IsNullOrWhiteSpace(NameMenuTextBox.Text)) messageNull += "Вы не указали 'Название'\n";
+                if (string.IsNullOrWhiteSpace(DescriptionMenuTextBox.Text)) messageNull += "Вы не указали 'Описание'\n";
+                if (string.IsNullOrWhiteSpace(pnCategoryMenuComboBox.Text)) messageNull += "Вы не указали 'Категорию'\n";
+                if (string.IsNullOrWhiteSpace(PriseMenuTextBox.Text)) messageNull += "Вы не указали 'Стоимость'\n";
+                if (string.IsNullOrWhiteSpace(WeightMenuTextBox.Text)) messageNull += "Вы не указали 'Вес (грамм)'";
 
                 if (NameMenuTextBox.Text.Length <= 1) messageValidData += "'Название' не может быть меньше или быть равным 1 символу\n";
                 if (DescriptionMenuTextBox.Text.Length <= 5) messageValidData += "'Описание' не может быть меньше или быть равным 5 символам\n";
                 if (pnCategoryMenuComboBox.Text == "") messageValidData += "'Категория' не выбрана\n";
                 if (PriseMenuTextBox.Text.Length <= 1) messageValidData += "'Стоимость' не может быть меньше или быть равным 1 символу\n";
                 if (WeightMenuTextBox.Text.Length <= 1) messageValidData += "'Вес (грамм)' не может быть меньше или быть равным 1 символу\n";
-                if (SelectionIngredientsListListView.Items.Count == 0) messageValidData += "'Ингредиенты' должны быть\n";
+                if (SelectionIngredientsListListView.Items.Count == 0) messageValidData += "'Ингредиенты' должны быть";
             }
             catch (Exception exMessageNull)
             {
@@ -244,6 +247,36 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.ExceptionMessage(
                         textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
                         $"{exIngredientsListListView_SelectionChanged.Message}");
+            }
+        }
+        #endregion
+        #region ValidData // Просто для валидность данных (В одних TextBox разрешить писать только цифры и т.д.)
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            try
+            {
+                Regex NumberRegex = new Regex("[^0-9]");
+                e.Handled = NumberRegex.IsMatch(e.Text);
+            }
+            catch (Exception exNumberValidationTextBox)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
+                        $"{exNumberValidationTextBox.Message}");
+            }
+        }
+        private void PriseValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            try
+            {
+                Regex NumberRegex = new Regex("[^0-9,]");
+                e.Handled = NumberRegex.IsMatch(e.Text);
+            }
+            catch (Exception exNumberValidationTextBox)
+            {
+                MessageBoxClass.ExceptionMessage(
+                        textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
+                        $"{exNumberValidationTextBox.Message}");
             }
         }
         #endregion
