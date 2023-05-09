@@ -76,7 +76,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Menu" />
           </Key>
-          <Property Name="PersonalNumber_Menu" Type="int" Nullable="false" />
+          <Property Name="PersonalNumber_Menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_Menu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description_Menu" Type="text" Nullable="false" />
           <Property Name="pnImageMunu_Menu" Type="int" Nullable="false" />
@@ -652,7 +652,7 @@
           <Key>
             <PropertyRef Name="PersonalNumber_Menu" />
           </Key>
-          <Property Name="PersonalNumber_Menu" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumber_Menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_Menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description_Menu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pnImageMunu_Menu" Type="Int32" Nullable="false" />

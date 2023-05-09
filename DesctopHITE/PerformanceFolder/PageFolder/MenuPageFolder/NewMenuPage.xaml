@@ -87,7 +87,7 @@
                                             DisplayMemberPath="Title_MenuCategory"
                                             SelectedValuePath="PersonalNumber_MenuCategory"
                                             Text="{Binding MenuCategoryTableю.Title_MenuCategory}"
-                                            x:Name="CategoryMenuComboBox"
+                                            x:Name="pnCategoryMenuComboBox"
                                             Width="500"/>
                                     </Grid>
                                 </StackPanel>
