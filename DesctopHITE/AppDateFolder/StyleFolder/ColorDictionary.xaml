@@ -5,6 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Color x:Key="ShadowColor">#000000</Color>
+    <Color x:Key="NeonHighlightingColor">#f5f5f5</Color>
+
     <SolidColorBrush x:Key="ShadowSolidColorBrush" Color="{DynamicResource ShadowColor}"/>
+    <SolidColorBrush x:Key="NeonHighlightingColorBrush" Color="{DynamicResource ShadowColor}"/>
     
 </ResourceDictionary>

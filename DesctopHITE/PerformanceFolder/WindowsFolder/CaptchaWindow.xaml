@@ -39,7 +39,9 @@
                 </Polygon>
             </Grid>
             <Grid Grid.Row="1">
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center">
                     <Grid Margin="0 0 0 20">
                         <TextBlock
                             FontFamily="Times New Roman"
@@ -82,7 +84,11 @@
                             Text="Капча"
                             Style="{DynamicResource HintTextBlockStyle}"/>
                     </Grid>
-                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel 
+                        Margin="0 10 0 0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center">
                         <Button
                             Margin="0 0 10 0"
                             x:Name="EnterCaptchaButton"

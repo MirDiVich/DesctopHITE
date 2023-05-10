@@ -7,9 +7,18 @@
     mc:Ignorable="d" 
     Height="250"
     Width="200">
-    <Border CornerRadius="10" BorderBrush="Transparent" BorderThickness="0">
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Margin="0 0 0 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Border 
+        CornerRadius="10"
+        BorderBrush="Transparent" 
+        BorderThickness="0">
+        <Grid 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
+            <StackPanel
+                Margin="0 0 0 10" 
+                Orientation="Vertical" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
                 <Grid>
                     <Border 
                         BorderThickness="75"
@@ -19,7 +28,9 @@
                         VerticalAlignment="Top"
                         x:Name="MaskMorderBorder" 
                         Style="{StaticResource MaskBorder}"/>
-                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <StackPanel
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
                         <StackPanel.OpacityMask>
                             <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
                         </StackPanel.OpacityMask>
@@ -32,22 +43,41 @@
                             Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"/>
                     </StackPanel>
                 </Grid>
-                <StackPanel Margin="0 10 0 2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel
+                    Margin="0 10 0 2"
+                    Orientation="Horizontal" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center">
                     <TextBlock
                         TextAlignment="Center"
                         FontSize="15"
                         Margin="0"
                         Style="{DynamicResource MainStyleTextBlock}">
-                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text="{Binding PassportTable.Surname_Passport}" Margin="0 0 2 0"/>
-                                <TextBlock Text="{Binding PassportTable.Name_Passport}" Margin="2 0 2 0"/>
+                        <StackPanel 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center" 
+                            Orientation="Vertical">
+                            <StackPanel 
+                                Orientation="Horizontal" 
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                                <TextBlock 
+                                    Text="{Binding PassportTable.Surname_Passport}" 
+                                    Margin="0 0 2 0"/>
+                                <TextBlock 
+                                    Text="{Binding PassportTable.Name_Passport}"
+                                    Margin="2 0 2 0"/>
                             </StackPanel>
-                            <TextBlock Text="{Binding PassportTable.Middlename_Passport}" Margin="2 0 0 0"/>
+                            <TextBlock
+                                Text="{Binding PassportTable.Middlename_Passport}" 
+                                Margin="2 0 0 0"/>
                         </StackPanel>
                     </TextBlock>
                 </StackPanel>
-                <StackPanel Margin="0 2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel 
+                    Margin="0 2 0 0" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center">
                     <TextBlock 
                         x:Name="StatusTextBlock"
                         Foreground="#9a9a9a"

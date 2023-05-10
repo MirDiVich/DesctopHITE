@@ -70,8 +70,14 @@
             Width="270"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0" Orientation="Horizontal">
-                <Grid Margin="5 0 5 0" Grid.Column="0">
+            <StackPanel
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left" 
+                Margin="5 0"
+                Orientation="Horizontal">
+                <Grid 
+                    Margin="5 0 5 0" 
+                    Grid.Column="0">
                     <Border 
                         BorderBrush="#202020"
                         Height="35"

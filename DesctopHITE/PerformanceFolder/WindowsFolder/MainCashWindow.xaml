@@ -8,7 +8,9 @@
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen" 
     Style="{StaticResource MainCashWinwosStyle}">
-    <Border CornerRadius="0" Style="{DynamicResource MainBorderStyle}">
+    <Border 
+        CornerRadius="0" 
+        Style="{DynamicResource MainBorderStyle}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500"/>

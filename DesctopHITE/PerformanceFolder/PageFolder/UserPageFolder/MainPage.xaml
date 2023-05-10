@@ -24,7 +24,11 @@
             VerticalAlignment="Bottom"
             x:Name="HelloyTextBlock"
             Style="{DynamicResource MainStyleTextBlock}"/>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+        <StackPanel 
+            Grid.Row="1" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+            Orientation="Vertical">
             <TextBlock
                 Text="HTRE"
                 FontSize="200"
@@ -32,7 +36,7 @@
                 FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint">
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="0.45,1" StartPoint="0.5,0">
-                        <GradientStop Color="#f5f5f5"/>
+                        <GradientStop Color="{StaticResource NeonHighlightingColor}"/>
                         <GradientStop Color="#462AD8" Offset="1"/>
                     </LinearGradientBrush>
                 </TextBlock.Foreground>
@@ -44,7 +48,11 @@
                 FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint"
                 Foreground="#462AD8"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel
+            Grid.Row="2" 
+            Orientation="Vertical" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
             <TextBlock
                 Width="350"
                 HorizontalAlignment="Center"

@@ -63,7 +63,9 @@
                         VerticalAlignment="Top"
                         x:Name="MaskMorderBorder" 
                         Style="{StaticResource MaskBorder}"/>
-                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <StackPanel 
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
                         <StackPanel.OpacityMask>
                             <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
                         </StackPanel.OpacityMask>
@@ -76,7 +78,12 @@
                             Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"/>
                     </StackPanel>
                 </Grid>
-                <StackPanel  Margin="10 5 10 0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel  
+                    Margin="10 5 10 0"
+                    Grid.Column="1"
+                    Orientation="Vertical" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
                     <TextBlock
                         HorizontalAlignment="Left"
                         Margin="0 0 0 15"
@@ -105,12 +112,17 @@
                             </TextBlock>
                         </StackPanel>
                     </TextBlock>
-                     <StackPanel Margin="15 15 0 0" HorizontalAlignment="Left" Orientation="Vertical">
+                     <StackPanel 
+                         Margin="15 15 0 0" 
+                         HorizontalAlignment="Left" 
+                         Orientation="Vertical">
                          <TextBlock
                             HorizontalAlignment="Left"
                             Margin="0 0 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Когда добавлен сотрудник:"/>
@@ -127,7 +139,10 @@
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Кем добавлен сотрудник:"/>
-                                <StackPanel VerticalAlignment="Center" Margin="30 6 0 0" Orientation="Horizontal">
+                                <StackPanel 
+                                    VerticalAlignment="Center" 
+                                    Margin="30 6 0 0" 
+                                    Orientation="Horizontal">
                                     <TextBlock
                                         Margin="0 0 5 0"
                                         x:Name="SNMAddedWhomWorkerTextBlock"/>
@@ -144,7 +159,9 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel 
+                                VerticalAlignment="Center" 
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="ИНН сотрудника:"/>
@@ -157,7 +174,9 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel  VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel  
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Снилс сотрудника:"/>
@@ -170,7 +189,9 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Зарабатная карта сотрудника:"/>
@@ -183,7 +204,9 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="медицинская книжка сотрудника:"/>
@@ -196,7 +219,9 @@
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
                                     Text="Паспорт сотрудника:"/>
@@ -210,7 +235,12 @@
                          </TextBlock>
                      </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Margin="0 0 5 5" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <StackPanel 
+                    Grid.Column="1" 
+                    Margin="0 0 5 5" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right">
                     <Button
                         Style="{DynamicResource OtherButtonStyle}"
                         x:Name="CancelButton"
@@ -218,7 +248,9 @@
                         Width="150"
                         Margin="0 0 5 0"
                         Height="40">
-                        <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                        <StackPanel 
+                            Margin="0 2 0 2" 
+                            Orientation="Horizontal">
                             <TextBlock
                                 Text="&#xf2ff;" 
                                 Style="{DynamicResource IconTextBlockStyle}"
@@ -235,7 +267,9 @@
                         Width="150"
                         Margin="5 0 0 0"
                         Height="40">
-                        <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                        <StackPanel 
+                            Margin="0 2 0 2"
+                            Orientation="Horizontal">
                             <TextBlock
                                 Text="&#xF154;" 
                                 Style="{DynamicResource IconTextBlockStyle}"

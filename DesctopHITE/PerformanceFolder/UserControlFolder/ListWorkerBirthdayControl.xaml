@@ -12,7 +12,9 @@
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="360"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="5" Grid.Column="0">
+        <Grid 
+            Margin="5"
+            Grid.Column="0">
             <Border 
                 Height="50"
                 Width="50"
@@ -21,7 +23,9 @@
                 VerticalAlignment="Top"
                 x:Name="MaskMorderBorder" 
                 Style="{StaticResource MaskBorder}"/>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
                 <StackPanel.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
                 </StackPanel.OpacityMask>
@@ -34,7 +38,11 @@
                     Source="{Binding ImagePassportTable.Image_ImagePassport}"/>
             </StackPanel>
         </Grid>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0">
+        <StackPanel 
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left" 
+            Margin="5 0 0 0">
             <TextBlock
                 FontSize="15"
                 Style="{DynamicResource MainStyleTextBlock}">

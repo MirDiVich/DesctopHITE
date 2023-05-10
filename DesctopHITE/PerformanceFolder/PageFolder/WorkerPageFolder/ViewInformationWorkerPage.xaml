@@ -12,7 +12,9 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}" Grid.Column="0">
+        <StackPanel 
+            Style="{DynamicResource MainMenuStackPanelStyle}"
+            Grid.Column="0">
             <ToggleButton
                 x:Name="PassportToggleButton"
                 Click="PassportToggleButton_Click"
@@ -50,31 +52,359 @@
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
         </StackPanel>
         <ScrollViewer Grid.Column="1">
-            <StackPanel Margin="0 10 0 10" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Border Width="870" x:Name="PassportBorder" Style="{DynamicResource BorderInformation}" Margin="0 0 0 10">
-                    <StackPanel Margin="0 10 0 10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="Паспорт"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="260"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                VerticalAlignment="Top"
-                                Grid.Column="0"
+            <StackPanel
+                Margin="0 10 0 10"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+                <Border
+                    Width="870"
+                    x:Name="PassportBorder" 
+                    Style="{DynamicResource BorderInformation}" 
+                    Margin="0 0 0 10">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel Margin="0 10 0 10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Паспорт"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="260"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    VerticalAlignment="Top"
+                                    Grid.Column="0"
+                                    Margin="10"
+                                    x:Name="UserPhotoImage"
+                                    Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"
+                                    Width="240"
+                                    Stretch="Uniform"
+                                    Height="320"/>
+                                <StackPanel 
+                                    Grid.Column="1"
+                                    Margin="10" 
+                                    Orientation="Vertical" 
+                                    VerticalAlignment="Top" 
+                                    HorizontalAlignment="Left">
+                                    <StackPanel 
+                                        Margin="0 0 0 3.5" 
+                                        Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Дата выдачи:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.DateIssued_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Серия паспорта:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Series_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Номер паспорта:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Number_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Код подразделения:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.DivisionCode_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Пол:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.GenderTable.Title_Gender}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Дата рождения:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.DateOfBrich_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Фамилия:"/>
+                                        <TextBlock
+                                            MinWidth="0"
+                                            Width="Auto"
+                                            MaxWidth="503"
+                                            TextWrapping="Wrap"
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Surname_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Имя:"/>
+                                        <TextBlock
+                                            MinWidth="0"
+                                            Width="Auto"
+                                            MaxWidth="543"
+                                            TextWrapping="Wrap"
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Name_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Отчество:"/>
+                                        <TextBlock
+                                            MinWidth="0"
+                                            Width="Auto"
+                                            MaxWidth="488"
+                                            TextWrapping="Wrap"
+                                            Margin="3.5 0 0 0"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Middlename_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Паспорт выдан:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            MinWidth="0"
+                                            Width="Auto"
+                                            MaxWidth="443"
+                                            TextWrapping="Wrap"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.Issued_Passport}"/>
+                                    </StackPanel>
+                                    <StackPanel 
+                                       Margin="0 3.5 0 0" 
+                                       Style="{DynamicResource HorizontalDataStackPanel}">
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            Margin="0 0 3.5 0"
+                                            Style="{DynamicResource MainStyleTextBlock}"
+                                            Text="Место рождения:"/>
+                                        <TextBlock
+                                            Margin="3.5 0 0 0"
+                                            MinWidth="0"
+                                            Width="Auto"
+                                            MaxWidth="436"
+                                            TextWrapping="Wrap"
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding PassportTable.LocationOfBrich_Passport}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border 
+                    Width="800" 
+                    x:Name="PlaceResidenceBorder"
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Место жительства"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel 
+                                Margin="10" 
+                                Orientation="Vertical"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel 
+                                    Margin="0 0 0 3.5"
+                                    Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Зарегистрирован:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.RegistrationDate_PlaceResidence, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Регион:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="692"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Район:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="700"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Пункт:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="697"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.Point_PlaceResidence}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Улица:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="700"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.Street_PlaceResidence}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Дом:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.House_PlaceResidence}"/>
+                                </StackPanel>
+                                <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Квартира:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding PlaceResidenceTable.Flat_PlaceResidence}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Width="800" 
+                    x:Name="MedicalBookBorder"
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                Color="{StaticResource NeonHighlightingColor}"
+                                ShadowDepth="0" 
+                                Direction="0" 
+                                BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel Orientation="Vertical" Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Медицинская книжка"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel 
                                 Margin="10"
-                                x:Name="UserPhotoImage"
-                                Source="{Binding PassportTable.ImagePassportTable.Image_ImagePassport}"
-                                Width="240"
-                                Stretch="Uniform"
-                                Height="320"/>
-                            <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
+                                Orientation="Vertical" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel 
+                                   Margin="0 0 0 3.5"
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер медицинской книжки:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding MedicalBookTable.PersonalNumber_MedicalBook}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
                                     <TextBlock 
                                         Margin="0 0 3.5 0"
                                         Style="{DynamicResource MainStyleTextBlock}"
@@ -82,605 +412,442 @@
                                     <TextBlock
                                         Margin="3.5 0 0 0"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.DateIssued_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
-                                        Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Серия паспорта:"/>
-                                    <TextBlock
-                                        Margin="3.5 0 0 0"
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Series_Passport}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
-                                        Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Номер паспорта:"/>
-                                    <TextBlock
-                                        Margin="3.5 0 0 0"
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Number_Passport}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
-                                        Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Код подразделения:"/>
-                                    <TextBlock
-                                        Margin="3.5 0 0 0"
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.DivisionCode_Passport}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
-                                        Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Пол:"/>
-                                    <TextBlock
-                                        Margin="3.5 0 0 0"
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.GenderTable.Title_Gender}"/>
-                                </StackPanel>
-                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
-                                        Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Дата рождения:"/>
-                                    <TextBlock
-                                        Margin="3.5 0 0 0"
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.DateOfBrich_Passport, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                        Text="{Binding MedicalBookTable.DateIssue_MedicalBook, StringFormat='{}{0:dd/MM/yyyy}'}"/>
                                 </StackPanel>
                                 <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
                                     <TextBlock 
                                         VerticalAlignment="Top"
                                         Margin="0 0 3.5 0"
                                         Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Фамилия:"/>
+                                        Text="Должность:"/>
                                     <TextBlock
+                                        Margin="3.5 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
-                                        MaxWidth="503"
+                                        MaxWidth="654"
                                         TextWrapping="Wrap"
-                                        Margin="3.5 0 0 0"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Surname_Passport}"/>
+                                        Text="{Binding MedicalBookTable.Role_MedicalBook}"/>
                                 </StackPanel>
                                 <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
                                     <TextBlock 
                                         VerticalAlignment="Top"
                                         Margin="0 0 3.5 0"
                                         Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Имя:"/>
+                                        Text="ФИО руководителя:"/>
                                     <TextBlock
+                                        Margin="3.5 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
-                                        MaxWidth="543"
+                                        MaxWidth="589"
                                         TextWrapping="Wrap"
-                                        Margin="3.5 0 0 0"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Name_Passport}"/>
+                                        Text="{Binding MedicalBookTable.SNMDirector_MedicalBook}"/>
                                 </StackPanel>
                                 <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
                                     <TextBlock 
                                         VerticalAlignment="Top"
                                         Margin="0 0 3.5 0"
                                         Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Отчество:"/>
+                                        Text="Домашний адрес:"/>
                                     <TextBlock
+                                        Margin="3.5 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
-                                        MaxWidth="488"
+                                        MaxWidth="607"
                                         TextWrapping="Wrap"
-                                        Margin="3.5 0 0 0"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Middlename_Passport}"/>
+                                        Text="{Binding MedicalBookTable.HomeAdress_MedicalBook}"/>
                                 </StackPanel>
                                 <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                    <TextBlock 
+                                    <TextBlock
                                         VerticalAlignment="Top"
                                         Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Паспорт выдан:"/>
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource MainStyleTextBlock}">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="Личная медицинская"/>
+                                            <TextBlock HorizontalAlignment="Right" Text="книжка выдана:"/>
+                                        </StackPanel>
+                                    </TextBlock>
                                     <TextBlock
                                         Margin="3.5 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
-                                        MaxWidth="443"
+                                        MaxWidth="581"
+                                        VerticalAlignment="Bottom"
                                         TextWrapping="Wrap"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.Issued_Passport}"/>
+                                        Text="{Binding MedicalBookTable.Issue_MedicalBook}"/>
                                 </StackPanel>
-                               <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                                <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
                                     <TextBlock 
                                         VerticalAlignment="Top"
                                         Margin="0 0 3.5 0"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        Text="Место рождения:"/>
+                                        Style="{DynamicResource MainStyleTextBlock}">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="Организация"/>
+                                            <TextBlock FontSize="12" Text="(индивидуальный"/>
+                                            <TextBlock FontSize="12" Text="предприниматель):"/>
+                                        </StackPanel>
+                                    </TextBlock>
                                     <TextBlock
+                                        VerticalAlignment="Bottom"
                                         Margin="3.5 0 0 0"
                                         MinWidth="0"
                                         Width="Auto"
-                                        MaxWidth="436"
+                                        MaxWidth="591"
                                         TextWrapping="Wrap"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding PassportTable.LocationOfBrich_Passport}"/>
+                                        Text="{Binding MedicalBookTable.Organization_MedicalBook}"/>
                                 </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-                <Border Width="800" x:Name="PlaceResidenceBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="Место жительства"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Зарегистрирован:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.RegistrationDate_PlaceResidence, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Регион:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="692"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Район:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="700"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.Region_PlaceResidence}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Пункт:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="697"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.Point_PlaceResidence}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Улица:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="700"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.Street_PlaceResidence}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Дом:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.House_PlaceResidence}"/>
-                            </StackPanel>
-                            <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Квартира:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding PlaceResidenceTable.Flat_PlaceResidence}"/>
                             </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </Border>
-                <Border Width="800" x:Name="MedicalBookBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="Медицинская книжка"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                           <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер медицинской книжки:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.PersonalNumber_MedicalBook}"/>
+                <Border 
+                    Width="800" 
+                    x:Name="SnilsBorder"
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="СНИЛС"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel 
+                                Margin="10" 
+                                Orientation="Vertical" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel 
+                                   Margin="0 0 0 3.5" 
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
+                                </StackPanel>
+                                <StackPanel 
+                                   Margin="0 3.5 0 0" 
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Дата выдачи:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SnilsTable.DateRegistration_Snils, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                </StackPanel>
                             </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Дата выдачи:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.DateIssue_MedicalBook, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border 
+                    Width="800" 
+                    x:Name="INNBorder" 
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="ИНН"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel
+                                Margin="10" 
+                                Orientation="Vertical" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel
+                                   Margin="0 0 0 3.5" 
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding INNTable.PersonalNumber_INN}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер Налог. орган:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding INNTable.NumberTaxAuthority_INN}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Дата выдычи:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding INNTable.Date_INN, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                </StackPanel>
+                                <StackPanel
+                                   Margin="0 3.5 0 0" 
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Налоговый орган:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="605"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding INNTable.TaxAuthority_INN}"/>
+                                </StackPanel>
                             </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Должность:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="654"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.Role_MedicalBook}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="ФИО руководителя:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="589"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.SNMDirector_MedicalBook}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Домашний адрес:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="607"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.HomeAdress_MedicalBook}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource MainStyleTextBlock}">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Личная медицинская"/>
-                                        <TextBlock HorizontalAlignment="Right" Text="книжка выдана:"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border 
+                    Width="800" 
+                    x:Name="SalaryCardBorder"
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Заработная карта"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel 
+                                Margin="10" 
+                                Orientation="Vertical" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel
+                                   Margin="0 0 0 3.5"
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер карты:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SalaryCardTable.PersonalNumber_SalaryCard}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Фамилия (Eng):"/>
+                                    <TextBlock
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="633"
+                                        TextWrapping="Wrap"
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Имя (Eng):"/>
+                                    <TextBlock
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="673"
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding SalaryCardTable.NameEnd_SalaryCard}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Месяц\Год:"/>
+                                    <StackPanel Margin="3.5 0 0 0" Orientation="Horizontal">
+                                        <TextBlock
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding SalaryCardTable.Month_SalaryCard}"/>
+                                        <TextBlock
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="\"/>
+                                        <TextBlock
+                                            Style="{DynamicResource OtherStyleTextBlock}"
+                                            Text="{Binding SalaryCardTable.YearEnd_SalaryCard}"/>
                                     </StackPanel>
-                                </TextBlock>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="581"
-                                    VerticalAlignment="Bottom"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.Issue_MedicalBook}"/>
-                            </StackPanel>
-                           <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="Организация"/>
-                                        <TextBlock FontSize="12" Text="(индивидуальный"/>
-                                        <TextBlock FontSize="12" Text="предприниматель):"/>
-                                    </StackPanel>
-                                </TextBlock>
-                                <TextBlock
-                                    VerticalAlignment="Bottom"
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="591"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding MedicalBookTable.Organization_MedicalBook}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-                <Border Width="800" x:Name="SnilsBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="СНИЛС"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                           <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
-                            </StackPanel>
-                           <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Дата выдачи:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SnilsTable.DateRegistration_Snils, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-                <Border Width="800" x:Name="INNBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="ИНН"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                           <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding INNTable.PersonalNumber_INN}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер Налог. орган:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding INNTable.NumberTaxAuthority_INN}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Дата выдычи:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding INNTable.Date_INN, StringFormat='{}{0:dd/MM/yyyy}'}"/>
-                            </StackPanel>
-                           <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Налоговый орган:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="605"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding INNTable.TaxAuthority_INN}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-                <Border Width="800" x:Name="SalaryCardBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="Заработная карта"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                           <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер карты:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SalaryCardTable.PersonalNumber_SalaryCard}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Фамилия (Eng):"/>
-                                <TextBlock
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="633"
-                                    TextWrapping="Wrap"
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SalaryCardTable.SurnameEng_SalaryCard}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Имя (Eng):"/>
-                                <TextBlock
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="673"
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SalaryCardTable.NameEnd_SalaryCard}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Месяц\Год:"/>
-                                <StackPanel Margin="3.5 0 0 0" Orientation="Horizontal">
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Код:"/>
                                     <TextBlock
+                                        Margin="3.5 0 0 0"
                                         Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding SalaryCardTable.Month_SalaryCard}"/>
-                                    <TextBlock
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="\"/>
-                                    <TextBlock
-                                        Style="{DynamicResource OtherStyleTextBlock}"
-                                        Text="{Binding SalaryCardTable.YearEnd_SalaryCard}"/>
+                                        Text="{Binding SalaryCardTable.Code_SalaryCard}"/>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Код:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding SalaryCardTable.Code_SalaryCard}"/>
-                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </Border>
-                <Border Width="800" Margin="0 10 0 20" x:Name="GeneralDataBorder" Style="{DynamicResource BorderInformation}">
-                    <StackPanel Orientation="Vertical" Margin="10">
-                        <TextBlock
-                            Foreground="#462AD8"
-                            Text="Общая информация"
-                            Style="{DynamicResource MainStyleTextBlock}"
-                            FontSize="30"
-                            Margin="0 10 0 10"/>
-                        <StackPanel Margin="0 10 0 10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                           <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Номер телефона:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding Phone_Worker}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Должность:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding RoleTable.Name_Role}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Электронная почта:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="579"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding Email_Worker}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Login:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="706"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding Login_Worker}"/>
-                            </StackPanel>
-                            <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
-                                <TextBlock 
-                                    VerticalAlignment="Top"
-                                    Margin="0 0 3.5 0"
-                                    Style="{DynamicResource MainStyleTextBlock}"
-                                    Text="Password:"/>
-                                <TextBlock
-                                    Margin="3.5 0 0 0"
-                                    MinWidth="0"
-                                    Width="Auto"
-                                    MaxWidth="676"
-                                    TextWrapping="Wrap"
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Text="{Binding Password_Worker}"/>
+                <Border 
+                    Width="800" 
+                    Margin="0 10 0 20"
+                    x:Name="GeneralDataBorder"
+                    Style="{DynamicResource BorderInformation}">
+                    <Grid>
+                        <Border Style="{DynamicResource NeonBorder}">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="{StaticResource NeonHighlightingColor}"
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <StackPanel 
+                            Orientation="Vertical" 
+                            Margin="10">
+                            <TextBlock
+                                Foreground="#462AD8"
+                                Text="Общая информация"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Margin="0 10 0 10"/>
+                            <StackPanel 
+                                Margin="0 10 0 10"
+                                Orientation="Vertical"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left">
+                                <StackPanel 
+                                   Margin="0 0 0 3.5" 
+                                   Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Номер телефона:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding Phone_Worker}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Должность:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding RoleTable.Name_Role}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Электронная почта:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="579"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding Email_Worker}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Login:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="706"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding Login_Worker}"/>
+                                </StackPanel>
+                                <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
+                                    <TextBlock 
+                                        VerticalAlignment="Top"
+                                        Margin="0 0 3.5 0"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        Text="Password:"/>
+                                    <TextBlock
+                                        Margin="3.5 0 0 0"
+                                        MinWidth="0"
+                                        Width="Auto"
+                                        MaxWidth="676"
+                                        TextWrapping="Wrap"
+                                        Style="{DynamicResource OtherStyleTextBlock}"
+                                        Text="{Binding Password_Worker}"/>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </Border>
                 <Border>
                     <Grid Margin="0 10 0 0">
-                        <Border Width="320" Height="50" Style="{DynamicResource OtherShadowBorder}">
+                        <Border 
+                            Width="320"
+                            Height="50" 
+                            Style="{DynamicResource OtherShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
                                     Direction="315"

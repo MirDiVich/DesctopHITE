@@ -65,7 +65,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Color="#f5f5f5"
+                                    Color="{StaticResource NeonHighlightingColor}"
                                     ShadowDepth="0"
                                     Direction="0"
                                     BlurRadius="25"/>
@@ -461,7 +461,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect
-                                    Color="#f5f5f5"
+                                    Color="{StaticResource NeonHighlightingColor}"
                                     ShadowDepth="0" 
                                     Direction="0" 
                                     BlurRadius="25"/>
@@ -680,7 +680,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect
-                                    Color="#f5f5f5"
+                                    Color="{StaticResource NeonHighlightingColor}"
                                     ShadowDepth="0" 
                                     Direction="0" 
                                     BlurRadius="25"/>
@@ -894,7 +894,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect
-                                    Color="#f5f5f5"
+                                    Color="{StaticResource NeonHighlightingColor}"
                                     ShadowDepth="0" 
                                     Direction="0" 
                                     BlurRadius="25"/>
@@ -975,7 +975,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Color="#f5f5f5" 
+                                    Color="{StaticResource NeonHighlightingColor}" 
                                     ShadowDepth="0"
                                     Direction="0"
                                     BlurRadius="25"/>
@@ -1122,7 +1122,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Color="#f5f5f5" 
+                                    Color="{StaticResource NeonHighlightingColor}" 
                                     ShadowDepth="0"
                                     Direction="0" 
                                     BlurRadius="25"/>
@@ -1342,7 +1342,7 @@
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
-                                    Color="#f5f5f5" 
+                                    Color="{StaticResource NeonHighlightingColor}" 
                                     ShadowDepth="0" 
                                     Direction="0" 
                                     BlurRadius="25"/>

@@ -44,7 +44,9 @@
                     Grid.Column="0"
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
                     Text="ГЛАВНОЕ ОКНО"/>
-                <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
+                <StackPanel
+                    Grid.Column="2"
+                    Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Menu Style="{DynamicResource MenuButton}">
                         <MenuItem 
                             Width="30" 

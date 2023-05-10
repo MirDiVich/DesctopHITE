@@ -9,8 +9,14 @@
     Style="{DynamicResource BodySpacePageStyle}">
     <ScrollViewer>
         <Grid Margin="10">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel HorizontalAlignment="Center" Margin="3.5" Orientation="Horizontal">
+            <StackPanel 
+                Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    Margin="3.5" 
+                    Orientation="Horizontal">
                     <Border 
                         Height="450"
                         Margin="3.5"
@@ -20,7 +26,11 @@
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
                                 <Border.Effect>
-                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                    <DropShadowEffect 
+                                        Color="{StaticResource NeonHighlightingColor}" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
                                 </Border.Effect>
                             </Border>
                             <Grid Margin="10">
@@ -186,7 +196,11 @@
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
                                 <Border.Effect>
-                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                    <DropShadowEffect 
+                                        Color="{StaticResource NeonHighlightingColor}" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
                                 </Border.Effect>
                             </Border>
                             <Grid Margin="10">
@@ -233,7 +247,10 @@
                         </Grid>
                     </Border>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center" Margin="3.5" Orientation="Horizontal">
+                <StackPanel 
+                    HorizontalAlignment="Center" 
+                    Margin="3.5" 
+                    Orientation="Horizontal">
                     <Border
                         Height="270"
                         Margin="3.5"
@@ -243,7 +260,11 @@
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
                                 <Border.Effect>
-                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                    <DropShadowEffect
+                                        Color="{StaticResource NeonHighlightingColor}"
+                                        ShadowDepth="0" 
+                                        Direction="0"
+                                        BlurRadius="25"/>
                                 </Border.Effect>
                             </Border>
                             <Grid Margin="10">
@@ -289,7 +310,11 @@
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
                                 <Border.Effect>
-                                    <DropShadowEffect Color="#f5f5f5" ShadowDepth="0" Direction="0" BlurRadius="25"  />
+                                    <DropShadowEffect 
+                                        Color="{StaticResource NeonHighlightingColor}" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
                                 </Border.Effect>
                             </Border>
                             <Grid Margin="10">

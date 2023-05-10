@@ -22,20 +22,36 @@
             <TextBlock 
                 TextWrapping="Wrap"
                 Text="Здравствуйте, мы «GoodProgrammer» являемся разработчиками данной автоматизированной информационной системы. Мы специально стараемся разработать дружественный и удобный для пользователя интерфейс данной автоматизированной информационной системы. Так же мы стараемся вовремя исправлять баги и ошибки в работе данной автоматизированной информационной системы. Если у вас возникли вопросы, предложения по улучшению данной автоматизированной информационной системы или вы нашли баг, то можете написать нам! Наши контакты доступны в: ">
-                <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="TelegramHyperlink" Click="TelegramHyperlink_Click" Foreground="#34abdf">
+                <Hyperlink 
+                    Style="{DynamicResource Hyperlink}" 
+                    x:Name="TelegramHyperlink" 
+                    Click="TelegramHyperlink_Click" 
+                    Foreground="#34abdf">
                     Telegram,
                 </Hyperlink>
-                <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="WhatsAppHyperlink" Click="WhatsAppHyperlink_Click" Foreground="#33cf6a">
+                <Hyperlink 
+                    Style="{DynamicResource Hyperlink}"
+                    x:Name="WhatsAppHyperlink" 
+                    Click="WhatsAppHyperlink_Click" 
+                    Foreground="#33cf6a">
                     WhatsApp,
                 </Hyperlink>
-                <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="VKHyperlink" Click="VKHyperlink_Click" Foreground="#0077ff">
+                <Hyperlink
+                    Style="{DynamicResource Hyperlink}" 
+                    x:Name="VKHyperlink"
+                    Click="VKHyperlink_Click"
+                    Foreground="#0077ff">
                     VK
                 </Hyperlink>
             </TextBlock>
             <TextBlock 
                 TextWrapping="Wrap"
                 Text="(ссылки кликабельны), или же сканировать QR-code для перехода на диалог с нами. Если вам интересен код данной автоматизированной информационной системы, то можете перейти на: ">
-                <Hyperlink Style="{DynamicResource Hyperlink}" x:Name="GitHubHyperlink" Click="GitHubHyperlink_Click" Foreground="#1f6feb">
+                <Hyperlink 
+                    Style="{DynamicResource Hyperlink}"
+                    x:Name="GitHubHyperlink"
+                    Click="GitHubHyperlink_Click"
+                    Foreground="#1f6feb">
                     GitHub
                 </Hyperlink>
             </TextBlock>
@@ -47,7 +63,11 @@
                 TextWrapping="Wrap"
                 Text="Вы можите нажать на одну из ссылок для перехода в чат с нами, или же отсканировать QR-code для перехода в чат с нами:"/>
         </TextBlock>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel 
+            Grid.Row="1" 
+            Orientation="Horizontal"
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
             <Image
                 Margin="0 0 10 0"
                 Style="{StaticResource QrImage}"

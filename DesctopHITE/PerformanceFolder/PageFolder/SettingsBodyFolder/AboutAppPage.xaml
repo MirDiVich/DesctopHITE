@@ -7,8 +7,13 @@
     mc:Ignorable="d" 
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
-        <StackPanel Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <StackPanel Margin="0 0 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+        <StackPanel 
+            Margin="10"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right">
+            <StackPanel 
+                Margin="0 0 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Компания разработчика:"
@@ -18,13 +23,19 @@
                     Text="GoodProgrammer©"
                     Margin="3.5 0 0 0"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel
+                Margin="0 10 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     VerticalAlignment="Top"
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Разработчики:"
                     Margin="0 0 3.5 0"/>
-                <StackPanel VerticalAlignment="Bottom" Margin="3.5 0 0 0" Orientation="Vertical" Style="{DynamicResource HorizontalDataStackPanel}">
+                <StackPanel 
+                    VerticalAlignment="Bottom"
+                    Margin="3.5 0 0 0"
+                    Orientation="Vertical"
+                    Style="{DynamicResource HorizontalDataStackPanel}">
                     <StackPanel Margin="0 0 0 3.5" Style="{DynamicResource HorizontalDataStackPanel}">
                         <TextBlock
                             Style="{DynamicResource MainStyleTextBlock}"
@@ -155,7 +166,9 @@
                             Text="Миронов Владислав Дмитриевич"
                             Margin="3.5 0 0 0"/>
                     </StackPanel>
-                    <StackPanel Margin="0 3.5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                    <StackPanel 
+                        Margin="0 3.5 0 0"
+                        Style="{DynamicResource HorizontalDataStackPanel}">
                         <TextBlock
                             Style="{DynamicResource MainStyleTextBlock}"
                             Text="Тимлид:"
@@ -167,7 +180,9 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Компания заказчика:"
@@ -177,7 +192,9 @@
                     Text="HTRE©"
                     Margin="3.5 0 0 0"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Дата заказа:"
@@ -187,7 +204,9 @@
                     Text="10/09/2022"
                     Margin="3.5 0 0 0"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Среда разработки:"
@@ -201,7 +220,9 @@
                     </StackPanel>
                 </TextBlock>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Язык программирования:"
@@ -211,7 +232,9 @@
                     Margin="3.5 0 0 0"
                     Text="C# \ SQLServer \ xaml"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Платформа:"
@@ -221,7 +244,9 @@
                     Margin="3.5 0 0 0"
                     Text="WPF (.NET Framework)"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Помощь при разработки:"
@@ -231,7 +256,9 @@
                     Margin="3.5 0 0 0"
                     Text="ChatGPT \ GitHub \ Internet"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Для платформ:"
@@ -241,7 +268,9 @@
                     Margin="3.5 0 0 0"
                     Text="Windows 10 \ 8.1 \ 8 \ 7 \ Vista \ XP"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10"
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Язык для данных:"
@@ -251,7 +280,9 @@
                     Margin="3.5 0 0 0"
                     Text="Русский \ Английский \ Юникод"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Язык:"
@@ -261,7 +292,9 @@
                     Margin="3.5 0 0 0"
                     Text="Русский \ Юникод"/>
             </StackPanel>
-            <StackPanel Margin="0 10 0 10" Style="{DynamicResource HorizontalDataStackPanel}">
+            <StackPanel 
+                Margin="0 10 0 10" 
+                Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource MainStyleTextBlock}"
                     Text="Поддержка:"
@@ -281,7 +314,10 @@
             VerticalAlignment="Top"
             Margin="10"
             Style="{DynamicResource MainStyleTextBlock}"/>
-        <StackPanel Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <StackPanel 
+            Margin="10" 
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
             <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
                 <TextBlock
                     Style="{DynamicResource OtherStyleTextBlock}"
