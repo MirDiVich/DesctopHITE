@@ -6,42 +6,63 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     mc:Ignorable="d"
     Height="auto"
-    Width="auto">
-    <Border Style="{DynamicResource BorderInformation}">
-        <Grid>
-            <Border Style="{DynamicResource NeonBorder}">
-                <Border.Effect>
-                    <DropShadowEffect 
-                        Color="{StaticResource NeonHighlightingColor}" 
-                        ShadowDepth="0" 
-                        Direction="0" 
-                        BlurRadius="25"/>
-                </Border.Effect>
-            </Border>
-            <Grid Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="170"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Image
-                    Grid.Row="0"
-                    x:Name="MenuPhotoImage"
-                    Source="{Binding ImageMenuTable.Image_ImageMenu}"
-                    Width="150"
-                    Stretch="Uniform"
-                    Height="150"/>
-                <Border
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Background="#462AD8"
-                    CornerRadius="20"
-                    Height="40"
-                    Width="40">
+    Width="220">
+    <Border 
+        Visibility="Visible" 
+        Style="{DynamicResource BorderInformation}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="0"
+                x:Name="MenuPhotoImage"
+                Source="{Binding ImageMenuTable.Image_ImageMenu}"
+                Width="200"
+                Stretch="Uniform"
+                Height="200"/>
+            <Border
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                CornerRadius="10"
+                Height="45"
+                Width="auto"
+                MinWidth="45"
+                MaxWidth="180">
+                <Grid>
+                    <Border Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="{StaticResource NeonHighlightingColor}" 
+                                ShadowDepth="0" 
+                                Direction="0" 
+                                BlurRadius="25"/>
+                        </Border.Effect>
+                    </Border>
                     <TextBlock
-                        Text="{Binding Prise_Menu}"
-                        Style="{DynamicResource MainStyleTextBlock}"/>
-                </Border>
-            </Grid>
-        </Grid>  
+                        Padding="10 0 10 0"
+                        Style="{DynamicResource MainStyleTextBlock}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontSize="20"
+                                Text="{Binding Prise_Menu, StringFormat = f0}"/>
+                            <TextBlock
+                                VerticalAlignment="Top"
+                                FontSize="15"
+                                Text="₽"
+                                Style="{DynamicResource MainStyleTextBlock}"/>
+                        </StackPanel>
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <TextBlock
+                Width="150"
+                TextWrapping="Wrap"
+                Margin="0 7 0 0"
+                Grid.Row="1"
+                Text="{Binding Name_Menu}"
+                Style="{DynamicResource MainStyleTextBlock}"/>
+        </Grid>
     </Border>
 </UserControl>

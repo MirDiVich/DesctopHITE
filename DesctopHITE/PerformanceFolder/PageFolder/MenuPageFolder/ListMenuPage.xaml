@@ -93,7 +93,7 @@
                 Background="Transparent"
                 x:Name="ListMenuListView"
                 Margin="0"
-                ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                ItemContainerStyle="{StaticResource ListViewItemSelectedMunuList}">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem

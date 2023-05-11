@@ -33,7 +33,22 @@
                         BorderThickness="1" 
                         Background="Transparent"
                         BorderBrush="Transparent">
-                        <ContentPresenter />
+                        <Grid>
+                            <Border
+                                BorderBrush="#462AD8"
+                                Visibility="Collapsed"
+                                Style="{DynamicResource NeonBorder}"
+                                x:Name="NeonBorder">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Color="#462AD8" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
+                                </Border.Effect>
+                            </Border>
+                            <ContentPresenter/>
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -50,8 +65,59 @@
                                     </RadialGradientBrush>
                                 </Setter.Value>
                             </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#462AD8"/>
+                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ListViewItemSelectedMunuList" TargetType="ListViewItem">
+        <Setter Property="Margin" Value="15 3.5 15 3.5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border 
+                        x:Name="border"
+                        CornerRadius="10"
+                        BorderThickness="1" 
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <Grid>
+                            <Border
+                                BorderBrush="#462AD8"
+                                Visibility="Collapsed"
+                                Style="{DynamicResource NeonBorder}"
+                                x:Name="NeonBorder">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Color="#462AD8" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
+                                </Border.Effect>
+                            </Border>
+                            <ContentPresenter/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#2a2a2a"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#2a2a2a"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
+                                        <GradientStop Color="#19462AD8" Offset="1"/>
+                                        <GradientStop Color="#196B55E0"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -52,6 +52,7 @@
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="OtherStyleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource MainStyleTextBlock}">
