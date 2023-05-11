@@ -32,11 +32,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities(); // Подключил базу данных к этой странице
             }
-            catch (Exception ex)
+            catch (Exception exListWorkerPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ListWorkerPage в ListWorkerPage:\n\n " +
-                        $"{ex.Message}");
+                        $"{exListWorkerPage.Message}");
             }
         }
 

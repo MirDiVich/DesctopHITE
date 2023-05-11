@@ -1,12 +1,17 @@
 ﻿///----------------------------------------------------------------------------------------------------------
-///
+/// Данная страница нужна для того, чтоб выгружать всё меню из базы данных;
+/// Так же помимо всего, с выгружаемым меню можно взаимодействовать;
+/// Пользователю для взаимодействия доступно всего 4 возможности:
+///     1. Найти через поиск;
+///     2. Просмотреть подробную информацию;
+///     3. Отредактировать информацию;
+///     4. Удалить сотрудника.
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
-using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,19 +22,40 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
     public partial class ListMenuPage : Page
     {
         MenuTable getMenuTable;
+
         public ListMenuPage()
         {
             try
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
-                ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
             }
-            catch (Exception ex)
+            catch (Exception exListMenuPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewWorkerPage в ListMenuPage:\n\n " +
-                        $"{ex.Message}");
+                        $"{exListMenuPage.Message}");
+            }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            try
+            {
+                if(Visibility == Visibility.Visible)
+                {
+                    EditButton.IsEnabled = false;
+                    DeliteButton.IsEnabled = false;
+
+                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
+                    ListMenuListView.Items.SortDescriptions.Add(new SortDescription("Name_Menu", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
+                }
+            }
+            catch (Exception exPage_IsVisibleChanged)
+            {
+                MessageBoxClass.EventExceptionMessage_MBC(
+                        textMessage: $"Событие Page_IsVisibleChanged в ListMenuPage:\n\n " +
+                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
         #region Event

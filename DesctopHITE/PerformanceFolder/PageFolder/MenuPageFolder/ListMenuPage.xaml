@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
         <Grid.RowDefinitions>
