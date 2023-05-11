@@ -19,7 +19,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
                 if (workerTable != null )
                 {
@@ -27,7 +27,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     personalNumberWorker = workerTable.PersonalNumber_Worker; // Присваиваю переменной персональному номеру сотрудника, над которым и происходит действие
 
                     var addedWhomWorker = workerTable.AddpnWorker_Worker; // Получаю персональный номер сотрудника, который добавил сотрудника над которым происходит действие
-                    var informationAddedWhomWorker = AppConnectClass.DataBase.WorkerTable.Find(addedWhomWorker);
+                    var informationAddedWhomWorker = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(addedWhomWorker);
 
                     SNMAddedWhomWorkerTextBlock.Text =
                         $"{informationAddedWhomWorker.PassportTable.Surname_Passport} " +
@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DeliteWorkerWindow в DeliteWorkerWindow:\n\n " +
                         $"{ex.Message}");
             }
@@ -57,7 +57,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в DeliteWorkerWindow:\n\n " +
                         $"{exSpaseBar.Message}");
             }
@@ -71,7 +71,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CloseButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exClose.Message}");
             }
@@ -87,7 +87,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCancel)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CancelButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exCancel.Message}");
             }
@@ -110,7 +110,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDelite)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DeliteButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exDelite.Message}");
             }
@@ -121,14 +121,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                var informationDeliteWorker = AppConnectClass.DataBase.WorkerTable.Find(personalNumberWorker);
+                var informationDeliteWorker = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(personalNumberWorker);
 
                 string SurnameNameWorker = $"{informationDeliteWorker.PassportTable.Surname_Passport} {informationDeliteWorker.PassportTable.Name_Passport}"; // Получаем Фамилия и Имя для уведомления
                 string MessageTitle = $"Вы действительно хотите удалить: {SurnameNameWorker} ?";
 
                 if (MessageBox.Show( MessageTitle, "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    var dataDelitWorker = AppConnectClass.DataBase;
+                    var dataDelitWorker = AppConnectClass.connectDataBase_ACC;
                     dataDelitWorker.ImagePassportTable.Remove(informationDeliteWorker.PassportTable.ImagePassportTable);
                     dataDelitWorker.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
                     dataDelitWorker.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
@@ -151,7 +151,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteWorkerEvent)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DeliteWorkerEvent в DeliteWorkerWindow:\n\n " +
                         $"{exDeliteWorkerEvent.Message}");
             }

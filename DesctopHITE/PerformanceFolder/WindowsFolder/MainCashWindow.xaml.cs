@@ -18,12 +18,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             try
             {
                 InitializeComponent();
-                FrameNavigationClass.MunuCash_FNC = MenuCashFrame;
-                FrameNavigationClass.BodyCash_FNC = BodyCashFrame;
+                FrameNavigationClass.munuCash_FNC = MenuCashFrame;
+                FrameNavigationClass.bodyCash_FNC = BodyCashFrame;
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие MainCashWindow в MainCashWindow:\n\n " +
                         $"{ex.Message}");
             }
@@ -35,12 +35,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    FrameNavigationClass.MunuCash_FNC.Navigate(new MenuCashPage());
+                    FrameNavigationClass.munuCash_FNC.Navigate(new MenuCashPage());
                 }
             }
             catch (Exception exWindow_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Window_IsVisibleChanged в MainCashWindow:\n\n " +
                         $"{exWindow_IsVisibleChanged.Message}");
             }

@@ -20,7 +20,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception ex) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие DevelopersPage в DevelopersPage:\n\n " +
                       $"{ex.Message}");
             }
@@ -34,7 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exTelegramHyperlink_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие TelegramHyperlink_Click в DevelopersPage:\n\n " +
                       $"{exTelegramHyperlink_Click.Message}");
             }
@@ -48,7 +48,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exWhatsAppHyperlink_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие WhatsAppHyperlink_Click в DevelopersPage:\n\n " +
                       $"{exWhatsAppHyperlink_Click.Message}");
             }
@@ -62,7 +62,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exVKHyperlink_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие VKHyperlink_Click в DevelopersPage:\n\n " +
                       $"{exVKHyperlink_Click.Message}");
             }
@@ -76,7 +76,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exGitHubHyperlink_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие GitHubHyperlink_Click в DevelopersPage:\n\n " +
                       $"{exGitHubHyperlink_Click.Message}");
             }

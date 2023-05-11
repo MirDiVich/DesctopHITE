@@ -8,9 +8,9 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public class ColorClass
     {
-        public SolidColorBrush GetRedColor { get; set; }
-        public SolidColorBrush GetGreenColor { get; set; }
-        public SolidColorBrush GetStandardColor { get; set; }
+        public SolidColorBrush GetRedColor_CC { get; set; }
+        public SolidColorBrush GetGreenColor_CC { get; set; }
+        public SolidColorBrush GetStandardColor_CC { get; set; }
 
         public static ColorClass GetColor()
         {
@@ -20,9 +20,9 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 
             return new ColorClass()
             {
-                GetRedColor = redColor,
-                GetGreenColor = greenColor,
-                GetStandardColor = standardColor
+                GetRedColor_CC = redColor,
+                GetGreenColor_CC = greenColor,
+                GetStandardColor_CC = standardColor
             };
         }
     }

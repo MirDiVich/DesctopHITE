@@ -45,14 +45,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MenuPhotoImage.Source = userImage;
                 }
 
-                AppConnectClass.DataBase = new DesctopHiteEntities();
-                pnCategoryMenuComboBox.ItemsSource = AppConnectClass.DataBase.MenuCategoryTable.ToList();
-                AllIngredientsListListView.ItemsSource = AppConnectClass.DataBase.IngredientsTable.ToList();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
+                pnCategoryMenuComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
+                AllIngredientsListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList();
                 AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewWorkerPage в NewWorkerPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -103,7 +103,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNewMenuImageButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие NewMenuImageButton_Click в NewMenuPage:\n\n " +
                          $"{exNewMenuImageButton_Click.Message}");
             }
@@ -141,7 +141,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                     addEditImageMenuTable.Name_ImageMenu = $"{NameMenuTextBox.Text}";
                     addEditImageMenuTable.Image_ImageMenu = imageData;
-                    AppConnectClass.DataBase.ImageMenuTable.AddOrUpdate(addEditImageMenuTable);
+                    AppConnectClass.connectDataBase_ACC.ImageMenuTable.AddOrUpdate(addEditImageMenuTable);
 
                     addEditMenuTable.pnImageMunu_Menu = addEditImageMenuTable.PersonalNumber_ImageMenu;
                 }
@@ -154,8 +154,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     }
                 }
 
-                AppConnectClass.DataBase.MenuTable.AddOrUpdate(addEditMenuTable);
-                AppConnectClass.DataBase.SaveChanges();
+                AppConnectClass.connectDataBase_ACC.MenuTable.AddOrUpdate(addEditMenuTable);
+                AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
 
@@ -163,7 +163,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNewDataMenu)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие NewDataMenu в NewMenuPage:\n\n " +
                          $"{exNewDataMenu.Message}");
             }
@@ -173,7 +173,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                var objectMenu = AppConnectClass.DataBase.MenuTable.Find(personlNumberMenu);
+                var objectMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
 
                 // Цикл для того, чтоб добавить несколько элементов в таблицу
                 foreach (var ingredient in SelectionIngredientsListListView.Items) 
@@ -182,18 +182,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     objectMenu.IngredientsTable.Add(objectListIngredients);
                 }
 
-                AppConnectClass.DataBase.SaveChanges();
+                AppConnectClass.connectDataBase_ACC.SaveChanges();
 
-                var nameMenu = AppConnectClass.DataBase.MenuTable.Find(personlNumberMenu);
+                var nameMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
                 MessageBox.Show(
                     $"{nameMenu.Name_Menu} успешно добавленно", "Уведомление о добавлении",
                     MessageBoxButton.OK, MessageBoxImage.Information);
 
-                FrameNavigationClass.BodyMenu_FNC.Navigate(new NewMenuPage());
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage());
             }
             catch (Exception exGetSelectedIngredients)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetSelectedIngredients в NewMenuPage:\n\n " +
                         $"{exGetSelectedIngredients.Message}");
             }
@@ -218,7 +218,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exMessageNull)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие MessageNull в NewMenuPage:\n\n " +
                         $"{exMessageNull.Message}");
             }
@@ -235,7 +235,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
                         $"{exIngredientsListListView_SelectionChanged.Message}");
             }
@@ -251,7 +251,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exIngredientsListListView_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
                         $"{exIngredientsListListView_SelectionChanged.Message}");
             }
@@ -268,7 +268,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exCtrlV_PreviewKeyDown)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие CtrlV_PreviewKeyDown в NewMenuPage:\n\n " +
                          $"{exCtrlV_PreviewKeyDown.Message}");
             }
@@ -284,7 +284,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNumberValidationTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }
@@ -298,7 +298,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNumberValidationTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }

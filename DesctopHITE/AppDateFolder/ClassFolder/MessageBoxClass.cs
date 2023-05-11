@@ -9,7 +9,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public class MessageBoxClass
     {
-        public static void ExceptionMessage(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Error Exception")
+        public static void EventExceptionMessage_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Error Exception")
         {
             MessageBox.Show(
                 textMessage, titleMessage,

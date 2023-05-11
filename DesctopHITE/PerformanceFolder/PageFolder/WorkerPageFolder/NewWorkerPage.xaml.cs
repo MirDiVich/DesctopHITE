@@ -45,11 +45,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 InitializeComponent();
 
                 // Даём взаимодействовать этой странице с базой данных
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
                 // Выгрузка данных из таблицы в ComboBox
-                pnGenderComboBox.ItemsSource = AppConnectClass.DataBase.GenderTable.ToList();
-                pnRoleWorkerComboBox.ItemsSource = AppConnectClass.DataBase.RoleTable.ToList();
+                pnGenderComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.GenderTable.ToList();
+                pnRoleWorkerComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.RoleTable.ToList();
 
                 if (workerTable != null)
                 {
@@ -68,7 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewWorkerPage в NewWorkerPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -86,7 +86,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в NewWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -184,7 +184,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     {
                         if (workerInformation == null)
                         {
-                            if (AppConnectClass.DataBase.WorkerTable.Count(Log =>
+                            if (AppConnectClass.connectDataBase_ACC.WorkerTable.Count(Log =>
                                 Log.Login_Worker == LoginWorkerTextBox.Text &&
                                 Log.Email_Worker == EmailWorkerTextBox.Text &&
                                 Log.SeriesPassport_Worker == SeriesPassportTextBox.Text || Log.NumberPassport_Worker == NumberPassportTextBox.Text &&
@@ -199,19 +199,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             }
                             else
                             {
-                                AddDataDatabase();
+                                AddDataconnectDataBase_ACC();
                             }
                         }
                         else
                         {
-                            AddDataDatabase();
+                            AddDataconnectDataBase_ACC();
                         }
                     }
                 }
             }
             catch (Exception exNewWorkerButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие NewWorkerButton_Click в NewWorkerPage:\n\n " +
                          $"{exNewWorkerButton_Click.Message}");
             }
@@ -232,7 +232,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNewPhotoButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие NewPhotoButton_Click в NewWorkerPage:\n\n " +
                          $"{exNewPhotoButton_Click.Message}");
             }
@@ -361,7 +361,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exMessageNull)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие MessageNull в NewWorkerPage:\n\n " +
                         $"{exMessageNull.Message}");
             }
@@ -373,7 +373,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             return random.Next(1000000000);
         }
 
-        private void AddDataDatabase() // Event для добавления нового сотрудника в баз данных
+        private void AddDataconnectDataBase_ACC() // Event для добавления нового сотрудника в баз данных
         {
             // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
             // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
@@ -419,7 +419,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                     addPassport.pnImage_Passport = $"{SeriesPassportTextBox.Text}{NumberPassportTextBox.Text}";
 
-                    AppConnectClass.DataBase.ImagePassportTable.AddOrUpdate(addImagePassport);
+                    AppConnectClass.connectDataBase_ACC.ImagePassportTable.AddOrUpdate(addImagePassport);
                 }
 
                 if (workerInformation == null)
@@ -437,8 +437,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     }
                 }
 
-                AppConnectClass.DataBase.PassportTable.AddOrUpdate(addPassport);
-                AppConnectClass.DataBase.SaveChanges();
+                AppConnectClass.connectDataBase_ACC.PassportTable.AddOrUpdate(addPassport);
+                AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 // Объявляем таблицы
                 var addPlaceResidence = new PlaceResidenceTable();
@@ -457,7 +457,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addPlaceResidence.Street_PlaceResidence = StreetPlaceResidenceTextBox.Text;
                 addPlaceResidence.House_PlaceResidence = HousePlaceResidenceTextBox.Text;
                 addPlaceResidence.Flat_PlaceResidence = FlatPlaceResidenceTextBox.Text;
-                AppConnectClass.DataBase.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
+                AppConnectClass.connectDataBase_ACC.PlaceResidenceTable.AddOrUpdate(addPlaceResidence);
 
                 // Работа с медицинской книжкой
                 addMedicalBook.PersonalNumber_MedicalBook = PersonalNumberMedicalBookTextBox.Text;
@@ -467,19 +467,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addMedicalBook.HomeAdress_MedicalBook = HomeAdressMedicalBookTextBox.Text;
                 addMedicalBook.Role_MedicalBook = RoleMedicalBookTextBox.Text;
                 addMedicalBook.Organization_MedicalBook = OrganizationMedicalBookTextBox.Text;
-                AppConnectClass.DataBase.MedicalBookTable.AddOrUpdate(addMedicalBook);
+                AppConnectClass.connectDataBase_ACC.MedicalBookTable.AddOrUpdate(addMedicalBook);
 
                 // Работа с СНИЛС
                 addSnils.PersonalNumber_Snils = PersonalNumberSnilsTextBox.Text;
                 addSnils.DateRegistration_Snils = Convert.ToDateTime(DateRegistrationSnilsTextBox.Text);
-                AppConnectClass.DataBase.SnilsTable.AddOrUpdate(addSnils);
+                AppConnectClass.connectDataBase_ACC.SnilsTable.AddOrUpdate(addSnils);
 
                 // Работа с ИНН 
                 addINN.PersonalNumber_INN = PersonalNumberINNTextBox.Text;
                 addINN.TaxAuthority_INN = TaxAuthorityINNTextBox.Text;
                 addINN.NumberTaxAuthority_INN = NumberTaxAuthorityINNTextBox.Text;
                 addINN.Date_INN = Convert.ToDateTime(DateINNTextBox.Text);
-                AppConnectClass.DataBase.INNTable.AddOrUpdate(addINN);
+                AppConnectClass.connectDataBase_ACC.INNTable.AddOrUpdate(addINN);
 
                 // Работа с заработной картой
                 addSalaryCard.PersonalNumber_SalaryCard = PersonalNumberSalaryCardTextBox.Text;
@@ -488,7 +488,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addSalaryCard.YearEnd_SalaryCard = YearEndSalaryCardTextBox.Text;
                 addSalaryCard.Month_SalaryCard = MonthSalaryCardTextBox.Text;
                 addSalaryCard.Code_SalaryCard = CodeSalaryCardTextBox.Text;
-                AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(addSalaryCard);
+                AppConnectClass.connectDataBase_ACC.SalaryCardTable.AddOrUpdate(addSalaryCard);
 
                 // Работа с основной таблицей
                 addWorker.Phone_Worker = PhoneWorkerTextBox.Text;
@@ -504,20 +504,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addWorker.DateWord_Worker = DateTime.Now;
                 addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
                 addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
-                addWorker.AddpnWorker_Worker = AppConnectClass.GetUser.PersonalNumber_Worker;
+                addWorker.AddpnWorker_Worker = AppConnectClass.receiveConnectUser_ACC.PersonalNumber_Worker;
                 if (workerInformation == null)
                 {
                     addWorker.pnStatus_Worker = 2;
-                    AppConnectClass.DataBase.WorkerTable.Add(addWorker);
+                    AppConnectClass.connectDataBase_ACC.WorkerTable.Add(addWorker);
                 }
                 else
                 {
                     addWorker.PersonalNumber_Worker = workerInformation.PersonalNumber_Worker;
                     addWorker.pnStatus_Worker = workerInformation.pnStatus_Worker;
-                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(addWorker);
+                    AppConnectClass.connectDataBase_ACC.WorkerTable.AddOrUpdate(addWorker);
                 }
 
-                AppConnectClass.DataBase.SaveChanges();
+                AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 string MessadeSaveDataWorker;
                 if (workerInformation != null)
@@ -535,11 +535,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 ClearText();
             }
-            catch (Exception exAddDataDatabase)
+            catch (Exception exAddDataconnectDataBase_ACC)
             {
-                MessageBoxClass.ExceptionMessage(
-                         textMessage: $"Событие AddDataDatabase в NewWorkerPage:\n\n " +
-                         $"{exAddDataDatabase.Message}");
+                MessageBoxClass.EventExceptionMessage_MBC(
+                         textMessage: $"Событие AddDataconnectDataBase_ACC в NewWorkerPage:\n\n " +
+                         $"{exAddDataconnectDataBase_ACC.Message}");
             }
         }
 
@@ -550,16 +550,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 // Переоткрытие страницы
                 if (workerInformation == null)
                 {
-                    FrameNavigationClass.BodyWorker_FNC.Navigate(new NewWorkerPage(null));
+                    FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
                 }
                 else
                 {
-                    FrameNavigationClass.BodyWorker_FNC.Navigate(new ListWorkerPage());
+                    FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
                 }
             }
             catch (Exception exClearText)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие ClearText в NewWorkerPage:\n\n " +
                          $"{exClearText.Message}");
             }
@@ -576,7 +576,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exDateValidationTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exDateValidationTextBox.Message}");
             }
@@ -590,7 +590,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNumberValidationTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }
@@ -605,7 +605,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exDivisionCodeValidationTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DivisionCodeValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exDivisionCodeValidationTextBox.Message}");
             }
@@ -622,15 +622,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (PasswordText == "")
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetStandardColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetStandardColor_CC;
                 }
                 else if (PasswordPasword != PasswordText)
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetRedColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetRedColor_CC;
                 }
                 else
                 {
-                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetGreenColor;
+                    RepeatPasswordWorkerPasswordBox.BorderBrush = ColorClass.GetColor().GetGreenColor_CC;
                     NewWorkerButton.IsEnabled = true;
                 }
 
@@ -638,7 +638,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exRepeatPasswordWorkerPasswordBox_LayoutUpdated)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие RepeatPasswordWorkerPasswordBox_LayoutUpdated в NewWorkerPage:\n\n " +
                          $"{exRepeatPasswordWorkerPasswordBox_LayoutUpdated.Message}");
             }
@@ -656,7 +656,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exCtrlV_PreviewKeyDown)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие CtrlV_PreviewKeyDown в NewWorkerPage:\n\n " +
                          $"{exCtrlV_PreviewKeyDown.Message}");
             }
@@ -689,7 +689,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch ( Exception expnRoleWorkerComboBox_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие pnRoleWorkerComboBox_SelectionChanged в NewWorkerPage:\n\n " +
                          $"{expnRoleWorkerComboBox_SelectionChanged.Message}");
             }

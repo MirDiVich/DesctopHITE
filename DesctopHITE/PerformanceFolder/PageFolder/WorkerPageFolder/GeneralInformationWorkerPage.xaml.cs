@@ -24,11 +24,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception ex) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GeneralInformationWorkerPage в GeneralInformationWorkerPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -49,7 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exVisibility)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в GeneralInformationWorkerPage:\n\n " +
                         $"{exVisibility.Message}");
             }
@@ -60,7 +60,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                var dataCountWorker = AppConnectClass.DataBase.WorkerTable;
+                var dataCountWorker = AppConnectClass.connectDataBase_ACC.WorkerTable;
 
                 WorkerCountTextBlock.Text = $"{dataCountWorker.Count()}";
                 TotalOnlineWorkerTextBlock.Text = $"{dataCountWorker.Count(status => status.pnStatus_Worker == 2)}";
@@ -68,7 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetDataCountWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetDataCountWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exGetDataCountWorker.Message}");
             }
@@ -82,7 +82,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 // Выведи мне в виде списка только тех сотрудников у которых: день рождение в этом месяце, не сегодня,
                 BirthdayComingSoonListView.ItemsSource =
-                    AppConnectClass.DataBase.PassportTable.Where(dateOfBrith =>
+                    AppConnectClass.connectDataBase_ACC.PassportTable.Where(dateOfBrith =>
                         dateOfBrith.DateOfBrich_Passport.Month == toDay.Month &&
                         dateOfBrith.DateOfBrich_Passport.Day != toDay.Day &&
                         dateOfBrith.DateOfBrich_Passport <= www).ToList();
@@ -97,7 +97,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetBirthdayComingSoonWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exGetBirthdayComingSoonWorker.Message}");
             }
@@ -108,13 +108,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 TodayBirthdayListView.ItemsSource =
-               AppConnectClass.DataBase.PassportTable.Where(toDayBrith =>
+               AppConnectClass.connectDataBase_ACC.PassportTable.Where(toDayBrith =>
                    toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
                    toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
             }
             catch (Exception exGetTodayBirthdayWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exGetTodayBirthdayWorker.Message}");
             }
@@ -124,14 +124,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                var genderWorker = AppConnectClass.DataBase.PassportTable;
+                var genderWorker = AppConnectClass.connectDataBase_ACC.PassportTable;
 
                 GenderManTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 1)}";
                 GenderWomenTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 2)}";
             }
             catch (Exception exGetGenderWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetGenderWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exGetGenderWorker.Message}");
             }
@@ -141,7 +141,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                var numberEmployeesWithPosition = AppConnectClass.DataBase.WorkerTable;
+                var numberEmployeesWithPosition = AppConnectClass.connectDataBase_ACC.WorkerTable;
 
                 NumberEmployeesWithPositionProgrammerTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 1)}";
                 NumberEmployeesWithPositionAdministratorTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 2)}";
@@ -151,7 +151,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetNumberEmployeesWithPosition)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
                         $"{exGetNumberEmployeesWithPosition.Message}");
             }

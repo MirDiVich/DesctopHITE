@@ -24,11 +24,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие MenuCashPage в MenuCashPage:\n\n " +
                     $"{ex.Message}");
             }
@@ -40,12 +40,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    ListMenuListView.ItemsSource = AppConnectClass.DataBase.MenuCategoryTable.ToList();
+                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие Page_IsVisibleChanged в MenuCashPage:\n\n " +
                     $"{exPage_IsVisibleChanged.Message}");
             }

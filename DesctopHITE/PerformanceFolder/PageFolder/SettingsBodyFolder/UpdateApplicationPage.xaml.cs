@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие UpdateApplicationPage в UpdateApplicationPage:\n\n " +
                    $"{ex.Message}");
             }
@@ -85,7 +85,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exCheckUpdateButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие CheckUpdateButton_Click в UpdateApplicationPage:\n\n " +
                    $"{exCheckUpdateButton_Click.Message}");
             }
@@ -145,7 +145,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exStartLoadingAnimation)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие StartLoadingAnimation в UpdateApplicationPage:\n\n " +
                    $"{exStartLoadingAnimation.Message}");
             }
@@ -162,7 +162,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exStopLoadingAnimation)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие StopLoadingAnimation в UpdateApplicationPage:\n\n " +
                    $"{exStopLoadingAnimation.Message}");
             }
@@ -185,7 +185,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exScanDeception)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие ScanDeception в UpdateApplicationPage:\n\n " +
                    $"{exScanDeception.Message}");
             }
@@ -208,7 +208,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                     OutputDataWaitingForStorage();
 
-                    FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
+                    FrameNavigationClass.bodySettings_FNC.Navigate(new UpdateApplicationPage());
                 }
                 else
                 {
@@ -217,7 +217,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exTimer_Tick)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие Timer_Tick в UpdateApplicationPage:\n\n " +
                    $"{exTimer_Tick.Message}");
             }
@@ -240,7 +240,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exReceivingDataWaitingForStorage)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие ReceivingDataWaitingForStorage в UpdateApplicationPage:\n\n " +
                    $"{exReceivingDataWaitingForStorage.Message}");
             }
@@ -250,7 +250,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
+                var DateScanUser = AppConnectClass.receiveConnectUser_ACC.PassportTable; // Просто укоротил 3 слова в 1
 
                 Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
                 Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
@@ -259,7 +259,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exOutputDataWaitingForStorage)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие OutputDataWaitingForStorage в UpdateApplicationPage:\n\n " +
                    $"{exOutputDataWaitingForStorage.Message}");
             }

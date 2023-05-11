@@ -20,7 +20,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие MenuSettingsPage в MenuSettingsPage:\n\n " +
                        $"{ex.Message}");
             }
@@ -34,12 +34,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 {
                     AboutTheAppToggleButton.IsChecked = true;
                     AboutTheAppToggleButton.IsEnabled = false;
-                    FrameNavigationClass.BodySettings_FNC.Navigate(new AboutAppPage());
+                    FrameNavigationClass.bodySettings_FNC.Navigate(new AboutAppPage());
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие Page_IsVisibleChanged в MenuSettingsPage:\n\n " +
                        $"{exPage_IsVisibleChanged.Message}");
             }
@@ -53,11 +53,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 IsEnabledToggleButton();
                 AboutTheAppToggleButton.IsChecked = true;
                 AboutTheAppToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodySettings_FNC.Navigate(new AboutAppPage());
+                FrameNavigationClass.bodySettings_FNC.Navigate(new AboutAppPage());
             }
             catch (Exception exAboutTheAppToggleButton_Click) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие AboutTheAppToggleButton_Click в MenuSettingsPage:\n\n " +
                        $"{exAboutTheAppToggleButton_Click.Message}");
             }
@@ -71,11 +71,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 IsEnabledToggleButton();
                 UpdateToggleButton.IsChecked = true;
                 UpdateToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodySettings_FNC.Navigate(new UpdateApplicationPage());
+                FrameNavigationClass.bodySettings_FNC.Navigate(new UpdateApplicationPage());
             }
             catch (Exception exUpdateToggleButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие UpdateToggleButton_Click в MenuSettingsPage:\n\n " +
                        $"{exUpdateToggleButton_Click.Message}");
             }
@@ -89,11 +89,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 IsEnabledToggleButton();
                 DevelopersToggleButton.IsChecked = true;
                 DevelopersToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodySettings_FNC.Navigate(new DevelopersPage());
+                FrameNavigationClass.bodySettings_FNC.Navigate(new DevelopersPage());
             }
             catch (Exception exDevelopersToggleButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие DevelopersToggleButton_Click в MenuSettingsPage:\n\n " +
                        $"{exDevelopersToggleButton_Click.Message}");
             }
@@ -107,11 +107,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 IsEnabledToggleButton();
                 ScanningToggleButton.IsChecked = true;
                 ScanningToggleButton.IsEnabled = false;
-                FrameNavigationClass.BodySettings_FNC.Navigate(new ScanningPage());
+                FrameNavigationClass.bodySettings_FNC.Navigate(new ScanningPage());
             }
             catch (Exception exScanningToggleButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие ScanningToggleButton_Click в MenuSettingsPage:\n\n " +
                        $"{exScanningToggleButton_Click.Message}");
             }
@@ -129,7 +129,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exIsCheckedToggleButton)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие IsCheckedToggleButton в MenuSettingsPage:\n\n " +
                        $"{exIsCheckedToggleButton.Message}");
             }
@@ -145,7 +145,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exIsEnabledToggleButton)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие IsEnabledToggleButton в MenuSettingsPage:\n\n " +
                        $"{exIsEnabledToggleButton.Message}");
             }

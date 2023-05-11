@@ -31,7 +31,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
                 // Свойства для Таймера
                 getTimer = new DispatcherTimer();
@@ -53,7 +53,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие AuthorizationWindow в AuthorizationWindow:\n\n " +
                     $"{ex.Message}");
             }
@@ -70,7 +70,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBar)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие SpaseBarGrid_MouseDown в AuthorizationWindow:\n\n " +
                     $"{exSpaseBar.Message}");
             }
@@ -84,7 +84,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exClose)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие CloseButton_Click в AuthorizationWindow:\n\n " +
                      $"{exClose.Message}");
             }
@@ -98,7 +98,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollup)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие RollupButton_Click в AuthorizationWindow:\n\n " +
                     $"{exRollup.Message}");
             }
@@ -113,7 +113,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLogin0)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие LoginButton_Click в AuthorizationWindow:\n\n " +
                     $"{exLogin0.Message}");
             }
@@ -141,7 +141,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox_KeyDown)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие PasswordUserPasswordBox_KeyDown в AuthorizationWindow:\n\n " +
                     $"{exPasswordUserPasswordBox_KeyDown.Message}");
             }
@@ -169,7 +169,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие GetTimer_Tick в AuthorizationWindow:\n\n " +
                     $"{exGetTimer.Message}");
             }
@@ -208,7 +208,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUser)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие LoginUser в AuthorizationWindow:\n\n " +
                     $"{exLoginUser.Message}");
             }
@@ -223,7 +223,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие ErrorNullBox в AuthorizationWindow:\n\n " +
                     $"{exErrorNullBox.Message}");
             }
@@ -248,7 +248,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 string receivePassword = PasswordUserPasswordBox.Password;
 
                 // Переменная, которая содержит в себе информацию о пользователе
-                var logInUser = await AppConnectClass.DataBase.WorkerTable.FirstOrDefaultAsync(DataUser => 
+                var logInUser = await AppConnectClass.connectDataBase_ACC.WorkerTable.FirstOrDefaultAsync(DataUser => 
                         DataUser.Login_Worker == receiveLogin && DataUser.Password_Worker == receivePassword);
 
                 // Если данные которые ввел пользователь, существуют в базе данных
@@ -260,21 +260,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     {
                         case 1:
                             SaveSettings();
-                            AppConnectClass.GetUser = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 2:
                             SaveSettings();
-                            AppConnectClass.GetUser = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 3:
                             SaveSettings();
-                            AppConnectClass.GetUser = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser;
                             MessageBox.Show("Для вас ещё не реализован код");
                             mainUserWindow.Show();
                             this.Close();
@@ -282,7 +282,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                         case 5:
                             SaveSettings();
-                            AppConnectClass.GetUser = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser;
                             mainUserWindow.Show();
                             this.Close();
                             break;
@@ -315,7 +315,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDateUser)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие DateUser в AuthorizationWindow:\n\n " +
                     $"{exDateUser.Message}");
             }
@@ -351,7 +351,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetCapsLock)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие GetCapsLock в AuthorizationWindow:\n\n " +
                     $"{exGetCapsLock.Message}");
             }
@@ -380,7 +380,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSaveSettings)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие SaveSettings в AuthorizationWindow:\n\n " +
                      $"{exSaveSettings.Message}");
             }
@@ -400,7 +400,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton0)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseDown в AuthorizationWindow:\n\n " +
                      $"{exVisiblePasswordUserButton0.Message}");
             }
@@ -419,7 +419,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisiblePasswordUserButton1)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseUp в AuthorizationWindow:\n\n " +
                      $"{exVisiblePasswordUserButton1.Message}");
             }
@@ -442,7 +442,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exLoginUserTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие LoginUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
                      $"{exLoginUserTextBox.Message}");
             }
@@ -465,7 +465,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox0)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие PasswordUserPasswordBox_PasswordChanged в AuthorizationWindow:\n\n " +
                      $"{exPasswordUserPasswordBox0.Message}");
             }
@@ -488,7 +488,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exPasswordUserPasswordBox1)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие PasswordUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
                      $"{exPasswordUserPasswordBox1.Message}");
             }

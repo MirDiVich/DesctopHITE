@@ -11,15 +11,15 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     public class CaptchaClass
     {
         // Переменные, которые хранят в себе определённые свойства
-        public double GetAmplitudeText { get; set; }
-        public double GetFrequencyText { get; set; }
-        public double GetRotationText { get; set; }
-        public SolidColorBrush GetColorText { get; set; }
-        public double GetOpacityText { get; set; }
-        public FontWeight GetFontWeightText { get; set; }
-        public FontStyle GetFontStyleText { get; set; }
-        public TextDecorationCollection GetTextDecorationText { get; set; }
-        public int GetFontSizeText { get; set; }
+        public double GetAmplitudeText_CC { get; set; }
+        public double GetFrequencyText_CC { get; set; }
+        public double GetRotationText_CC { get; set; }
+        public SolidColorBrush GetColorText_CC { get; set; }
+        public double GetOpacityText_CC { get; set; }
+        public FontWeight GetFontWeightText_CC { get; set; }
+        public FontStyle GetFontStyleText_CC { get; set; }
+        public TextDecorationCollection GetTextDecorationText_CC { get; set; }
+        public int GetFontSizeText_CC { get; set; }
 
         // Стиль для капчи
         public static CaptchaClass GetStyle()
@@ -92,15 +92,15 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             // Вызываемым переменным присваиваем полученные свойства
             return new CaptchaClass
             {
-                GetFontWeightText = fontWeightText,
-                GetAmplitudeText = amplitudeText,
-                GetFrequencyText = frequencyText,
-                GetRotationText = rotationText,
-                GetColorText = randomRgbColor,
-                GetOpacityText = opacityText,
-                GetFontSizeText = fontSizeText,
-                GetFontStyleText = fontStyleText,
-                GetTextDecorationText = fontDecorationsText
+                GetFontWeightText_CC = fontWeightText,
+                GetAmplitudeText_CC = amplitudeText,
+                GetFrequencyText_CC = frequencyText,
+                GetRotationText_CC = rotationText,
+                GetColorText_CC = randomRgbColor,
+                GetOpacityText_CC = opacityText,
+                GetFontSizeText_CC = fontSizeText,
+                GetFontStyleText_CC = fontStyleText,
+                GetTextDecorationText_CC = fontDecorationsText
             };
         }
     }

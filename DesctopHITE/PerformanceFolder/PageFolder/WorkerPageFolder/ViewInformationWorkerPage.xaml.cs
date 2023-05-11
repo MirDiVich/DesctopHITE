@@ -21,7 +21,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
                 if (workerTable != null)
                 {
@@ -31,7 +31,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ViewInformationWorkerPage в ViewInformationWorkerPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -49,7 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ViewInformationWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -102,11 +102,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+                FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
             }
             catch (Exception exEditWorkerButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие EditWorkerButton_Click в ViewInformationWorkerPage:\n\n " +
                         $"{exEditWorkerButton_Click.Message}");
             }

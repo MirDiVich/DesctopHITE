@@ -33,7 +33,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие ScanningPage в ScanningPage:\n\n " +
                      $"{ex.Message}");
             }
@@ -78,7 +78,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exCheckScanButton_Click)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие CheckScanButton_Click в ScanningPage:\n\n " +
                      $"{exCheckScanButton_Click.Message}");
             }
@@ -138,7 +138,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exStartLoadingAnimation)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие StartLoadingAnimation в ScanningPage:\n\n " +
                      $"{exStartLoadingAnimation.Message}");
             }
@@ -155,7 +155,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch ( Exception exStopLoadingAnimation) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие StopLoadingAnimation в ScanningPage:\n\n " +
                          $"{exStopLoadingAnimation.Message}");
             }
@@ -178,7 +178,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exScanDeception)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие ScanDeception в ScanningPage:\n\n " +
                          $"{exScanDeception.Message}");
             }
@@ -204,7 +204,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                     OutputDataWaitingForStorage();
 
-                    FrameNavigationClass.BodySettings_FNC.Navigate(new ScanningPage());
+                    FrameNavigationClass.bodySettings_FNC.Navigate(new ScanningPage());
                 }
                 else
                 {
@@ -214,7 +214,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exTimer_Tick)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие Timer_Tick в ScanningPage:\n\n " +
                          $"{exTimer_Tick.Message}");
             }
@@ -230,7 +230,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exReceivingDataWaitingForStorage)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие ReceivingDataWaitingForStorage в ScanningPage:\n\n " +
                          $"{exReceivingDataWaitingForStorage.Message}");
             }
@@ -240,7 +240,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                var DateScanUser = AppConnectClass.GetUser.PassportTable; // Просто укоротил 3 слова в 1
+                var DateScanUser = AppConnectClass.receiveConnectUser_ACC.PassportTable; // Просто укоротил 3 слова в 1
 
                 Properties.Settings.Default.SNMScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
                 Properties.Settings.Default.DateTimeScan = DateTime.Now.ToString();
@@ -249,7 +249,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exOutputDataWaitingForStorage)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                          textMessage: $"Событие OutputDataWaitingForStorage в ScanningPage:\n\n " +
                          $"{exOutputDataWaitingForStorage.Message}");
             }

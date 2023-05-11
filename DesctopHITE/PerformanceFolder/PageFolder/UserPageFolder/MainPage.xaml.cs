@@ -29,7 +29,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception ex) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие MainPage в MainPage:\n\n " +
                        $"{ex.Message}");
             }
@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие Page_IsVisibleChanged в MainPage:\n\n " +
                        $"{exPage_IsVisibleChanged.Message}");
             }
@@ -65,18 +65,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             try
             {
                 // Работа с часами
-                HelloyTextBlock.Text = GetTimeClass.WhatTimeIsIt.ToString();
+                HelloyTextBlock.Text = GetTimeClass.EventWhatTimeIsIt_TC.ToString();
                 NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
                 NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
-                BirthdayTextBlock.Text = GetDayClass.HappyBirthdayGreetings.ToString();
-                NowHolidayTextBlock.Text = GetDayClass.WhatDayIsIt.ToString();
+                BirthdayTextBlock.Text = GetDayClass.EventHappyBirthdayGreetings_HC.ToString();
+                NowHolidayTextBlock.Text = GetDayClass.EventWhatDayIsIt_HC.ToString();
                 DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
 
-                if (GetDayClass.HappyBirthdayGreetings == "")
+                if (GetDayClass.EventHappyBirthdayGreetings_HC == "")
                 {
                     BirthdayTextBlock.Visibility = Visibility.Collapsed;
                 }
-                if (GetDayClass.WhatDayIsIt == "Сегодня нет праздников")
+                if (GetDayClass.EventWhatDayIsIt_HC == "Сегодня нет праздников")
                 {
                     NowHolidayTextBlock.FontSize = 15;
                     NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
@@ -84,7 +84,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exGetTimer_Tick)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие GetTimer_Tick в MainPage:\n\n " +
                       $"{exGetTimer_Tick.Message}");
             }

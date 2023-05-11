@@ -17,12 +17,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             try
             {
                 InitializeComponent();
-                FrameNavigationClass.MunuSettings_FNC = MenuSettingsFrame;
-                FrameNavigationClass.BodySettings_FNC = BodySettingsFrame;
+                FrameNavigationClass.munuSettings_FNC = MenuSettingsFrame;
+                FrameNavigationClass.bodySettings_FNC = BodySettingsFrame;
             }
             catch (Exception ex) 
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие SettingsPage в SettingsPage:\n\n " +
                       $"{ex.Message}");
             }
@@ -34,12 +34,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    FrameNavigationClass.MunuSettings_FNC.Navigate(new MenuSettingsPage());
+                    FrameNavigationClass.munuSettings_FNC.Navigate(new MenuSettingsPage());
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие Page_IsVisibleChanged в SettingsPage:\n\n " +
                       $"{exPage_IsVisibleChanged.Message}");
             }

@@ -10,7 +10,8 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     public partial class HolidayClass
     {
         DateTime toDay = DateTime.Now;
-        public string WhatDayIsIt // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
+
+        public string EventWhatDayIsIt_HC // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
         {
             get
             {
@@ -76,12 +77,12 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             }
         }
 
-        public string HappyBirthdayGreetings // Поздравление пользователя, если у него день рождения
+        public string EventHappyBirthdayGreetings_HC // Поздравление пользователя, если у него день рождения
         {
             get
             {
                 string titleHappyBirthday = "";
-                DateTime titleDateOfBrich = AppConnectClass.GetUser.PassportTable.DateOfBrich_Passport;
+                DateTime titleDateOfBrich = AppConnectClass.receiveConnectUser_ACC.PassportTable.DateOfBrich_Passport;
 
                 if (toDay.Day == titleDateOfBrich.Day && toDay.Month == titleDateOfBrich.Month)
                 {

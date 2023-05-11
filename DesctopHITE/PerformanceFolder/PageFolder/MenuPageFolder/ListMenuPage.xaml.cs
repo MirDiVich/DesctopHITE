@@ -22,12 +22,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities();
-                ListMenuListView.ItemsSource = AppConnectClass.DataBase.MenuTable.ToList();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
+                ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewWorkerPage в ListMenuPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (getMenuTable != null)
                 {
                     //ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    //FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
+                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
                     //viewEditInfoemationWorkerWindow.ShowDialog();
                 }
                 else
@@ -52,7 +52,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exViewDataMenu)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ViewDataMenu в ListMenuPage:\n\n " +
                         $"{exViewDataMenu.Message}");
             }
@@ -65,7 +65,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (getMenuTable != null)
                 {
                     //ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    //FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(getMenuTable));
+                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(getMenuTable));
                     //viewEditInfoemationWorkerWindow.ShowDialog();
                 }
                 else
@@ -77,7 +77,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exGetEditMunu)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetEditMunu в ListMenuPage:\n\n " +
                         $"{exGetEditMunu.Message}");
             }
@@ -101,7 +101,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exGetDeleteMenu)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetDeleteMenu в ListMenuPage:\n\n " +
                         $"{exGetDeleteMenu.Message}");
             }
@@ -115,13 +115,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (SearchTextBox.Text == "") // Если SearchTextBox пустой
                 {
                     HintSearchTextBlock.Visibility = Visibility.Visible;
-                    ListMenuListView.ItemsSource = AppConnectClass.DataBase.MenuTable.ToList();
+                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
                 }
                 else // Если же в SearchTextBox есть что-то то:
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.DataBase.MenuTable.ToList(); //Получаем лист объектов из таблицы MenuTable
+                    var Objects = AppConnectClass.connectDataBase_ACC.MenuTable.ToList(); //Получаем лист объектов из таблицы MenuTable
 
                     var SearchResults = Objects.Where(nameMunu => // Делаем поиск из полученного списка
                         nameMunu.Name_Menu.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Name_Menu из таблицы MenuTable по похожему контенту в SearchTextBox
@@ -144,7 +144,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exSearchTextBox_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие SearchTextBox_SelectionChanged в ListMenuPage:\n\n " +
                         $"{exSearchTextBox_SelectionChanged.Message}");
             }
@@ -160,7 +160,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exListWorkerListView_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ListMenuListView_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exListWorkerListView_SelectionChanged.Message}");
             }

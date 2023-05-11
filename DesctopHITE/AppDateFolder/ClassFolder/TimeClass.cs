@@ -10,7 +10,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     public partial class TimeClass
     {
         DateTime timeDay = DateTime.Now;
-        public string WhatTimeIsIt // В зависимости от текущего времени, выводим приветствие (Смотрим, какой сейчас час)
+        public string EventWhatTimeIsIt_TC // В зависимости от текущего времени, выводим приветствие (Смотрим, какой сейчас час)
         {
             get
             {
@@ -18,26 +18,26 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 if (timeDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
                     titleNowHour = $"Доброй ночи \n " +
-                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 6 && timeDay.Hour <= 11)
                 {
                     titleNowHour = $"Доброе утро \n " +
-                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 12 && DateTime.Now.Hour <=17)
                 {
                     titleNowHour = $"Добрый день \n " +
-                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 18 && DateTime.Now.Hour <= 23)
                 {
                     titleNowHour = $"Добрый вечер \n " +
-                        $"{AppConnectClass.GetUser.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.GetUser.PassportTable.Name_Passport}";
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
+                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
                 }
                 return titleNowHour;
             }

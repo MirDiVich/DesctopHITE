@@ -29,7 +29,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие CaptchaWindow в CaptchaWindow:\n\n " +
                     $"{ex.Message}");
             }
@@ -59,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exVisible)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие Window_IsVisibleChanged в CaptchaWindow:\n\n " +
                      $"{exVisible.Message}");
             }
@@ -74,7 +74,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetTimer)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие GetTimer_Tick в CaptchaWindow:\n\n " +
                      $"{exGetTimer.Message}");
             }
@@ -88,7 +88,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exErrorNullBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие ErrorNullBox в CaptchaWindow:\n\n " +
                      $"{exErrorNullBox.Message}");
             }
@@ -130,7 +130,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exGetEnter)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие GetEnter в CaptchaWindow:\n\n " +
                       $"{exGetEnter.Message}");
             }
@@ -160,7 +160,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRandomGeneratedCaptcha)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие RandomGeneratedCaptcha в CaptchaWindow:\n\n " +
                        $"{exRandomGeneratedCaptcha.Message}");
             }
@@ -174,18 +174,18 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 var styleText = CaptchaClass.GetStyle();
 
                 // Присваивание TextCaptchaTextBlock определённых свойст из класса
-                TextCaptchaTextBlock.Opacity = styleText.GetOpacityText;
-                TextCaptchaTextBlock.Foreground = styleText.GetColorText;
-                TextCaptchaTextBlock.FontSize = styleText.GetFontSizeText;
-                TextCaptchaTextBlock.RenderTransform = new RotateTransform(styleText.GetRotationText);
-                TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / styleText.GetFrequencyText) * styleText.GetAmplitudeText);
-                TextCaptchaTextBlock.FontWeight = styleText.GetFontWeightText;
-                TextCaptchaTextBlock.FontStyle = styleText.GetFontStyleText;
-                TextCaptchaTextBlock.TextDecorations = styleText.GetTextDecorationText;
+                TextCaptchaTextBlock.Opacity = styleText.GetOpacityText_CC;
+                TextCaptchaTextBlock.Foreground = styleText.GetColorText_CC;
+                TextCaptchaTextBlock.FontSize = styleText.GetFontSizeText_CC;
+                TextCaptchaTextBlock.RenderTransform = new RotateTransform(styleText.GetRotationText_CC);
+                TextCaptchaTextBlock.RenderTransform = new SkewTransform(0, Math.Sin(DateTime.Now.Millisecond / styleText.GetFrequencyText_CC) * styleText.GetAmplitudeText_CC);
+                TextCaptchaTextBlock.FontWeight = styleText.GetFontWeightText_CC;
+                TextCaptchaTextBlock.FontStyle = styleText.GetFontStyleText_CC;
+                TextCaptchaTextBlock.TextDecorations = styleText.GetTextDecorationText_CC;
             }
             catch (Exception exGetStyleCaptcha)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие GetStyleCaptcha в CaptchaWindow:\n\n " +
                        $"{exGetStyleCaptcha.Message}");
             }
@@ -205,7 +205,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exNewCaptcha)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewCaptchaButton_Click в CaptchaWindow:\n\n " +
                         $"{exNewCaptcha.Message}");
             }
@@ -219,7 +219,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exEnterCaptcha)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие EnterCaptchaButton_Click в CaptchaWindow:\n\n " +
                         $"{exEnterCaptcha.Message}");
             }
@@ -236,7 +236,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCaptchaTextBox)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CaptchaTextBox_KeyDown в CaptchaWindow:\n\n " +
                         $"{exCaptchaTextBox.Message}");
             }
@@ -258,7 +258,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exTextChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CaptchaTextBox_TextChanged в CaptchaWindow:\n\n " +
                         $"{exTextChanged.Message}");
             }

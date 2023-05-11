@@ -30,11 +30,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.DataBase = new DesctopHiteEntities(); // Подключил базу данных к этой странице
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities(); // Подключил базу данных к этой странице
             }
             catch (Exception ex)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ListWorkerPage в ListWorkerPage:\n\n " +
                         $"{ex.Message}");
             }
@@ -49,13 +49,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     EditButton.IsEnabled = false;
                     DeliteButton.IsEnabled = false;
 
-                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
+                    ListWorkerListView.ItemsSource = AppConnectClass.connectDataBase_ACC.WorkerTable.ToList();
                     ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
                 }
             }
             catch (Exception exVisible)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ListWorkerPage:\n\n " +
                         $"{exVisible.Message}");
             }
@@ -69,7 +69,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (dataContextWorker != null)
                 {
                     ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
+                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
                     viewEditInfoemationWorkerWindow.ShowDialog();
                 }
                 else
@@ -81,7 +81,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exViewDataWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ViewDataWorker в ListWorkerPage:\n\n " +
                         $"{exViewDataWorker.Message}");
             }
@@ -94,7 +94,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (dataContextWorker != null)
                 {
                     ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    FrameNavigationClass.ViewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
                     viewEditInfoemationWorkerWindow.ShowDialog();
                 }
                 else
@@ -106,7 +106,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetEditWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetEditWorker в ListWorkerPage:\n\n " +
                         $"{exGetEditWorker.Message}");
             }
@@ -130,7 +130,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGetDeleteWorker)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetDeleteWorker в ListWorkerPage:\n\n " +
                         $"{exGetDeleteWorker.Message}");
             }
@@ -159,7 +159,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch(Exception exKeyboardShortcuts)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
                        $"{exKeyboardShortcuts.Message}");
             }
@@ -191,7 +191,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exListWorkerListView_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ListWorkerListView_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exListWorkerListView_SelectionChanged.Message}");
             }
@@ -204,13 +204,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 if (SearchTextBox.Text == "") // Если SearchTextBox пустой
                 {
                     HintSearchTextBlock.Visibility = Visibility.Visible;
-                    ListWorkerListView.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
+                    ListWorkerListView.ItemsSource = AppConnectClass.connectDataBase_ACC.WorkerTable.ToList();
                 }
                 else // Если же в SearchTextBox есть что-то то:
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист объектов из таблицы WorkerTable по таблице PassportTable
+                    var Objects = AppConnectClass.connectDataBase_ACC.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист объектов из таблицы WorkerTable по таблице PassportTable
 
                     var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
                         worker.PassportTable.Surname_Passport.ToString().Contains(SearchTextBox.Text.ToString()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox
@@ -235,7 +235,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exSearchTextBox_SelectionChanged)
             {
-                MessageBoxClass.ExceptionMessage(
+                MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие SearchTextBox_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exSearchTextBox_SelectionChanged.Message}");
             }
