@@ -29,11 +29,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     dataContextWorker = workerTable;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exViewInformationWorkerPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ViewInformationWorkerPage в ViewInformationWorkerPage:\n\n " +
-                        $"{ex.Message}");
+                        $"{exViewInformationWorkerPage.Message}");
             }
         }
 

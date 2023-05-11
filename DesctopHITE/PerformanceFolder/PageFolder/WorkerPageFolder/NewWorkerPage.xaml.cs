@@ -66,11 +66,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     UserPhotoImage.Source = userImage;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exNewWorkerPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewWorkerPage в NewWorkerPage:\n\n " +
-                        $"{ex.Message}");
+                        $"{exNewWorkerPage.Message}");
             }
         }
 
@@ -149,7 +149,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 messageGeneralDataNull = "";
                 messageValidData = "";
 
-                MessageNull();
+                EventMessageNull();
 
                 if (messagePassportNull != "" ||
                     messagePlaceResidenceNull != "" ||
@@ -199,12 +199,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             }
                             else
                             {
-                                AddDataconnectDataBase_ACC();
+                                EventAddDataWorker();
                             }
                         }
                         else
                         {
-                            AddDataconnectDataBase_ACC();
+                            EventAddDataWorker();
                         }
                     }
                 }
@@ -239,7 +239,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region Event
-        private void MessageNull() // Event на проверки полей на валидность данных 
+        private void EventMessageNull() // Event на проверки полей на валидность данных 
         {
             try
             {
@@ -359,21 +359,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 #endregion
             }
-            catch (Exception exMessageNull)
+            catch (Exception exEventMessageNull)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие MessageNull в NewWorkerPage:\n\n " +
-                        $"{exMessageNull.Message}");
+                        textMessage: $"Событие EventMessageNull в NewWorkerPage:\n\n " +
+                        $"{exEventMessageNull.Message}");
             }
         }
 
-        private int RandomTextSender() // Event, который генерирует рандомное число для подтверждения регистрации
+        private int EventRandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
         {
             Random random = new Random();
             return random.Next(1000000000);
         }
 
-        private void AddDataconnectDataBase_ACC() // Event для добавления нового сотрудника в баз данных
+        private void EventAddDataWorker() // Метод для добавления нового сотрудника в баз данных
         {
             // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
             // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
@@ -533,7 +533,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessadeSaveDataWorker, "Сохранение",
                         MessageBoxButton.OK, MessageBoxImage.Information);
 
-                ClearText();
+                EventClearText();
             }
             catch (Exception exAddDataconnectDataBase_ACC)
             {
@@ -543,7 +543,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void ClearText() // Очищаем все поля
+        private void EventClearText() // Очищаем все поля
         {
             try
             {
@@ -671,7 +671,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && workerInformation == null)
                 {
-                    randomPassword = RandomTextSender().ToString("D6");
+                    randomPassword = EventRandomTextSender().ToString("D6");
 
                     PasswordWorkerTextBox.Text = randomPassword;
                     RepeatPasswordWorkerPasswordBox.Password = randomPassword;
