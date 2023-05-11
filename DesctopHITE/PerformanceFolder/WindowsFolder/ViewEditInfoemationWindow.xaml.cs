@@ -10,20 +10,20 @@ using System.Windows.Input;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
-    public partial class ViewEditInfoemationWorkerWindow : Window
+    public partial class ViewEditInfoemationWindow : Window
     {
-        public ViewEditInfoemationWorkerWindow()
+        public ViewEditInfoemationWindow()
         {
             try
             {
                 InitializeComponent();
-                FrameNavigationClass.viewEditInformationWorker_FNC = ViewEditWorkerInformationFrame;
+                FrameNavigationClass.viewEditInformationWorker_FNC = ViewEditInformationFrame;
             }
-            catch (Exception exViewEditInfoemationWorkerWindow)
+            catch (Exception exViewEditInfoemationWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие ViewEditInfoemationWorkerWindow в ViewEditInfoemationWorkerWindow:\n\n " +
-                        $"{exViewEditInfoemationWorkerWindow.Message}");
+                        textMessage: $"Событие ViewEditInfoemationWindow в ViewEditInfoemationWindow:\n\n " +
+                        $"{exViewEditInfoemationWindow.Message}");
             }
         }
         #region Управление окном

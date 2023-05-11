@@ -68,9 +68,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
                     FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
-                    viewEditInfoemationWorkerWindow.ShowDialog();
+                    viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {
@@ -93,9 +93,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
                     FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
-                    viewEditInfoemationWorkerWindow.ShowDialog();
+                    viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {

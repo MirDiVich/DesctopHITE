@@ -272,7 +272,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWorkerWindow.xaml">
+    <Page Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -438,8 +438,8 @@
     <Compile Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml.cs">
       <DependentUpon>MainUserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWorkerWindow.xaml.cs">
-      <DependentUpon>ViewEditInfoemationWorkerWindow.xaml</DependentUpon>
+    <Compile Include="PerformanceFolder\WindowsFolder\ViewEditInfoemationWindow.xaml.cs">
+      <DependentUpon>ViewEditInfoemationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

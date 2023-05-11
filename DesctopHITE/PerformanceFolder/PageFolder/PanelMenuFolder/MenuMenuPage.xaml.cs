@@ -34,7 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 {
                     NewMenuToggleButton.IsChecked = true;
                     NewMenuToggleButton.IsEnabled = false;
-                    FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage());
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 EventIsEnabledToggleButton();
                 NewMenuToggleButton.IsChecked = true;
                 NewMenuToggleButton.IsEnabled = false;
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage());
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
             }
             catch (Exception exNewMenuToggleButton_Click)
             {

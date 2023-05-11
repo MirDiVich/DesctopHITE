@@ -29,15 +29,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         string messageNull;
         string messageValidData;
 
-        public NewMenuPage()
+        public NewMenuPage(MenuTable menuTable)
         {
             try
             {
                 InitializeComponent();
 
-                if (DataContext != null)
+                if (menuTable != null)
                 {
-                    
+                    DataContext = menuTable;
                 }
                 else
                 {
@@ -198,7 +198,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     $"{nameMenu.Name_Menu} успешно добавленно", "Уведомление о добавлении",
                     MessageBoxButton.OK, MessageBoxImage.Information);
 
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage());
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
             }
             catch (Exception exEventSelectedIngredients)
             {

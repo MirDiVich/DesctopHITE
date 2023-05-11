@@ -10,6 +10,8 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -65,9 +67,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuTable != null)
                 {
-                    //ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
+                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
                     //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
-                    //viewEditInfoemationWorkerWindow.ShowDialog();
+                    //viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {
@@ -90,9 +92,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuTable != null)
                 {
-                    //ViewEditInfoemationWorkerWindow viewEditInfoemationWorkerWindow = new ViewEditInfoemationWorkerWindow();
-                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(getMenuTable));
-                    //viewEditInfoemationWorkerWindow.ShowDialog();
+                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
+                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getMenuTable));
+                    viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {
