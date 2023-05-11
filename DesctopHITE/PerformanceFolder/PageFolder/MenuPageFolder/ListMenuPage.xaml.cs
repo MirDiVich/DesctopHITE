@@ -33,7 +33,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exListMenuPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие NewWorkerPage в ListMenuPage:\n\n " +
+                        textMessage: $"Событие ListMenuPage в ListMenuPage:\n\n " +
                         $"{exListMenuPage.Message}");
             }
         }
