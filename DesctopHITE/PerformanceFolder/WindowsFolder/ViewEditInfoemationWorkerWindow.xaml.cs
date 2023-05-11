@@ -19,11 +19,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 InitializeComponent();
                 FrameNavigationClass.viewEditInformationWorker_FNC = ViewEditWorkerInformationFrame;
             }
-            catch (Exception ex)
+            catch (Exception exViewEditInfoemationWorkerWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие ViewEditInfoemationWorkerWindow в ViewEditInfoemationWorkerWindow:\n\n " +
-                        $"{ex.Message}");
+                        $"{exViewEditInfoemationWorkerWindow.Message}");
             }
         }
         #region Управление окном
@@ -36,11 +36,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception exSpaseBar)
+            catch (Exception exSpaseBarGrid_MouseDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в ViewEditInfoemationWorkerWindow:\n\n " +
-                        $"{exSpaseBar.Message}");
+                        $"{exSpaseBarGrid_MouseDown.Message}");
             }
         }
 
@@ -50,11 +50,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 this.Close();
             }
-            catch (Exception exClose)
+            catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CloseButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
-                        $"{exClose.Message}");
+                        $"{exCloseButton_Click.Message}");
             }
         }
 
@@ -64,11 +64,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 WindowState = WindowState.Minimized;
             }
-            catch (Exception exRollup)
+            catch (Exception exRollupButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие RollupButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
-                        $"{exRollup.Message}");
+                        $"{exRollupButton_Click.Message}");
             }
         }
         #endregion

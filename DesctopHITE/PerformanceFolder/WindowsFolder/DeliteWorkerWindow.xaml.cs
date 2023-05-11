@@ -38,11 +38,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         $"({informationAddedWhomWorker.RoleTable.Name_Role})";
                 }
             }
-            catch (Exception ex)
+            catch (Exception exDeliteWorkerWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DeliteWorkerWindow в DeliteWorkerWindow:\n\n " +
-                        $"{ex.Message}");
+                        $"{exDeliteWorkerWindow.Message}");
             }
         }
         #region Управление окном
@@ -55,11 +55,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception exSpaseBar)
+            catch (Exception exSpaseBarGrid_MouseDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в DeliteWorkerWindow:\n\n " +
-                        $"{exSpaseBar.Message}");
+                        $"{exSpaseBarGrid_MouseDown.Message}");
             }
         }
 
@@ -67,13 +67,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                Application.Current.Shutdown();
+                this.Close();
             }
-            catch (Exception exClose)
+            catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CloseButton_Click в DeliteWorkerWindow:\n\n " +
-                        $"{exClose.Message}");
+                        $"{exCloseButton_Click.Message}");
             }
         }
         #endregion
@@ -85,11 +85,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 this.Close();
                 personalNumberWorker = 0;
             }
-            catch (Exception exCancel)
+            catch (Exception exCancelButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CancelButton_Click в DeliteWorkerWindow:\n\n " +
-                        $"{exCancel.Message}");
+                        $"{exCancelButton_Click.Message}");
             }
         }
 
@@ -105,19 +105,19 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 }
                 else
                 {
-                    DeliteWorkerEvent();
+                    EventDeliteWorker();
                 }
             }
-            catch (Exception exDelite)
+            catch (Exception exDeliteButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие DeliteButton_Click в DeliteWorkerWindow:\n\n " +
-                        $"{exDelite.Message}");
+                        $"{exDeliteButton_Click.Message}");
             }
         }
         #endregion
         #region Event
-        private void DeliteWorkerEvent() // Реализация удаления выбранного сотрудника
+        private void EventDeliteWorker() // Реализация удаления выбранного сотрудника
         {
             try
             {

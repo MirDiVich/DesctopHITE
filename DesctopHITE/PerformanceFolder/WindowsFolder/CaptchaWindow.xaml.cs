@@ -19,6 +19,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
     {
         string getCaptchaText;
         string messageNullBox;
+
         DispatcherTimer getTimer;
 
         public CaptchaWindow()
@@ -27,11 +28,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 InitializeComponent();
             }
-            catch (Exception ex)
+            catch (Exception exCaptchaWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие CaptchaWindow в CaptchaWindow:\n\n " +
-                    $"{ex.Message}");
+                    $"{exCaptchaWindow.Message}");
             }
         }
 
@@ -41,13 +42,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    
-                    RandomGeneratedCaptcha();
-                    GetStyleCaptcha();
+
+                    EventRandomGeneratedCaptcha();
+                    EventStyleCaptcha();
 
                     // Свойства для Таймера
                     getTimer = new DispatcherTimer();
-                    getTimer.Tick += new EventHandler(GetTimer_Tick);
+                    getTimer.Tick += new EventHandler(EventTimer_Tick);
                     getTimer.Interval = TimeSpan.FromSeconds(5);
                     getTimer.Stop();
                 }
@@ -57,48 +58,48 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     getTimer.Stop();
                 }
             }
-            catch (Exception exVisible)
+            catch (Exception exWindow_IsVisibleChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"Событие Window_IsVisibleChanged в CaptchaWindow:\n\n " +
-                     $"{exVisible.Message}");
+                     $"{exWindow_IsVisibleChanged.Message}");
             }
         }
         #region Event
-        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        private void EventTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
             {
                 NewCaptchaButton.IsEnabled = true;
                 getTimer.Stop();
             }
-            catch (Exception exGetTimer)
+            catch (Exception exEventTimer_Tick)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                     textMessage: $"Событие GetTimer_Tick в CaptchaWindow:\n\n " +
-                     $"{exGetTimer.Message}");
+                     textMessage: $"Событие EventTimer_Tick в CaptchaWindow:\n\n " +
+                     $"{exEventTimer_Tick.Message}");
             }
         }
 
-        private void ErrorNullBox() // Event проверки текстового поля на пустоту
+        private void EventErrorNullBox() // Event проверки текстового поля на пустоту
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(CaptchaTextBox.Text)) messageNullBox += "Поле 'Капча' пустое";
             }
-            catch (Exception exErrorNullBox)
+            catch (Exception exEventErrorNullBox)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                     textMessage: $"Событие ErrorNullBox в CaptchaWindow:\n\n " +
-                     $"{exErrorNullBox.Message}");
+                     textMessage: $"Событие EventErrorNullBox в CaptchaWindow:\n\n " +
+                     $"{exEventErrorNullBox.Message}");
             }
         }
 
-        private void GetEnter() // Вызываемый Event для проверки введённой капчи
+        private void EventEnter() // Вызываемый Event для проверки введённой капчи
         {
             try
             {
-                ErrorNullBox();
+                EventErrorNullBox();
 
                 if (messageNullBox == null)
                 {
@@ -114,9 +115,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                         CaptchaTextBox.Text = "";
 
-                        
-                        RandomGeneratedCaptcha();
-                        GetStyleCaptcha();
+
+                        EventRandomGeneratedCaptcha();
+                        EventStyleCaptcha();
                     }
                 }
                 else
@@ -128,15 +129,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     messageNullBox = null;
                 }
             }
-            catch (Exception exGetEnter)
+            catch (Exception exEventEnter)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                      textMessage: $"Событие GetEnter в CaptchaWindow:\n\n " +
-                      $"{exGetEnter.Message}");
+                      textMessage: $"Событие EventEnter в CaptchaWindow:\n\n " +
+                      $"{exEventEnter.Message}");
             }
         }
 
-        public void RandomGeneratedCaptcha() // Event для рандомного содержимого TextCaptcha 
+        public void EventRandomGeneratedCaptcha() // Event для рандомного содержимого TextCaptcha 
         {
             try
             {
@@ -158,15 +159,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 getCaptchaText = CaptchaText;
                 TextCaptchaTextBlock.Text = getCaptchaText;
             }
-            catch (Exception exRandomGeneratedCaptcha)
+            catch (Exception exEventRandomGeneratedCaptcha)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие RandomGeneratedCaptcha в CaptchaWindow:\n\n " +
-                       $"{exRandomGeneratedCaptcha.Message}");
+                       textMessage: $"Событие EventRandomGeneratedCaptcha в CaptchaWindow:\n\n " +
+                       $"{exEventRandomGeneratedCaptcha.Message}");
             }
         }
 
-        private void GetStyleCaptcha() // Event для рандомного свойства TextCaptcha 
+        private void EventStyleCaptcha() // Event для рандомного свойства TextCaptcha 
         {
             try
             {
@@ -183,11 +184,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 TextCaptchaTextBlock.FontStyle = styleText.GetFontStyleText_CC;
                 TextCaptchaTextBlock.TextDecorations = styleText.GetTextDecorationText_CC;
             }
-            catch (Exception exGetStyleCaptcha)
+            catch (Exception exEventStyleCaptcha)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие GetStyleCaptcha в CaptchaWindow:\n\n " +
-                       $"{exGetStyleCaptcha.Message}");
+                       textMessage: $"Событие EventStyleCaptcha в CaptchaWindow:\n\n " +
+                       $"{exEventStyleCaptcha.Message}");
             }
         }   
         #endregion
@@ -196,18 +197,18 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                RandomGeneratedCaptcha();
-                GetStyleCaptcha();
+                EventRandomGeneratedCaptcha();
+                EventStyleCaptcha();
 
                 // Отключение кнопки, чтоб пользователь не "спамил"
                 NewCaptchaButton.IsEnabled = false;
                 getTimer.Start();
             }
-            catch (Exception exNewCaptcha)
+            catch (Exception exNewCaptchaButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие NewCaptchaButton_Click в CaptchaWindow:\n\n " +
-                        $"{exNewCaptcha.Message}");
+                        $"{exNewCaptchaButton_Click.Message}");
             }
         }
 
@@ -215,13 +216,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                GetEnter();
+                EventEnter();
             }
-            catch (Exception exEnterCaptcha)
+            catch (Exception exEnterCaptchaButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие EnterCaptchaButton_Click в CaptchaWindow:\n\n " +
-                        $"{exEnterCaptcha.Message}");
+                        $"{exEnterCaptchaButton_Click.Message}");
             }
         }
 
@@ -231,14 +232,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (e.Key == Key.Enter)
                 {
-                    GetEnter();
+                    EventEnter();
                 }
             }
-            catch (Exception exCaptchaTextBox)
+            catch (Exception exCaptchaTextBox_KeyDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CaptchaTextBox_KeyDown в CaptchaWindow:\n\n " +
-                        $"{exCaptchaTextBox.Message}");
+                        $"{exCaptchaTextBox_KeyDown.Message}");
             }
         }
         #endregion
@@ -256,11 +257,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     HintCaptchaTextBlock.Visibility = Visibility.Visible;
                 }
             }
-            catch (Exception exTextChanged)
+            catch (Exception exCaptchaTextBox_TextChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие CaptchaTextBox_TextChanged в CaptchaWindow:\n\n " +
-                        $"{exTextChanged.Message}");
+                        $"{exCaptchaTextBox_TextChanged.Message}");
             }
         }
         #endregion

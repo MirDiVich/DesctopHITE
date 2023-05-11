@@ -21,11 +21,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 FrameNavigationClass.munuCash_FNC = MenuCashFrame;
                 FrameNavigationClass.bodyCash_FNC = BodyCashFrame;
             }
-            catch (Exception ex)
+            catch (Exception exMainCashWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие MainCashWindow в MainCashWindow:\n\n " +
-                        $"{ex.Message}");
+                        $"{exMainCashWindow.Message}");
             }
         }
 
