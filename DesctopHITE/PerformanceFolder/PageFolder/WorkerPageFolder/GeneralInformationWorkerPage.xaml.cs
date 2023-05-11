@@ -26,11 +26,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
-            catch (Exception ex) 
+            catch (Exception exGeneralInformationWorkerPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GeneralInformationWorkerPage в GeneralInformationWorkerPage:\n\n " +
-                        $"{ex.Message}");
+                        $"{exGeneralInformationWorkerPage.Message}");
             }
         }
 
@@ -40,23 +40,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    GetDataCountWorker();
-                    GetBirthdayComingSoonWorker();
-                    GetTodayBirthdayWorker();
-                    GetGenderWorker();
-                    GetNumberEmployeesWithPosition();
+                    EventDataCountWorker();
+                    EventBirthdayComingSoonWorker();
+                    EventTodayBirthdayWorker();
+                    EventGenderWorker();
+                    EventNumberEmployeesWithPosition();
                 }
             }
-            catch (Exception exVisibility)
+            catch (Exception exPage_IsVisibleChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в GeneralInformationWorkerPage:\n\n " +
-                        $"{exVisibility.Message}");
+                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
 
         #region Event
-        private void GetDataCountWorker() // Считаю количество сотрудников / количество онлайн / оффлайн
+        private void EventDataCountWorker() // Считаю количество сотрудников / количество онлайн / оффлайн
         {
             try
             {
@@ -66,15 +66,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 TotalOnlineWorkerTextBlock.Text = $"{dataCountWorker.Count(status => status.pnStatus_Worker == 2)}";
                 TotalOfflineWorkerTextBlock.Text = $"{dataCountWorker.Count(status => status.pnStatus_Worker == 1)}";
             }
-            catch (Exception exGetDataCountWorker)
+            catch (Exception exEventDataCountWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetDataCountWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exGetDataCountWorker.Message}");
+                        textMessage: $"Событие EventDataCountWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEventDataCountWorker.Message}");
             }
         }
 
-        private void GetBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
+        private void EventBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
             try
             {
@@ -95,32 +95,32 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 /// Поэтому это пока что останется тут. Если этот коммент* не пропал, значит, я ещё не исправил свою проблему!
             }
-            catch (Exception exGetBirthdayComingSoonWorker)
+            catch (Exception exEventBirthdayComingSoonWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exGetBirthdayComingSoonWorker.Message}");
+                        textMessage: $"Событие EventBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEventBirthdayComingSoonWorker.Message}");
             }
         }
 
-        private void GetTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
+        private void EventTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
         {
             try
             {
                 TodayBirthdayListView.ItemsSource =
-               AppConnectClass.connectDataBase_ACC.PassportTable.Where(toDayBrith =>
-                   toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
-                   toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
+                   AppConnectClass.connectDataBase_ACC.PassportTable.Where(toDayBrith =>
+                       toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
+                       toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
             }
-            catch (Exception exGetTodayBirthdayWorker)
+            catch (Exception exEventTodayBirthdayWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exGetTodayBirthdayWorker.Message}");
+                        textMessage: $"Событие EventTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEventTodayBirthdayWorker.Message}");
             }
         }
 
-        private void GetGenderWorker() // Считаю количество сотрудников мужского \ женского гендера
+        private void EventGenderWorker() // Считаю количество сотрудников мужского \ женского гендера
         {
             try
             {
@@ -129,15 +129,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 GenderManTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 1)}";
                 GenderWomenTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 2)}";
             }
-            catch (Exception exGetGenderWorker)
+            catch (Exception exEventGenderWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetGenderWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exGetGenderWorker.Message}");
+                        textMessage: $"Событие EventGenderWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEventGenderWorker.Message}");
             }
         }
 
-        private void GetNumberEmployeesWithPosition() // Считаю количество сотрудников  по должности
+        private void EventNumberEmployeesWithPosition() // Считаю количество сотрудников  по должности
         {
             try
             {
@@ -149,11 +149,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 NumberEmployeesWithPositionCleanerTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 4)}";
                 NumberEmployeesWithPositionDirectorTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 5)}";
             }
-            catch (Exception exGetNumberEmployeesWithPosition)
+            catch (Exception exEventNumberEmployeesWithPosition)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
-                        $"{exGetNumberEmployeesWithPosition.Message}");
+                        textMessage: $"Событие EventNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEventNumberEmployeesWithPosition.Message}");
             }
         }
         #endregion

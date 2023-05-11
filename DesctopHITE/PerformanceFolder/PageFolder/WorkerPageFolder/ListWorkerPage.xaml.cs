@@ -53,16 +53,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     ListWorkerListView.Items.SortDescriptions.Add(new SortDescription("PassportTable.Surname_Passport", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListView" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
                 }
             }
-            catch (Exception exVisible)
+            catch (Exception exPage_IsVisibleChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ListWorkerPage:\n\n " +
-                        $"{exVisible.Message}");
+                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
 
         #region Event
-        private void ViewDataWorker() // Просмотр информации об сотруднике
+        private void EventViewDataWorker() // Просмотр информации об сотруднике
         {
             try
             {
@@ -79,15 +79,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exViewDataWorker)
+            catch (Exception exEventViewDataWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие ViewDataWorker в ListWorkerPage:\n\n " +
-                        $"{exViewDataWorker.Message}");
+                        textMessage: $"Событие EventViewDataWorker в ListWorkerPage:\n\n " +
+                        $"{exEventViewDataWorker.Message}");
             }
         }
 
-        private void GetEditWorker() // Редактирование информации об сотруднике
+        private void EventEditWorker() // Редактирование информации об сотруднике
         {
             try
             {
@@ -104,15 +104,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exGetEditWorker)
+            catch (Exception exEventEditWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                         textMessage: $"Событие GetEditWorker в ListWorkerPage:\n\n " +
-                        $"{exGetEditWorker.Message}");
+                        $"{exEventEditWorker.Message}");
             }
         }
 
-        private void GetDeleteWorker() // Удаление информации об сотруднике
+        private void EventDeleteWorker() // Удаление информации об сотруднике
         {
             try
             {
@@ -128,11 +128,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exGetDeleteWorker)
+            catch (Exception exEventDeleteWorker)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetDeleteWorker в ListWorkerPage:\n\n " +
-                        $"{exGetDeleteWorker.Message}");
+                        textMessage: $"Событие EventDeleteWorker в ListWorkerPage:\n\n " +
+                        $"{exEventDeleteWorker.Message}");
             }
         }
         #endregion
@@ -145,15 +145,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     if (e.Key == Key.F1)
                     {
-                        ViewDataWorker();
+                        EventViewDataWorker();
                     }
                     if (e.Key == Key.F2)
                     {
-                        GetEditWorker();
+                        EventEditWorker();
                     }
                     if (e.Key == Key.Delete)
                     {
-                        GetDeleteWorker();
+                        EventDeleteWorker();
                     }
                 }
             }
@@ -167,18 +167,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
         private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
-            GetEditWorker();
+            EventEditWorker();
         }
 
         private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
         {
-            GetDeleteWorker();
+            EventDeleteWorker();
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
         private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
         {
-            ViewDataWorker();
+            EventViewDataWorker();
         }
 
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
