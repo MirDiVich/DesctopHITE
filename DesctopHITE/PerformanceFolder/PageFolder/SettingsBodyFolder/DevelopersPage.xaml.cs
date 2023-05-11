@@ -18,11 +18,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             {
                 InitializeComponent();
             }
-            catch (Exception ex) 
+            catch (Exception exDevelopersPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие DevelopersPage в DevelopersPage:\n\n " +
-                      $"{ex.Message}");
+                      $"{exDevelopersPage.Message}");
             }
         }
         #region _Click

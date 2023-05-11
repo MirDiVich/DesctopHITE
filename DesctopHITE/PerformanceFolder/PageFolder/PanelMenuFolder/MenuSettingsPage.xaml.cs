@@ -18,11 +18,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 InitializeComponent();
             }
-            catch (Exception ex)
+            catch (Exception exMenuSettingsPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие MenuSettingsPage в MenuSettingsPage:\n\n " +
-                       $"{ex.Message}");
+                       $"{exMenuSettingsPage.Message}");
             }
         }
 
@@ -49,8 +49,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 AboutTheAppToggleButton.IsChecked = true;
                 AboutTheAppToggleButton.IsEnabled = false;
                 FrameNavigationClass.bodySettings_FNC.Navigate(new AboutAppPage());
@@ -67,8 +67,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 UpdateToggleButton.IsChecked = true;
                 UpdateToggleButton.IsEnabled = false;
                 FrameNavigationClass.bodySettings_FNC.Navigate(new UpdateApplicationPage());
@@ -85,8 +85,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 DevelopersToggleButton.IsChecked = true;
                 DevelopersToggleButton.IsEnabled = false;
                 FrameNavigationClass.bodySettings_FNC.Navigate(new DevelopersPage());
@@ -103,8 +103,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 ScanningToggleButton.IsChecked = true;
                 ScanningToggleButton.IsEnabled = false;
                 FrameNavigationClass.bodySettings_FNC.Navigate(new ScanningPage());
@@ -118,7 +118,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
         #endregion
         #region Event
-        private void IsCheckedToggleButton() // Отключение проверки кнопок
+        private void EventIsCheckedToggleButton() // Отключение проверки кнопок
         {
             try
             {
@@ -127,14 +127,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 DevelopersToggleButton.IsChecked = false;
                 ScanningToggleButton.IsChecked = false;
             }
-            catch (Exception exIsCheckedToggleButton)
+            catch (Exception exEventIsCheckedToggleButton)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие IsCheckedToggleButton в MenuSettingsPage:\n\n " +
-                       $"{exIsCheckedToggleButton.Message}");
+                       textMessage: $"Событие EventIsCheckedToggleButton в MenuSettingsPage:\n\n " +
+                       $"{exEventIsCheckedToggleButton.Message}");
             }
         }
-        private void IsEnabledToggleButton() // Включение кнопок
+        private void EventIsEnabledToggleButton() // Включение кнопок
         {
             try
             {
@@ -143,11 +143,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 DevelopersToggleButton.IsEnabled = true;
                 ScanningToggleButton.IsEnabled = true;
             }
-            catch (Exception exIsEnabledToggleButton)
+            catch (Exception exEventIsEnabledToggleButton)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие IsEnabledToggleButton в MenuSettingsPage:\n\n " +
-                       $"{exIsEnabledToggleButton.Message}");
+                       textMessage: $"Событие EventIsEnabledToggleButton в MenuSettingsPage:\n\n " +
+                       $"{exEventIsEnabledToggleButton.Message}");
             }
         }
         #endregion

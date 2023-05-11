@@ -16,10 +16,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
 {
     public partial class MainPage : Page
     {
-        public static TimeClass GetTimeClass = new TimeClass();
-        public static HolidayClass GetDayClass = new HolidayClass();
+        public static TimeClass getTimeClass = new TimeClass();
+        public static HolidayClass getDayClass = new HolidayClass();
 
-        DispatcherTimer GetTimer;
+        DispatcherTimer getTimer;
 
         public MainPage()
         {
@@ -27,11 +27,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             {
                 InitializeComponent();
             }
-            catch (Exception ex) 
+            catch (Exception exMainPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие MainPage в MainPage:\n\n " +
-                       $"{ex.Message}");
+                       $"{exMainPage.Message}");
             }
         }
 
@@ -42,14 +42,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 if (Visibility == Visibility.Visible)
                 {
                     // Свойства для Таймера
-                    GetTimer = new DispatcherTimer();
-                    GetTimer.Tick += new EventHandler(GetTimer_Tick);
-                    GetTimer.Interval = TimeSpan.FromMilliseconds(1);
-                    GetTimer.Start();
+                    getTimer = new DispatcherTimer();
+                    getTimer.Tick += new EventHandler(EventTimer_Tick);
+                    getTimer.Interval = TimeSpan.FromMilliseconds(1);
+                    getTimer.Start();
                 }
                 else
                 {
-                    GetTimer.Stop();
+                    getTimer.Stop();
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -59,34 +59,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
-        #region Действие
-        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        #region Event
+        private void EventTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
             {
                 // Работа с часами
-                HelloyTextBlock.Text = GetTimeClass.EventWhatTimeIsIt_TC.ToString();
+                HelloyTextBlock.Text = getTimeClass.EventWhatTimeIsIt_TC.ToString();
                 NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
                 NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
-                BirthdayTextBlock.Text = GetDayClass.EventHappyBirthdayGreetings_HC.ToString();
-                NowHolidayTextBlock.Text = GetDayClass.EventWhatDayIsIt_HC.ToString();
+                BirthdayTextBlock.Text = getDayClass.EventHappyBirthdayGreetings_HC.ToString();
+                NowHolidayTextBlock.Text = getDayClass.EventWhatDayIsIt_HC.ToString();
                 DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
 
-                if (GetDayClass.EventHappyBirthdayGreetings_HC == "")
+                if (getDayClass.EventHappyBirthdayGreetings_HC == "")
                 {
                     BirthdayTextBlock.Visibility = Visibility.Collapsed;
                 }
-                if (GetDayClass.EventWhatDayIsIt_HC == "Сегодня нет праздников")
+                if (getDayClass.EventWhatDayIsIt_HC == "Сегодня нет праздников")
                 {
                     NowHolidayTextBlock.FontSize = 15;
                     NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
                 }
             }
-            catch (Exception exGetTimer_Tick)
+            catch (Exception exEventTimer_Tick)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                      textMessage: $"Событие GetTimer_Tick в MainPage:\n\n " +
-                      $"{exGetTimer_Tick.Message}");
+                      textMessage: $"Событие EventTimer_Tick в MainPage:\n\n " +
+                      $"{exEventTimer_Tick.Message}");
             }
         }
         #endregion

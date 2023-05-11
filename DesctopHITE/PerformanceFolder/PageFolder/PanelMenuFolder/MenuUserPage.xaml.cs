@@ -24,11 +24,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 var DataUser = AppConnectClass.receiveConnectUser_ACC.PassportTable;
                 SNMUsetTextBlock.Text = $"{DataUser.Surname_Passport} {DataUser.Name_Passport[0]}. {DataUser.Middlename_Passport[0]}.";
             }
-            catch (Exception ex)
+            catch (Exception exMenuUserPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                        textMessage: $"Событие MenuUserPage в MenuUserPage:\n\n " +
-                       $"{ex.Message}");
+                       $"{exMenuUserPage.Message}");
             }
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -55,8 +55,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 MainToggleButton.IsChecked = true;
                 MainToggleButton.IsEnabled = false;
                 FrameNavigationClass.mainUser_FNC.Navigate(new MainPage());
@@ -72,8 +72,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 WorkersToggleButton.IsChecked = true;
                 WorkersToggleButton.IsEnabled = false;
                 FrameNavigationClass.mainUser_FNC.Navigate(new WorkerPage());
@@ -89,8 +89,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 MenuToggleButton.IsChecked = true;
                 MenuToggleButton.IsEnabled = false;
                 FrameNavigationClass.mainUser_FNC.Navigate(new MenuPage());
@@ -106,8 +106,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                IsCheckedToggleButton();
-                IsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
                 SettingsToggleButton.IsChecked = true;
                 SettingsToggleButton.IsEnabled = false;
                 FrameNavigationClass.mainUser_FNC.Navigate(new SettingsPage());
@@ -121,7 +121,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
         #endregion
         #region Event
-        private void IsCheckedToggleButton() // Отключение проверки кнопок
+        private void EventIsCheckedToggleButton() // Отключение проверки кнопок
         {
             try
             {
@@ -130,14 +130,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 MenuToggleButton.IsChecked = false;
                 SettingsToggleButton.IsChecked = false;
             }
-            catch (Exception exIsCheckedToggleButton)
+            catch (Exception exEventIsCheckedToggleButton)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие IsCheckedToggleButton в MenuUserPage:\n\n " +
-                       $"{exIsCheckedToggleButton.Message}");
+                       textMessage: $"Событие EventIsCheckedToggleButton в MenuUserPage:\n\n " +
+                       $"{exEventIsCheckedToggleButton.Message}");
             }
         }
-        private void IsEnabledToggleButton() // Включение кнопок
+        private void EventIsEnabledToggleButton() // Включение кнопок
         {
             try
             {
@@ -146,11 +146,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 MenuToggleButton.IsEnabled = true;
                 SettingsToggleButton.IsEnabled = true;
             }
-            catch (Exception exIsEnabledToggleButton)
+            catch (Exception exEventIsEnabledToggleButton)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие IsEnabledToggleButton в MenuUserPage:\n\n " +
-                       $"{exIsEnabledToggleButton.Message}");
+                       textMessage: $"Событие EventIsEnabledToggleButton в MenuUserPage:\n\n " +
+                       $"{exEventIsEnabledToggleButton.Message}");
             }
         }
         #endregion

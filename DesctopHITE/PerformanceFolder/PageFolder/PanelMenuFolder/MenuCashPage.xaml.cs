@@ -1,19 +1,9 @@
 ﻿using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 {
@@ -26,11 +16,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
-            catch (Exception ex)
+            catch (Exception exMenuCashPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие MenuCashPage в MenuCashPage:\n\n " +
-                    $"{ex.Message}");
+                    $"{exMenuCashPage.Message}");
             }
         }
 

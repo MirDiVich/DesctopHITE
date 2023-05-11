@@ -37,11 +37,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     $"Приложение сделано максимально удобным, простым, лёгким для обучения пользователей, а так же стоит отметить графическое составляющее приложения, " +
                     $"где сделан идеальный подбор и настройка сочетания цветов, что использует компания HTRE.";
             }
-            catch (Exception ex) 
+            catch (Exception exAboutAppPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие AboutAppPage в AboutAppPage:\n\n " +
-                      $"{ex.Message}");
+                      $"{exAboutAppPage.Message}");
             }
         }
     }

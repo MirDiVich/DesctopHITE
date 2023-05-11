@@ -22,11 +22,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 FrameNavigationClass.munuWorker_FNC = MenuWorkerFrame;
                 FrameNavigationClass.bodyWorker_FNC = BodyWorkerFrame;
             }
-            catch (Exception ex) 
+            catch (Exception exWorkerPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие WorkerPage в WorkerPage:\n\n " +
-                      $"{ex.Message}");
+                      $"{exWorkerPage.Message}");
             }
         }
 

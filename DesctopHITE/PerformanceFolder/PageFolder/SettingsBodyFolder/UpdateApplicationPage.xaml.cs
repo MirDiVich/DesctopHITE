@@ -32,7 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 // Работа с таймером
                 dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
-                dispatcherTimer.Tick += Timer_Tick;
+                dispatcherTimer.Tick += EventTimer_Tick;
 
                 TitleUpDateTextBlock.Text =
                     $"- Добавлена анимация на проверку обновления;\n" +
@@ -50,13 +50,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     $"- Сделан код более читаемый;\n" +
                     $"- Улучшена производительность приложения.";
 
-                ReceivingDataWaitingForStorage();
+                EventReceivingDataWaitingForStorage();
             }
-            catch (Exception ex)
+            catch (Exception exUpdateApplicationPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                    textMessage: $"Событие UpdateApplicationPage в UpdateApplicationPage:\n\n " +
-                   $"{ex.Message}");
+                   $"{exUpdateApplicationPage.Message}");
             }
         }
         #region _Click
@@ -66,8 +66,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             {
                 if (CheckUpdateButton.IsChecked == true)
                 {
-                    StartLoadingAnimation();
-                    ScanDeception();
+                    EventStartLoadingAnimation();
+                    EventScanDeception();
 
                     CheckUpdateButton.Content = "Остановить";
                     ProgressScanTextBlock.Text = "0%";
@@ -75,7 +75,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 }
                 else
                 {
-                    StopLoadingAnimation();
+                    EventStopLoadingAnimation();
 
                     dispatcherTimer.Stop();
                     CheckUpdateButton.Content = "Проверить обновление";
@@ -92,7 +92,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         }
         #endregion
         #region Event
-        private void StartLoadingAnimation() // Запуск анимации
+        private void EventStartLoadingAnimation() // Запуск анимации
         {
             try
             {
@@ -143,15 +143,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 animationRight.RepeatBehavior = RepeatBehavior.Forever;
                 LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
             }
-            catch (Exception exStartLoadingAnimation)
+            catch (Exception exEventStartLoadingAnimation)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие StartLoadingAnimation в UpdateApplicationPage:\n\n " +
-                   $"{exStartLoadingAnimation.Message}");
+                   textMessage: $"Событие EventStartLoadingAnimation в UpdateApplicationPage:\n\n " +
+                   $"{exEventStartLoadingAnimation.Message}");
             }
         }
 
-        private void StopLoadingAnimation() // Остановка анимации
+        private void EventStopLoadingAnimation() // Остановка анимации
         {
             try
             {
@@ -160,15 +160,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
                 LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
             }
-            catch (Exception exStopLoadingAnimation)
+            catch (Exception exEventStopLoadingAnimation)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие StopLoadingAnimation в UpdateApplicationPage:\n\n " +
-                   $"{exStopLoadingAnimation.Message}");
+                   textMessage: $"Событие EventStopLoadingAnimation в UpdateApplicationPage:\n\n " +
+                   $"{exEventStopLoadingAnimation.Message}");
             }
         }
 
-        private void ScanDeception()
+        private void EventScanDeception()
         {
             try
             {
@@ -179,19 +179,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 // создание и запуск таймера
                 dispatcherTimer = new DispatcherTimer();
-                dispatcherTimer.Tick += Timer_Tick;
+                dispatcherTimer.Tick += EventTimer_Tick;
                 dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
                 dispatcherTimer.Start();
             }
-            catch (Exception exScanDeception)
+            catch (Exception exEventScanDeception)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие ScanDeception в UpdateApplicationPage:\n\n " +
-                   $"{exScanDeception.Message}");
+                   textMessage: $"Событие EventScanDeception в UpdateApplicationPage:\n\n " +
+                   $"{exEventScanDeception.Message}");
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void EventTimer_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -201,12 +201,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 if (percentage >= 100)
                 {
-                    StopLoadingAnimation();
+                    EventStopLoadingAnimation();
 
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "100%";
 
-                    OutputDataWaitingForStorage();
+                    EventOutputDataWaitingForStorage();
 
                     FrameNavigationClass.bodySettings_FNC.Navigate(new UpdateApplicationPage());
                 }
@@ -215,15 +215,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     ProgressScanTextBlock.Text = $"{percentage}%";
                 }
             }
-            catch (Exception exTimer_Tick)
+            catch (Exception exEventTimer_Tick)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие Timer_Tick в UpdateApplicationPage:\n\n " +
-                   $"{exTimer_Tick.Message}");
+                   textMessage: $"Событие EventTimer_Tick в UpdateApplicationPage:\n\n " +
+                   $"{exEventTimer_Tick.Message}");
             }
         }
 
-        private void ReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
+        private void EventReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
         {
             try
             {
@@ -238,15 +238,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     ResultCheckedTextBlock.Text = Properties.Settings.Default.ResultUpdateScan;
                 }
             }
-            catch (Exception exReceivingDataWaitingForStorage)
+            catch (Exception exEventReceivingDataWaitingForStorage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие ReceivingDataWaitingForStorage в UpdateApplicationPage:\n\n " +
-                   $"{exReceivingDataWaitingForStorage.Message}");
+                   textMessage: $"Событие EventReceivingDataWaitingForStorage в UpdateApplicationPage:\n\n " +
+                   $"{exEventReceivingDataWaitingForStorage.Message}");
             }
         }
 
-        private void OutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
+        private void EventOutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
         {
             try
             {
@@ -257,11 +257,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
                 Properties.Settings.Default.Save();
             }
-            catch (Exception exOutputDataWaitingForStorage)
+            catch (Exception exEventOutputDataWaitingForStorage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                   textMessage: $"Событие OutputDataWaitingForStorage в UpdateApplicationPage:\n\n " +
-                   $"{exOutputDataWaitingForStorage.Message}");
+                   textMessage: $"Событие EventOutputDataWaitingForStorage в UpdateApplicationPage:\n\n " +
+                   $"{exEventOutputDataWaitingForStorage.Message}");
             }
         }
         #endregion

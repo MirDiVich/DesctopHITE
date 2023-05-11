@@ -20,11 +20,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 FrameNavigationClass.munuSettings_FNC = MenuSettingsFrame;
                 FrameNavigationClass.bodySettings_FNC = BodySettingsFrame;
             }
-            catch (Exception ex) 
+            catch (Exception exSettingsPage) 
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                       textMessage: $"Событие SettingsPage в SettingsPage:\n\n " +
-                      $"{ex.Message}");
+                      $"{exSettingsPage.Message}");
             }
         }
 
