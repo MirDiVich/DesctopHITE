@@ -14,7 +14,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     
     public partial class WorkerTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableEventsInConstructors")]
         public WorkerTable()
         {
             this.ChequeTable = new HashSet<ChequeTable>();

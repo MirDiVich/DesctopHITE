@@ -14,7 +14,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     
     public partial class IngredientsTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableEventsInConstructors")]
         public IngredientsTable()
         {
             this.MenuTable = new HashSet<MenuTable>();

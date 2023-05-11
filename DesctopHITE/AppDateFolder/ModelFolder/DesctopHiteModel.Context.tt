@@ -118,7 +118,7 @@ private void WriteFunctionImport(TypeMapper typeMapper, CodeStringGenerator code
 #>
 
     [DbFunction("<#=edmFunction.NamespaceName#>", "<#=edmFunction.Name#>")]
-    <#=codeStringGenerator.ComposableFunctionMethod(edmFunction, modelNamespace)#>
+    <#=codeStringGenerator.ComposableFunctionEvent(edmFunction, modelNamespace)#>
     {
 <#+
         codeStringGenerator.WriteFunctionParameters(edmFunction, WriteFunctionParameter);
@@ -131,7 +131,7 @@ private void WriteFunctionImport(TypeMapper typeMapper, CodeStringGenerator code
     {
 #>
 
-    <#=codeStringGenerator.FunctionMethod(edmFunction, modelNamespace, includeMergeOption)#>
+    <#=codeStringGenerator.FunctionEvent(edmFunction, modelNamespace, includeMergeOption)#>
     {
 <#+
         codeStringGenerator.WriteFunctionParameters(edmFunction, WriteFunctionParameter);
@@ -238,14 +238,14 @@ public class CodeStringGenerator
         }
     }
     
-    public string ComposableFunctionMethod(EdmFunction edmFunction, string modelNamespace)
+    public string ComposableFunctionEvent(EdmFunction edmFunction, string modelNamespace)
     {
         var parameters = _typeMapper.GetParameters(edmFunction);
         
         return string.Format(
             CultureInfo.InvariantCulture,
             "{0} IQueryable<{1}> {2}({3})",
-            AccessibilityAndVirtual(Accessibility.ForMethod(edmFunction)),
+            AccessibilityAndVirtual(Accessibility.ForEvent(edmFunction)),
             _typeMapper.GetTypeName(_typeMapper.GetReturnType(edmFunction), modelNamespace),
             _code.Escape(edmFunction),
             string.Join(", ", parameters.Select(p => TypeMapper.FixNamespaces(p.FunctionParameterType) + " " + p.FunctionParameterName).ToArray()));
@@ -265,7 +265,7 @@ public class CodeStringGenerator
             _code.StringBefore(", ", string.Join(", ", parameters.Select(p => p.ExecuteParameterName).ToArray())));
     }
     
-    public string FunctionMethod(EdmFunction edmFunction, string modelNamespace, bool includeMergeOption)
+    public string FunctionEvent(EdmFunction edmFunction, string modelNamespace, bool includeMergeOption)
     {
         var parameters = _typeMapper.GetParameters(edmFunction);
         var returnType = _typeMapper.GetReturnType(edmFunction);
@@ -279,7 +279,7 @@ public class CodeStringGenerator
         return string.Format(
             CultureInfo.InvariantCulture,
             "{0} {1} {2}({3})",
-            AccessibilityAndVirtual(Accessibility.ForMethod(edmFunction)),
+            AccessibilityAndVirtual(Accessibility.ForEvent(edmFunction)),
             returnType == null ? "int" : "ObjectResult<" + _typeMapper.GetTypeName(returnType, modelNamespace) + ">",
             _code.Escape(edmFunction),
             paramList);

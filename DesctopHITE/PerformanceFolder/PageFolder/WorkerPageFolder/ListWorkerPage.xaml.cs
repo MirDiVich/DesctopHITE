@@ -61,7 +61,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        #region Метод
+        #region Event
         private void ViewDataWorker() // Просмотр информации об сотруднике
         {
             try
@@ -79,11 +79,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exListWorkerListView_MouseDoubleClick)
+            catch (Exception exViewDataWorker)
             {
                 MessageBoxClass.ExceptionMessage(
-                        textMessage: $"Событие ListWorkerListView_MouseDoubleClick в ListWorkerPage:\n\n " +
-                        $"{exListWorkerListView_MouseDoubleClick.Message}");
+                        textMessage: $"Событие ViewDataWorker в ListWorkerPage:\n\n " +
+                        $"{exViewDataWorker.Message}");
             }
         }
 
@@ -104,11 +104,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exActionEditWorker)
+            catch (Exception exGetEditWorker)
             {
                 MessageBoxClass.ExceptionMessage(
-                        textMessage: $"Событие ActionEditWorker в ListWorkerPage:\n\n " +
-                        $"{exActionEditWorker.Message}");
+                        textMessage: $"Событие GetEditWorker в ListWorkerPage:\n\n " +
+                        $"{exGetEditWorker.Message}");
             }
         }
 
@@ -128,11 +128,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exActionDelite)
+            catch (Exception exGetDeleteWorker)
             {
                 MessageBoxClass.ExceptionMessage(
-                        textMessage: $"Событие ActionDeliteWorker в ListWorkerPage:\n\n " +
-                        $"{exActionDelite.Message}");
+                        textMessage: $"Событие GetDeleteWorker в ListWorkerPage:\n\n " +
+                        $"{exGetDeleteWorker.Message}");
             }
         }
         #endregion
@@ -197,7 +197,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация метода поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
+        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация Eventа поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
         {
             try
             {
@@ -210,7 +210,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист обыектов из таблицы WorkerTable по таблице PassportTable
+                    var Objects = AppConnectClass.DataBase.WorkerTable.Include(WorkerPassport => WorkerPassport.PassportTable).ToList(); //Получаем лист объектов из таблицы WorkerTable по таблице PassportTable
 
                     var SearchResults = Objects.Where(worker => // Делаем поиск из полученного списка
                         worker.PassportTable.Surname_Passport.ToString().Contains(SearchTextBox.Text.ToString()) || // По атрибуту Surname_Passport из таблицы PassportTable по похожему контенту в SearchTextBox

@@ -105,7 +105,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 }
                 else
                 {
-                    DeliteWorkerMethod();
+                    DeliteWorkerEvent();
                 }
             }
             catch (Exception exDelite)
@@ -116,8 +116,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Метод
-        private void DeliteWorkerMethod() // Реализация удаления выбранного сотрудника
+        #region Event
+        private void DeliteWorkerEvent() // Реализация удаления выбранного сотрудника
         {
             try
             {
@@ -149,11 +149,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.Close();
                 }
             }
-            catch (Exception exDeliteWorkerMethod)
+            catch (Exception exDeliteWorkerEvent)
             {
                 MessageBoxClass.ExceptionMessage(
-                        textMessage: $"Событие DeliteWorkerMethod в DeliteWorkerWindow:\n\n " +
-                        $"{exDeliteWorkerMethod.Message}");
+                        textMessage: $"Событие DeliteWorkerEvent в DeliteWorkerWindow:\n\n " +
+                        $"{exDeliteWorkerEvent.Message}");
             }
         }
         #endregion

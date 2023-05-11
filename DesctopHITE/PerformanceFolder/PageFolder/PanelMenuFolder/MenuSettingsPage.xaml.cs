@@ -117,7 +117,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
         #endregion
-        #region Метод
+        #region Event
         private void IsCheckedToggleButton() // Отключение проверки кнопок
         {
             try

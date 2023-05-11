@@ -84,7 +84,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
         }
         #endregion
-        #region Метод
+        #region Event
         private void StartLoadingAnimation() // Запуск анимации
         {
             try

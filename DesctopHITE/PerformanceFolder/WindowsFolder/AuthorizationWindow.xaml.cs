@@ -1,7 +1,7 @@
 ﻿///----------------------------------------------------------------------------------------------------------
 /// В данном окне реализован код авторизации и код для взаимодействия пользователя с окном авторизации;
 /// В случае, если пользователь не правильно введёт Login или Password 5 раз, то он обязан пройти капчу;
-/// Если у пользователя достаточно прав, которые осуществляются методом "Role", то пользователя
+/// Если у пользователя достаточно прав, которые осуществляются Eventом "Role", то пользователя
 ///     пропускает в систему, иначе, пользователь просто не сможет войти;
 /// Если пользователь сохранил свои данные и удачно зашёл в систему, то данные для входа в АИС
 ///     сохраняются на программном уровне.
@@ -147,7 +147,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Метод
+        #region Event
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
@@ -214,7 +214,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void ErrorNullBox() // Метод проверки текстовых полей на пустоту
+        private void ErrorNullBox() // Event проверки текстовых полей на пустоту
         {
             try
             {
@@ -229,7 +229,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private async void DateUser() // Метод авторизации пользователя
+        private async void DateUser() // Event авторизации пользователя
         {
             try
             {
@@ -334,7 +334,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         }
 
-        private void GetCapsLock() // Метод, который реагирует на нажатый CapsLock
+        private void GetCapsLock() // Event, который реагирует на нажатый CapsLock
         {
             try
             {

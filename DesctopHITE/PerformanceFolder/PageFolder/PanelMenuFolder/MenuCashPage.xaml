@@ -10,7 +10,6 @@
     Style="{StaticResource MenuCashPageStyle}">
     <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
         <ListView
-            Style="{DynamicResource MenuCashListView}"
             SelectionChanged="ListMenuListView_SelectionChanged"
             x:Name="ListMenuListView"
             Margin="0"

@@ -109,7 +109,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-        #region Метод
+        #region Event
         public void NewDataMenu() // Добавление нового меню в базу данных
         {
             try
@@ -199,7 +199,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void MessageNull() // Метод на проверки полей на валидность данных 
+        private void MessageNull() // Event на проверки полей на валидность данных 
         {
             try
             {

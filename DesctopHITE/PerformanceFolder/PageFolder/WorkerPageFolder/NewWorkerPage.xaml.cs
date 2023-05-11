@@ -238,8 +238,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #endregion
-        #region Метод
-        private void MessageNull() // Метод на проверки полей на валидность данных 
+        #region Event
+        private void MessageNull() // Event на проверки полей на валидность данных 
         {
             try
             {
@@ -367,13 +367,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private int RandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
+        private int RandomTextSender() // Event, который генерирует рандомное число для подтверждения регистрации
         {
             Random random = new Random();
             return random.Next(1000000000);
         }
 
-        private void AddDataDatabase() // Метод для добавления нового сотрудника в баз данных
+        private void AddDataDatabase() // Event для добавления нового сотрудника в баз данных
         {
             // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
             // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом

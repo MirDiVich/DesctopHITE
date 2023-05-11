@@ -64,7 +64,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                      $"{exVisible.Message}");
             }
         }
-        #region Метод
+        #region Event
         private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
@@ -80,7 +80,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void ErrorNullBox() // Метод проверки текстового поля на пустоту
+        private void ErrorNullBox() // Event проверки текстового поля на пустоту
         {
             try
             {
@@ -94,7 +94,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void GetEnter() // Вызываемый метод для проверки введённой капчи
+        private void GetEnter() // Вызываемый Event для проверки введённой капчи
         {
             try
             {
@@ -136,7 +136,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        public void RandomGeneratedCaptcha() // Метод для рандомного содержимого TextCaptcha 
+        public void RandomGeneratedCaptcha() // Event для рандомного содержимого TextCaptcha 
         {
             try
             {
@@ -166,7 +166,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void GetStyleCaptcha() // Метод для рандомного свойства TextCaptcha 
+        private void GetStyleCaptcha() // Event для рандомного свойства TextCaptcha 
         {
             try
             {

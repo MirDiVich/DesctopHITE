@@ -29,6 +29,7 @@
                     </Border.Effect>
                 </Border>
                 <TextBox
+                    SelectionChanged="SearchTextBox_SelectionChanged"
                     x:Name="SearchTextBox"
                     Padding="38 0 0 0"
                     Width="520"
@@ -49,6 +50,7 @@
                 HorizontalAlignment="Right">
                 <Button
                     x:Name="EditButton"
+                    Click="EventEditMunu"
                     Width="220"
                     Height="45"
                     Margin="0 0 5 0">
@@ -67,6 +69,7 @@
                 <Button
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"
+                    Click="EventDeleteMenu"
                     Width="180"
                     Height="45">
                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
@@ -90,6 +93,8 @@
                 HorizontalAlignment="Center"
                 Style="{DynamicResource HintTextBlockStyle}"/>
             <ListView
+                MouseDoubleClick ="ListMenuListView_MouseDoubleClick"
+                SelectionChanged ="ListMenuListView_SelectionChanged"
                 Background="Transparent"
                 x:Name="ListMenuListView"
                 Margin="0"
@@ -97,6 +102,7 @@
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem
+                            Click="EventViewDataMenu"
                             InputGestureText="Ctrl+F1"
                             Header="Просмотреть">
                             <MenuItem.Icon>
@@ -108,6 +114,7 @@
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem 
+                            Click="EventEditMunu"
                             InputGestureText="Ctrl+F2"
                             Header="Редактировать">
                             <MenuItem.Icon>
@@ -120,8 +127,9 @@
                         </MenuItem>
                         <Separator/>
                         <MenuItem 
+                            Click="EventDeleteMenu"
                             InputGestureText="Ctrl+Delete"
-                            Header="Удалить" >
+                            Header="Удалить">
                             <MenuItem.Icon>
                                 <TextBlock
                                     Foreground="#462AD8"

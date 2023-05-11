@@ -55,7 +55,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        #region Метод
+        #region Event
         private void GetDataCountWorker() // Считаю количество сотрудников / количество онлайн / оффлайн
         {
             try

@@ -34,7 +34,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
     {
 #>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableEventsInConstructors")]
     public <#=code.Escape(entity)#>()
     {
 <#
@@ -344,14 +344,14 @@ public class CodeStringGenerator
         }
     }
     
-    public string ComposableFunctionMethod(EdmFunction edmFunction, string modelNamespace)
+    public string ComposableFunctionEvent(EdmFunction edmFunction, string modelNamespace)
     {
         var parameters = _typeMapper.GetParameters(edmFunction);
         
         return string.Format(
             CultureInfo.InvariantCulture,
             "{0} IQueryable<{1}> {2}({3})",
-            AccessibilityAndVirtual(Accessibility.ForMethod(edmFunction)),
+            AccessibilityAndVirtual(Accessibility.ForEvent(edmFunction)),
             _typeMapper.GetTypeName(_typeMapper.GetReturnType(edmFunction), modelNamespace),
             _code.Escape(edmFunction),
             string.Join(", ", parameters.Select(p => TypeMapper.FixNamespaces(p.FunctionParameterType) + " " + p.FunctionParameterName).ToArray()));
@@ -371,7 +371,7 @@ public class CodeStringGenerator
             _code.StringBefore(", ", string.Join(", ", parameters.Select(p => p.ExecuteParameterName).ToArray())));
     }
     
-    public string FunctionMethod(EdmFunction edmFunction, string modelNamespace, bool includeMergeOption)
+    public string FunctionEvent(EdmFunction edmFunction, string modelNamespace, bool includeMergeOption)
     {
         var parameters = _typeMapper.GetParameters(edmFunction);
         var returnType = _typeMapper.GetReturnType(edmFunction);
@@ -385,7 +385,7 @@ public class CodeStringGenerator
         return string.Format(
             CultureInfo.InvariantCulture,
             "{0} {1} {2}({3})",
-            AccessibilityAndVirtual(Accessibility.ForMethod(edmFunction)),
+            AccessibilityAndVirtual(Accessibility.ForEvent(edmFunction)),
             returnType == null ? "int" : "ObjectResult<" + _typeMapper.GetTypeName(returnType, modelNamespace) + ">",
             _code.Escape(edmFunction),
             paramList);
