@@ -48,7 +48,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                Application.Current.Shutdown();
+                this.Close();
             }
             catch (Exception exClose)
             {

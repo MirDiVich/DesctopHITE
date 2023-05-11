@@ -17,8 +17,6 @@
     <Color x:Key="BackgroundStrokeWindowPageColor">#00000000</Color>
 
     <Color x:Key="GeneralColor">#462AD8</Color>
-    <Color x:Key="ShadeGeneralColor0">#3e25c0</Color>
-    <Color x:Key="ShadeGeneralColor1">#2e1c90</Color>
     <!--#endregion-->
     <!--#region SolidColorBrush-->
     <SolidColorBrush x:Key="ShadowSolidColorBrush" Color="{DynamicResource ShadowColor}"/>
