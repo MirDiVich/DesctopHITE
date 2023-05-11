@@ -104,6 +104,7 @@
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem
+                            Click="ActionMenuItem"
                             InputGestureText="Ctrl+F1"
                             Header="Просмотреть">
                             <MenuItem.Icon>

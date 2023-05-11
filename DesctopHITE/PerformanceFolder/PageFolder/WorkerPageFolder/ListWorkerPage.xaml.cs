@@ -165,6 +165,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
+        private void ActionMenuItem(object sender, RoutedEventArgs e)
+        {
+            EventViewDataWorker();
+        }
+
         private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
         {
             EventEditWorker();
