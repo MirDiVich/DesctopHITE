@@ -46,7 +46,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
 
-        #region Click
+        #region _Click
         private void NewWorkerToggleButton_Click(object sender, RoutedEventArgs e)
         {
             try

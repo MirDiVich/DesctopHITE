@@ -136,7 +136,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #endregion
-        #region Click
+        #region _Click
         private void KeyboardShortcuts(object sender, KeyEventArgs e)
         {
             try

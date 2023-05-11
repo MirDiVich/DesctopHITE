@@ -44,7 +44,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
-        #region Click
+        #region _Click
         private void AboutTheAppToggleButton_Click(object sender, RoutedEventArgs e)
         {
             try

@@ -39,7 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
         }
 
-        #region Click
+        #region _Click
         private void CheckScanButton_Click(object sender, RoutedEventArgs e)
         {
             try

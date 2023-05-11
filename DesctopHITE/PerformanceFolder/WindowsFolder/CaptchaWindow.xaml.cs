@@ -191,7 +191,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }   
         #endregion
-        #region Click
+        #region _Click
         private void NewCaptchaButton_Click(object sender, RoutedEventArgs e) // Сгенерировать новую капчу
         {
             try

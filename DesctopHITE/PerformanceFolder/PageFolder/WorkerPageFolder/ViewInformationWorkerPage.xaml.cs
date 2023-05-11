@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                         $"{exPage_IsVisibleChanged.Message}");
             }
         }
-        #region Click
+        #region _Click
         // Так как код очень простой и короткий, было принято решение написать его в "длину"
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {

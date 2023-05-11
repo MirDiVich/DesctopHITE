@@ -1,7 +1,7 @@
 ﻿///----------------------------------------------------------------------------------------------------------
 /// В данном окне реализован код авторизации и код для взаимодействия пользователя с окном авторизации;
 /// В случае, если пользователь не правильно введёт Login или Password 5 раз, то он обязан пройти капчу;
-/// Если у пользователя достаточно прав, которые осуществляются Eventом "Role", то пользователя
+/// Если у пользователя достаточно прав, которые осуществляются методом "Role", то пользователя
 ///     пропускает в систему, иначе, пользователь просто не сможет войти;
 /// Если пользователь сохранил свои данные и удачно зашёл в систему, то данные для входа в АИС
 ///     сохраняются на программном уровне.
@@ -35,7 +35,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                 // Свойства для Таймера
                 getTimer = new DispatcherTimer();
-                getTimer.Tick += new EventHandler(GetTimer_Tick);
+                getTimer.Tick += new EventHandler(EventTimer_Tick);
                 getTimer.Interval = TimeSpan.FromMilliseconds(30);
 
                 RememberUserComboBox.SelectedItem = NoRememberItem;
@@ -47,15 +47,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     PasswordUserPasswordBox.Password = Properties.Settings.Default.PasswordUserRemember;
                     RememberUserComboBox.SelectedItem = RememberItem;
 
-                    
-                    LoginUser();
+                    EventLoginUser();
                 }
             }
-            catch (Exception ex)
+            catch (Exception exAuthorizationWindow)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"Событие AuthorizationWindow в AuthorizationWindow:\n\n " +
-                    $"{ex.Message}");
+                    $"{exAuthorizationWindow.Message}");
             }
         }
         #region Управление окном
@@ -68,11 +67,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.DragMove();
                 }
             }
-            catch (Exception exSpaseBar)
+            catch (Exception exSpaseBarGrid_MouseDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие SpaseBarGrid_MouseDown в AuthorizationWindow:\n\n " +
-                    $"{exSpaseBar.Message}");
+                    $"{exSpaseBarGrid_MouseDown.Message}");
             }
         }
 
@@ -82,11 +81,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 Application.Current.Shutdown();
             }
-            catch (Exception exClose)
+            catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие CloseButton_Click в AuthorizationWindow:\n\n " +
-                     $"{exClose.Message}");
+                     $"{exCloseButton_Click.Message}");
             }
         }
 
@@ -96,26 +95,26 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 WindowState = WindowState.Minimized;
             }
-            catch (Exception exRollup)
+            catch (Exception exRollupButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                     textMessage: $"$\"Событие RollupButton_Click в AuthorizationWindow:\n\n " +
-                    $"{exRollup.Message}");
+                    $"{exRollupButton_Click.Message}");
             }
         }
         #endregion
-        #region Click
+        #region _Click
         private void LoginButton_Click(object sender, RoutedEventArgs e) // Действие при нажатии на кнопку "Войти"
         {
             try
             {
-                LoginUser();
+                EventLoginUser();
             }
-            catch (Exception exLogin0)
+            catch (Exception exLoginButton_Click)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие LoginButton_Click в AuthorizationWindow:\n\n " +
-                    $"{exLogin0.Message}");
+                    textMessage: $"Событие LoginButton_Click в AuthorizationWindow:\n\n " +
+                    $"{exLoginButton_Click.Message}");
             }
         }
 
@@ -125,30 +124,19 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (e.Key == Key.Enter)
                 {
-                    try
-                    {
-                        LoginUser();
-                    }
-                    catch (Exception exLogin1)
-                    {
-                        var nameMessageLogin1 = $"Ошибка (AuthorizationWindowError - 006)";
-                        var titleMessageLogin1 = $"{exLogin1.Message}";
-                        MessageBox.Show(
-                            nameMessageLogin1, titleMessageLogin1,
-                            MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                    }
+                    EventLoginUser();   
                 }
             }
             catch (Exception exPasswordUserPasswordBox_KeyDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие PasswordUserPasswordBox_KeyDown в AuthorizationWindow:\n\n " +
+                    textMessage: $"Событие PasswordUserPasswordBox_KeyDown в AuthorizationWindow:\n\n " +
                     $"{exPasswordUserPasswordBox_KeyDown.Message}");
             }
         }
         #endregion
         #region Event
-        private void GetTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        private void EventTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
             {
@@ -167,19 +155,19 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                 LoadingSpinnerTextBlock.RenderTransform = loadingAnimation;
             }
-            catch (Exception exGetTimer)
+            catch (Exception exEventTimer_Tick)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие GetTimer_Tick в AuthorizationWindow:\n\n " +
-                    $"{exGetTimer.Message}");
+                    textMessage: $"$\"Событие EventTimer_Tick в AuthorizationWindow:\n\n " +
+                    $"{exEventTimer_Tick.Message}");
             }
         }
 
-        private void LoginUser() // Действие для авторизации пользователя
+        private void EventLoginUser() // Действие для авторизации пользователя
         {
             try
             {
-                ErrorNullBox();
+                EventErrorNullBox();
 
                 if (quantityNoInputs >= 5)
                 {
@@ -201,35 +189,34 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     }
                     else
                     {
-                        
-                        DateUser();
+                        EventDateUser();
                     }
                 }
             }
-            catch (Exception exLoginUser)
+            catch (Exception exEventLoginUser)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие LoginUser в AuthorizationWindow:\n\n " +
-                    $"{exLoginUser.Message}");
+                    textMessage: $"$\"Событие EventLoginUser в AuthorizationWindow:\n\n " +
+                    $"{exEventLoginUser.Message}");
             }
         }
 
-        private void ErrorNullBox() // Event проверки текстовых полей на пустоту
+        private void EventErrorNullBox() // Event проверки текстовых полей на пустоту
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(LoginUserTextBox.Text)) messageNullBox += "Поле Login пустое\n";
                 if (string.IsNullOrWhiteSpace(PasswordUserPasswordBox.Password)) messageNullBox += "Поле Password пустое";
             }
-            catch (Exception exErrorNullBox)
+            catch (Exception exEventErrorNullBox)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие ErrorNullBox в AuthorizationWindow:\n\n " +
-                    $"{exErrorNullBox.Message}");
+                    textMessage: $"$\"Событие EventErrorNullBox в AuthorizationWindow:\n\n " +
+                    $"{exEventErrorNullBox.Message}");
             }
         }
 
-        private async void DateUser() // Event авторизации пользователя
+        private async void EventDateUser() // Event авторизации пользователя
         {
             try
             {
@@ -313,11 +300,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     quantityNoInputs++;
                 }
             }
-            catch (Exception exDateUser)
+            catch (Exception exEventDateUser)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие DateUser в AuthorizationWindow:\n\n " +
-                    $"{exDateUser.Message}");
+                    textMessage: $"$\"Событие exEventDateUser в AuthorizationWindow:\n\n " +
+                    $"{exEventDateUser.Message}");
             }
             finally
             {
@@ -334,7 +321,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         }
 
-        private void GetCapsLock() // Event, который реагирует на нажатый CapsLock
+        private void EventCapsLock() // Event, который реагирует на нажатый CapsLock
         {
             try
             {
@@ -349,11 +336,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     CapsLockTextBlock.Visibility = Visibility.Collapsed;
                 }
             }
-            catch (Exception exGetCapsLock)
+            catch (Exception exEventCapsLock)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                    textMessage: $"$\"Событие GetCapsLock в AuthorizationWindow:\n\n " +
-                    $"{exGetCapsLock.Message}");
+                    textMessage: $"$\"Событие EventCapsLock в AuthorizationWindow:\n\n " +
+                    $"{exEventCapsLock.Message}");
             }
         }
 
@@ -386,7 +373,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Показать\Скрыть пароль
+        #region Показать \ Скрыть пароль
         private void VisiblePasswordUserButton_PreviewMouseDown(object sender, MouseButtonEventArgs e) // Когда кнопка нажата
         {
             try
@@ -398,11 +385,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 PasswordPasswordGrid.Visibility = Visibility.Collapsed;
                 TextPasswordGrid.Visibility = Visibility.Visible;
             }
-            catch (Exception exVisiblePasswordUserButton0)
+            catch (Exception exVisiblePasswordUserButton_PreviewMouseDown)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseDown в AuthorizationWindow:\n\n " +
-                     $"{exVisiblePasswordUserButton0.Message}");
+                     $"{exVisiblePasswordUserButton_PreviewMouseDown.Message}");
             }
         }
 
@@ -417,11 +404,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 PasswordPasswordGrid.Visibility = Visibility.Visible;
                 TextPasswordGrid.Visibility = Visibility.Collapsed;
             }
-            catch (Exception exVisiblePasswordUserButton1)
+            catch (Exception exVisiblePasswordUserButton_PreviewMouseUp)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие VisiblePasswordUserButton_PreviewMouseUp в AuthorizationWindow:\n\n " +
-                     $"{exVisiblePasswordUserButton1.Message}");
+                     $"{exVisiblePasswordUserButton_PreviewMouseUp.Message}");
             }
         }
         #endregion
@@ -440,11 +427,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     HintLoginTextBlock.Visibility = Visibility.Visible;
                 }
             }
-            catch (Exception exLoginUserTextBox)
+            catch (Exception exLoginUserTextBox_TextChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие LoginUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
-                     $"{exLoginUserTextBox.Message}");
+                     $"{exLoginUserTextBox_TextChanged.Message}");
             }
         }
 
@@ -461,13 +448,13 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 {
                     HintTextPasswordTextBlock.Visibility = Visibility.Visible;
                 }
-                GetCapsLock();
+                EventCapsLock();
             }
-            catch (Exception exPasswordUserPasswordBox0)
+            catch (Exception exPasswordUserPasswordBox_PasswordChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие PasswordUserPasswordBox_PasswordChanged в AuthorizationWindow:\n\n " +
-                     $"{exPasswordUserPasswordBox0.Message}");
+                     $"{exPasswordUserPasswordBox_PasswordChanged.Message}");
             }
         }
 
@@ -484,24 +471,33 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 {
                     HintPasswordPasswordTextBlock.Visibility = Visibility.Visible;
                 }
-                GetCapsLock();
+                EventCapsLock();
             }
-            catch (Exception exPasswordUserPasswordBox1)
+            catch (Exception exPasswordUserTextBox_TextChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
                      textMessage: $"$\"Событие PasswordUserTextBox_TextChanged в AuthorizationWindow:\n\n " +
-                     $"{exPasswordUserPasswordBox1.Message}");
+                     $"{exPasswordUserTextBox_TextChanged.Message}");
             }
         }
         #endregion
 
-        private void Window_KeyUp(object sender, KeyEventArgs e)
+        private void Window_KeyUp(object sender, KeyEventArgs e) // Временное событие
         {
-            if (e.Key == Key.Apps)
+            try
             {
-                MainCashWindow mainCashWindow = new MainCashWindow();
-                mainCashWindow.Show();
-                Close();
+                if (e.Key == Key.Apps)
+                {
+                    MainCashWindow mainCashWindow = new MainCashWindow();
+                    mainCashWindow.Show();
+                    Close();
+                }
+            }
+            catch (Exception exWindow_KeyUp)
+            {
+                MessageBoxClass.EventExceptionMessage_MBC(
+                     textMessage: $"$\"Событие Window_KeyUp в AuthorizationWindow:\n\n " +
+                     $"{exWindow_KeyUp.Message}");
             }
         }
     }

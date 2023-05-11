@@ -50,7 +50,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
 
-        #region Click
+        #region _Click
         private void MainToggleButton_Click(object sender, RoutedEventArgs e)
         {
             try

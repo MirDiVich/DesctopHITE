@@ -58,7 +58,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        #region Click
+        #region _Click
         private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
             messageNull = "";

@@ -59,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                    $"{ex.Message}");
             }
         }
-        #region Click
+        #region _Click
         private void CheckUpdateButton_Click(object sender, RoutedEventArgs e)
         {
             try
