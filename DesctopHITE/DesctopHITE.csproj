@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\MenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -343,6 +351,9 @@
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml.cs">
+      <DependentUpon>ListMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml.cs">
       <DependentUpon>NewMenuPage.xaml</DependentUpon>
     </Compile>
@@ -408,6 +419,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml.cs">
       <DependentUpon>MenuCashControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\MenuControl.xaml.cs">
+      <DependentUpon>MenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>

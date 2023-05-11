@@ -1,0 +1,152 @@
+﻿<Page 
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder.ListMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
+    mc:Ignorable="d" 
+    Style="{DynamicResource BodySpacePageStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid 
+                HorizontalAlignment="Left"
+                Width="520" 
+                Margin="10 0 0 0">
+                <Border Style="{DynamicResource ShadowBorder}">
+                    <Border.Effect>
+                        <DropShadowEffect 
+                            Direction="315"
+                            Color="{DynamicResource ShadowColor}"
+                            BlurRadius="5"
+                            ShadowDepth="2"
+                            Opacity="0.5"
+                            RenderingBias="Performance"/>
+                    </Border.Effect>
+                </Border>
+                <TextBox
+                    x:Name="SearchTextBox"
+                    Padding="38 0 0 0"
+                    Width="520"
+                    Style="{DynamicResource MainTextBoxStyle}"/>
+                <TextBlock
+                    Text="&#xf1c3;"
+                    Style="{DynamicResource IconTextBlockStyle}"/>
+                <TextBlock
+                    x:Name="HintSearchTextBlock"
+                    Margin="40 0 0 0"
+                    Text="Поиск"
+                    Style="{DynamicResource HintTextBlockStyle}"/>
+            </Grid>
+            <StackPanel 
+                Margin="0 0 10 0"
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right">
+                <Button
+                    x:Name="EditButton"
+                    Width="220"
+                    Height="45"
+                    Margin="0 0 5 0">
+                    <StackPanel
+                        Margin="0 2 0 2" 
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="&#xf158;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Margin="5 0 0 0"
+                            Text="Редактировать"/>
+                    </StackPanel>
+                </Button>
+                <Button
+                    Style="{DynamicResource DeliteButtonStyle}"
+                    x:Name="DeliteButton"
+                    Width="180"
+                    Height="45">
+                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                        <TextBlock
+                            Text="&#xF154;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Margin="5 0 0 0"
+                            Text="Удалить"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock
+                x:Name="HintSearchNullElementsTextBlock"
+                Margin="0"
+                FontSize="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Style="{DynamicResource HintTextBlockStyle}"/>
+            <ListView
+                Background="Transparent"
+                x:Name="ListMenuListView"
+                Margin="0"
+                ItemContainerStyle="{StaticResource ListViewItemSelected}">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            InputGestureText="Ctrl+F1"
+                            Header="Просмотреть">
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#462AD8"
+                                    Text="&#xf1f7;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem 
+                            InputGestureText="Ctrl+F2"
+                            Header="Редактировать">
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#462AD8"
+                                    Text="&#xf158;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem 
+                            InputGestureText="Ctrl+Delete"
+                            Header="Удалить" >
+                            <MenuItem.Icon>
+                                <TextBlock
+                                    Foreground="#462AD8"
+                                    Text="&#xF154;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="0"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel 
+                            IsItemsHost="True" 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left" 
+                            Background="Transparent"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <UserControl:MenuControl/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

@@ -7,7 +7,7 @@
     <Style x:Key="MainBorderStyle" TargetType="Border">
         <Setter Property="Background" Value="#121212"/>
         <Setter Property="BorderBrush" Value="#2a2a2a"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
     
