@@ -50,41 +50,50 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 AllIngredientsListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList();
                 AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
-            catch (Exception ex)
+            catch (Exception exNewMenuPage)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие NewWorkerPage в NewWorkerPage:\n\n " +
-                        $"{ex.Message}");
+                        textMessage: $"Событие NewMenuPage в NewMenuPage:\n\n " +
+                        $"{exNewMenuPage.Message}");
             }
         }
 
         #region _Click
         private void NewMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            messageNull = "";
-            MessageNull();
-            
-            if (messageNull != "")
+            try
             {
-                MessageBox.Show(
-                       messageNull, "Ошибка добавления нового блюда",
-                       MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else
-            {
-                messageValidData = "";
-                MessageNull();
+                messageNull = "";
+                EventMessageNull();
 
-                if (messageValidData != "")
+                if (messageNull != "")
                 {
                     MessageBox.Show(
-                           messageValidData, "Ошибка добавления нового блюда",
+                           messageNull, "Ошибка добавления нового блюда",
                            MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    NewDataMenu();
+                    messageValidData = "";
+                    EventMessageNull();
+
+                    if (messageValidData != "")
+                    {
+                        MessageBox.Show(
+                               messageValidData, "Ошибка добавления нового блюда",
+                               MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        EventNewDataMenu();
+                    }
                 }
+            }
+            catch (Exception exNewMenuButton_Click)
+            {
+                MessageBoxClass.EventExceptionMessage_MBC(
+                        textMessage: $"Событие NewMenuButton_Click в NewMenuPage:\n\n " +
+                        $"{exNewMenuButton_Click.Message}");
             }
         }
 
@@ -110,7 +119,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
         #endregion
         #region Event
-        public void NewDataMenu() // Добавление нового меню в базу данных
+        public void EventNewDataMenu() // Добавление нового меню в базу данных
         {
             try
             {
@@ -159,17 +168,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
 
-                GetSelectedIngredients();
+                EventSelectedIngredients();
             }
-            catch (Exception exNewDataMenu)
+            catch (Exception exEventNewDataMenu)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                         textMessage: $"Событие NewDataMenu в NewMenuPage:\n\n " +
-                         $"{exNewDataMenu.Message}");
+                         textMessage: $"Событие EventNewDataMenu в NewMenuPage:\n\n " +
+                         $"{exEventNewDataMenu.Message}");
             }
 }
 
-        private void GetSelectedIngredients() // Добавление списка в связь многие ко многим
+        private void EventSelectedIngredients() // Добавление списка в связь многие ко многим
         {
             try
             {
@@ -191,15 +200,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage());
             }
-            catch (Exception exGetSelectedIngredients)
+            catch (Exception exEventSelectedIngredients)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие GetSelectedIngredients в NewMenuPage:\n\n " +
-                        $"{exGetSelectedIngredients.Message}");
+                        textMessage: $"Событие EventSelectedIngredients в NewMenuPage:\n\n " +
+                        $"{exEventSelectedIngredients.Message}");
             }
         }
 
-        private void MessageNull() // Event на проверки полей на валидность данных 
+        private void EventMessageNull() // Event на проверки полей на валидность данных 
         {
             try
             {
@@ -216,11 +225,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (WeightMenuTextBox.Text.Length <= 1) messageValidData += "'Вес (грамм)' не может быть меньше или быть равным 1 символу\n";
                 if (SelectionIngredientsListListView.Items.Count == 0) messageValidData += "'Ингредиенты' должны быть";
             }
-            catch (Exception exMessageNull)
+            catch (Exception exEventMessageNull)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие MessageNull в NewMenuPage:\n\n " +
-                        $"{exMessageNull.Message}");
+                        textMessage: $"Событие EventMessageNull в NewMenuPage:\n\n " +
+                        $"{exEventMessageNull.Message}");
             }
         }
         #endregion
@@ -233,15 +242,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 SelectionIngredientsListListView.Items.Add(allIngredients);
                 SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
-            catch (Exception exIngredientsListListView_SelectionChanged)
+            catch (Exception exAllIngredientsListListView_SelectionChanged)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
-                        $"{exIngredientsListListView_SelectionChanged.Message}");
+                        textMessage: $"Событие AllIngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
+                        $"{exAllIngredientsListListView_SelectionChanged.Message}");
             }
         }
 
-        private void SelectionIngredientsListListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void SelectionIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -249,11 +258,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 SelectionIngredientsListListView.Items.Remove(selectionIngredients);
                 SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
-            catch (Exception exIngredientsListListView_SelectionChanged)
+            catch (Exception exSelectionIngredientsListListView_MouseDoubleClick)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие IngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
-                        $"{exIngredientsListListView_SelectionChanged.Message}");
+                        textMessage: $"Событие SelectionIngredientsListListView_MouseDoubleClick в NewMenuPage:\n\n " +
+                        $"{exSelectionIngredientsListListView_MouseDoubleClick.Message}");
             }
         }
 
@@ -285,7 +294,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exNumberValidationTextBox)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
+                        textMessage: $"Событие NumberValidationTextBox в NewMenuPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }
         }
@@ -296,11 +305,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 Regex NumberRegex = new Regex("[^0-9,]");
                 e.Handled = NumberRegex.IsMatch(e.Text);
             }
-            catch (Exception exNumberValidationTextBox)
+            catch (Exception exPriseValidationTextBox)
             {
                 MessageBoxClass.EventExceptionMessage_MBC(
-                        textMessage: $"Событие DateValidationTextBox в NewMenuPage:\n\n " +
-                        $"{exNumberValidationTextBox.Message}");
+                        textMessage: $"Событие PriseValidationTextBox в NewMenuPage:\n\n " +
+                        $"{exPriseValidationTextBox.Message}");
             }
         }
         #endregion
