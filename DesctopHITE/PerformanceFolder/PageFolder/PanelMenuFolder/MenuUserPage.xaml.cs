@@ -33,10 +33,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 try
                 {
-                    DataContext = AppConnectClass.receiveConnectUser_ACC;
+                    var dataUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC);
 
-                    var dataUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC).PassportTable;
-                    SNMUsetTextBlock.Text = $"{dataUser.Surname_Passport} {dataUser.Name_Passport[0]}. {dataUser.Middlename_Passport[0]}.";
+                    DataContext = dataUser;
+
+                    SNMUsetTextBlock.Text = 
+                        $"{dataUser.PassportTable.Surname_Passport} " +
+                        $"{dataUser.PassportTable.Name_Passport[0]}. " +
+                        $"{dataUser.PassportTable.Middlename_Passport[0]}.";
 
                     MainToggleButton.IsChecked = true;
                     MainToggleButton.IsEnabled = false;

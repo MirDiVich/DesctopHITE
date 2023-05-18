@@ -15,5 +15,19 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 textMessage, titleMessage,
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        public static void EventGoodMessage_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Error Exception")
+        {
+            MessageBox.Show(
+                textMessage, titleMessage,
+                MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public static void EventFailureMessage_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Неудача")
+        {
+            MessageBox.Show(
+                textMessage, titleMessage,
+                MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
