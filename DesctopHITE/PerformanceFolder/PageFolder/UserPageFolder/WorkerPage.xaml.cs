@@ -19,6 +19,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             try
             {
                 InitializeComponent();
+
                 FrameNavigationClass.munuWorker_FNC = MenuWorkerFrame;
                 FrameNavigationClass.bodyWorker_FNC = BodyWorkerFrame;
             }

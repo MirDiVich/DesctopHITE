@@ -3,6 +3,7 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder;
 using System;
 using System.Windows;
@@ -14,9 +15,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
     {
         public MenuSettingsPage()
         {
-            try
-            {
+            try 
+            { 
                 InitializeComponent();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exMenuSettingsPage)
             {
@@ -32,8 +34,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
+                    EventIsCheckedToggleButton();
+                    EventIsEnabledToggleButton();
+
                     AboutTheAppToggleButton.IsChecked = true;
                     AboutTheAppToggleButton.IsEnabled = false;
+
                     FrameNavigationClass.bodySettings_FNC.Navigate(new AboutAppPage());
                 }
             }
@@ -51,8 +57,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 AboutTheAppToggleButton.IsChecked = true;
                 AboutTheAppToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodySettings_FNC.Navigate(new AboutAppPage());
             }
             catch (Exception exAboutTheAppToggleButton_Click) 
@@ -69,8 +77,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 UpdateToggleButton.IsChecked = true;
                 UpdateToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodySettings_FNC.Navigate(new UpdateApplicationPage());
             }
             catch (Exception exUpdateToggleButton_Click)
@@ -87,8 +97,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 DevelopersToggleButton.IsChecked = true;
                 DevelopersToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodySettings_FNC.Navigate(new DevelopersPage());
             }
             catch (Exception exDevelopersToggleButton_Click)
@@ -105,8 +117,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 ScanningToggleButton.IsChecked = true;
                 ScanningToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodySettings_FNC.Navigate(new ScanningPage());
             }
             catch (Exception exScanningToggleButton_Click)

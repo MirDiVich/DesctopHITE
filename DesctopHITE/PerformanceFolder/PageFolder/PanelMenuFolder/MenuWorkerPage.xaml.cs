@@ -3,6 +3,7 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
 using System;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             try
             {
                 InitializeComponent();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exMenuWorkerPage)
             {
@@ -33,6 +35,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 if (Visibility == Visibility.Visible)
                 {
                     FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
+
+                    EventIsCheckedToggleButton();
+                    EventIsEnabledToggleButton();
 
                     NewWorkerToggleButton.IsChecked = true;
                     NewWorkerToggleButton.IsEnabled = false;
@@ -53,8 +58,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 NewWorkerToggleButton.IsChecked = true;
                 NewWorkerToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
             }
             catch (Exception exNewWorkerToggleButton_Click)
@@ -71,8 +78,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 ListWorkweToggleButton.IsChecked = true;
                 ListWorkweToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
             }
             catch (Exception exListWorkweToggleButton_Click)
@@ -89,8 +98,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 GeneralInformationWorkerToggleButton.IsChecked = true;
                 GeneralInformationWorkerToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodyWorker_FNC.Navigate(new GeneralInformationWorkerPage());
             }
             catch (Exception exGeneralInformationWorkerToggleButton_Click)

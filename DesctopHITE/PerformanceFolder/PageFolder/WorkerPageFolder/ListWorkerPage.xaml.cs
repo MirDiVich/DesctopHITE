@@ -30,7 +30,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 InitializeComponent();
-                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities(); // Подключил базу данных к этой странице
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exListWorkerPage)
             {
@@ -70,13 +70,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
                     FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
+
                     viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E001",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC(titleMessage:"Сотрудник не выбран");
                 }
             }
             catch (Exception exEventViewDataWorker)
@@ -99,9 +98,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E001",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC(titleMessage: "Сотрудник не выбран");
                 }
             }
             catch (Exception exEventEditWorker)
@@ -123,9 +120,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E001",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC(titleMessage: "Сотрудник не выбран");
                 }
             }
             catch (Exception exEventDeleteWorker)
@@ -143,18 +138,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    if (e.Key == Key.F1)
-                    {
-                        EventViewDataWorker();
-                    }
-                    if (e.Key == Key.F2)
-                    {
-                        EventEditWorker();
-                    }
-                    if (e.Key == Key.Delete)
-                    {
-                        EventDeleteWorker();
-                    }
+                    if (e.Key == Key.F1) { EventViewDataWorker(); }
+                    if (e.Key == Key.F2) { EventEditWorker(); }
+                    if (e.Key == Key.Delete) { EventDeleteWorker(); }
                 }
             }
             catch(Exception exKeyboardShortcuts)
@@ -191,6 +177,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             try
             {
                 dataContextWorker = (WorkerTable)ListWorkerListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+
                 EditButton.IsEnabled = true;
                 DeliteButton.IsEnabled = true;
             }

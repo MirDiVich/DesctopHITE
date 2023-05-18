@@ -42,8 +42,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                         $"{dataUser.PassportTable.Name_Passport[0]}. " +
                         $"{dataUser.PassportTable.Middlename_Passport[0]}.";
 
+                    EventIsCheckedToggleButton();
+                    EventIsEnabledToggleButton();
+
                     MainToggleButton.IsChecked = true;
                     MainToggleButton.IsEnabled = false;
+
                     FrameNavigationClass.mainUser_FNC.Navigate(new MainPage());
                 }
                 catch (Exception exPage_IsVisibleChanged)
@@ -62,8 +66,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 MainToggleButton.IsChecked = true;
                 MainToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.mainUser_FNC.Navigate(new MainPage());
             }
             catch (Exception exMainToggleButton_Click)
@@ -79,8 +85,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 WorkersToggleButton.IsChecked = true;
                 WorkersToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.mainUser_FNC.Navigate(new WorkerPage());
             }
             catch (Exception exWorkersToggleButton_Click)
@@ -96,8 +104,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 MenuToggleButton.IsChecked = true;
                 MenuToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.mainUser_FNC.Navigate(new MenuPage());
             }
             catch (Exception exMenuToggleButton_Click)
@@ -113,8 +123,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 SettingsToggleButton.IsChecked = true;
                 SettingsToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.mainUser_FNC.Navigate(new SettingsPage());
             }
             catch (Exception exSettingsToggleButton_Click)

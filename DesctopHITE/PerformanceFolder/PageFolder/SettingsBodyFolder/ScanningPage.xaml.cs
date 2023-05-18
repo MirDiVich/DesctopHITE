@@ -29,6 +29,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
                 dispatcherTimer.Tick += EventTimer_Tick;
+
                 EventReceivingDataWaitingForStorage();
             }
             catch (Exception exScanningPage)

@@ -20,6 +20,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             try
             {
                 InitializeComponent();
+
                 TitleTextTextBlock.Text =
                     $"Приложение написано по заказу компании HTRE для улучшения работы компании, " +
                     $"для облегчения клиентам совершения заказов, для хранения персональной информации о сотрудниках, " +

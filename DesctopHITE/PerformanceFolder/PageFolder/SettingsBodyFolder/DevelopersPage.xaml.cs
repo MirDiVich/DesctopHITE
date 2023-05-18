@@ -3,6 +3,7 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             try
             {
                 InitializeComponent();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exDevelopersPage) 
             {

@@ -3,6 +3,7 @@
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder;
 using System;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             try
             {
                 InitializeComponent();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exMenuMenuPage)
             {
@@ -32,8 +34,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
+                    EventIsCheckedToggleButton();
+                    EventIsEnabledToggleButton();
+
                     NewMenuToggleButton.IsChecked = true;
                     NewMenuToggleButton.IsEnabled = false;
+
                     FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
                 }
             }
@@ -52,8 +58,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 NewMenuToggleButton.IsChecked = true;
                 NewMenuToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
             }
             catch (Exception exNewMenuToggleButton_Click)
@@ -70,8 +78,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 ListMenuToggleButton.IsChecked = true;
                 ListMenuToggleButton.IsEnabled = false;
+
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new ListMenuPage());
             }
             catch (Exception exListMenuToggleButton)
@@ -88,8 +98,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 EventIsCheckedToggleButton();
                 EventIsEnabledToggleButton();
+
                 GeneralInformationToggleButton.IsChecked = true;
                 GeneralInformationToggleButton.IsEnabled = false;
+
                 //FrameNavigationClass.bodyMenu_FNC.Navigate(new ());
             }
             catch (Exception exGeneralInformationToggleButton_Click)

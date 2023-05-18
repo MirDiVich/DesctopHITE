@@ -17,6 +17,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             try
             {
                 InitializeComponent();
+
                 FrameNavigationClass.munuSettings_FNC = MenuSettingsFrame;
                 FrameNavigationClass.bodySettings_FNC = BodySettingsFrame;
             }
