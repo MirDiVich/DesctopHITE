@@ -14,7 +14,7 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             }
             catch (Exception exMenuCashControl)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                     textMessage: $"Событие MenuCashControl в MenuCashControl:\n\n " +
                     $"{exMenuCashControl.Message}");
             }

@@ -24,7 +24,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exWorkerPage) 
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие WorkerPage в WorkerPage:\n\n " +
                       $"{exWorkerPage.Message}");
             }
@@ -41,7 +41,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие Page_IsVisibleChanged в WorkerPage:\n\n " +
                       $"{exPage_IsVisibleChanged.Message}");
             }

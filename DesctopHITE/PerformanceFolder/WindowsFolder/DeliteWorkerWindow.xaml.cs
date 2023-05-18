@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteWorkerWindow)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DeliteWorkerWindow в DeliteWorkerWindow:\n\n " +
                         $"{exDeliteWorkerWindow.Message}");
             }
@@ -57,7 +57,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в DeliteWorkerWindow:\n\n " +
                         $"{exSpaseBarGrid_MouseDown.Message}");
             }
@@ -71,7 +71,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCloseButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие CloseButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exCloseButton_Click.Message}");
             }
@@ -87,7 +87,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCancelButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие CancelButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exCancelButton_Click.Message}");
             }
@@ -110,7 +110,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DeliteButton_Click в DeliteWorkerWindow:\n\n " +
                         $"{exDeliteButton_Click.Message}");
             }
@@ -151,7 +151,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exDeliteWorkerEvent)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DeliteWorkerEvent в DeliteWorkerWindow:\n\n " +
                         $"{exDeliteWorkerEvent.Message}");
             }

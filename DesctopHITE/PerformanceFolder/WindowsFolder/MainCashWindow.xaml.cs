@@ -23,7 +23,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exMainCashWindow)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие MainCashWindow в MainCashWindow:\n\n " +
                         $"{exMainCashWindow.Message}");
             }
@@ -40,7 +40,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exWindow_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Window_IsVisibleChanged в MainCashWindow:\n\n " +
                         $"{exWindow_IsVisibleChanged.Message}");
             }

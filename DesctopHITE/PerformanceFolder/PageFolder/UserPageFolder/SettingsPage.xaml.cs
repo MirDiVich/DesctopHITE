@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exSettingsPage) 
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие SettingsPage в SettingsPage:\n\n " +
                       $"{exSettingsPage.Message}");
             }
@@ -39,7 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие Page_IsVisibleChanged в SettingsPage:\n\n " +
                       $"{exPage_IsVisibleChanged.Message}");
             }

@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exMenuPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие MenuPage в MenuPage:\n\n " +
                       $"{exMenuPage.Message}");
             }
@@ -39,7 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие Page_IsVisibleChanged в MenuPage:\n\n " +
                       $"{exPage_IsVisibleChanged.Message}");
             }

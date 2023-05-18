@@ -21,7 +21,7 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             }
             catch (Exception exListWorkerBirthdayControl)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ListWorkerBirthdayControl в ListWorkerBirthdayControl:\n\n " +
                         $"{exListWorkerBirthdayControl.Message}");
             }

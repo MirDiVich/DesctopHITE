@@ -39,7 +39,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exAboutAppPage) 
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие AboutAppPage в AboutAppPage:\n\n " +
                       $"{exAboutAppPage.Message}");
             }

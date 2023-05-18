@@ -21,7 +21,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exViewEditInfoemationWindow)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ViewEditInfoemationWindow в ViewEditInfoemationWindow:\n\n " +
                         $"{exViewEditInfoemationWindow.Message}");
             }
@@ -38,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в ViewEditInfoemationWorkerWindow:\n\n " +
                         $"{exSpaseBarGrid_MouseDown.Message}");
             }
@@ -52,7 +52,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCloseButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие CloseButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
                         $"{exCloseButton_Click.Message}");
             }
@@ -66,7 +66,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollupButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие RollupButton_Click в ViewEditInfoemationWorkerWindow:\n\n " +
                         $"{exRollupButton_Click.Message}");
             }

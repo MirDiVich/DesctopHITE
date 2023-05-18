@@ -28,7 +28,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exGeneralInformationWorkerPage) 
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GeneralInformationWorkerPage в GeneralInformationWorkerPage:\n\n " +
                         $"{exGeneralInformationWorkerPage.Message}");
             }
@@ -49,7 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в GeneralInformationWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -68,7 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventDataCountWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventDataCountWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exEventDataCountWorker.Message}");
             }
@@ -97,7 +97,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventBirthdayComingSoonWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exEventBirthdayComingSoonWorker.Message}");
             }
@@ -114,7 +114,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventTodayBirthdayWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exEventTodayBirthdayWorker.Message}");
             }
@@ -131,7 +131,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventGenderWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventGenderWorker в GeneralInformationWorkerPage:\n\n " +
                         $"{exEventGenderWorker.Message}");
             }
@@ -151,7 +151,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventNumberEmployeesWithPosition)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
                         $"{exEventNumberEmployeesWithPosition.Message}");
             }

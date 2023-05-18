@@ -31,7 +31,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exViewInformationWorkerPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ViewInformationWorkerPage в ViewInformationWorkerPage:\n\n " +
                         $"{exViewInformationWorkerPage.Message}");
             }
@@ -49,7 +49,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ViewInformationWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -106,7 +106,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEditWorkerButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EditWorkerButton_Click в ViewInformationWorkerPage:\n\n " +
                         $"{exEditWorkerButton_Click.Message}");
             }

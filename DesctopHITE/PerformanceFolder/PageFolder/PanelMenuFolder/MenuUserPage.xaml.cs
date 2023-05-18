@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exMenuUserPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие MenuUserPage в MenuUserPage:\n\n " +
                        $"{exMenuUserPage.Message}");
             }
@@ -48,7 +48,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 }
                 catch (Exception exPage_IsVisibleChanged)
                 {
-                    MessageBoxClass.EventExceptionMessage_MBC(
+                    MessageBoxClass.ExceptionMessageBox_MBC(
                            textMessage: $"Событие Page_IsVisibleChanged в MenuUserPage:\n\n " +
                            $"{exPage_IsVisibleChanged.Message}");
                 }
@@ -68,7 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exMainToggleButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие MainToggleButton_Click в MenuUserPage:\n\n " +
                        $"{exMainToggleButton_Click.Message}");
             }
@@ -85,7 +85,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exWorkersToggleButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие WorkersToggleButton_Click в MenuUserPage:\n\n " +
                        $"{exWorkersToggleButton_Click.Message}");
             }
@@ -102,7 +102,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exMenuToggleButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие MenuToggleButton_Click в MenuUserPage:\n\n " +
                        $"{exMenuToggleButton_Click.Message}");
             }
@@ -119,7 +119,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exSettingsToggleButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие SettingsToggleButton_Click в MenuUserPage:\n\n " +
                        $"{exSettingsToggleButton_Click.Message}");
             }
@@ -137,7 +137,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exEventIsCheckedToggleButton)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие EventIsCheckedToggleButton в MenuUserPage:\n\n " +
                        $"{exEventIsCheckedToggleButton.Message}");
             }
@@ -153,7 +153,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
             catch (Exception exEventIsEnabledToggleButton)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие EventIsEnabledToggleButton в MenuUserPage:\n\n " +
                        $"{exEventIsEnabledToggleButton.Message}");
             }

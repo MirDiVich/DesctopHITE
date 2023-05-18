@@ -34,7 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exListMenuPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ListMenuPage в ListMenuPage:\n\n " +
                         $"{exListMenuPage.Message}");
             }
@@ -55,7 +55,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ListMenuPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -80,7 +80,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exViewDataMenu)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ViewDataMenu в ListMenuPage:\n\n " +
                         $"{exViewDataMenu.Message}");
             }
@@ -105,7 +105,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exGetEditMunu)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GetEditMunu в ListMenuPage:\n\n " +
                         $"{exGetEditMunu.Message}");
             }
@@ -129,7 +129,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exGetDeleteMenu)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GetDeleteMenu в ListMenuPage:\n\n " +
                         $"{exGetDeleteMenu.Message}");
             }
@@ -172,7 +172,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exSearchTextBox_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SearchTextBox_SelectionChanged в ListMenuPage:\n\n " +
                         $"{exSearchTextBox_SelectionChanged.Message}");
             }
@@ -188,7 +188,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exListWorkerListView_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ListMenuListView_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exListWorkerListView_SelectionChanged.Message}");
             }

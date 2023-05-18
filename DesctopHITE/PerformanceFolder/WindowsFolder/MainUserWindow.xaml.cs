@@ -25,7 +25,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exMainUserWindow)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие MainUserWindow в MainUserWindow:\n\n " +
                         $"{exMainUserWindow.Message}");
             }
@@ -42,7 +42,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exWindow_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Window_IsVisibleChanged в MainUserWindow:\n\n " +
                         $"{exWindow_IsVisibleChanged.Message}");
             }
@@ -59,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SpaseBarGrid_MouseDown в MainUserWindow:\n\n " +
                         $"{exSpaseBarGrid_MouseDown.Message}");
             }
@@ -73,7 +73,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exCloseButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие CloseButton_Click в MainUserWindow:\n\n " +
                         $"{exCloseButton_Click.Message}");
             }
@@ -87,7 +87,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exRollupButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие RollupButton_Click в MainUserWindow:\n\n " +
                        $"{exRollupButton_Click.Message}");
             }
@@ -115,7 +115,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
             catch (Exception exExitUserButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие ExitUserButton_Click в MainUserWindow:\n\n " +
                        $"{exExitUserButton_Click.Message}");
             }

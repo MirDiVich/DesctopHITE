@@ -34,7 +34,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exListWorkerPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ListWorkerPage в ListWorkerPage:\n\n " +
                         $"{exListWorkerPage.Message}");
             }
@@ -55,7 +55,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в ListWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -81,7 +81,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventViewDataWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventViewDataWorker в ListWorkerPage:\n\n " +
                         $"{exEventViewDataWorker.Message}");
             }
@@ -106,7 +106,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventEditWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GetEditWorker в ListWorkerPage:\n\n " +
                         $"{exEventEditWorker.Message}");
             }
@@ -130,7 +130,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventDeleteWorker)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventDeleteWorker в ListWorkerPage:\n\n " +
                         $"{exEventDeleteWorker.Message}");
             }
@@ -159,7 +159,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch(Exception exKeyboardShortcuts)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
                        $"{exKeyboardShortcuts.Message}");
             }
@@ -196,7 +196,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exListWorkerListView_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие ListWorkerListView_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exListWorkerListView_SelectionChanged.Message}");
             }
@@ -240,7 +240,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exSearchTextBox_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SearchTextBox_SelectionChanged в ListWorkerPage:\n\n " +
                         $"{exSearchTextBox_SelectionChanged.Message}");
             }

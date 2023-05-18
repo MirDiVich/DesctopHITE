@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exUpdateApplicationPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие UpdateApplicationPage в UpdateApplicationPage:\n\n " +
                    $"{exUpdateApplicationPage.Message}");
             }
@@ -85,7 +85,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exCheckUpdateButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие CheckUpdateButton_Click в UpdateApplicationPage:\n\n " +
                    $"{exCheckUpdateButton_Click.Message}");
             }
@@ -145,7 +145,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventStartLoadingAnimation)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventStartLoadingAnimation в UpdateApplicationPage:\n\n " +
                    $"{exEventStartLoadingAnimation.Message}");
             }
@@ -162,7 +162,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventStopLoadingAnimation)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventStopLoadingAnimation в UpdateApplicationPage:\n\n " +
                    $"{exEventStopLoadingAnimation.Message}");
             }
@@ -185,7 +185,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventScanDeception)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventScanDeception в UpdateApplicationPage:\n\n " +
                    $"{exEventScanDeception.Message}");
             }
@@ -217,7 +217,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventTimer_Tick)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventTimer_Tick в UpdateApplicationPage:\n\n " +
                    $"{exEventTimer_Tick.Message}");
             }
@@ -240,7 +240,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventReceivingDataWaitingForStorage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventReceivingDataWaitingForStorage в UpdateApplicationPage:\n\n " +
                    $"{exEventReceivingDataWaitingForStorage.Message}");
             }
@@ -259,7 +259,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
             catch (Exception exEventOutputDataWaitingForStorage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                    textMessage: $"Событие EventOutputDataWaitingForStorage в UpdateApplicationPage:\n\n " +
                    $"{exEventOutputDataWaitingForStorage.Message}");
             }

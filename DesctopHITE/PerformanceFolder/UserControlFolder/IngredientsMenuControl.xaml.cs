@@ -14,7 +14,7 @@ namespace DesctopHITE.PerformanceFolder.UserControlFolder
             }
             catch (Exception exIngredientsMenuControl)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                     textMessage: $"Событие IngredientsMenuControl в IngredientsMenuControl:\n\n " +
                     $"{exIngredientsMenuControl.Message}");
             }

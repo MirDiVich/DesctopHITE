@@ -29,7 +29,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exMainPage) 
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие MainPage в MainPage:\n\n " +
                        $"{exMainPage.Message}");
             }
@@ -54,7 +54,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие Page_IsVisibleChanged в MainPage:\n\n " +
                        $"{exPage_IsVisibleChanged.Message}");
             }
@@ -84,7 +84,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
             }
             catch (Exception exEventTimer_Tick)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                       textMessage: $"Событие EventTimer_Tick в MainPage:\n\n " +
                       $"{exEventTimer_Tick.Message}");
             }

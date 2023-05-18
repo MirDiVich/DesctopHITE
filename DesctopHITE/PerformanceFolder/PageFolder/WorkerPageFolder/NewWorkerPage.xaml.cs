@@ -68,7 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNewWorkerPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие NewWorkerPage в NewWorkerPage:\n\n " +
                         $"{exNewWorkerPage.Message}");
             }
@@ -86,7 +86,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exPage_IsVisibleChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие Page_IsVisibleChanged в NewWorkerPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
@@ -211,7 +211,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNewWorkerButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие NewWorkerButton_Click в NewWorkerPage:\n\n " +
                          $"{exNewWorkerButton_Click.Message}");
             }
@@ -232,7 +232,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNewPhotoButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие NewPhotoButton_Click в NewWorkerPage:\n\n " +
                          $"{exNewPhotoButton_Click.Message}");
             }
@@ -361,7 +361,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exEventMessageNull)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventMessageNull в NewWorkerPage:\n\n " +
                         $"{exEventMessageNull.Message}");
             }
@@ -537,7 +537,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exAddDataconnectDataBase_ACC)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие AddDataconnectDataBase_ACC в NewWorkerPage:\n\n " +
                          $"{exAddDataconnectDataBase_ACC.Message}");
             }
@@ -559,7 +559,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exClearText)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие ClearText в NewWorkerPage:\n\n " +
                          $"{exClearText.Message}");
             }
@@ -576,7 +576,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exDateValidationTextBox)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exDateValidationTextBox.Message}");
             }
@@ -590,7 +590,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exNumberValidationTextBox)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }
@@ -605,7 +605,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exDivisionCodeValidationTextBox)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие DivisionCodeValidationTextBox в NewWorkerPage:\n\n " +
                         $"{exDivisionCodeValidationTextBox.Message}");
             }
@@ -638,7 +638,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exRepeatPasswordWorkerPasswordBox_LayoutUpdated)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие RepeatPasswordWorkerPasswordBox_LayoutUpdated в NewWorkerPage:\n\n " +
                          $"{exRepeatPasswordWorkerPasswordBox_LayoutUpdated.Message}");
             }
@@ -656,7 +656,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch (Exception exCtrlV_PreviewKeyDown)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие CtrlV_PreviewKeyDown в NewWorkerPage:\n\n " +
                          $"{exCtrlV_PreviewKeyDown.Message}");
             }
@@ -689,7 +689,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
             catch ( Exception expnRoleWorkerComboBox_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие pnRoleWorkerComboBox_SelectionChanged в NewWorkerPage:\n\n " +
                          $"{expnRoleWorkerComboBox_SelectionChanged.Message}");
             }

@@ -52,7 +52,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNewMenuPage)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие NewMenuPage в NewMenuPage:\n\n " +
                         $"{exNewMenuPage.Message}");
             }
@@ -91,7 +91,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNewMenuButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие NewMenuButton_Click в NewMenuPage:\n\n " +
                         $"{exNewMenuButton_Click.Message}");
             }
@@ -112,7 +112,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNewMenuImageButton_Click)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие NewMenuImageButton_Click в NewMenuPage:\n\n " +
                          $"{exNewMenuImageButton_Click.Message}");
             }
@@ -172,7 +172,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exEventNewDataMenu)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие EventNewDataMenu в NewMenuPage:\n\n " +
                          $"{exEventNewDataMenu.Message}");
             }
@@ -202,7 +202,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exEventSelectedIngredients)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventSelectedIngredients в NewMenuPage:\n\n " +
                         $"{exEventSelectedIngredients.Message}");
             }
@@ -227,7 +227,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exEventMessageNull)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие EventMessageNull в NewMenuPage:\n\n " +
                         $"{exEventMessageNull.Message}");
             }
@@ -244,7 +244,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exAllIngredientsListListView_SelectionChanged)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие AllIngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
                         $"{exAllIngredientsListListView_SelectionChanged.Message}");
             }
@@ -260,7 +260,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exSelectionIngredientsListListView_MouseDoubleClick)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие SelectionIngredientsListListView_MouseDoubleClick в NewMenuPage:\n\n " +
                         $"{exSelectionIngredientsListListView_MouseDoubleClick.Message}");
             }
@@ -277,7 +277,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exCtrlV_PreviewKeyDown)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие CtrlV_PreviewKeyDown в NewMenuPage:\n\n " +
                          $"{exCtrlV_PreviewKeyDown.Message}");
             }
@@ -293,7 +293,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exNumberValidationTextBox)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие NumberValidationTextBox в NewMenuPage:\n\n " +
                         $"{exNumberValidationTextBox.Message}");
             }
@@ -307,7 +307,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
             catch (Exception exPriseValidationTextBox)
             {
-                MessageBoxClass.EventExceptionMessage_MBC(
+                MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие PriseValidationTextBox в NewMenuPage:\n\n " +
                         $"{exPriseValidationTextBox.Message}");
             }
