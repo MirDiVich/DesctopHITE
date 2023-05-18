@@ -52,10 +52,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                if (e.ChangedButton == MouseButton.Left)
-                {
-                    this.DragMove();
-                }
+                if (e.ChangedButton == MouseButton.Left) { this.DragMove(); }
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
@@ -67,10 +64,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
         {
-            try
-            {
-                Application.Current.Shutdown();
-            }
+            try { Application.Current.Shutdown(); }
             catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
@@ -81,10 +75,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void RollupButton_Click(object sender, RoutedEventArgs e) // Для того, что бы свернуть окно 
         {
-            try
-            {
-                WindowState = WindowState.Minimized;
-            }
+            try { WindowState = WindowState.Minimized; }
             catch (Exception exRollupButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
@@ -97,20 +88,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                // Сохранение сохранения
-                Properties.Settings.Default.MeaningRemember = false;
-
                 // Сохранение информации
                 Properties.Settings.Default.LoginUserRemember = null;
+                Properties.Settings.Default.MeaningRemember = false;
                 Properties.Settings.Default.PasswordUserRemember = null;
 
-                // Сохранение
                 Properties.Settings.Default.Save();
 
-                // Закрытие приложения
                 AuthorizationWindow authorizationWindow = new AuthorizationWindow();
                 authorizationWindow.Show();
-
                 this.Close();
             }
             catch (Exception exExitUserButton_Click)

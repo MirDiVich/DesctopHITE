@@ -31,10 +31,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                if (e.ChangedButton == MouseButton.Left)
-                {
-                    this.DragMove();
-                }
+                if (e.ChangedButton == MouseButton.Left) { this.DragMove(); }
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
@@ -46,10 +43,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
         {
-            try
-            {
-                this.Close();
-            }
+            try { this.Close(); }
             catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
@@ -60,10 +54,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void RollupButton_Click(object sender, RoutedEventArgs e) // Для того, что бы свернуть окно 
         {
-            try
-            {
-                WindowState = WindowState.Minimized;
-            }
+            try { WindowState = WindowState.Minimized; }
             catch (Exception exRollupButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
