@@ -250,7 +250,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                var DateScanUser = AppConnectClass.receiveConnectUser_ACC.PassportTable; // Просто укоротил 3 слова в 1
+                var DateScanUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC).PassportTable; // Просто укоротил 3 слова в 1
 
                 Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
                 Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();

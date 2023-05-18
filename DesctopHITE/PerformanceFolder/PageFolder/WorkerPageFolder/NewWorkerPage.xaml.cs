@@ -504,7 +504,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addWorker.DateWord_Worker = DateTime.Now;
                 addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
                 addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
-                addWorker.AddpnWorker_Worker = AppConnectClass.receiveConnectUser_ACC.PersonalNumber_Worker;
+                addWorker.AddpnWorker_Worker = AppConnectClass.receiveConnectUser_ACC;
                 if (workerInformation == null)
                 {
                     addWorker.pnStatus_Worker = 2;

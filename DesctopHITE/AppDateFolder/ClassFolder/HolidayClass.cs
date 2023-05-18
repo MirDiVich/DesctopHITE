@@ -81,8 +81,10 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         {
             get
             {
+                var happyBirthdayUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC);
+
                 string titleHappyBirthday = "";
-                DateTime titleDateOfBrich = AppConnectClass.receiveConnectUser_ACC.PassportTable.DateOfBrich_Passport;
+                DateTime titleDateOfBrich = happyBirthdayUser.PassportTable.DateOfBrich_Passport;
 
                 if (toDay.Day == titleDateOfBrich.Day && toDay.Month == titleDateOfBrich.Month)
                 {

@@ -19,10 +19,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
-                DataContext = AppConnectClass.receiveConnectUser_ACC;
-
-                var DataUser = AppConnectClass.receiveConnectUser_ACC.PassportTable;
-                SNMUsetTextBlock.Text = $"{DataUser.Surname_Passport} {DataUser.Name_Passport[0]}. {DataUser.Middlename_Passport[0]}.";
             }
             catch (Exception exMenuUserPage)
             {
@@ -33,20 +29,25 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            try
+            if (Visibility == Visibility.Visible)
             {
-                if (Visibility == Visibility.Visible)
+                try
                 {
+                    DataContext = AppConnectClass.receiveConnectUser_ACC;
+
+                    var dataUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC).PassportTable;
+                    SNMUsetTextBlock.Text = $"{dataUser.Surname_Passport} {dataUser.Name_Passport[0]}. {dataUser.Middlename_Passport[0]}.";
+
                     MainToggleButton.IsChecked = true;
                     MainToggleButton.IsEnabled = false;
                     FrameNavigationClass.mainUser_FNC.Navigate(new MainPage());
                 }
-            }
-            catch (Exception exPage_IsVisibleChanged)
-            {
-                MessageBoxClass.EventExceptionMessage_MBC(
-                       textMessage: $"Событие Page_IsVisibleChanged в MenuUserPage:\n\n " +
-                       $"{exPage_IsVisibleChanged.Message}");
+                catch (Exception exPage_IsVisibleChanged)
+                {
+                    MessageBoxClass.EventExceptionMessage_MBC(
+                           textMessage: $"Событие Page_IsVisibleChanged в MenuUserPage:\n\n " +
+                           $"{exPage_IsVisibleChanged.Message}");
+                }
             }
         }
 

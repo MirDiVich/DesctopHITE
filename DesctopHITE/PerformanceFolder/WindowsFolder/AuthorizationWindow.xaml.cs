@@ -247,21 +247,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     {
                         case 1:
                             SaveSettings();
-                            AppConnectClass.receiveConnectUser_ACC = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 2:
                             SaveSettings();
-                            AppConnectClass.receiveConnectUser_ACC = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
                         case 3:
                             SaveSettings();
-                            AppConnectClass.receiveConnectUser_ACC = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             MessageBox.Show("Для вас ещё не реализован код");
                             mainUserWindow.Show();
                             this.Close();
@@ -269,7 +269,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                         case 5:
                             SaveSettings();
-                            AppConnectClass.receiveConnectUser_ACC = logInUser;
+                            AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             mainUserWindow.Show();
                             this.Close();
                             break;

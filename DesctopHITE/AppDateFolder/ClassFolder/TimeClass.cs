@@ -14,30 +14,32 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
         {
             get
             {
+                var dataUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC);
+
                 string titleNowHour = "Время не определенно";
                 if (timeDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
                     titleNowHour = $"Доброй ночи \n " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
+                        $"{dataUser.PassportTable.Surname_Passport} " +
+                        $"{dataUser.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 6 && timeDay.Hour <= 11)
                 {
                     titleNowHour = $"Доброе утро \n " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
+                        $"{dataUser.PassportTable.Surname_Passport} " +
+                        $"{dataUser.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 12 && DateTime.Now.Hour <=17)
                 {
                     titleNowHour = $"Добрый день \n " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
+                        $"{dataUser.PassportTable.Surname_Passport} " +
+                        $"{dataUser.PassportTable.Name_Passport}";
                 }
                 else if (timeDay.Hour >= 18 && DateTime.Now.Hour <= 23)
                 {
                     titleNowHour = $"Добрый вечер \n " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Surname_Passport} " +
-                        $"{AppConnectClass.receiveConnectUser_ACC.PassportTable.Name_Passport}";
+                        $"{dataUser.PassportTable.Surname_Passport} " +
+                        $"{dataUser.PassportTable.Name_Passport}";
                 }
                 return titleNowHour;
             }

@@ -252,10 +252,12 @@
                     Margin="3.5" 
                     Orientation="Horizontal">
                     <Border
-                        Height="270"
+                        Height="auto"
+                        MinHeight="0"
+                        MaxHeight="380"
                         Margin="3.5"
                         Visibility="Visible" 
-                        Width="500" 
+                        Width="700" 
                         Style="{DynamicResource BorderInformation}">
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
@@ -278,7 +280,7 @@
                                     <ListView
                                         Height="auto"
                                         MinHeight="0"
-                                        MaxHeight="220"
+                                        MaxHeight="360"
                                         SelectionChanged="AllIngredientsListListView_SelectionChanged"
                                         ItemContainerStyle="{StaticResource ListViewItemSelected}"
                                         x:Name="AllIngredientsListListView">
@@ -302,10 +304,13 @@
                         </Grid>
                     </Border>
                     <Border
-                        Height="270"
+                        Height="auto"
+                        MinHeight="0"
+                        MaxHeight="300"
                         Margin="3.5"
                         Visibility="Visible" 
-                        Width="500" 
+                        VerticalAlignment="Top"
+                        Width="450" 
                         Style="{DynamicResource BorderInformation}">
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
@@ -318,7 +323,7 @@
                                 </Border.Effect>
                             </Border>
                             <Grid Margin="10">
-                                <StackPanel HorizontalAlignment="Center">
+                                <StackPanel Width="430" HorizontalAlignment="Center">
                                     <TextBlock
                                         Foreground="#462AD8"
                                         Text="ИНГРЕДИЕНТЫ"
@@ -326,9 +331,10 @@
                                         FontSize="30"
                                         Margin="0 10 0 10"/>
                                     <ListView
+                                        HorizontalAlignment="Left"
                                         Height="auto"
                                         MinHeight="0"
-                                        MaxHeight="220"
+                                        MaxHeight="300"
                                         MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
                                         ItemContainerStyle="{StaticResource ListViewItemSelected}"
                                         x:Name="SelectionIngredientsListListView">
