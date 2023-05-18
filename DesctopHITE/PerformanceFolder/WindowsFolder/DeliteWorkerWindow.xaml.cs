@@ -34,8 +34,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         $"{informationAddedWhomWorker.PassportTable.Name_Passport} " +
                         $"{informationAddedWhomWorker.PassportTable.Middlename_Passport}";
 
-                    RoleAddedWhomWorkerTextBlock.Text =
-                        $"({informationAddedWhomWorker.RoleTable.Name_Role})";
+                    RoleAddedWhomWorkerTextBlock.Text = $"({informationAddedWhomWorker.RoleTable.Name_Role})";
                 }
             }
             catch (Exception exDeliteWorkerWindow)
@@ -50,10 +49,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                if (e.ChangedButton == MouseButton.Left)
-                {
-                    this.DragMove();
-                }
+                if (e.ChangedButton == MouseButton.Left) { this.DragMove(); }
             }
             catch (Exception exSpaseBarGrid_MouseDown)
             {
@@ -65,10 +61,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно 
         {
-            try
-            {
-                this.Close();
-            }
+            try { this.Close(); }
             catch (Exception exCloseButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
@@ -99,14 +92,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (personalNumberWorker == 0)
                 {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E005",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC( titleMessage: "Сотрудник не выбран");
                 }
-                else
-                {
-                    EventDeliteWorker();
-                }
+                else { EventDeliteWorker(); }
             }
             catch (Exception exDeliteButton_Click)
             {
@@ -129,6 +117,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 if (MessageBox.Show( MessageTitle, "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     var dataDelitWorker = AppConnectClass.connectDataBase_ACC;
+
+                    // Удаление данных о сотруднике
                     dataDelitWorker.ImagePassportTable.Remove(informationDeliteWorker.PassportTable.ImagePassportTable);
                     dataDelitWorker.PlaceResidenceTable.Remove(informationDeliteWorker.PlaceResidenceTable);
                     dataDelitWorker.MedicalBookTable.Remove(informationDeliteWorker.MedicalBookTable);
@@ -141,10 +131,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     dataDelitWorker.SaveChanges();
 
                     string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
-
-                    MessageBox.Show(
-                        MessageTitleDelit, "Удаление",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBoxClass.GoodMessageBox_MBC(titleMessage: MessageTitleDelit);
 
                     this.Close();
                 }
