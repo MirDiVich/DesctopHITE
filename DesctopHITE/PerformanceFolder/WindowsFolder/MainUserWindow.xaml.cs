@@ -10,6 +10,7 @@ using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
@@ -88,12 +89,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                // Сохранение информации
-                Properties.Settings.Default.LoginUserRemember = null;
-                Properties.Settings.Default.MeaningRemember = false;
-                Properties.Settings.Default.PasswordUserRemember = null;
-
-                Properties.Settings.Default.Save();
+                EventResettingDataAboutAuthorizedUser();
 
                 AuthorizationWindow authorizationWindow = new AuthorizationWindow();
                 authorizationWindow.Show();
@@ -104,6 +100,41 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие ExitUserButton_Click в MainUserWindow:\n\n " +
                        $"{exExitUserButton_Click.Message}");
+            }
+        }
+
+        private void ExitAndCloseUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                EventResettingDataAboutAuthorizedUser();
+                Application.Current.Shutdown();
+            }
+            catch (Exception exExitAndCloseUserButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие ExitAndCloseUserButton_Click в MainUserWindow:\n\n " +
+                       $"{exExitAndCloseUserButton_Click.Message}");
+            }
+        }
+        #endregion
+        #region Event
+        private void EventResettingDataAboutAuthorizedUser()
+        {
+            try
+            {
+                // Сохранение информации
+                Properties.Settings.Default.LoginUserRemember = null;
+                Properties.Settings.Default.MeaningRemember = false;
+                Properties.Settings.Default.PasswordUserRemember = null;
+
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception exEventResettingDataAboutAuthorizedUser)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие EventResettingDataAboutAuthorizedUser в MainUserWindow:\n\n " +
+                       $"{exEventResettingDataAboutAuthorizedUser.Message}");
             }
         }
         #endregion

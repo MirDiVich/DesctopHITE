@@ -49,14 +49,20 @@
                     Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Menu Style="{DynamicResource MenuButton}">
                         <MenuItem 
+                            Style="{DynamicResource ParentMenuItem}"
                             Width="30" 
                             Height="30" 
                             Header="&#xf1af;">
                             <MenuItem
+                                Style="{DynamicResource ParentMenuItem}"
                                 x:Name="ExitUserButton"
                                 Click="ExitUserButton_Click"
                                 Header="Выйти"/>
-                            <MenuItem Header="Выйти и закрыть"/>
+                            <MenuItem 
+                                Style="{DynamicResource ParentMenuItem}"
+                                x:Name="ExitAndCloseUserButton"
+                                Click="ExitAndCloseUserButton_Click"
+                                Header="Выйти и закрыть"/>
                         </MenuItem>
                     </Menu>
                     <Button 

@@ -21,7 +21,7 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ScrollViewerDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ComboBoxDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ListViewDictionary.xaml"/>
-                <ResourceDictionary Source="\AppDateFolder\StyleFolder\PathDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\MenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
