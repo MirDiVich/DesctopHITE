@@ -50,7 +50,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     DeliteButton.IsEnabled = false;
 
                     ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
-                    ListMenuListView.Items.SortDescriptions.Add(new SortDescription("Name_Menu", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
+                    ListMenuListView.Items.SortDescriptions.Add(new SortDescription("PersonalNumber_Menu", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
                 }
             }
             catch (Exception exPage_IsVisibleChanged)

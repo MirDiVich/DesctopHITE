@@ -109,9 +109,10 @@
                                                     </Border.Effect>
                                                 </Border>
                                                 <ComboBox
+                                                    FontSize="15"
                                                     DisplayMemberPath="Title_MenuCategory"
                                                     SelectedValuePath="PersonalNumber_MenuCategory"
-                                                    Text="{Binding MenuCategoryTableю.Title_MenuCategory}"
+                                                    Text="{Binding MenuCategoryTable.Title_MenuCategory}"
                                                     x:Name="pnCategoryMenuComboBox"
                                                     Width="500"/>
                                             </Grid>
@@ -158,27 +159,49 @@
                                             <TextBlock
                                                 Text="Вес (грамм)"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                            <Grid>
-                                                <Border Style="{DynamicResource OtherShadowBorder}">
-                                                    <Border.Effect>
-                                                        <DropShadowEffect 
-                                                            Direction="315"
-                                                            Color="{DynamicResource ShadowColor}"
-                                                            BlurRadius="5"
-                                                            ShadowDepth="0.5"
-                                                            Opacity="0.3"
-                                                            RenderingBias="Quality"/>
-                                                    </Border.Effect>
-                                                </Border>
-                                                <TextBox
-                                                    PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                    PreviewTextInput="NumberValidationTextBox"
-                                                    Text="{Binding Prise_Menu}"
-                                                    MaxLength="6"
-                                                    x:Name="WeightMenuTextBox"
-                                                    Style="{DynamicResource OtherTextBoxStyle}"
-                                                    Width="500"/>
-                                            </Grid>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Grid Margin="0 0 5 0">
+                                                    <Border Style="{DynamicResource OtherShadowBorder}">
+                                                        <Border.Effect>
+                                                            <DropShadowEffect 
+                                                                Direction="315"
+                                                                Color="{DynamicResource ShadowColor}"
+                                                                BlurRadius="5"
+                                                                ShadowDepth="0.5"
+                                                                Opacity="0.3"
+                                                                RenderingBias="Quality"/>
+                                                        </Border.Effect>
+                                                    </Border>
+                                                    <TextBox
+                                                        PreviewKeyDown="CtrlV_PreviewKeyDown"
+                                                        PreviewTextInput="NumberValidationTextBox"
+                                                        Text="{Binding Weight_Menu}"
+                                                        MaxLength="6"
+                                                        x:Name="WeightMenuTextBox"
+                                                        Style="{DynamicResource OtherTextBoxStyle}"
+                                                        Width="300"/>
+                                                </Grid>
+                                                <Grid Margin="5 0 0 0">
+                                                    <Border Style="{DynamicResource OtherShadowBorder}">
+                                                        <Border.Effect>
+                                                            <DropShadowEffect 
+                                                                Direction="315"
+                                                                Color="{DynamicResource ShadowColor}"
+                                                                BlurRadius="5"
+                                                                ShadowDepth="0.5"
+                                                                Opacity="0.3"
+                                                                RenderingBias="Quality"/>
+                                                        </Border.Effect>
+                                                    </Border>
+                                                    <ComboBox
+                                                        FontSize="15"
+                                                        DisplayMemberPath="Title_SystemSI"
+                                                        SelectedValuePath="PersonalNumber_SystemSI"
+                                                        Text="{Binding SystemSITable.Title_SystemSI}"
+                                                        x:Name="pnSystemSIComboBox"
+                                                        Width="190"/>
+                                                </Grid>
+                                            </StackPanel>
                                         </StackPanel>
                                     </StackPanel>
                                 </ScrollViewer>

@@ -348,6 +348,9 @@
     <Compile Include="AppDateFolder\ModelFolder\sysdiagrams.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\SystemSITable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
@@ -463,6 +466,7 @@
     <Resource Include="ContentFolder\FontFolder\Dosis-VariableFont_wght.ttf" />
     <Resource Include="ContentFolder\FontFolder\RubikWetPaint-Regular.ttf" />
     <Resource Include="ContentFolder\FontFolder\DMMono-Medium.ttf" />
+    <Resource Include="ContentFolder\FontFolder\Comfortaa-Bold.ttf" />
     <EntityDeploy Include="AppDateFolder\ModelFolder\DesctopHiteModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DesctopHiteModel.Designer.cs</LastGenOutput>
@@ -470,7 +474,6 @@
     <None Include="AppDateFolder\ModelFolder\DesctopHiteModel.edmx.diagram">
       <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
     </None>
-    <Resource Include="ContentFolder\FontFolder\Comfortaa-Bold.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -527,6 +530,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

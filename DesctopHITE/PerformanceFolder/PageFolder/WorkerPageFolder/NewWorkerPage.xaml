@@ -385,6 +385,7 @@
                                                         </Border.Effect>
                                                     </Border>
                                                     <ComboBox
+                                                        FontSize="15"
                                                         Text="{Binding PassportTable.GenderTable.Title_Gender}"
                                                         x:Name="pnGenderComboBox"
                                                         DisplayMemberPath="Title_Gender"
@@ -1433,6 +1434,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <ComboBox
+                                            FontSize="15"
                                             SelectionChanged="pnRoleWorkerComboBox_SelectionChanged" 
                                             Text="{Binding RoleTable.Name_Role}"
                                             DisplayMemberPath="Name_Role"

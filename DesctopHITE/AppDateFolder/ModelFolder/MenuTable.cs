@@ -14,7 +14,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     
     public partial class MenuTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableEventsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MenuTable()
         {
             this.ChequeTable = new HashSet<ChequeTable>();
@@ -28,9 +28,11 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public int pnMenuCategory_Menu { get; set; }
         public decimal Prise_Menu { get; set; }
         public int Weight_Menu { get; set; }
+        public int pnSystemSI { get; set; }
     
         public virtual ImageMenuTable ImageMenuTable { get; set; }
         public virtual MenuCategoryTable MenuCategoryTable { get; set; }
+        public virtual SystemSITable SystemSITable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChequeTable> ChequeTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

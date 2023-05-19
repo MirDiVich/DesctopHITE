@@ -38,6 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (menuTable != null)
                 {
                     DataContext = menuTable;
+                    personlNumberMenu = menuTable.PersonalNumber_Menu;
                 }
                 else
                 {
@@ -47,6 +48,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
                 pnCategoryMenuComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
+                pnSystemSIComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.SystemSITable.ToList();
                 AllIngredientsListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList();
                 AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
@@ -131,8 +133,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 addEditMenuTable.Name_Menu = NameMenuTextBox.Text;
                 addEditMenuTable.Description_Menu = DescriptionMenuTextBox.Text;
                 addEditMenuTable.pnMenuCategory_Menu = (pnCategoryMenuComboBox.SelectedItem as MenuCategoryTable).PersonalNumber_MenuCategory;
+                addEditMenuTable.pnSystemSI = (pnSystemSIComboBox.SelectedItem as SystemSITable).PersonalNumber_SystemSI;
                 addEditMenuTable.Prise_Menu = Convert.ToDecimal(PriseMenuTextBox.Text);
                 addEditMenuTable.Weight_Menu = Convert.ToInt32(WeightMenuTextBox.Text);
+
+                if (DataContext != null)
+                {
+                    addEditMenuTable.PersonalNumber_Menu = personlNumberMenu;
+                }
 
                 // Работа с фото
                 if (pathImage != "")
@@ -185,7 +193,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 var objectMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
 
                 // Цикл для того, чтоб добавить несколько элементов в таблицу
-                foreach (var ingredient in SelectionIngredientsListListView.Items) 
+                foreach (var ingredient in SelectionIngredientsListListView.Items)
                 {
                     var objectListIngredients = ingredient as IngredientsTable;
                     objectMenu.IngredientsTable.Add(objectListIngredients);
@@ -302,7 +310,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                Regex NumberRegex = new Regex("[^0-9,]");
+                Regex NumberRegex = new Regex("[^0-9]");
                 e.Handled = NumberRegex.IsMatch(e.Text);
             }
             catch (Exception exPriseValidationTextBox)

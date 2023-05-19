@@ -12,18 +12,18 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleTable
+    public partial class SystemSITable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoleTable()
+        public SystemSITable()
         {
-            this.WorkerTable = new HashSet<WorkerTable>();
+            this.MenuTable = new HashSet<MenuTable>();
         }
     
-        public int PersonalNumber_Role { get; set; }
-        public string Name_Role { get; set; }
+        public int PersonalNumber_SystemSI { get; set; }
+        public string Title_SystemSI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerTable> WorkerTable { get; set; }
+        public virtual ICollection<MenuTable> MenuTable { get; set; }
     }
 }

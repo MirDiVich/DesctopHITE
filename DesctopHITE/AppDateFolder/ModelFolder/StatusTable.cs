@@ -14,7 +14,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     
     public partial class StatusTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableEventsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public StatusTable()
         {
             this.WorkerTable = new HashSet<WorkerTable>();

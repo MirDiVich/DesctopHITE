@@ -41,6 +41,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public virtual DbSet<SnilsTable> SnilsTable { get; set; }
         public virtual DbSet<StatusTable> StatusTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<SystemSITable> SystemSITable { get; set; }
         public virtual DbSet<WorkerTable> WorkerTable { get; set; }
     }
 }
