@@ -158,4 +158,24 @@
         </Setter>
     </Style>
 
+    <Style x:Key="NoSelected" TargetType="ListViewItem">
+        <Setter Property="Margin" Value="0 5 0 5"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border 
+                        x:Name="border"
+                        CornerRadius="10"
+                        BorderThickness="2" 
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Border>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

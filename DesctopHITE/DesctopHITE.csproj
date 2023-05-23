@@ -260,6 +260,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\ViewIngridientMenuUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\ViewMenuCategoryUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -359,6 +367,9 @@
     <Compile Include="AppDateFolder\ModelFolder\SystemSITable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ViewMenuCategory.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
@@ -439,6 +450,12 @@
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\MenuControl.xaml.cs">
       <DependentUpon>MenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\ViewIngridientMenuUserControl.xaml.cs">
+      <DependentUpon>ViewIngridientMenuUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\ViewMenuCategoryUserControl.xaml.cs">
+      <DependentUpon>ViewMenuCategoryUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>

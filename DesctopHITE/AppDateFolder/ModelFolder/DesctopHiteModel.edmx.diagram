@@ -5,24 +5,25 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="99c76b34545f4e2485931ad73d121402" Name="Diagram1" DisplayType="true">
-        <EntityTypeShape EntityType="DesctopHiteModel.ChequeTable" Width="2.125" PointX="7.5" PointY="3.5" />
-        <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="2.125" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DesctopHiteModel.ImageMenuTable" Width="2.125" PointX="7.5" PointY="7.125" />
-        <EntityTypeShape EntityType="DesctopHiteModel.ImagePassportTable" Width="2.125" PointX="0.75" PointY="3.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.IngredientsTable" Width="2.125" PointX="7.5" PointY="12" />
-        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="2.125" PointX="3" PointY="15.875" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="2.125" PointX="3" PointY="10.25" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MenuCategoryTable" Width="2.125" PointX="7.5" PointY="14.375" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MenuTable" Width="2.125" PointX="9.75" PointY="2.75" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="2.125" PointX="3" PointY="2.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="2.125" PointX="3" PointY="24.125" />
-        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="2.125" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="2.125" PointX="3" PointY="21" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="2.125" PointX="3" PointY="18.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="2.125" PointX="3" PointY="13.5" />
-        <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="2.125" PointX="9.75" PointY="7.25" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SystemSITable" Width="2.125" PointX="7.5" PointY="9.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.WorkerTable" Width="2.125" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.ChequeTable" Width="1.5" PointX="7.5" PointY="3.5" />
+        <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.ImageMenuTable" Width="1.5" PointX="7.5" PointY="9.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.ImagePassportTable" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.IngredientsTable" Width="1.5" PointX="7.5" PointY="6.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MenuCategoryTable" Width="1.5" PointX="7.5" PointY="11.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MenuTable" Width="1.5" PointX="9.75" PointY="2.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="18.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="22.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="7.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SystemSITable" Width="1.5" PointX="7.5" PointY="14.125" />
+        <EntityTypeShape EntityType="DesctopHiteModel.WorkerTable" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="DesctopHiteModel.ViewMenuCategory" Width="1.5" PointX="9.75" PointY="10.25" />
         <AssociationConnector Association="DesctopHiteModel.FK_ChequeTable_WorkerTable" />
         <AssociationConnector Association="DesctopHiteModel.FK_PassportTable_GenderTable" />
         <AssociationConnector Association="DesctopHiteModel.FK_MenuTable_ImageMenuTable" />
