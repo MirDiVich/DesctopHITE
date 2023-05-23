@@ -125,7 +125,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 GeneralInformationToggleButton.IsChecked = true;
                 GeneralInformationToggleButton.IsEnabled = false;
 
-                //FrameNavigationClass.bodyMenu_FNC.Navigate(new ());
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new GeneralInformationMenuPage());
             }
             catch (Exception exGeneralInformationToggleButton_Click)
             {
