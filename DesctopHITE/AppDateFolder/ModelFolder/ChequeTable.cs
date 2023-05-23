@@ -21,9 +21,9 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         }
     
         public int PersonalNumber_Cheque { get; set; }
-        public Nullable<System.DateTime> DataTime_Cheque { get; set; }
+        public System.DateTime DataTime_Cheque { get; set; }
         public string pnCash_Cheque { get; set; }
-        public Nullable<int> pnWorker_Cheque { get; set; }
+        public int pnWorker_Cheque { get; set; }
     
         public virtual WorkerTable WorkerTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

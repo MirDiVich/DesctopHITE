@@ -7,7 +7,7 @@
     <Style TargetType="Hyperlink" x:Key="Hyperlink">
         <Setter Property="TextDecorations" Value="Underline"/>
         <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
         <Setter Property="FontSize" Value="20"/>
     </Style>
     

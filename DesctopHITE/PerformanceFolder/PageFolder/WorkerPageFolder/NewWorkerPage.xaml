@@ -60,7 +60,7 @@
                 <Border 
                     x:Name="PassportBorder" 
                     Style="{DynamicResource BorderInformation}"
-                    Margin="0 0 0 10">
+                    Margin="0 10 0 10">
                     <Grid>
                         <Border Style="{DynamicResource NeonBorder}">
                             <Border.Effect>
@@ -71,7 +71,7 @@
                                     BlurRadius="25"/>
                             </Border.Effect>
                         </Border>
-                        <StackPanel Margin="10">
+                        <StackPanel Margin="20">
                             <TextBlock
                                 Foreground="#462AD8"
                                 Text="Паспорт"
@@ -276,7 +276,7 @@
                                                 x:Name="NewPhotoButton"
                                                 Click="NewPhotoButton_Click">
                                                 <TextBlock
-                                                    Text="Загрузить изображение"
+                                                    Text="Загрузить"
                                                     TextWrapping="Wrap"
                                                     TextAlignment="Center"/>
                                             </Button>
@@ -468,7 +468,7 @@
                                     BlurRadius="25"/>
                             </Border.Effect>
                         </Border>
-                        <Grid Margin="10">
+                        <Grid Margin="20">
                             <StackPanel 
                                 Orientation="Vertical"
                                 VerticalAlignment="Center"
@@ -688,7 +688,7 @@
                             </Border.Effect>
                         </Border>
                         <StackPanel 
-                            Margin="10"
+                            Margin="20"
                             Orientation="Vertical"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
@@ -903,7 +903,7 @@
                         </Border>
                         <StackPanel 
                             Orientation="Vertical"
-                            Margin="10"
+                            Margin="20"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -984,7 +984,7 @@
                         </Border>
                         <StackPanel 
                             Orientation="Vertical"
-                            Margin="10" 
+                            Margin="20" 
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -1130,7 +1130,7 @@
                             </Border.Effect>
                         </Border>
                         <StackPanel 
-                            Margin="10"
+                            Margin="20"
                             Orientation="Vertical"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
@@ -1353,7 +1353,7 @@
                             Orientation="Vertical"
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Center" 
-                            Margin="10">
+                            Margin="20">
                             <TextBlock
                                 Foreground="#462AD8"
                                 Text="Общая информация"

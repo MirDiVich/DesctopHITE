@@ -248,7 +248,7 @@
                                             x:Name="NewMenuImageButton"
                                             Click="NewMenuImageButton_Click">
                                             <TextBlock
-                                                Text="Загрузить изображение"
+                                                Text="Загрузить"
                                                 TextWrapping="Wrap"
                                                 TextAlignment="Center"/>
                                         </Button>

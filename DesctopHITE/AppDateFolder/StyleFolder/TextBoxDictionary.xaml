@@ -13,7 +13,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="10 0 10 0"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Height" Value="45"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

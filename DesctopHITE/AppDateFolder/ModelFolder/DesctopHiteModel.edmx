@@ -10,9 +10,9 @@
             <PropertyRef Name="PersonalNumber_Cheque" />
           </Key>
           <Property Name="PersonalNumber_Cheque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DataTime_Cheque" Type="datetime" />
-          <Property Name="pnCash_Cheque" Type="nvarchar" MaxLength="50" />
-          <Property Name="pnWorker_Cheque" Type="int" />
+          <Property Name="DataTime_Cheque" Type="datetime" Nullable="false" />
+          <Property Name="pnCash_Cheque" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pnWorker_Cheque" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderTable">
           <Key>
@@ -42,7 +42,7 @@
             <PropertyRef Name="PersonalNumber_Ingredients" />
           </Key>
           <Property Name="PersonalNumber_Ingredients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name_Ingredients" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Ingredients" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="INNTable">
           <Key>
@@ -203,7 +203,7 @@
           <Property Name="AddpnWorker_Worker" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_ChequeTable_WorkerTable">
-          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="0..1" />
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="1" />
           <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="WorkerTable">
@@ -251,7 +251,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MTM_ChequeMenu_ChequeTable">
-          <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="1" />
+          <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChequeTable">
@@ -263,7 +265,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MTM_ChequeMenu_MenuTable">
-          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1" />
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MenuTable">
@@ -275,7 +279,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MTM_MenuIngredients_IngredientsTable">
-          <End Role="IngredientsTable" Type="Self.IngredientsTable" Multiplicity="1" />
+          <End Role="IngredientsTable" Type="Self.IngredientsTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MTM_MenuIngredients" Type="Self.MTM_MenuIngredients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="IngredientsTable">
@@ -287,7 +293,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MTM_MenuIngredients_MenuTable">
-          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1" />
+          <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MTM_MenuIngredients" Type="Self.MTM_MenuIngredients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MenuTable">
@@ -607,9 +615,9 @@
             <PropertyRef Name="PersonalNumber_Cheque" />
           </Key>
           <Property Name="PersonalNumber_Cheque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DataTime_Cheque" Type="DateTime" Precision="3" />
-          <Property Name="pnCash_Cheque" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pnWorker_Cheque" Type="Int32" />
+          <Property Name="DataTime_Cheque" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pnCash_Cheque" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pnWorker_Cheque" Type="Int32" Nullable="false" />
           <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_ChequeTable_WorkerTable" FromRole="ChequeTable" ToRole="WorkerTable" />
           <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.MTM_ChequeMenu" FromRole="ChequeTable" ToRole="MenuTable" />
         </EntityType>
@@ -644,7 +652,7 @@
             <PropertyRef Name="PersonalNumber_Ingredients" />
           </Key>
           <Property Name="PersonalNumber_Ingredients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name_Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Ingredients" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.MTM_MenuIngredients" FromRole="IngredientsTable" ToRole="MenuTable" />
         </EntityType>
         <EntityType Name="INNTable">
@@ -816,7 +824,7 @@
           <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
         <Association Name="FK_ChequeTable_WorkerTable">
-          <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="0..1" />
+          <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="WorkerTable">

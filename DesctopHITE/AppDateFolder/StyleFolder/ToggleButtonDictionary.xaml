@@ -9,7 +9,7 @@
         <Setter Property="Foreground" Value="#9a9a9a"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Width" Value="246"/>
         <Setter Property="Height" Value="70"/>
@@ -40,7 +40,10 @@
     </Style>
 
     <Style x:Key="OtherMenuToggleButtonStyle" TargetType="ToggleButton" BasedOn="{StaticResource MainMenuToggleButtonStyle}">
-        <Setter Property="Margin" Value="1.5 0 1.5 0"/>
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="MaxWidth" Value="300"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Margin" Value="15 0 15 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -66,7 +69,7 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#462AD8"/>
         <Setter Property="Foreground" Value="#f5f5f5"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
@@ -79,13 +82,13 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#3e25c0"/>
+                            <Setter Property="Background" Value="#5036da"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Background" Value="#2e1c90"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.5"/>
+                            <Setter Property="Background" Value="#3C2FAE"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

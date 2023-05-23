@@ -17,6 +17,7 @@
 
     <Style x:Key="ParentMenuItem" TargetType="MenuItem">
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">

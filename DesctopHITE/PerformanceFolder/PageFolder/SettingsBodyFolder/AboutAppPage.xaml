@@ -310,6 +310,7 @@
             x:Name="TitleTextTextBlock"
             TextWrapping="Wrap"
             Width="520"
+            TextAlignment="Left"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Margin="10"

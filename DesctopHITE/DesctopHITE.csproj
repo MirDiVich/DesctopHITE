@@ -481,6 +481,7 @@
     <None Include="AppDateFolder\ModelFolder\DesctopHiteModel.edmx.diagram">
       <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
     </None>
+    <Resource Include="ContentFolder\FontFolder\Jura-Bold.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

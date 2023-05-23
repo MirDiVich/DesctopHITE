@@ -6,7 +6,7 @@
     
     <Style x:Key="ControlPanelTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#f5f5f5"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Comfortaa"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
