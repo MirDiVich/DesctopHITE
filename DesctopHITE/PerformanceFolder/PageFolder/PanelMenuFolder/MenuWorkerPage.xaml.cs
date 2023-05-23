@@ -140,7 +140,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             catch (Exception exEventIsEnabledToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие IsEventEnabledToggleButton в MenuWorkerPage:\n\n " +
+                       textMessage: $"Событие EventIsEnabledToggleButton в MenuWorkerPage:\n\n " +
                        $"{exEventIsEnabledToggleButton.Message}");
             }
         }

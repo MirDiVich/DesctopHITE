@@ -43,7 +43,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 
         private void ListMenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception exListMenuListView_SelectionChanged)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                    textMessage: $"Событие ListMenuListView_SelectionChanged в MenuCashPage:\n\n " +
+                    $"{exListMenuListView_SelectionChanged.Message}");
+            }
         }
     }
 }

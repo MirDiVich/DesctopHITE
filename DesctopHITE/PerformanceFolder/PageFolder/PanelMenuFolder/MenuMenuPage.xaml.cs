@@ -28,29 +28,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
 
-        private void IngridientsMenuToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (Visibility == Visibility.Visible)
-                {
-                    EventIsCheckedToggleButton();
-                    EventIsEnabledToggleButton();
-
-                    IngridientsMenuToggleButton.IsChecked = true;
-                    IngridientsMenuToggleButton.IsEnabled = false;
-
-                    FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
-                }
-            }
-            catch (Exception exPage_IsVisibleChanged)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие IngridientsMenuToggleButton_Click в MenuMenuPage:\n\n " +
-                       $"{exPage_IsVisibleChanged.Message}");
-            }
-        }
-
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             try
@@ -107,11 +84,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new ListMenuPage());
             }
-            catch (Exception exListMenuToggleButton)
+            catch (Exception exListMenuToggleButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие ListMenuToggleButton_Click в MenuMenuPage:\n\n " +
-                       $"{exListMenuToggleButton.Message}");
+                       $"{exListMenuToggleButton_Click.Message}");
+            }
+        }
+
+        private void IngridientsMenuToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Visibility == Visibility.Visible)
+                {
+                    EventIsCheckedToggleButton();
+                    EventIsEnabledToggleButton();
+
+                    IngridientsMenuToggleButton.IsChecked = true;
+                    IngridientsMenuToggleButton.IsEnabled = false;
+
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
+                }
+            }
+            catch (Exception exIngridientsMenuToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие IngridientsMenuToggleButton_Click в MenuMenuPage:\n\n " +
+                       $"{exIngridientsMenuToggleButton_Click.Message}");
             }
         }
 
@@ -148,7 +148,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             catch (Exception exEventIsCheckedToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsCheckedToggleButton в MenuSettingsPage:\n\n " +
+                       textMessage: $"Событие EventIsCheckedToggleButton в MenuMenuPage:\n\n " +
                        $"{exEventIsCheckedToggleButton.Message}");
             }
         }
@@ -164,7 +164,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             catch (Exception exEventIsEnabledToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsEnabledToggleButton в MenuSettingsPage:\n\n " +
+                       textMessage: $"Событие EventIsEnabledToggleButton в MenuMenuPage:\n\n " +
                        $"{exEventIsEnabledToggleButton.Message}");
             }
         }
