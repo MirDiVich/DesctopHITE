@@ -276,11 +276,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     quantityNoInputs++;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exEventAuthorizationUser)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                     textMessage: $"Событие EventAuthorizationUser в AuthorizationWindow:\n\n " +
-                    $"{ex.Message}");
+                    $"{exEventAuthorizationUser.Message}");
             }
             finally
             {
