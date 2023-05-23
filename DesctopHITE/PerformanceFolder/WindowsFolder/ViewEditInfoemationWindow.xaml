@@ -21,13 +21,13 @@
                 Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="430"/>
+                    <ColumnDefinition Width="910"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
                     HorizontalAlignment="Center"
                     Grid.Column="1"
-                    Points="0,0, 30,15, 400,15, 430,0" 
+                    Points="0,0, 30,15, 880,15, 910,0" 
                     x:Name="PoligonName"
                     Fill="#2a2a2a"
                     Opacity="1">
@@ -44,7 +44,7 @@
                 <TextBlock
                     Grid.Column="0"
                     Style="{DynamicResource ControlPanelTextBlockStyle}"
-                    Text="ПРОСМОТР ИЛИ РЕДАКТИРОВАНИЕ ИНФОРМАЦИИ"/>
+                    Text="УПРАВЛЕНИЕ"/>
                 <StackPanel Grid.Column="2" Style="{DynamicResource ControlPanelStackPanelStyle}">
                     <Button 
                         Style="{DynamicResource RollupControlButton}" 

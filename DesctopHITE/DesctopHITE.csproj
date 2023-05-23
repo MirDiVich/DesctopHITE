@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\GeneralInformationMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListIngridientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -357,6 +361,9 @@
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\GeneralInformationMenuPage.xaml.cs">
+      <DependentUpon>GeneralInformationMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListIngridientPage.xaml.cs">
       <DependentUpon>ListIngridientPage.xaml</DependentUpon>
