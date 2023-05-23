@@ -151,27 +151,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void ActionMenuItem(object sender, RoutedEventArgs e)
-        {
-            EventViewDataWorker();
-        }
-
-        private void ActionEditWorker(object sender, RoutedEventArgs e) // Открытия страницы для возможности редактирования информации об сотруднике
-        {
-            EventEditWorker();
-        }
-
-        private void ActionDeliteWorker(object sender, RoutedEventArgs e) // Реализация удаления сотрудника
-        {
-            EventDeleteWorker();
-        }
+        private void ActionMenuItem(object sender, RoutedEventArgs e) { EventViewDataWorker(); }
+        private void ActionEditWorker(object sender, RoutedEventArgs e) { EventEditWorker(); } // Открытия страницы для возможности редактирования информации об сотруднике 
+        private void ActionDeliteWorker(object sender, RoutedEventArgs e) { EventDeleteWorker(); } // Реализация удаления сотрудника
         #endregion
         #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Переход к странице с информацией об сотруднике
-        {
-            EventViewDataWorker();
-        }
-
+        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventViewDataWorker(); } // Переход к странице с информацией об сотруднике
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
             try

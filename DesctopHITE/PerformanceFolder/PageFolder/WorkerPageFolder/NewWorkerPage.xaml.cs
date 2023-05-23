@@ -529,17 +529,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessadeSaveDataWorker = $"Сотрудник {addPassport.Surname_Passport} {addPassport.Name_Passport} добавлен в базу данных";
                 }
 
-                MessageBox.Show(
-                        MessadeSaveDataWorker, "Сохранение",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBoxClass.GoodMessageBox_MBC(titleMessage: MessadeSaveDataWorker);
                 EventClearText();
             }
-            catch (Exception exAddDataconnectDataBase_ACC)
+            catch (Exception exEventAddDataWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие AddDataconnectDataBase_ACC в NewWorkerPage:\n\n " +
-                         $"{exAddDataconnectDataBase_ACC.Message}");
+                         textMessage: $"Событие EventAddDataWorker в NewWorkerPage:\n\n " +
+                         $"{exEventAddDataWorker.Message}");
             }
         }
 
@@ -557,11 +554,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
                 }
             }
-            catch (Exception exClearText)
+            catch (Exception exEventClearText)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие ClearText в NewWorkerPage:\n\n " +
-                         $"{exClearText.Message}");
+                         textMessage: $"Событие EventClearText в NewWorkerPage:\n\n " +
+                         $"{exEventClearText.Message}");
             }
         }
         #endregion
@@ -687,7 +684,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     LoginWorkerTextBox.IsEnabled = true;
                 }
             }
-            catch ( Exception expnRoleWorkerComboBox_SelectionChanged)
+            catch (Exception expnRoleWorkerComboBox_SelectionChanged)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                          textMessage: $"Событие pnRoleWorkerComboBox_SelectionChanged в NewWorkerPage:\n\n " +
