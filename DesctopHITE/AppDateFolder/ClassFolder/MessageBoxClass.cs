@@ -16,7 +16,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public static void GoodMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Error Exception")
+        public static void GoodMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Fine")
         {
             MessageBox.Show(
                 textMessage, titleMessage,

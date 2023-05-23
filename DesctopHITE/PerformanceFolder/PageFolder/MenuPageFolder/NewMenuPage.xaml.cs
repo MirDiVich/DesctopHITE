@@ -7,6 +7,7 @@ using DesctopHITE.AppDateFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 {
                     DataContext = menuTable;
                     personlNumberMenu = menuTable.PersonalNumber_Menu;
+
+                    AppConnectClass.connectDataBase_ACC.MenuTable.Include(ingredients => ingredients.IngredientsTable).Load();
+                    var ingredientsMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu).IngredientsTable;
+
+                    SelectionIngredientsListListView.Items.Refresh();
+                    SelectionIngredientsListListView.ItemsSource = ingredientsMenu.ToList();
                 }
                 else
                 {
@@ -70,9 +77,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 if (messageNull != "")
                 {
-                    MessageBox.Show(
-                           messageNull, "Ошибка добавления нового блюда",
-                           MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: $"Ошибка добавления нового блюда\n\n{messageNull}");
                 }
                 else
                 {
@@ -81,9 +86,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                     if (messageValidData != "")
                     {
-                        MessageBox.Show(
-                               messageValidData, "Ошибка добавления нового блюда",
-                               MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBoxClass.FailureMessageBox_MBC(textMessage: $"Ошибка добавления нового блюда\n\n{messageValidData}");
                     }
                     else
                     {
@@ -202,10 +205,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 var nameMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
-                MessageBox.Show(
-                    $"{nameMenu.Name_Menu} успешно добавленно", "Уведомление о добавлении",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBoxClass.GoodMessageBox_MBC(textMessage: $"{nameMenu.Name_Menu} успешно добавлено");
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
             }
             catch (Exception exEventSelectedIngredients)
@@ -231,7 +231,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (pnCategoryMenuComboBox.Text == "") messageValidData += "'Категория' не выбрана\n";
                 if (PriseMenuTextBox.Text.Length <= 1) messageValidData += "'Стоимость' не может быть меньше или быть равным 1 символу\n";
                 if (WeightMenuTextBox.Text.Length <= 1) messageValidData += "'Вес (грамм)' не может быть меньше или быть равным 1 символу\n";
-                if (SelectionIngredientsListListView.Items.Count == 0) messageValidData += "'Ингредиенты' должны быть";
             }
             catch (Exception exEventMessageNull)
             {

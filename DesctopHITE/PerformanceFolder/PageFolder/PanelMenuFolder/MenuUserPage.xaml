@@ -63,11 +63,11 @@
             </ToggleButton>
         </StackPanel>
         <Border
-            Margin="0 0 0 5"
-            CornerRadius="10"
+            Margin="0 0 0 0"
+            CornerRadius="0 10 0 10"
             Background="#202020"
             Height="70"
-            Width="270"
+            Width="279"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center">
             <StackPanel

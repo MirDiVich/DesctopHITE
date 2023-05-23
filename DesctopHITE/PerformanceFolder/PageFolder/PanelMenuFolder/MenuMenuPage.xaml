@@ -19,6 +19,11 @@
             Content="МЕНЮ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            Click="IngridientsMenuToggleButton_Click"
+            x:Name="IngridientsMenuToggleButton"
+            Content="ИНГРИДИЕНТЫ"
+            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
+        <ToggleButton
             Click="GeneralInformationToggleButton_Click"
             x:Name="GeneralInformationToggleButton"
             Content="ОБЩЕЯ ИНФОРМАЦИЯ"

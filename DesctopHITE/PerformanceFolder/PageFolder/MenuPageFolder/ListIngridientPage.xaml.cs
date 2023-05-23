@@ -10,7 +10,6 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -20,22 +19,22 @@ using System.Windows.Input;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
-    public partial class ListMenuPage : Page
+    public partial class ListIngridientPage : Page
     {
-        MenuTable getMenuTable;
+        IngredientsTable getIngredientsTable;
 
-        public ListMenuPage()
+        public ListIngridientPage()
         {
             try
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
-            catch (Exception exListMenuPage)
+            catch (Exception exListIngridientPage)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие ListMenuPage в ListMenuPage:\n\n " +
-                        $"{exListMenuPage.Message}");
+                        textMessage: $"Событие ListIngridientPage в ListIngridientPage:\n\n " +
+                        $"{exListIngridientPage.Message}");
             }
         }
 
@@ -43,28 +42,29 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                if(Visibility == Visibility.Visible)
+                if (Visibility == Visibility.Visible)
                 {
                     EditButton.IsEnabled = false;
                     DeliteButton.IsEnabled = false;
 
-                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
-                    ListMenuListView.Items.SortDescriptions.Add(new SortDescription("PersonalNumber_Menu", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
+                    IngridientListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList();
+                    IngridientListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие Page_IsVisibleChanged в ListMenuPage:\n\n " +
+                        textMessage: $"Событие Page_IsVisibleChanged в ListIngridientPage:\n\n " +
                         $"{exPage_IsVisibleChanged.Message}");
             }
         }
+
         #region Event
-        private void EventViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации об сотруднике
+        private void EventViewDataIngredients(object sender, RoutedEventArgs e) // Просмотр информации об сотруднике
         {
             try
             {
-                if (getMenuTable != null)
+                if (getIngredientsTable != null)
                 {
                     //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
                     //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
@@ -72,61 +72,59 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Сотрудник не выбран", "Ошибка - E001",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
                 }
             }
-            catch (Exception exEventViewDataMenu)
+            catch (Exception exEventViewDataIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventViewDataMenu в ListMenuPage:\n\n " +
-                        $"{exEventViewDataMenu.Message}");
+                        textMessage: $"Событие EventViewDataIngredients в ListIngridientPage:\n\n " +
+                        $"{exEventViewDataIngredients.Message}");
             }
         }
 
-        private void EventEditMunu(object sender, RoutedEventArgs e) // Редактирование информации
+        private void EventEditIngredients(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
-                if (getMenuTable != null)
+                if (getIngredientsTable != null)
                 {
-                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getMenuTable));
-                    viewEditInfoemationWindow.ShowDialog();
+                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
+                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getIngredientsTable));
+                    //viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Меню не выбрано");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
                 }
             }
-            catch (Exception exEventEditMunu)
+            catch (Exception exEventEditIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventEditMunu в ListMenuPage:\n\n " +
-                        $"{exEventEditMunu.Message}");
+                        textMessage: $"Событие EventEditIngredients в ListIngridientPage:\n\n " +
+                        $"{exEventEditIngredients.Message}");
             }
         }
 
-        private void EventDeleteMenu(object sender, RoutedEventArgs e) // Удаление информации
+        private void EventDeleteIngredients(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
-                if (getMenuTable != null)
+                if (getIngredientsTable != null)
                 {
                     //DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(getMenuTable);
                     //deliteWorkerWindow.ShowDialog();
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Меню не выбрано");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
                 }
             }
-            catch (Exception exEventDeleteMenu)
+            catch (Exception exEventDeleteIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDeleteMenu в ListMenuPage:\n\n " +
-                        $"{exEventDeleteMenu.Message}");
+                        textMessage: $"Событие EventDeleteIngredients в ListIngridientPage:\n\n " +
+                        $"{exEventDeleteIngredients.Message}");
             }
         }
         #endregion
@@ -135,28 +133,29 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                if (SearchTextBox.Text == "") // Если SearchTextBox пустой
+                if (SearchTextBox.Text == null) // Если SearchTextBox пустой
                 {
                     HintSearchTextBlock.Visibility = Visibility.Visible;
-                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
+                    IngridientListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
                 }
                 else // Если же в SearchTextBox есть что-то то:
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.connectDataBase_ACC.MenuTable.ToList(); //Получаем лист объектов из таблицы MenuTable
+                    var Objects = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList(); //Получаем лист объектов из таблицы MenuTable
 
-                    var SearchResults = Objects.Where(nameMunu => // Делаем поиск из полученного списка
-                        nameMunu.Name_Menu.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Name_Menu из таблицы MenuTable по похожему контенту в SearchTextBox
+                    var SearchResults = Objects.Where(nameIngredientsu => // Делаем поиск из полученного списка
+                        nameIngredientsu.Name_Ingredients.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Name_Menu из таблицы MenuTable по похожему контенту в SearchTextBox
 
-                    ListMenuListView.ItemsSource = SearchResults.ToList();
+                    IngridientListListView.ItemsSource = SearchResults.ToList();
                 }
 
                 // Если пользователь делает поиск и в результате поиска ничего не нашлось то появляется сообщение о неудачном поиске "чтоб пользователь не думал, что приложение сломалось"
-                if (SearchTextBox.Text != null && ListMenuListView.Items.Count == 0)
+                if (SearchTextBox.Text != null && IngridientListListView.Items.Count == 0)
                 {
                     HintSearchNullElementsTextBlock.Visibility = Visibility.Visible;
-                    HintSearchNullElementsTextBlock.Text = $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
+                    HintSearchNullElementsTextBlock.Text =
+                        $"По запросу '{SearchTextBox.Text}' не удалось ничего найти...";
                 }
                 else
                 {
@@ -167,39 +166,39 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exSearchTextBox_SelectionChanged)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие SearchTextBox_SelectionChanged в ListMenuPage:\n\n " +
+                        textMessage: $"Событие SearchTextBox_SelectionChanged в ListIngridientPage:\n\n " +
                         $"{exSearchTextBox_SelectionChanged.Message}");
             }
         }
 
-        private void ListMenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void IngridientListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                getMenuTable = (MenuTable)ListMenuListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+                getIngredientsTable = (IngredientsTable)IngridientListListView.SelectedItem; // Получаем информацию об выбранном сотруднике
                 EditButton.IsEnabled = true;
                 DeliteButton.IsEnabled = true;
             }
-            catch (Exception exListMenuListView_SelectionChanged)
+            catch (Exception exIngridientListListView_SelectionChanged)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие ListMenuListView_SelectionChanged в ListWorkerPage:\n\n " +
-                        $"{exListMenuListView_SelectionChanged.Message}");
+                        textMessage: $"Событие IngridientListListView_SelectionChanged в ListIngridientPage:\n\n " +
+                        $"{exIngridientListListView_SelectionChanged.Message}");
             }
         }
         #endregion
 
-        private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void IngridientListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
-
+                
             }
-            catch (Exception exListMenuListView_MouseDoubleClick)
+            catch (Exception exIngridientListListView_MouseDoubleClick)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие ListMenuListView_MouseDoubleClick в ListWorkerPage:\n\n " +
-                        $"{exListMenuListView_MouseDoubleClick.Message}");
+                        textMessage: $"Событие IngridientListListView_MouseDoubleClick в ListIngridientPage:\n\n " +
+                        $"{exIngridientListListView_MouseDoubleClick.Message}");
             }
         }
     }

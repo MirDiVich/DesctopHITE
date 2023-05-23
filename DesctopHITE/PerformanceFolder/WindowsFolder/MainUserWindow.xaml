@@ -47,11 +47,10 @@
                 <StackPanel
                     Grid.Column="2"
                     Style="{DynamicResource ControlPanelStackPanelStyle}">
-                    <Menu Style="{DynamicResource MenuButton}">
+                    <Menu Style="{DynamicResource Menu}">
                         <MenuItem 
-                            Style="{DynamicResource ParentMenuItem}"
-                            Width="30" 
-                            Height="30" 
+                            Padding="8 0 0 0"
+                            Style="{DynamicResource MenuButton}"
                             Header="&#xf1af;">
                             <MenuItem
                                 Style="{DynamicResource ParentMenuItem}"
