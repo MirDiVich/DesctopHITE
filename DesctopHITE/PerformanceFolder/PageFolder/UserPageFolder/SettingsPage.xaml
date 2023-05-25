@@ -14,11 +14,9 @@
         </Grid.RowDefinitions>
         <Frame
             Grid.Row="0"
-            NavigationUIVisibility="Hidden"
             x:Name="MenuSettingsFrame"/>
         <Frame
             Grid.Row="1"
-            NavigationUIVisibility="Hidden"
             x:Name="BodySettingsFrame"/>
     </Grid>
 </Page>

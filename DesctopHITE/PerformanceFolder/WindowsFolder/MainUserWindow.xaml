@@ -81,11 +81,9 @@
                 </Grid.ColumnDefinitions>
                 <Frame 
                     x:Name="MenuFrame"
-                    NavigationUIVisibility="Hidden"
                     Grid.Column="0"/>
                 <Frame 
                     x:Name="MainFrame"
-                    NavigationUIVisibility="Hidden"
                     Grid.Column="1"/>
             </Grid>
         </Grid>

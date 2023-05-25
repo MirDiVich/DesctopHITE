@@ -57,9 +57,7 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
-                <Frame
-                    x:Name="ViewEditInformationFrame"
-                    NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="ViewEditInformationFrame"/>
             </Grid>
         </Grid>
     </Border>

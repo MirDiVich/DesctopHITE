@@ -3,6 +3,7 @@ using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 EventAveragePeise();
                 EventMaxsimazePeise();
                 EventGeneralPeise();
-                //ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
+                ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
+
+                AppConnectClass.connectDataBase_ACC.IngredientsTable.Include(c => c.MenuTable).Load();
+                var rr = AppConnectClass.connectDataBase_ACC.IngredientsTable;
                 //ViewMenuIngridientListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewIngridientMenu.ToList();
             }
             catch (Exception exGeneralInformationMenuPage)

@@ -7,22 +7,27 @@
     <Style x:Key="MenuUserPageStyle" TargetType="Page"> <!--Меню слева у пользователя-->
         <Setter Property="Width" Value="279"/>
         <Setter Property="Height" Value="870"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style x:Key="MenuCashPageStyle" TargetType="Page"><!--Меню слева у кассы-->
         <Setter Property="Width" Value="500"/>
         <Setter Property="Height" Value="1078"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style x:Key="MainUserPageStyle" TargetType="Page"> <!--Пространство взаимодействия-->
         <Setter Property="Width" Value="1321"/>
         <Setter Property="Height" Value="870"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style x:Key="MenuSpacePageStyle" TargetType="Page"> <!--Меню в пространстве взаимодействия-->
         <Setter Property="Width" Value="1321"/>
         <Setter Property="Height" Value="80"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style x:Key="BodySpacePageStyle" TargetType="Page"> <!--Тело в пространстве взаимодействия-->
         <Setter Property="Width" Value="1321"/>
         <Setter Property="Height" Value="790"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     
 </ResourceDictionary>
