@@ -542,7 +542,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessadeSaveDataWorker = $"Сотрудник {addPassport.Surname_Passport} {addPassport.Name_Passport} добавлен в базу данных";
                 }
 
-                MessageBoxClass.GoodMessageBox_MBC(titleMessage: MessadeSaveDataWorker);
+                MessageBoxClass.GoodMessageBox_MBC(textMessage: MessadeSaveDataWorker);
                 EventClearText();
             }
             catch (Exception exEventAddDataWorker)

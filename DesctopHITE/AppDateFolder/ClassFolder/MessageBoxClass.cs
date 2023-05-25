@@ -3,30 +3,31 @@
 ///     но только присваивать ему своё сообщение.
 ///----------------------------------------------------------------------------------------------------------
 
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Windows;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public class MessageBoxClass
     {
-        public static void ExceptionMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Error Exception")
+        public static void ExceptionMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string TopRow = "Error Exception")
         {
             MessageBox.Show(
-                textMessage, titleMessage,
+                textMessage, TopRow,
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public static void GoodMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Fine")
+        public static void GoodMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string TopRow = "Fine")
         {
             MessageBox.Show(
-                textMessage, titleMessage,
+                textMessage, TopRow,
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        public static void FailureMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string titleMessage = "Неудача")
+        public static void FailureMessageBox_MBC(string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", string TopRow = "Неудача")
         {
             MessageBox.Show(
-                textMessage, titleMessage,
+                textMessage, TopRow,
                 MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }

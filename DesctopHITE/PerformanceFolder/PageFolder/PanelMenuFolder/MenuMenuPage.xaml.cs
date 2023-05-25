@@ -102,7 +102,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 CategoryMenuToggleButton.IsChecked = true;
                 CategoryMenuToggleButton.IsEnabled = false;
 
-                //FrameNavigationClass.bodyMenu_FNC.Navigate(new GeneralInformationMenuPage());
+               FrameNavigationClass.bodyMenu_FNC.Navigate(new ListCategoryPage());
             }
             catch (Exception exGeneralInformationToggleButton_Click)
             {

@@ -72,7 +72,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(titleMessage:"Сотрудник не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage:"Сотрудник не выбран");
                 }
             }
             catch (Exception exEventViewDataWorker)
@@ -93,7 +93,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(titleMessage: "Сотрудник не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Сотрудник не выбран");
                 }
             }
             catch (Exception exEventEditWorker)
@@ -115,7 +115,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(titleMessage: "Сотрудник не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Сотрудник не выбран");
                 }
             }
             catch (Exception exEventDeleteWorker)

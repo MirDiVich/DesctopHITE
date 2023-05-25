@@ -92,7 +92,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 if (personalNumberWorker == 0)
                 {
-                    MessageBoxClass.FailureMessageBox_MBC( titleMessage: "Сотрудник не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC( textMessage: "Сотрудник не выбран");
                 }
                 else { EventDeliteWorker(); }
             }
@@ -131,7 +131,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     dataDelitWorker.SaveChanges();
 
                     string MessageTitleDelit = "Сотрудник " + SurnameNameWorker + " удалён";
-                    MessageBoxClass.GoodMessageBox_MBC(titleMessage: MessageTitleDelit);
+                    MessageBoxClass.GoodMessageBox_MBC(textMessage: MessageTitleDelit);
 
                     this.Close();
                 }

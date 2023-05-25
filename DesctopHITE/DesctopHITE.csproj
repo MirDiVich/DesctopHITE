@@ -163,11 +163,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListCategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListIngridientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\NewIngredientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\PageFolder\WorkerPageFolder\ViewInformationWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\CategoryUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -379,11 +391,17 @@
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\GeneralInformationMenuPage.xaml.cs">
       <DependentUpon>GeneralInformationMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListCategoryPage.xaml.cs">
+      <DependentUpon>ListCategoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListIngridientPage.xaml.cs">
       <DependentUpon>ListIngridientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml.cs">
       <DependentUpon>ListMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewIngredientsPage.xaml.cs">
+      <DependentUpon>NewIngredientsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml.cs">
       <DependentUpon>NewMenuPage.xaml</DependentUpon>
@@ -441,6 +459,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\WorkerPageFolder\ViewInformationWorkerPage.xaml.cs">
       <DependentUpon>ViewInformationWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\CategoryUserControl.xaml.cs">
+      <DependentUpon>CategoryUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\IngredientsMenuControl.xaml.cs">
       <DependentUpon>IngredientsMenuControl.xaml</DependentUpon>
