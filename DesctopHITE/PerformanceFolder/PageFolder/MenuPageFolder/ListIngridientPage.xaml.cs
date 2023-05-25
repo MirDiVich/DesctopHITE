@@ -199,6 +199,24 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exNewIngredientsButton_Click.Message}");
             }
         }
+
+        private void KeyboardShortcuts(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (getIngredientsTable != null)
+                {
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditIngredients(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteIngredients(this, e); }
+                }
+            }
+            catch (Exception exKeyboardShortcuts)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
+                       $"{exKeyboardShortcuts.Message}");
+            }
+        }
         #endregion
     }
 }

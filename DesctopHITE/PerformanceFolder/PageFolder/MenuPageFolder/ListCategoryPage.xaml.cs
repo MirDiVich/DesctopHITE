@@ -5,7 +5,7 @@
 ///     1. Найти через поиск;
 ///     2. Просмотреть подробную информацию;
 ///     3. Отредактировать информацию;
-///     4. Удалить ингредиент.
+///     4. Удалить Категория.
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
@@ -47,7 +47,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     DeliteButton.IsEnabled = false;
 
                     CategoryListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
-                    CategoryListListView.Items.SortDescriptions.Add(new SortDescription("Title_MenuCategory", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
+                    CategoryListListView.Items.SortDescriptions.Add(new SortDescription("Title_MenuCategory", ListSortDirection.Ascending)); // Сортируем выведенную информацию в алфавитном порядке (Сортировка происходит по атрибуту "Title_MenuCategory");
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -69,7 +69,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Категория не выбрана");
                 }
             }
             catch (Exception exEventEditCategory)
@@ -94,12 +94,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                         MessageBoxClass.GoodMessageBox_MBC(textMessage: $"Вы удалили {getMenuCategoryTable.Title_MenuCategory}");
-                        FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
+                        FrameNavigationClass.bodyMenu_FNC.Navigate(new ListCategoryPage());
                     }
                 }
                 else
                 {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Категория не выбрана");
                 }
             }
             catch (Exception exEventDeleteCategory)
@@ -161,11 +161,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 EditButton.IsEnabled = true;
                 DeliteButton.IsEnabled = true;
             }
-            catch (Exception exIngridientListListView_SelectionChanged)
+            catch (Exception exCategoryListListView_SelectionChanged)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие IngridientListListView_SelectionChanged в ListCategoryPage:\n\n " +
-                        $"{exIngridientListListView_SelectionChanged.Message}");
+                        textMessage: $"Событие CategoryListListView_SelectionChanged в ListCategoryPage:\n\n " +
+                        $"{exCategoryListListView_SelectionChanged.Message}");
             }
         }
 
@@ -175,11 +175,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 EventEditCategory(this, e);
             }
-            catch (Exception exIngridientListListView_MouseDoubleClick)
+            catch (Exception exCategoryListListView_MouseDoubleClick)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие IngridientListListView_MouseDoubleClick в ListCategoryPage:\n\n " +
-                        $"{exIngridientListListView_MouseDoubleClick.Message}");
+                        textMessage: $"Событие CategoryListListView_MouseDoubleClick в ListCategoryPage:\n\n " +
+                        $"{exCategoryListListView_MouseDoubleClick.Message}");
             }
         }
         #endregion
@@ -195,6 +195,24 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие NewCategoryButton_Click в ListCategoryPage:\n\n " +
                         $"{exNewCategoryButton_Click.Message}");
+            }
+        }
+
+        private void KeyboardShortcuts(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (getMenuCategoryTable != null)
+                {
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditCategory(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteCategory(this, e); }
+                }
+            }
+            catch (Exception exKeyboardShortcuts)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
+                       $"{exKeyboardShortcuts.Message}");
             }
         }
         #endregion

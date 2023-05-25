@@ -23,7 +23,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 if (menuCategoryTable != null)
                 {
-                    DataContext = idCategory;
+                    DataContext = menuCategoryTable;
                     idCategory = menuCategoryTable.PersonalNumber_MenuCategory;
 
                     ImageNewCategoryButtonTextBlock1.Visibility = Visibility.Collapsed;

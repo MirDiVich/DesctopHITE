@@ -192,9 +192,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (dataContextMenu != null)
                 {
-                    if (e.Key == Key.F1) { EventViewDataMenu(this, e); }
-                    if (e.Key == Key.F2) { EventEditMunu(this, e); }
-                    if (e.Key == Key.Delete) { EventDeleteMenu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { EventViewDataMenu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditMunu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteMenu(this, e); }
                 }
             }
             catch (Exception exKeyboardShortcuts)

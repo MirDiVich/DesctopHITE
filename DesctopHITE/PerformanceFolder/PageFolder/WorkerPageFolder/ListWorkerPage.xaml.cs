@@ -133,9 +133,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    if (e.Key == Key.F1) { EventViewDataWorker(this, e); }
-                    if (e.Key == Key.F2) { EventEditWorker(this, e); }
-                    if (e.Key == Key.Delete) { EventDeleteWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { EventViewDataWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteWorker(this, e); }
                 }
             }
             catch(Exception exKeyboardShortcuts)
@@ -145,6 +145,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                        $"{exKeyboardShortcuts.Message}");
             }
         }
+
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             try

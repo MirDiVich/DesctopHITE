@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     mc:Ignorable="d" 
+    KeyUp="KeyboardShortcuts"
     IsVisibleChanged="Page_IsVisibleChanged"
     Style="{DynamicResource BodySpacePageStyle}">
     <Grid>
@@ -89,7 +90,7 @@
                     Margin="5 0 0 0"
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"
-                    Click="EventEditCategory"
+                    Click="EventDeleteCategory"
                     Width="180"
                     Height="45">
                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
