@@ -51,11 +51,29 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right">
                 <Button
+                    x:Name="NewWorkerButton"
+                    Click="NewWorkerButton_Click"
+                    Width="180"
+                    Height="45"
+                    Margin="0 0 5 0">
+                    <StackPanel
+                        Margin="0 2 0 2" 
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="&#xf278;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Margin="5 0 0 0"
+                            Text="Добавить"/>
+                    </StackPanel>
+                </Button>
+                <Button
                     x:Name="EditButton"
                     Click="ActionEditWorker"
                     Width="220"
                     Height="45"
-                    Margin="0 0 5 0">
+                    Margin="5 0 5 0">
                     <StackPanel
                         Margin="0 2 0 2" 
                         Orientation="Horizontal">
@@ -69,6 +87,7 @@
                     </StackPanel>
                 </Button>
                 <Button
+                    Margin="5 0 0 0"
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"
                     Click="ActionDeliteWorker"

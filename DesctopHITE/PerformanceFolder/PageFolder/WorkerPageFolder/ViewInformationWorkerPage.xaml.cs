@@ -55,6 +55,20 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #region _Click
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
+            }
+            catch (Exception exGoBackButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                         textMessage: $"Событие GoBackButton_Click в NewWorkerPage:\n\n " +
+                         $"{exGoBackButton_Click.Message}");
+            }
+        }
+
         // Так как код очень простой и короткий, было принято решение написать его в "длину"
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +116,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
+                FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
             }
             catch (Exception exEditWorkerButton_Click)
             {

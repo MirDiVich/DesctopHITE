@@ -68,10 +68,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
-
-                    viewEditInfoemationWindow.ShowDialog();
+                    FrameNavigationClass.bodyWorker_FNC.Navigate(new ViewInformationWorkerPage(dataContextWorker));
                 }
                 else
                 {
@@ -92,9 +89,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
-                    viewEditInfoemationWindow.ShowDialog();
+                    FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(dataContextWorker));
                 }
                 else
                 {
@@ -150,7 +145,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                        $"{exKeyboardShortcuts.Message}");
             }
         }
-
+        private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
+            }
+            catch (Exception exNewWorkerButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие NewWorkerButton_Click в ListWorkerPage:\n\n " +
+                       $"{exNewWorkerButton_Click.Message}");
+            }
+        }
         private void ActionMenuItem(object sender, RoutedEventArgs e) { EventViewDataWorker(); }
         private void ActionEditWorker(object sender, RoutedEventArgs e) { EventEditWorker(); } // Открытия страницы для возможности редактирования информации об сотруднике 
         private void ActionDeliteWorker(object sender, RoutedEventArgs e) { EventDeleteWorker(); } // Реализация удаления сотрудника

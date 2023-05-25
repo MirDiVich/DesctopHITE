@@ -34,13 +34,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
+                    FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
 
                     EventIsCheckedToggleButton();
                     EventIsEnabledToggleButton();
 
-                    NewWorkerToggleButton.IsChecked = true;
-                    NewWorkerToggleButton.IsEnabled = false;
+                    ListWorkweToggleButton.IsChecked = true;
+                    ListWorkweToggleButton.IsEnabled = false;
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -52,26 +52,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
 
         #region _Click
-        private void NewWorkerToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
-
-                NewWorkerToggleButton.IsChecked = true;
-                NewWorkerToggleButton.IsEnabled = false;
-
-                FrameNavigationClass.bodyWorker_FNC.Navigate(new NewWorkerPage(null));
-            }
-            catch (Exception exNewWorkerToggleButton_Click)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие NewWorkerToggleButton_Click в MenuWorkerPage:\n\n " +
-                       $"{exNewWorkerToggleButton_Click.Message}");
-            }
-        }
-
         private void ListWorkweToggleButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -117,7 +97,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                NewWorkerToggleButton.IsChecked = false;
                 ListWorkweToggleButton.IsChecked = false;
                 GeneralInformationWorkerToggleButton.IsChecked = false;
             }
@@ -133,7 +112,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                NewWorkerToggleButton.IsEnabled = true;
                 ListWorkweToggleButton.IsEnabled = true;
                 GeneralInformationWorkerToggleButton.IsEnabled = true;
             }

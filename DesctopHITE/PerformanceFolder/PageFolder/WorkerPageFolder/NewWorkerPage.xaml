@@ -44,13 +44,34 @@
                 x:Name="SalaryCardToggleButton"
                 Click="SalaryCardToggleButton_Click"
                 Content="Заработная карта"
-                Style="{DynamicResource MainMenuToggleButtonStyle}"/>
+                Style="{DynamicResource MainMenuToggleButtonStyle}" Cursor="Hand"/>
             <ToggleButton
                 x:Name="GeneralDataToggleButton"
                 Click="GeneralDataToggleButton_Click"
                 Content="Общие данные"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
         </StackPanel>
+        <Button
+            Width="246"
+            Height="50"
+            Margin="0 0 0 10"
+            Grid.Column="0"
+            VerticalAlignment="Bottom"
+            x:Name="GoBackButton"
+            Click="GoBackButton_Click"
+            Style="{DynamicResource OtherButtonStyle}">
+            <StackPanel
+                Margin="0 2 0 2" 
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="&#xf2ff;" 
+                    Style="{DynamicResource IconTextBlockStyle}"
+                    Margin="0 0 5 0"/>
+                <TextBlock
+                    Margin="5 0 0 0"
+                    Text="Назад"/>
+            </StackPanel>
+        </Button>
         <ScrollViewer Grid.Column="1">
             <StackPanel
                 x:Name="MainStackPanel" 

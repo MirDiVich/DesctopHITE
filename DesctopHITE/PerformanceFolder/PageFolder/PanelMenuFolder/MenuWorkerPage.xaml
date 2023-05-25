@@ -9,12 +9,6 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
-            Margin="0 0 15 0"
-            Click="NewWorkerToggleButton_Click"
-            x:Name="NewWorkerToggleButton"
-            Content="ДОБАВИТЬ СОТРУДНИКА"
-            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
-        <ToggleButton
             Click="ListWorkweToggleButton_Click"
             x:Name="ListWorkweToggleButton"
             Content="ВСЕ СОТРУДНИКИ"

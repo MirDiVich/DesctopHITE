@@ -91,9 +91,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuTable != null)
                 {
-                    ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getMenuTable));
-                    viewEditInfoemationWindow.ShowDialog();
+                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
+                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getMenuTable));
+                    //viewEditInfoemationWindow.ShowDialog();
                 }
                 else
                 {

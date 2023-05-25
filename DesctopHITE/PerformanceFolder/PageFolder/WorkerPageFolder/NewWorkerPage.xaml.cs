@@ -136,6 +136,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             else { GeneralDataBorder.Visibility = Visibility.Collapsed; }
         }
         #endregion
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
+            }
+            catch (Exception exGoBackButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                         textMessage: $"Событие GoBackButton_Click в NewWorkerPage:\n\n " +
+                         $"{exGoBackButton_Click.Message}");
+            }
+        }
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e) // Выполняем ряд действий, после чего добавляем нового сотрудника в базу данных
         {
             try
