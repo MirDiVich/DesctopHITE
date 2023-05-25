@@ -32,7 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                Process.Start("https://t.me/MaRlXyAnA"); //открытие ссылки в браузере
+                Process.Start("https://t.me/PegasusCodeCompany"); //открытие ссылки в браузере
             }
             catch (Exception exTelegramHyperlink_Click)
             {
@@ -46,7 +46,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                Process.Start("https://web.whatsapp.com/89671643646"); //открытие ссылки в браузере
+                Process.Start("https://chat.whatsapp.com/B5XfHr4KIKyLk2YF2gj8rq"); //открытие ссылки в браузере
             }
             catch (Exception exWhatsAppHyperlink_Click)
             {
@@ -60,7 +60,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
         {
             try
             {
-                Process.Start("https://vk.com/vaskakavat"); //открытие ссылки в браузере
+                Process.Start("https://vk.com/PegasusCode"); //открытие ссылки в браузере
             }
             catch (Exception exVKHyperlink_Click)
             {

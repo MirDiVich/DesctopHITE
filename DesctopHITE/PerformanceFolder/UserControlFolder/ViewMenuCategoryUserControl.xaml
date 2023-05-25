@@ -52,6 +52,10 @@
                     Text="{Binding MinPrise_ViewMenuCategory}"
                     Style="{DynamicResource OtherStyleTextBlock}"
                     FontSize="15"/>
+                <TextBlock
+                    FontSize="15"
+                    Text="₽"
+                    Style="{DynamicResource OtherStyleTextBlock}"/>
             </StackPanel>
             <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
                 <TextBlock
@@ -66,6 +70,10 @@
                     Text="{Binding AvgPrise_ViewMenuCategory, StringFormat= N2}"
                     Style="{DynamicResource OtherStyleTextBlock}"
                     FontSize="15"/>
+                <TextBlock
+                    FontSize="15"
+                    Text="₽"
+                    Style="{DynamicResource OtherStyleTextBlock}"/>
             </StackPanel>
             <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
                 <TextBlock
@@ -80,6 +88,10 @@
                     Text="{Binding MaxPrise_ViewMenuCategory}"
                     Style="{DynamicResource OtherStyleTextBlock}"
                     FontSize="15"/>
+                <TextBlock
+                    FontSize="15"
+                    Text="₽"
+                    Style="{DynamicResource OtherStyleTextBlock}"/>
             </StackPanel>
         </Grid>
     </Grid>

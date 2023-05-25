@@ -236,6 +236,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     WhenCheckedTextBlock.Text = Properties.Settings.Default.SNMUpdateScan;
                     WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeUpdateScan;
                     ResultCheckedTextBlock.Text = Properties.Settings.Default.ResultUpdateScan;
+                    VersionCheckedTextBlock.Text = Properties.Settings.Default.VersionUpdateScan;
                 }
             }
             catch (Exception exEventReceivingDataWaitingForStorage)
@@ -255,6 +256,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
                 Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
                 Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
+                Properties.Settings.Default.VersionUpdateScan = "4.12.286";
                 Properties.Settings.Default.Save();
             }
             catch (Exception exEventOutputDataWaitingForStorage)
