@@ -9,12 +9,6 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
-            Margin="0 0 15 0"
-            Click="NewMenuToggleButton_Click"
-            x:Name="NewMenuToggleButton"
-            Content="ДОБАВИТЬ БЛЮДО"
-            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
-        <ToggleButton
             Click="ListMenuToggleButton_Click"
             x:Name="ListMenuToggleButton"
             Content="МЕНЮ"
@@ -23,6 +17,11 @@
             Click="IngridientsMenuToggleButton_Click"
             x:Name="IngridientsMenuToggleButton"
             Content="ИНГРИДИЕНТЫ"
+            Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
+        <ToggleButton
+            Click="CategoryMenuToggleButton_Click"
+            x:Name="CategoryMenuToggleButton"
+            Content="КАТЕГОРИИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
             Margin="15 0 0 0"

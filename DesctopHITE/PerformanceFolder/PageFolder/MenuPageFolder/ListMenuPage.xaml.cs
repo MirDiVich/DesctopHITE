@@ -22,7 +22,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
     public partial class ListMenuPage : Page
     {
-        MenuTable getMenuTable;
+        MenuTable dataContextMenu;
 
         public ListMenuPage()
         {
@@ -60,15 +60,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #region Event
-        private void EventViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации об сотруднике
+        private void EventViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации
         {
             try
             {
-                if (getMenuTable != null)
+                if (dataContextMenu != null)
                 {
-                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
-                    //viewEditInfoemationWindow.ShowDialog();
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new ViewMenuPage(dataContextMenu));
                 }
                 else
                 {
@@ -85,15 +83,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void EventEditMunu(object sender, RoutedEventArgs e) // Редактирование информации
+        private void EventEditMunu(object sender, RoutedEventArgs e) // Редактирование
         {
             try
             {
-                if (getMenuTable != null)
+                if (dataContextMenu != null)
                 {
-                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getMenuTable));
-                    //viewEditInfoemationWindow.ShowDialog();
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(dataContextMenu));
                 }
                 else
                 {
@@ -112,10 +108,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                if (getMenuTable != null)
+                if (dataContextMenu != null)
                 {
-                    //DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(getMenuTable);
-                    //deliteWorkerWindow.ShowDialog();
+                    
                 }
                 else
                 {
@@ -176,7 +171,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                getMenuTable = (MenuTable)ListMenuListView.SelectedItem; // Получаем информацию об выбранном сотруднике
+                dataContextMenu = (MenuTable)ListMenuListView.SelectedItem; // Получаем информацию об выбранном меню
                 EditButton.IsEnabled = true;
                 DeliteButton.IsEnabled = true;
             }
@@ -187,20 +182,42 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exListMenuListView_SelectionChanged.Message}");
             }
         }
-        #endregion
 
-        private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventEditMunu(this, e); }
+        #endregion
+        #region _Click
+        private void KeyboardShortcuts(object sender, KeyEventArgs e)
         {
             try
             {
-
+                if (dataContextMenu != null)
+                {
+                    if (e.Key == Key.F1) { EventViewDataMenu(this, e); }
+                    if (e.Key == Key.F2) { EventEditMunu(this, e); }
+                    if (e.Key == Key.Delete) { EventDeleteMenu(this, e); }
+                }
             }
-            catch (Exception exListMenuListView_MouseDoubleClick)
+            catch (Exception exKeyboardShortcuts)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие ListMenuListView_MouseDoubleClick в ListWorkerPage:\n\n " +
-                        $"{exListMenuListView_MouseDoubleClick.Message}");
+                       textMessage: $"Событие KeyboardShortcuts в ListWorkerPage:\n\n " +
+                       $"{exKeyboardShortcuts.Message}");
             }
         }
+
+        private void NewMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
+            }
+            catch (Exception exNewMenuButton)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие NewMenuButton в ListWorkerPage:\n\n " +
+                        $"{exNewMenuButton.Message}");
+            }
+        }
+        #endregion
     }
 }

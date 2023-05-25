@@ -62,7 +62,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
 
         #region Event
-        private void EventViewDataWorker() // Просмотр информации об сотруднике
+        private void EventViewDataWorker(object sender, RoutedEventArgs e) // Просмотр информации
         {
             try
             {
@@ -83,7 +83,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void EventEditWorker() // Редактирование информации об сотруднике
+        private void EventEditWorker(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
@@ -104,7 +104,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void EventDeleteWorker() // Удаление информации об сотруднике
+        private void EventDeleteWorker(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
@@ -133,9 +133,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    if (e.Key == Key.F1) { EventViewDataWorker(); }
-                    if (e.Key == Key.F2) { EventEditWorker(); }
-                    if (e.Key == Key.Delete) { EventDeleteWorker(); }
+                    if (e.Key == Key.F1) { EventViewDataWorker(this, e); }
+                    if (e.Key == Key.F2) { EventEditWorker(this, e); }
+                    if (e.Key == Key.Delete) { EventDeleteWorker(this, e); }
                 }
             }
             catch(Exception exKeyboardShortcuts)
@@ -158,12 +158,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                        $"{exNewWorkerButton_Click.Message}");
             }
         }
-        private void ActionMenuItem(object sender, RoutedEventArgs e) { EventViewDataWorker(); }
-        private void ActionEditWorker(object sender, RoutedEventArgs e) { EventEditWorker(); } // Открытия страницы для возможности редактирования информации об сотруднике 
-        private void ActionDeliteWorker(object sender, RoutedEventArgs e) { EventDeleteWorker(); } // Реализация удаления сотрудника
         #endregion
         #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventViewDataWorker(); } // Переход к странице с информацией об сотруднике
+        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventViewDataWorker(this, e); } // Переход к странице с информацией об сотруднике
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
             try

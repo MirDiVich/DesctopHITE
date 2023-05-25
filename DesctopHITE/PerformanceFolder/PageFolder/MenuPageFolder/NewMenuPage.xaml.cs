@@ -320,5 +320,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
+
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListMenuPage());
+            }
+            catch (Exception exGoBackButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие GoBackButton_Click в NewMenuPage:\n\n " +
+                        $"{exGoBackButton_Click.Message}");
+            }
+        }
     }
 }

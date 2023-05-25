@@ -172,13 +172,12 @@
                 <ControlTemplate TargetType="ListViewItem">
                     <Border 
                         x:Name="border"
-                        CornerRadius="10"
-                        BorderThickness="2" 
+                        CornerRadius="0"
+                        BorderThickness="0" 
                         Background="Transparent"
                         BorderBrush="Transparent">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </Border>
-                    
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

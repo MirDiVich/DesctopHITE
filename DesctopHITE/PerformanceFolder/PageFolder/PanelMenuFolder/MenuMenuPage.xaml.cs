@@ -37,10 +37,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                     EventIsCheckedToggleButton();
                     EventIsEnabledToggleButton();
 
-                    NewMenuToggleButton.IsChecked = true;
-                    NewMenuToggleButton.IsEnabled = false;
+                    ListMenuToggleButton.IsChecked = true;
+                    ListMenuToggleButton.IsEnabled = false;
 
-                    FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new ListMenuPage());
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -52,26 +52,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         }
 
         #region _Click
-        private void NewMenuToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
-
-                NewMenuToggleButton.IsChecked = true;
-                NewMenuToggleButton.IsEnabled = false;
-
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
-            }
-            catch (Exception exNewMenuToggleButton_Click)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие NewMenuToggleButton_Click в MenuMenuPage:\n\n " +
-                       $"{exNewMenuToggleButton_Click.Message}");
-            }
-        }
-
         private void ListMenuToggleButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -96,22 +76,39 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                if (Visibility == Visibility.Visible)
-                {
-                    EventIsCheckedToggleButton();
-                    EventIsEnabledToggleButton();
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
 
-                    IngridientsMenuToggleButton.IsChecked = true;
-                    IngridientsMenuToggleButton.IsEnabled = false;
+                IngridientsMenuToggleButton.IsChecked = true;
+                IngridientsMenuToggleButton.IsEnabled = false;
 
-                    FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
-                }
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
             }
             catch (Exception exIngridientsMenuToggleButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                        textMessage: $"Событие IngridientsMenuToggleButton_Click в MenuMenuPage:\n\n " +
                        $"{exIngridientsMenuToggleButton_Click.Message}");
+            }
+        }
+
+        private void CategoryMenuToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                EventIsCheckedToggleButton();
+                EventIsEnabledToggleButton();
+
+                CategoryMenuToggleButton.IsChecked = true;
+                CategoryMenuToggleButton.IsEnabled = false;
+
+                //FrameNavigationClass.bodyMenu_FNC.Navigate(new GeneralInformationMenuPage());
+            }
+            catch (Exception exGeneralInformationToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                       textMessage: $"Событие GeneralInformationToggleButton_Click в MenuMenuPage:\n\n " +
+                       $"{exGeneralInformationToggleButton_Click.Message}");
             }
         }
 
@@ -140,10 +137,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                NewMenuToggleButton.IsChecked = false;
                 ListMenuToggleButton.IsChecked = false;
-                GeneralInformationToggleButton.IsChecked = false;
                 IngridientsMenuToggleButton.IsChecked = false;
+                CategoryMenuToggleButton.IsChecked = false;
+                GeneralInformationToggleButton.IsChecked = false;
             }
             catch (Exception exEventIsCheckedToggleButton)
             {
@@ -156,10 +153,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                NewMenuToggleButton.IsEnabled = true;
                 ListMenuToggleButton.IsEnabled = true;
-                GeneralInformationToggleButton.IsEnabled = true;
                 IngridientsMenuToggleButton.IsEnabled = true;
+                CategoryMenuToggleButton.IsEnabled = true;
+                GeneralInformationToggleButton.IsEnabled = true;
             }
             catch (Exception exEventIsEnabledToggleButton)
             {

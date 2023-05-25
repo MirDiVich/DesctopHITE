@@ -201,9 +201,7 @@
                             Height="Auto"
                             ItemContainerStyle="{StaticResource NoSelected}"
                             x:Name="ViewMenuCategoryListView"
-                            Margin="10" 
-                            VerticalAlignment="Top" 
-                            HorizontalAlignment="Left">
+                            Margin="10">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <UserControl:ViewMenuCategoryUserControl/>

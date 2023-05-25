@@ -175,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ViewMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -383,6 +387,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewMenuPage.xaml.cs">
       <DependentUpon>NewMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ViewMenuPage.xaml.cs">
+      <DependentUpon>ViewMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\PanelMenuFolder\MenuCashPage.xaml.cs">
       <DependentUpon>MenuCashPage.xaml</DependentUpon>
