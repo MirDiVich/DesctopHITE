@@ -121,18 +121,6 @@
                 ItemContainerStyle="{StaticResource ListViewItemSelectedMunuList}">
                 <ListBox.ContextMenu>
                     <ContextMenu>
-                        <MenuItem
-                            Click="EventViewDataCategory"
-                            InputGestureText="Ctrl+F1"
-                            Header="Просмотреть">
-                            <MenuItem.Icon>
-                                <TextBlock
-                                    Foreground="#462AD8"
-                                    Text="&#xf1f7;" 
-                                    Style="{DynamicResource IconTextBlockStyle}"
-                                    Margin="0"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
                         <MenuItem 
                             Click="EventEditCategory"
                             InputGestureText="Ctrl+F2"

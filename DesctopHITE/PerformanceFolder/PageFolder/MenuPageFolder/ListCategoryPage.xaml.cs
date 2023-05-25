@@ -59,38 +59,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
 
         #region Event
-        private void EventViewDataCategory(object sender, RoutedEventArgs e) // Просмотр информации об сотруднике
-        {
-            try
-            {
-                if (getMenuCategoryTable != null)
-                {
-                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new ViewInformationWorkerPage(getMenuTable));
-                    //viewEditInfoemationWindow.ShowDialog();
-                }
-                else
-                {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
-                }
-            }
-            catch (Exception exEventViewDataCategory)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventViewDataCategory в ListCategoryPage:\n\n " +
-                        $"{exEventViewDataCategory.Message}");
-            }
-        }
-
         private void EventEditCategory(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
                 if (getMenuCategoryTable != null)
                 {
-                    //ViewEditInfoemationWindow viewEditInfoemationWindow = new ViewEditInfoemationWindow();
-                    //FrameNavigationClass.viewEditInformationWorker_FNC.Navigate(new NewMenuPage(getIngredientsTable));
-                    //viewEditInfoemationWindow.ShowDialog();
+                    FrameNavigationClass.bodyMenu_FNC.Navigate(new NewCategoryPage(getMenuCategoryTable));
                 }
                 else
                 {
@@ -111,8 +86,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuCategoryTable != null)
                 {
-                    //DeliteWorkerWindow deliteWorkerWindow = new DeliteWorkerWindow(getMenuTable);
-                    //deliteWorkerWindow.ShowDialog();
+                    if (MessageBox.Show("Вы действительно хотите удалить " + getMenuCategoryTable.Title_MenuCategory, "Удаление",
+                       MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        var deliteCategory = AppConnectClass.connectDataBase_ACC.MenuCategoryTable;
+                        deliteCategory.Remove(getMenuCategoryTable);
+                        AppConnectClass.connectDataBase_ACC.SaveChanges();
+
+                        MessageBoxClass.GoodMessageBox_MBC(textMessage: $"Вы удалили {getMenuCategoryTable.Title_MenuCategory}");
+                        FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
+                    }
                 }
                 else
                 {
@@ -143,8 +126,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                     var Objects = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
 
-                    var SearchResults = Objects.Where(nameIngredientsu => 
-                        nameIngredientsu.Title_MenuCategory.ToString().Contains(SearchTextBox.Text.ToString()));
+                    var SearchResults = Objects.Where(nameCategories =>
+                        nameCategories.Title_MenuCategory.ToString().Contains(SearchTextBox.Text.ToString()));
 
                     CategoryListListView.ItemsSource = SearchResults.ToList();
                 }
@@ -190,7 +173,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-
+                EventEditCategory(this, e);
             }
             catch (Exception exIngridientListListView_MouseDoubleClick)
             {
@@ -205,7 +188,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewCategoryPage(null));
             }
             catch (Exception exNewCategoryButton_Click)
             {

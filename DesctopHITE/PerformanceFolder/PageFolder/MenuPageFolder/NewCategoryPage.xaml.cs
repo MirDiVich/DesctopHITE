@@ -20,14 +20,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
-                if (idCategory != null)
+
+                if (menuCategoryTable != null)
                 {
                     DataContext = idCategory;
                     idCategory = menuCategoryTable.PersonalNumber_MenuCategory;
 
-                    ImageNewIngridientButtonTextBlock1.Visibility = Visibility.Collapsed;
-                    ImageNewIngridientButtonTextBlock2.Visibility = Visibility.Visible;
-                    TitleNewIngridientButtonTextBlock.Text = "Изменить";
+                    ImageNewCategoryButtonTextBlock1.Visibility = Visibility.Collapsed;
+                    ImageNewCategoryButtonTextBlock2.Visibility = Visibility.Visible;
+                    TitleNewCategoryButtonTextBlock.Text = "Изменить";
                 }
             }
             catch (Exception exNewCategoryPage)
@@ -44,22 +45,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 string messageda = "успешно добавлен";
 
-                IngredientsTable addOrUpdateIngredients = new IngredientsTable()
+                MenuCategoryTable addOrUpdateCategory = new MenuCategoryTable()
                 {
-                    Name_Ingredients = NameIngridientTextBox.Text
+                    Title_MenuCategory = NameCategoryTextBox.Text
                 };
 
                 if (idCategory != null)
                 {
-                    addOrUpdateIngredients.PersonalNumber_Ingredients = idCategory;
+                    addOrUpdateCategory.PersonalNumber_MenuCategory = idCategory;
                     messageda = "успешно изменён";
                 }
 
-                AppConnectClass.connectDataBase_ACC.IngredientsTable.AddOrUpdate(addOrUpdateIngredients);
+                AppConnectClass.connectDataBase_ACC.MenuCategoryTable.AddOrUpdate(addOrUpdateCategory);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
-                MessageBoxClass.GoodMessageBox_MBC(textMessage: $"ингредиент {addOrUpdateIngredients.Name_Ingredients} {messageda}");
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
+                MessageBoxClass.GoodMessageBox_MBC(textMessage: $"ингредиент {addOrUpdateCategory.Title_MenuCategory} {messageda}");
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListCategoryPage());
             }
             catch (Exception exEventAddEngridi)
             {
@@ -73,8 +74,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                if (NameIngridientTextBox.Text == "") messasgeNull += "Поле не должно быть пустым\n\n";
-                if (NameIngridientTextBox.Text.Length < 2) messasgeNull += "Название ингредиента не может состоять из 2 и менее букв";
+                if (NameCategoryTextBox.Text == "") messasgeNull += "Поле не должно быть пустым\n\n";
+                if (NameCategoryTextBox.Text.Length < 2) messasgeNull += "Название ингредиента не может состоять из 2 и менее букв";
             }
             catch (Exception exEventMessageNull)
             {
@@ -93,11 +94,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 Regex DateRegex = new Regex("[^А-я]");
                 e.Handled = DateRegex.IsMatch(e.Text);
             }
-            catch (Exception exDateValidationTextBox)
+            catch (Exception exTextValidationTextBox)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие DateValidationTextBox в NewCategoryPage:\n\n " +
-                        $"{exDateValidationTextBox.Message}");
+                        textMessage: $"Событие TextValidationTextBox в NewCategoryPage:\n\n " +
+                        $"{exTextValidationTextBox.Message}");
             }
         }
         #endregion

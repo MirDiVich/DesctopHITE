@@ -20,6 +20,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
+
                 if (ingredientsTable != null )
                 {
                     DataContext = ingredientsTable;
@@ -118,11 +119,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 Regex DateRegex = new Regex("[^А-я]");
                 e.Handled = DateRegex.IsMatch(e.Text);
             }
-            catch (Exception exDateValidationTextBox)
+            catch (Exception exTextValidationTextBox)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
-                        $"{exDateValidationTextBox.Message}");
+                        textMessage: $"Событие TextValidationTextBox в NewWorkerPage:\n\n " +
+                        $"{exTextValidationTextBox.Message}");
             }
         }
         #endregion
