@@ -351,12 +351,29 @@
                     Style="{DynamicResource MainToggleButton}"
                     x:Name="CheckUpdateButton"
                     Click="CheckUpdateButton_Click"
-                    Width="270"
-                    Content="ПРОВЕРИТЬ ОБНОВЛЕНИЕ"
+                    Width="220"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Center"
                     Margin="0 0 0 0"
-                    Height="40"/>
+                    Height="40">
+                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                        <TextBlock
+                            x:Name="TitleIconCheckUpdateTextBlock1"
+                            Text="&#xf219;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Visibility="Collapsed"
+                            x:Name="TitleIconCheckUpdateTextBlock2"
+                            Text="&#xf21e;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            x:Name="TitleTextCheckUpdateTextBlock"
+                            Margin="5 0 0 0"
+                            Text="ПРОВЕРИТЬ"/>
+                    </StackPanel>
+                </ToggleButton>
             </Grid>
             <StackPanel 
                 Margin="10"

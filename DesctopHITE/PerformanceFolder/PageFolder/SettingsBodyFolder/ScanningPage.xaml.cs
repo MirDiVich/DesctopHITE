@@ -50,7 +50,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     EventStartLoadingAnimation();
                     EventScanDeception();
 
-                    CheckScanButton.Content = "Остановить";
+                    TitleTextCheckScanTextBlock.Text = "ОСТАНОВИТЬ";
+                    TitleIconCheckScanTextBlock1.Visibility = Visibility.Collapsed;
+                    TitleIconCheckScanTextBlock2.Visibility = Visibility.Visible;
+
                     ProgressScanTextBlock.Text = "0%";
                     ResultScanTextBlock.Visibility = Visibility.Collapsed;
 
@@ -73,8 +76,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     EventStopLoadingAnimation();
 
                     dispatcherTimer.Stop();
-                    CheckScanButton.Content = "Проверить обновление";
                     ProgressScanTextBlock.Text = "///";
+
+                    TitleTextCheckScanTextBlock.Text = "ПРОВЕРИТЬ";
+                    TitleIconCheckScanTextBlock1.Visibility = Visibility.Visible;
+                    TitleIconCheckScanTextBlock2.Visibility = Visibility.Collapsed;
                 }
             }
             catch (Exception exCheckScanButton_Click)

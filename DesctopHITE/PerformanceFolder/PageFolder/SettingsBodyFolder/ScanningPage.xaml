@@ -280,12 +280,29 @@
                     Style="{DynamicResource MainToggleButton}"
                     x:Name="CheckScanButton"
                     Click="CheckScanButton_Click"
-                    Width="270"
-                    Content="СКАНИРОВАТЬ"
+                    Width="220"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Center"
                     Margin="0 0 0 0"
-                    Height="40"/>
+                    Height="40">
+                    <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
+                        <TextBlock
+                            x:Name="TitleIconCheckScanTextBlock1"
+                            Text="&#xf269;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            Visibility="Collapsed"
+                            x:Name="TitleIconCheckScanTextBlock2"
+                            Text="&#xf270;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 5 0"/>
+                        <TextBlock
+                            x:Name="TitleTextCheckScanTextBlock"
+                            Margin="5 0 0 0"
+                            Text="СКАНИРОВАТЬ"/>
+                    </StackPanel>
+                </ToggleButton>
             </Grid>
         </Grid>
     </Grid>

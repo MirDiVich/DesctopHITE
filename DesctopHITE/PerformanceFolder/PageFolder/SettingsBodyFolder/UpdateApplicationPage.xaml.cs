@@ -66,19 +66,25 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             {
                 if (CheckUpdateButton.IsChecked == true)
                 {
+                    TitleIconCheckUpdateTextBlock2.Visibility = Visibility.Visible;
+                    TitleIconCheckUpdateTextBlock1.Visibility = Visibility.Collapsed;
+                    TitleTextCheckUpdateTextBlock.Text = "ОСТАНОВИТЬ";
+
                     EventStartLoadingAnimation();
                     EventScanDeception();
 
-                    CheckUpdateButton.Content = "Остановить";
                     ProgressScanTextBlock.Text = "0%";
                     IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
+                    TitleIconCheckUpdateTextBlock2.Visibility = Visibility.Collapsed;
+                    TitleIconCheckUpdateTextBlock1.Visibility = Visibility.Visible;
+                    TitleTextCheckUpdateTextBlock.Text = "ПРОВЕРИТЬ";
+
                     EventStopLoadingAnimation();
 
                     dispatcherTimer.Stop();
-                    CheckUpdateButton.Content = "Проверить обновление";
                     ProgressScanTextBlock.Text = "///";
                     IndoVersionTodayBorder.Visibility = Visibility.Visible;
                 }

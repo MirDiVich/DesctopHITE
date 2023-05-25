@@ -60,7 +60,7 @@
                         Margin="0 2 0 2" 
                         Orientation="Horizontal">
                         <TextBlock
-                            Text="&#xf278;" 
+                            Text="&#xf275;" 
                             Style="{DynamicResource IconTextBlockStyle}"
                             Margin="0 0 5 0"/>
                         <TextBlock

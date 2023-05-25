@@ -48,7 +48,7 @@
             <Button
                 x:Name="NewIngridientButton"
                 Click="NewIngridientButton_Click"
-                Width="180"
+                Width="220"
                 Height="50"
                 Margin="3.5 0 0 0">
                 <StackPanel Orientation="Horizontal">

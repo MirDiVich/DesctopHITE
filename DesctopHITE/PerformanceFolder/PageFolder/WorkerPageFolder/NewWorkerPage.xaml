@@ -1546,7 +1546,7 @@
                 </Border>
                 <Border>
                     <Grid Margin="0 10 0 0">
-                        <Border Width="320" Height="50" Style="{DynamicResource OtherShadowBorder}">
+                        <Border Width="220" Height="50" Style="{DynamicResource OtherShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
                                     Direction="315"
@@ -1560,12 +1560,12 @@
                         <Button
                             x:Name="NewWorkerButton"
                             Click="NewWorkerButton_Click"
-                            Width="380"
+                            Width="220"
                             Height="50">
                             <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                                 <TextBlock
                                     x:Name="TitleIconNewWorkerTextBlock1"
-                                    Text="&#xf1ff;" 
+                                    Text="&#xf278;" 
                                     Style="{DynamicResource IconTextBlockStyle}"
                                     Margin="0 0 5 0"/>
                                 <TextBlock
@@ -1577,7 +1577,7 @@
                                 <TextBlock
                                     x:Name="TitleTextNewWorkerTextBlock"
                                     Margin="5 0 0 0"
-                                    Text="Добавить нового сотрудника"/>
+                                    Text="Добавить"/>
                             </StackPanel>
                         </Button>
                     </Grid>

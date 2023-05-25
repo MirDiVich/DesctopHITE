@@ -399,11 +399,11 @@
                         x:Name="NewMenuButton"
                         Click="NewMenuButton_Click"
                         Height="50"
-                        Width="380">
+                        Width="220">
                         <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
                             <TextBlock
                                 x:Name="TitleIconNewMenuTextBlock1"
-                                Text="&#xf1ff;" 
+                                Text="&#xf278;" 
                                 Style="{DynamicResource IconTextBlockStyle}"
                                 Margin="0 0 5 0"/>
                             <TextBlock
@@ -415,7 +415,7 @@
                             <TextBlock
                                 x:Name="TitleTextNewMenuTextBlock"
                                 Margin="5 0 0 0"
-                                Text="Добавить новое блюдо"/>
+                                Text="Добавить"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
