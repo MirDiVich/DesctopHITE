@@ -9,49 +9,49 @@ using System.Windows.Input;
 
 namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
-    public partial class NewIngredientsPage : Page
+    public partial class NewCategoryPage : Page
     {
         string messasgeNull;
-        int idIngredient;
+        int idCategory;
 
-        public NewIngredientsPage(IngredientsTable ingredientsTable)
+        public NewCategoryPage(MenuCategoryTable menuCategoryTable)
         {
             try
             {
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
-                if (ingredientsTable != null )
+                if (idCategory != null)
                 {
-                    DataContext = ingredientsTable;
-                    idIngredient = ingredientsTable.PersonalNumber_Ingredients;
+                    DataContext = idCategory;
+                    idCategory = menuCategoryTable.PersonalNumber_MenuCategory;
 
-                    ImageNewIngridientButtonTextBlock1.Visibility = Visibility.Collapsed; 
-                    ImageNewIngridientButtonTextBlock2.Visibility = Visibility.Visible; 
-                    TitleNewIngridientButtonTextBlock.Text = "Изменить"; 
+                    ImageNewIngridientButtonTextBlock1.Visibility = Visibility.Collapsed;
+                    ImageNewIngridientButtonTextBlock2.Visibility = Visibility.Visible;
+                    TitleNewIngridientButtonTextBlock.Text = "Изменить";
                 }
             }
-            catch (Exception exNewIngredientsPage)
+            catch (Exception exNewCategoryPage)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие NewIngredientsPage в NewIngredientsPage:\n\n " +
-                        $"{exNewIngredientsPage.Message}");
+                        textMessage: $"Событие NewCategoryPage в NewCategoryPage:\n\n " +
+                        $"{exNewCategoryPage.Message}");
             }
         }
         #region Event
-        private void EventAddIngridient()
+        private void EventAddCategory()
         {
             try
             {
                 string messageda = "успешно добавлен";
 
-                IngredientsTable addOrUpdateIngredients  = new IngredientsTable()
+                IngredientsTable addOrUpdateIngredients = new IngredientsTable()
                 {
                     Name_Ingredients = NameIngridientTextBox.Text
                 };
 
-                if (idIngredient != null )
+                if (idCategory != null)
                 {
-                    addOrUpdateIngredients.PersonalNumber_Ingredients = idIngredient;
+                    addOrUpdateIngredients.PersonalNumber_Ingredients = idCategory;
                     messageda = "успешно изменён";
                 }
 
@@ -64,7 +64,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exEventAddEngridi)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventAddEngridi в NewIngredientsPage:\n\n " +
+                        textMessage: $"Событие EventAddEngridi в NewCategoryPage:\n\n " +
                         $"{exEventAddEngridi.Message}");
             }
         }
@@ -79,36 +79,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exEventMessageNull)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMessageNull в NewIngredientsPage:\n\n " +
+                        textMessage: $"Событие EventMessageNull в NewCategoryPage:\n\n " +
                         $"{exEventMessageNull.Message}");
             }
         }
         #endregion
-
-        private void NewIngridientButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            { 
-                messasgeNull = "";
-                EventMessageNull();
-
-                if (messasgeNull == "")
-                {
-                    EventAddIngridient();
-                }
-                else
-                {
-                    MessageBoxClass.FailureMessageBox_MBC(textMessage: messasgeNull);
-                }
-            }
-            catch (Exception exNewIngridientButton_Click)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие NewIngridientButton_Click в NewIngredientsPage:\n\n " +
-                        $"{exNewIngridientButton_Click.Message}");
-            }
-        }
-
         #region ValidData
         // Просто для валидность данных
         private void TextValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -121,23 +96,46 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             catch (Exception exDateValidationTextBox)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие DateValidationTextBox в NewWorkerPage:\n\n " +
+                        textMessage: $"Событие DateValidationTextBox в NewCategoryPage:\n\n " +
                         $"{exDateValidationTextBox.Message}");
             }
         }
         #endregion
-
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListCategoryPage());
             }
             catch (Exception exButton_Click)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие Button_Click в NewIngredientsPage:\n\n " +
+                        textMessage: $"Событие Button_Click в NewCategoryPage:\n\n " +
                         $"{exButton_Click.Message}");
+            }
+        }
+
+        private void NewCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                messasgeNull = "";
+                EventMessageNull();
+
+                if (messasgeNull == "")
+                {
+                    EventAddCategory();
+                }
+                else
+                {
+                    MessageBoxClass.FailureMessageBox_MBC(textMessage: messasgeNull);
+                }
+            }
+            catch (Exception exNewCategoryButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие NewCategoryButton_Click в NewCategoryPage:\n\n " +
+                        $"{exNewCategoryButton_Click.Message}");
             }
         }
     }

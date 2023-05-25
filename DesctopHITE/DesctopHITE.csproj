@@ -175,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\NewCategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\NewIngredientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,6 +403,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml.cs">
       <DependentUpon>ListMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewCategoryPage.xaml.cs">
+      <DependentUpon>NewCategoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\NewIngredientsPage.xaml.cs">
       <DependentUpon>NewIngredientsPage.xaml</DependentUpon>
