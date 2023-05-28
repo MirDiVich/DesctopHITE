@@ -26,7 +26,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
-            catch (Exception exGeneralInformationWorkerPage) 
+            catch (Exception exGeneralInformationWorkerPage)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GeneralInformationWorkerPage в GeneralInformationWorkerPage:\n\n " +
@@ -78,22 +78,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         {
             try
             {
-                var www = toDay.AddDays(-5);
+                // Получаем текущую дату
+                DateTime today = DateTime.Today;
 
-                // Выведи мне в виде списка только тех сотрудников у которых: день рождение в этом месяце, не сегодня,
-                BirthdayComingSoonListView.ItemsSource =
-                    AppConnectClass.connectDataBase_ACC.PassportTable.Where(dateOfBrith =>
-                        dateOfBrith.DateOfBrich_Passport.Month == toDay.Month &&
-                        dateOfBrith.DateOfBrich_Passport.Day != toDay.Day &&
-                        dateOfBrith.DateOfBrich_Passport <= www).ToList();
+                // Получаем даты дней рождения, через 1, 2 и 3 дня
+                DateTime birthdayInOneDay = today.AddDays(1);
+                DateTime birthdayInTwoDays = today.AddDays(2);
+                DateTime birthdayInThreeDays = today.AddDays(3);
 
-                /// Вся проблема заключается в том, что он берёт всех сотрудников, которые
-                /// соответствуют условию, а условие следующее:
-                /// возьми всех сотрудников и выведи только тех, кто соответствует следующему условию (25.04.2023 - 5 = 20.04.2023) <= 25.04.2023
-                /// Результат такой, ок, я выведу тебе сотрудников, у которых дени рождение раньше или попало в следующию дату "20.04.2023",
-                /// а я пытаюсь написать условие, на вывод тольел тех, у кого через 5 дней день рождение.
+                // Фильтруем сотрудников, у которых дни рождения ожидаются
+                var upcomingBirthdays = AppConnectClass.connectDataBase_ACC.PassportTable.Where(dateOfBrith =>
+                    dateOfBrith.DateOfBrich_Passport.Month == today.Month && (dateOfBrith.DateOfBrich_Passport.Day == birthdayInOneDay.Day ||
+                    dateOfBrith.DateOfBrich_Passport.Day == birthdayInTwoDays.Day || dateOfBrith.DateOfBrich_Passport.Day == birthdayInThreeDays.Day)).ToList();
 
-                /// Поэтому это пока что останется тут. Если этот коммент* не пропал, значит, я ещё не исправил свою проблему!
+                // Устанавливаем список сотрудников с ожидаемыми днями рождения в ListBox
+                BirthdayComingSoonListView.ItemsSource = upcomingBirthdays;
             }
             catch (Exception exEventBirthdayComingSoonWorker)
             {

@@ -58,7 +58,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                     TitleIconNewWorkerTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconNewWorkerTextBlock2.Visibility = Visibility.Visible;
-                    TitleTextNewWorkerTextBlock.Text = "Сохранить изменения";
+                    TitleTextNewWorkerTextBlock.Text = "Сохранить";
                 }
                 else
                 {
