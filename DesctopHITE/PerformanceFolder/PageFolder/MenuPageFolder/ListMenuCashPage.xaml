@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder.ListMenuCashPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    IsVisibleChanged="Page_IsVisibleChanged"
+    xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
+    Style="{DynamicResource BodyCashPageStyle}">
+    <Grid>
+        <ListView
+            SelectionChanged ="ListMenuListView_SelectionChanged"
+            Background="Transparent"
+            x:Name="ListMenuListView"
+            Margin="0"
+            ItemContainerStyle="{StaticResource ListViewItemSelectedMunuList}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel 
+                        IsItemsHost="True" 
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Background="Transparent"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <UserControl:MenuControl/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

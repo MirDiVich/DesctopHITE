@@ -1,5 +1,6 @@
 ﻿using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder;
 using System;
 using System.Linq;
 using System.Windows;
@@ -45,7 +46,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-
+                var selectedCategory = ListMenuListView.SelectedItem as MenuCategoryTable;
+                FrameNavigationClass.bodyCash_FNC.Navigate(new ListMenuCashPage(selectedCategory));
             }
             catch (Exception exListMenuListView_SelectionChanged)
             {

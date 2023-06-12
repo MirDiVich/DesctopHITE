@@ -16,12 +16,18 @@
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Frame
+                    Grid.Row="0"
+                    x:Name="BodyCashFrame"/>
+            </Grid>
             <Frame
                 x:Name="MenuCashFrame"
                 Grid.Column="0"/>
-            <Frame
-                x:Name="BodyCashFrame"
-                Grid.Column="1"/>
         </Grid>
     </Border>
 </Window>

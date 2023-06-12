@@ -402,6 +402,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 // Объявляем таблицы
                 var addPassport = new PassportTable();
                 var addImagePassport = new ImagePassportTable();
+                var addPlaceResidence = new PlaceResidenceTable();
+                var addMedicalBook = new MedicalBookTable();
+                var addSnils = new SnilsTable();
+                var addINN = new INNTable();
+                var addSalaryCard = new SalaryCardTable();
+                var addWorker = new WorkerTable();
 
                 // Работа с паспортом
                 addPassport.Series_Passport = SeriesPassportTextBox.Text;
@@ -452,14 +458,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 AppConnectClass.connectDataBase_ACC.PassportTable.AddOrUpdate(addPassport);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
-
-                // Объявляем таблицы
-                var addPlaceResidence = new PlaceResidenceTable();
-                var addMedicalBook = new MedicalBookTable();
-                var addSnils = new SnilsTable();
-                var addINN = new INNTable();
-                var addSalaryCard = new SalaryCardTable();
-                var addWorker = new WorkerTable();
 
                 // Работа с пропиской
                 addPlaceResidence.PersonalNumber_PlaceResidence = addPassport.Series_Passport + addPassport.Number_Passport;
@@ -518,6 +516,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 addWorker.pnINN_Worker = addINN.PersonalNumber_INN;
                 addWorker.pnSnils_Worker = addSnils.PersonalNumber_Snils;
                 addWorker.AddpnWorker_Worker = AppConnectClass.receiveConnectUser_ACC;
+
                 if (workerInformation == null)
                 {
                     addWorker.pnStatus_Worker = 2;

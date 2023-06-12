@@ -5,7 +5,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     IsVisibleChanged="Page_IsVisibleChanged"
-    xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     mc:Ignorable="d" 
     Style="{StaticResource MenuCashPageStyle}">
     <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
@@ -16,7 +15,7 @@
             ItemContainerStyle="{StaticResource MenuCashItemSelected}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <UserControl:MenuCashControl/>
+                    <TextBlock Text="{Binding Title_MenuCategory}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -121,40 +121,40 @@
 
     <Style x:Key="MenuCashItemSelected" TargetType="ListViewItem">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="0 1.5 0 1.5"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Foreground" Value="#9a9a9a"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="FontFamily" Value="Consolas"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
+        <Setter Property="FontSize" Value="40"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="10"
-                        BorderThickness="2" 
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </Border>
+                    <Grid Margin="10 5 10 5">
+                        <Border
+                            Visibility="Collapsed"
+                            BorderThickness="0"
+                            Style="{DynamicResource NeonBorder}"
+                            x:Name="NeonBorder">
+                            <Border.Effect>
+                                <DropShadowEffect 
+                                    Color="#462AD8" 
+                                    ShadowDepth="0" 
+                                    Direction="0" 
+                                    BlurRadius="25"/>
+                            </Border.Effect>
+                        </Border>
+                        <ContentPresenter Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#2a2a2a"/>
                             <Setter Property="Foreground" Value="#a4a4a4"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <RadialGradientBrush SpreadMethod="Reflect" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="Absolute">
-                                        <GradientStop Color="#19462AD8" Offset="1"/>
-                                        <GradientStop Color="#196B55E0"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="NeonBorder" Property="Background" Value="#462AD8"/>
+                            <Setter TargetName="NeonBorder" Property="Visibility" Value="Visible"/>
                             <Setter Property="Foreground" Value="#f5f5f5"/>
-                            <Setter Property="Background" Value="#202020"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

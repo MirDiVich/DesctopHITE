@@ -171,6 +171,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuCashPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,10 +276,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +401,9 @@
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListIngridientPage.xaml.cs">
       <DependentUpon>ListIngridientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuCashPage.xaml.cs">
+      <DependentUpon>ListMenuCashPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceFolder\PageFolder\MenuPageFolder\ListMenuPage.xaml.cs">
       <DependentUpon>ListMenuPage.xaml</DependentUpon>
     </Compile>
@@ -479,9 +482,6 @@
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml.cs">
       <DependentUpon>ListWorkerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml.cs">
-      <DependentUpon>MenuCashControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\MenuControl.xaml.cs">
       <DependentUpon>MenuControl.xaml</DependentUpon>
     </Compile>
@@ -557,7 +557,6 @@
       <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
       <LastGenOutput>DesctopHiteModel.cs</LastGenOutput>
     </Content>
-    <Content Include="AppDateFolder\ScriptSQLFolder\DesctopHityScript.sql" />
     <Resource Include="Icon_DesctopHITE.ico" />
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
     <Resource Include="ContentFolder\ImageFolder\GitHubQrCode.png" />
