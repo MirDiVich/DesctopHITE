@@ -307,6 +307,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\WindowsFolder\InfoMenuCashWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\MainCashWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -503,6 +507,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\DeliteWorkerWindow.xaml.cs">
       <DependentUpon>DeliteWorkerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\WindowsFolder\InfoMenuCashWindow.xaml.cs">
+      <DependentUpon>InfoMenuCashWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\MainCashWindow.xaml.cs">
       <DependentUpon>MainCashWindow.xaml</DependentUpon>

@@ -34,7 +34,7 @@
         <Setter Property="Width" Value="800"/>
     </Style>
 
-    <Style x:Key="TestWindowStyle" TargetType="Window" BasedOn="{StaticResource MainWinwosStyle}">
+    <Style x:Key="InfoMenuCashWindowStyle" TargetType="Window" BasedOn="{StaticResource MainWinwosStyle}">
         <Setter Property="Height" Value="270"/>
         <Setter Property="Width" Value="480"/>
     </Style>
