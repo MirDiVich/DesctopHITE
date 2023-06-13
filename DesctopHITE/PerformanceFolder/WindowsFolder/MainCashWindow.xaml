@@ -54,7 +54,7 @@
                     HorizontalAlignment="Center"
                     Margin="0 0 0 0"
                     Height="80">
-                    <StackPanel Margin="50 0" Orientation="Horizontal">
+                    <StackPanel Margin="100 0" Orientation="Horizontal">
                         <TextBlock
                             FontSize="40"
                             Text="&#xf111;" 
