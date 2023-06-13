@@ -279,6 +279,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\UserControlFolder\MenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -386,9 +390,6 @@
     <Compile Include="AppDateFolder\ModelFolder\SystemSITable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\ViewMenuCategory.cs">
-      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
@@ -481,6 +482,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerControl.xaml.cs">
       <DependentUpon>ListWorkerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\UserControlFolder\MenuCashControl.xaml.cs">
+      <DependentUpon>MenuCashControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\MenuControl.xaml.cs">
       <DependentUpon>MenuControl.xaml</DependentUpon>

@@ -1,0 +1,67 @@
+﻿<UserControl 
+    x:Class="DesctopHITE.PerformanceFolder.UserControlFolder.MenuCashControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d">
+    <Border 
+        Visibility="Visible" 
+        Style="{DynamicResource BorderInformation}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="370"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="0"
+                x:Name="MenuPhotoImage"
+                Source="{Binding ImageMenuTable.Image_ImageMenu}"
+                Width="370"
+                Stretch="Uniform"
+                Height="370"/>
+            <Border
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                CornerRadius="10"
+                Height="80"
+                Width="auto"
+                MinWidth="0"
+                MaxWidth="300">
+                <Grid>
+                    <Border BorderThickness="5" Style="{DynamicResource NeonBorder}">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="{StaticResource NeonHighlightingColor}" 
+                                ShadowDepth="0" 
+                                Direction="0" 
+                                BlurRadius="25"/>
+                        </Border.Effect>
+                    </Border>
+                    <TextBlock
+                        Padding="10 0 10 0"
+                        Style="{DynamicResource MainStyleTextBlock}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontSize="50"
+                                Text="{Binding Prise_Menu, StringFormat = f0}"/>
+                            <TextBlock
+                                VerticalAlignment="Top"
+                                FontSize="30"
+                                Text="₽"
+                                Style="{DynamicResource MainStyleTextBlock}"/>
+                        </StackPanel>
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <TextBlock
+                FontSize="30"
+                Width="370"
+                TextWrapping="Wrap"
+                Margin="0 7 0 0"
+                Grid.Row="1"
+                Text="{Binding Name_Menu}"
+                Style="{DynamicResource MainStyleTextBlock}"/>
+        </Grid>
+    </Border>
+</UserControl>

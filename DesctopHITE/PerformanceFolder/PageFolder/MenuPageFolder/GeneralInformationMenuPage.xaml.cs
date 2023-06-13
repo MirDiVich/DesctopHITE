@@ -35,7 +35,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 EventAveragePeise();
                 EventMaxsimazePeise();
                 EventGeneralPeise();
-                ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
+                //ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
 
                 AppConnectClass.connectDataBase_ACC.IngredientsTable.Include(c => c.MenuTable).Load();
                 var rr = AppConnectClass.connectDataBase_ACC.IngredientsTable;

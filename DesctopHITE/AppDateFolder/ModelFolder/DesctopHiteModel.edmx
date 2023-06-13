@@ -202,24 +202,6 @@
           <Property Name="pnSnils_Worker" Type="nchar" MaxLength="11" Nullable="false" />
           <Property Name="AddpnWorker_Worker" Type="int" Nullable="false" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "DesctopHite.dbo.ViewIngridientMenu" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="ViewIngridientMenu">
-          <Property Name="Name_Ingredients_vim" Type="nvarchar" MaxLength="200" />
-          <Property Name="CountIngridientMenu_vim" Type="int" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DesctopHite.dbo.ViewMenuCategory" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="ViewMenuCategory">
-          <Key>
-            <PropertyRef Name="Title_MenuCategory" />
-          </Key>
-          <Property Name="Title_MenuCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MinPrise_ViewMenuCategory" Type="decimal" Precision="6" Scale="0" />
-          <Property Name="MaxPrise_ViewMenuCategory" Type="decimal" Precision="6" Scale="0" />
-          <Property Name="AvgPrise_ViewMenuCategory" Type="decimal" Precision="38" Scale="6" />
-          <Property Name="Count_ViewMenuCategory" Type="int" />
-        </EntityType>
         <Association Name="FK_ChequeTable_WorkerTable">
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="1" />
           <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="*" />
@@ -467,15 +449,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemSITable" EntityType="Self.SystemSITable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ViewMenuCategory" EntityType="Self.ViewMenuCategory" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ViewMenuCategory].[Title_MenuCategory] AS [Title_MenuCategory], 
-    [ViewMenuCategory].[MinPrise_ViewMenuCategory] AS [MinPrise_ViewMenuCategory], 
-    [ViewMenuCategory].[MaxPrise_ViewMenuCategory] AS [MaxPrise_ViewMenuCategory], 
-    [ViewMenuCategory].[AvgPrise_ViewMenuCategory] AS [AvgPrise_ViewMenuCategory], 
-    [ViewMenuCategory].[Count_ViewMenuCategory] AS [Count_ViewMenuCategory]
-    FROM [dbo].[ViewMenuCategory] AS [ViewMenuCategory]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="Self.FK_ChequeTable_WorkerTable">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ChequeTable" EntitySet="ChequeTable" />
@@ -572,7 +545,6 @@
           <EntitySet Name="sysdiagrams" EntityType="DesctopHiteModel.sysdiagrams" />
           <EntitySet Name="SystemSITable" EntityType="DesctopHiteModel.SystemSITable" />
           <EntitySet Name="WorkerTable" EntityType="DesctopHiteModel.WorkerTable" />
-          <EntitySet Name="ViewMenuCategory" EntityType="DesctopHiteModel.ViewMenuCategory" />
           <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="DesctopHiteModel.FK_ChequeTable_WorkerTable">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ChequeTable" EntitySet="ChequeTable" />
@@ -850,16 +822,6 @@
           <NavigationProperty Name="SalaryCardTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
           <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
           <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
-        </EntityType>
-        <EntityType Name="ViewMenuCategory">
-          <Key>
-            <PropertyRef Name="Title_MenuCategory" />
-          </Key>
-          <Property Name="Title_MenuCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MinPrise_ViewMenuCategory" Type="Decimal" Precision="6" Scale="0" />
-          <Property Name="MaxPrise_ViewMenuCategory" Type="Decimal" Precision="6" Scale="0" />
-          <Property Name="AvgPrise_ViewMenuCategory" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="Count_ViewMenuCategory" Type="Int32" />
         </EntityType>
         <Association Name="FK_ChequeTable_WorkerTable">
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
@@ -1240,17 +1202,6 @@
                 <ScalarProperty Name="Login_Worker" ColumnName="Login_Worker" />
                 <ScalarProperty Name="Phone_Worker" ColumnName="Phone_Worker" />
                 <ScalarProperty Name="PersonalNumber_Worker" ColumnName="PersonalNumber_Worker" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ViewMenuCategory">
-            <EntityTypeMapping TypeName="DesctopHiteModel.ViewMenuCategory">
-              <MappingFragment StoreEntitySet="ViewMenuCategory">
-                <ScalarProperty Name="Count_ViewMenuCategory" ColumnName="Count_ViewMenuCategory" />
-                <ScalarProperty Name="AvgPrise_ViewMenuCategory" ColumnName="AvgPrise_ViewMenuCategory" />
-                <ScalarProperty Name="MaxPrise_ViewMenuCategory" ColumnName="MaxPrise_ViewMenuCategory" />
-                <ScalarProperty Name="MinPrise_ViewMenuCategory" ColumnName="MinPrise_ViewMenuCategory" />
-                <ScalarProperty Name="Title_MenuCategory" ColumnName="Title_MenuCategory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

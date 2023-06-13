@@ -13,6 +13,27 @@
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
+    <Style x:Key="NoSelected" TargetType="ListViewItem">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Margin" Value="0 5 0 5"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border 
+                        x:Name="border"
+                        CornerRadius="0"
+                        BorderThickness="0" 
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <Style x:Key="ListViewItemSelected" TargetType="ListViewItem">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Margin" Value="3.5"/>
@@ -162,24 +183,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NoSelected" TargetType="ListViewItem">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="0 5 0 5"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListViewItem">
-                    <Border 
-                        x:Name="border"
-                        CornerRadius="0"
-                        BorderThickness="0" 
-                        Background="Transparent"
-                        BorderBrush="Transparent">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style x:Key="ListMenuCashItemSelected" TargetType="ListViewItem" BasedOn="{StaticResource NoSelected}">
+        <Setter Property="Margin" Value="10"/>
     </Style>
 </ResourceDictionary>

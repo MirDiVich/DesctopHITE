@@ -19,7 +19,7 @@
             HorizontalAlignment="Center" 
             Orientation="Vertical">
             <TextBlock
-                Text="HTRE"
+                Text="HIRE"
                 FontSize="200"
                 Style="{StaticResource MainStyleTextBlock}"
                 FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint">
