@@ -16,9 +16,48 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class InfoMenuCashWindow : Window
     {
+        int decreaseIncrease = 1;
+
         public InfoMenuCashWindow()
         {
             InitializeComponent();
+        }
+
+        #region _Click
+        private void DecreaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            decreaseIncrease--;
+            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+        }
+
+        private void IncreaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            decreaseIncrease++;
+            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+        }
+        #endregion
+
+        private void IncreaseDecreaseTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (decreaseIncrease >= 10)
+            {
+                IncreaseButton.IsEnabled = false;
+            }
+            else
+            {
+                IncreaseButton.IsEnabled = true;
+            }
+
+            if (decreaseIncrease == 1)
+            {
+                DecreaseButton.IsEnabled = false;
+            }
+            else
+            {
+                DecreaseButton.IsEnabled = true;
+            }
+
+            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
         }
     }
 }

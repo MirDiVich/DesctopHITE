@@ -17,9 +17,9 @@
                 Grid.Row="0"
                 x:Name="MenuPhotoImage"
                 Source="{Binding ImageMenuTable.Image_ImageMenu}"
-                Width="370"
+                Width="250"
                 Stretch="Uniform"
-                Height="370"/>
+                Height="250"/>
             <Border
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"

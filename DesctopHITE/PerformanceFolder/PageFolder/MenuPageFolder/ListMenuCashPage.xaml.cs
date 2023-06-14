@@ -1,5 +1,6 @@
 ﻿using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
+using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
         private void ListMenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            try
+            {
+                InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow();
+                infoMenuCashWindow.ShowDialog();
+            }
+            catch (Exception exMenuCashPage)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                    textMessage: $"Событие ListMenuListView_SelectionChanged в ListMenuCashPage:\n\n " +
+                    $"{exMenuCashPage.Message}");
+            }
         }
     }
 }
