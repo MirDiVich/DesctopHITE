@@ -21,13 +21,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
     public partial class ListMenuCashPage : Page
     {
         int personalNumberCategory;
+        MenuTable menuSelection;
 
-        public ListMenuCashPage(MenuCategoryTable menuCategoryTable)
+        public ListMenuCashPage()
         {
             try
             {
                 InitializeComponent();
-                personalNumberCategory = menuCategoryTable.PersonalNumber_MenuCategory;
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
             }
             catch (Exception exMenuCashPage)
@@ -42,7 +42,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                var listMenuCategory = AppConnectClass.connectDataBase_ACC.MenuTable.Where(dataMenu => dataMenu.pnMenuCategory_Menu == personalNumberCategory);
+                personalNumberCategory = AppConnectClass.rememberTheSelectedCategory_ACC;
+
+                var listMenuCategory = AppConnectClass.connectDataBase_ACC.MenuTable.Where(dataMenu => 
+                    dataMenu.pnMenuCategory_Menu == personalNumberCategory);
                 ListMenuListView.ItemsSource = listMenuCategory.ToList();
             }
             catch (Exception exMenuCashPage)
@@ -57,8 +60,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                var menuSelection = ListMenuListView.SelectedItem as MenuTable; 
-                InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow();
+                menuSelection = ListMenuListView.SelectedItem as MenuTable; 
+                InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow(menuSelection);
                 infoMenuCashWindow.ShowDialog();
 
                 menuSelection = null;

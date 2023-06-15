@@ -47,7 +47,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             try
             {
                 var selectedCategory = ListMenuListView.SelectedItem as MenuCategoryTable;
-                FrameNavigationClass.bodyCash_FNC.Navigate(new ListMenuCashPage(selectedCategory));
+                AppConnectClass.rememberTheSelectedCategory_ACC = selectedCategory.PersonalNumber_MenuCategory;
+
+                FrameNavigationClass.bodyCash_FNC.Navigate(new ListMenuCashPage());
             }
             catch (Exception exListMenuListView_SelectionChanged)
             {

@@ -46,34 +46,163 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Margin="0 10 10 0" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Image
-                        Margin="0 0 0 5"
+                        Margin="0 0 0 20"
                         Height="350"
                         Width="350"
                         Source="{Binding ImageMenuTable.Image_ImageMenu}"/>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 5 0 0">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 20 0 20">
                         <Button
                             x:Name="DecreaseButton"
                             Click="DecreaseButton_Click"
                             Style="{DynamicResource DecreaseStyleButton}"
-                            Content="-"
-                            Height="40"
-                            Width="40"/>
+                            Content="-"/>
                         <TextBox
                             TextChanged="IncreaseDecreaseTextBox_TextChanged"
                             x:Name="IncreaseDecreaseTextBox"
-                            IsEnabled="False"
-                            Style="{DynamicResource IncreaseDecreaseStyleTextBox}"
-                            Height="40"
-                            Width="140"/>
+                            Style="{DynamicResource IncreaseDecreaseStyleTextBox}"/>
                         <Button
                             x:Name="IncreaseButton"
                             Click="IncreaseButton_Click"
                             Style="{DynamicResource IncreaseStyleButton}"
-                            Content="+"
-                            Height="40"
-                            Width="40"/>
+                            Content="+"/>
+                    </StackPanel>
+                    <StackPanel Margin="10 20 10 10" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <StackPanel Margin="0 0 0 5" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Text="ЦЕНА:"
+                                Margin="0 0 10 0"/>
+                            <TextBlock
+                                x:Name="PriseMenuTextBlock"
+                                Margin="10 0 0 0"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                FontSize="30"
+                                Text="{Binding Prise_Menu, StringFormat = f0}"/>
+                            <TextBlock
+                                VerticalAlignment="Top"
+                                FontSize="20"
+                                Text="₽"
+                                Style="{DynamicResource OtherStyleTextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 5 0 0" Style="{DynamicResource HorizontalDataStackPanel}">
+                            <TextBlock
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                FontSize="30"
+                                Text="ВЕС:"
+                                Margin="0 0 10 0"/>
+                            <TextBlock
+                                Margin="10 0 2 0"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                FontSize="30"
+                                Text="{Binding Weight_Menu}"/>
+                            <TextBlock
+                                Margin="2 0 0 0"
+                                VerticalAlignment="Bottom"
+                                FontSize="30"
+                                Text="{Binding SystemSITable.Title_SystemSI}"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                FontFamily="Times New Roman"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
+                <Button 
+                    FontSize="40"
+                    VerticalAlignment="Bottom"
+                    x:Name="CanselButton"
+                    Click="CanselButton_Click"
+                    Margin="10"
+                    Style="{DynamicResource DeliteButtonStyle}"
+                    Height="80">
+                    <StackPanel Margin="50 0" Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="40"
+                            Text="&#xf136;" 
+                            Style="{DynamicResource IconTextBlockStyle}"
+                            Margin="0 0 10 0"/>
+                        <TextBlock
+                            Margin="10 0 0 0"
+                            Text="ОТМЕНИТЬ"/>
+                    </StackPanel>
+                </Button>
+                <Grid Grid.Column="1">
+                    <ScrollViewer>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+                            <TextBlock
+                                Text="{Binding Name_Menu}"
+                                FontSize="40"
+                                Width="1150"
+                                Margin="0 0 0 20"
+                                HorizontalAlignment="Left"
+                                Style="{DynamicResource MainStyleTextBlock}"
+                                TextWrapping="Wrap"/>
+                            <TextBlock
+                                Text="{Binding Description_Menu}"
+                                FontSize="30"
+                                Width="1150"
+                                Margin="0 20 0 20"
+                                Style="{DynamicResource OtherStyleTextBlock}"
+                                TextWrapping="Wrap"/>
+                            <StackPanel Margin="0 20 0 20" Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                <TextBlock
+                                    Text="ИНГРИДИЕНТЫ"
+                                    FontSize="30"
+                                    Width="1150"
+                                    Margin="0 0 0 5"
+                                    Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
+                                <ListView
+                                    x:Name="ListIngridientListView"
+                                    Margin="0 5 0 0"
+                                    Width="1150"
+                                    MinHeight="0"
+                                    MaxHeight="200"
+                                    Height="Auto"
+                                    ItemContainerStyle="{StaticResource NoSelected}">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel 
+                                                IsItemsHost="True" 
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Left" 
+                                                Background="Transparent"/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                FontSize="30"
+                                                Margin="0"
+                                                Style="{DynamicResource OtherStyleTextBlock}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Name_Ingredients}"/>
+                                                    <TextBlock Text=";"/>
+                                                </StackPanel>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Button 
+                        VerticalAlignment="Bottom"
+                        FontSize="40"
+                        HorizontalAlignment="Right"
+                        Margin="10"
+                        Height="80"
+                        Style="{DynamicResource OtherButtonStyle}">
+                        <StackPanel Margin="50 0" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0 0 10 0"
+                                Text="ПРОДОЛЖИТЬ"/>
+                            <TextBlock
+                                FontSize="40"
+                                Text="&#xf2ee;" 
+                                Style="{DynamicResource IconTextBlockStyle}"
+                                Margin="10 0 0 0"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

@@ -1,27 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DesctopHITE.AppDateFolder.ClassFolder;
+using DesctopHITE.AppDateFolder.ModelFolder;
+using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class InfoMenuCashWindow : Window
     {
         int decreaseIncrease = 1;
+        int numberOfTheSelectedMenu;
+        int priseSelectedMenu;
 
-        public InfoMenuCashWindow()
+        public InfoMenuCashWindow(MenuTable menuTable)
         {
-            InitializeComponent();
-            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+            try
+            {
+                InitializeComponent();
+                DataContext = menuTable;
+                priseSelectedMenu = Convert.ToInt32(menuTable.Prise_Menu);
+                numberOfTheSelectedMenu = menuTable.PersonalNumber_Menu;
+
+                EventListIngridient();
+                IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+            }
+            catch (Exception exInfoMenuCashWindow)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие InfoMenuCashWindow в InfoMenuCashWindow:\n\n " +
+                        $"{exInfoMenuCashWindow.Message}");
+            }
         }
 
         #region _Click
@@ -29,15 +40,34 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             decreaseIncrease--;
             IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+
+            PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
         }
 
         private void IncreaseButton_Click(object sender, RoutedEventArgs e)
         {
             decreaseIncrease++;
             IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+
+            PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
+        }
+
+        private void CanselButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
         #endregion
+        #region Event
+        private void EventListIngridient()
+        {
+            AppConnectClass.connectDataBase_ACC.MenuTable.Include(ingredients => ingredients.IngredientsTable).Load();
+            var ingredientsMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(numberOfTheSelectedMenu).IngredientsTable;
 
+            ListIngridientListView.Items.Refresh();
+            ListIngridientListView.ItemsSource = ingredientsMenu.ToList();
+        }
+        #endregion
+        #region _TextChanged
         private void IncreaseDecreaseTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (decreaseIncrease >= 10)
@@ -60,5 +90,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
             IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
         }
+        #endregion
     }
 }

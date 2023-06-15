@@ -15,7 +15,7 @@
 
     <Style x:Key="NoSelected" TargetType="ListViewItem">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="0 5 0 5"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Template">

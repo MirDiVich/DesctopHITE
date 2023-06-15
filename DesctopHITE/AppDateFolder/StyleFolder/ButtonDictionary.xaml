@@ -71,15 +71,15 @@
     </Style>
 
     <Style TargetType="Button" x:Key="IncreaseDecreaseMain" >
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="Width" Value="80"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#462AD8"/>
         <Setter Property="Foreground" Value="#f5f5f5"/>
         <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="30"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
 
