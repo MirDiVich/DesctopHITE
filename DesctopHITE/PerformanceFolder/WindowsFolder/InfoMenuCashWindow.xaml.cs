@@ -21,6 +21,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         public InfoMenuCashWindow()
         {
             InitializeComponent();
+            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
         }
 
         #region _Click

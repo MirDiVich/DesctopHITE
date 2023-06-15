@@ -57,8 +57,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
+                var menuSelection = ListMenuListView.SelectedItem as MenuTable; 
                 InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow();
                 infoMenuCashWindow.ShowDialog();
+
+                menuSelection = null;
+                ListMenuListView.SelectedItem = null;
             }
             catch (Exception exMenuCashPage)
             {
