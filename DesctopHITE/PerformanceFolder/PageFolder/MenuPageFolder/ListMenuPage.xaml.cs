@@ -59,8 +59,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exPage_IsVisibleChanged.Message}");
             }
         }
-        #region Event
-        private void EventViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации
+        #region Event_
+        private void Event_ViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации
         {
             try
             {
@@ -75,15 +75,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception exEventViewDataMenu)
+            catch (Exception exEvent_ViewDataMenu)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventViewDataMenu в ListMenuPage:\n\n " +
-                        $"{exEventViewDataMenu.Message}");
+                        textMessage: $"Событие Event_ViewDataMenu в ListMenuPage:\n\n " +
+                        $"{exEvent_ViewDataMenu.Message}");
             }
         }
 
-        private void EventEditMunu(object sender, RoutedEventArgs e) // Редактирование
+        private void Event_EditMunu(object sender, RoutedEventArgs e) // Редактирование
         {
             try
             {
@@ -96,15 +96,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Меню не выбрано");
                 }
             }
-            catch (Exception exEventEditMunu)
+            catch (Exception exEvent_EditMunu)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventEditMunu в ListMenuPage:\n\n " +
-                        $"{exEventEditMunu.Message}");
+                        textMessage: $"Событие Event_EditMunu в ListMenuPage:\n\n " +
+                        $"{exEvent_EditMunu.Message}");
             }
         }
 
-        private void EventDeleteMenu(object sender, RoutedEventArgs e) // Удаление информации
+        private void Event_DeleteMenu(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
@@ -117,11 +117,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Меню не выбрано");
                 }
             }
-            catch (Exception exEventDeleteMenu)
+            catch (Exception exEvent_DeleteMenu)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDeleteMenu в ListMenuPage:\n\n " +
-                        $"{exEventDeleteMenu.Message}");
+                        textMessage: $"Событие Event_DeleteMenu в ListMenuPage:\n\n " +
+                        $"{exEvent_DeleteMenu.Message}");
             }
         }
         #endregion
@@ -183,7 +183,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventEditMunu(this, e); }
+        private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { Event_EditMunu(this, e); }
         #endregion
         #region _Click
         private void KeyboardShortcuts(object sender, KeyEventArgs e)
@@ -192,9 +192,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (dataContextMenu != null)
                 {
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { EventViewDataMenu(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditMunu(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteMenu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { Event_ViewDataMenu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { Event_EditMunu(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { Event_DeleteMenu(this, e); }
                 }
             }
             catch (Exception exKeyboardShortcuts)

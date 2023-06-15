@@ -38,8 +38,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exNewIngredientsPage.Message}");
             }
         }
-        #region Event
-        private void EventAddIngridient()
+        #region Event_
+        private void Event_AddIngridient()
         {
             try
             {
@@ -62,26 +62,26 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.GoodMessageBox_MBC(textMessage: $"ингредиент {addOrUpdateIngredients.Name_Ingredients} {messageda}");
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new ListIngridientPage());
             }
-            catch (Exception exEventAddEngridi)
+            catch (Exception exEvent_AddEngridi)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventAddEngridi в NewIngredientsPage:\n\n " +
-                        $"{exEventAddEngridi.Message}");
+                        textMessage: $"Событие Event_AddEngridi в NewIngredientsPage:\n\n " +
+                        $"{exEvent_AddEngridi.Message}");
             }
         }
 
-        private void EventMessageNull()
+        private void Event_MessageNull()
         {
             try
             {
                 if (NameIngridientTextBox.Text == "") messasgeNull += "Поле не должно быть пустым\n\n";
                 if (NameIngridientTextBox.Text.Length < 2) messasgeNull += "Название ингредиента не может состоять из 2 и менее букв";
             }
-            catch (Exception exEventMessageNull)
+            catch (Exception exEvent_MessageNull)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMessageNull в NewIngredientsPage:\n\n " +
-                        $"{exEventMessageNull.Message}");
+                        textMessage: $"Событие Event_MessageNull в NewIngredientsPage:\n\n " +
+                        $"{exEvent_MessageNull.Message}");
             }
         }
         #endregion
@@ -91,11 +91,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             { 
                 messasgeNull = "";
-                EventMessageNull();
+                Event_MessageNull();
 
                 if (messasgeNull == "")
                 {
-                    EventAddIngridient();
+                    Event_AddIngridient();
                 }
                 else
                 {

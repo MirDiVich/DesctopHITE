@@ -61,8 +61,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        #region Event
-        private void EventViewDataWorker(object sender, RoutedEventArgs e) // Просмотр информации
+        #region Event_
+        private void Event_ViewDataWorker(object sender, RoutedEventArgs e) // Просмотр информации
         {
             try
             {
@@ -75,15 +75,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage:"Сотрудник не выбран");
                 }
             }
-            catch (Exception exEventViewDataWorker)
+            catch (Exception exEvent_ViewDataWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventViewDataWorker в ListWorkerPage:\n\n " +
-                        $"{exEventViewDataWorker.Message}");
+                        textMessage: $"Событие Event_ViewDataWorker в ListWorkerPage:\n\n " +
+                        $"{exEvent_ViewDataWorker.Message}");
             }
         }
 
-        private void EventEditWorker(object sender, RoutedEventArgs e) // Редактирование информации
+        private void Event_EditWorker(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
@@ -96,15 +96,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Сотрудник не выбран");
                 }
             }
-            catch (Exception exEventEditWorker)
+            catch (Exception exEvent_EditWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GetEditWorker в ListWorkerPage:\n\n " +
-                        $"{exEventEditWorker.Message}");
+                        $"{exEvent_EditWorker.Message}");
             }
         }
 
-        private void EventDeleteWorker(object sender, RoutedEventArgs e) // Удаление информации
+        private void Event_DeleteWorker(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
@@ -118,11 +118,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Сотрудник не выбран");
                 }
             }
-            catch (Exception exEventDeleteWorker)
+            catch (Exception exEvent_DeleteWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDeleteWorker в ListWorkerPage:\n\n " +
-                        $"{exEventDeleteWorker.Message}");
+                        textMessage: $"Событие Event_DeleteWorker в ListWorkerPage:\n\n " +
+                        $"{exEvent_DeleteWorker.Message}");
             }
         }
         #endregion
@@ -133,9 +133,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (dataContextWorker != null)
                 {
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { EventViewDataWorker(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditWorker(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F1) { Event_ViewDataWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { Event_EditWorker(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { Event_DeleteWorker(this, e); }
                 }
             }
             catch(Exception exKeyboardShortcuts)
@@ -161,7 +161,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #endregion
         #region SelectionChanged_MouseDoubleClick
-        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { EventViewDataWorker(this, e); } // Переход к странице с информацией об сотруднике
+        private void ListWorkerListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { Event_ViewDataWorker(this, e); } // Переход к странице с информацией об сотруднике
         private void ListWorkerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) // Активация кнопок для Редактирования или удаления сотрудника, когда выбран объект из ListWorkerListView
         {
             try
@@ -179,7 +179,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация Eventа поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
+        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Реализация Event_а поиск по таблице PassportTable и вывод результатов из таблицы WorkerTable
         {
             try
             {

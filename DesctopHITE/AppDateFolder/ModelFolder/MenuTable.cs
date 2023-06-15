@@ -17,7 +17,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MenuTable()
         {
-            this.ChequeTable = new HashSet<ChequeTable>();
+            this.MTM_ChequeMenu = new HashSet<MTM_ChequeMenu>();
             this.IngredientsTable = new HashSet<IngredientsTable>();
         }
     
@@ -34,7 +34,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public virtual MenuCategoryTable MenuCategoryTable { get; set; }
         public virtual SystemSITable SystemSITable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChequeTable> ChequeTable { get; set; }
+        public virtual ICollection<MTM_ChequeMenu> MTM_ChequeMenu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IngredientsTable> IngredientsTable { get; set; }
     }

@@ -162,7 +162,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 messageGeneralDataNull = "";
                 messageValidData = "";
 
-                EventMessageNull();
+                Event_MessageNull();
 
                 if (messagePassportNull != "" ||
                     messagePlaceResidenceNull != "" ||
@@ -212,12 +212,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                             }
                             else
                             {
-                                EventAddDataWorker();
+                                Event_AddDataWorker();
                             }
                         }
                         else
                         {
-                            EventAddDataWorker();
+                            Event_AddDataWorker();
                         }
                     }
                 }
@@ -251,8 +251,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
         #endregion
-        #region Event
-        private void EventMessageNull() // Event на проверки полей на валидность данных 
+        #region Event_
+        private void Event_MessageNull() // Event_ на проверки полей на валидность данных 
         {
             try
             {
@@ -372,21 +372,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
                 #endregion
             }
-            catch (Exception exEventMessageNull)
+            catch (Exception exEvent_MessageNull)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMessageNull в NewWorkerPage:\n\n " +
-                        $"{exEventMessageNull.Message}");
+                        textMessage: $"Событие Event_MessageNull в NewWorkerPage:\n\n " +
+                        $"{exEvent_MessageNull.Message}");
             }
         }
 
-        private int EventRandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
+        private int Event_RandomTextSender() // Метод, который генерирует рандомное число для подтверждения регистрации
         {
             Random random = new Random();
             return random.Next(1000000000);
         }
 
-        private void EventAddDataWorker() // Метод для добавления нового сотрудника в баз данных
+        private void Event_AddDataWorker() // Метод для добавления нового сотрудника в баз данных
         {
             // Самый важный прикол. Здесь реализовано добавление в 2 таблицы "PassportTable" и "ImagePassportTable",
             // данные таблицы связанны между собой, но таблице "ImagePassportTable" нужны данные из таблицы "PassportTable", но при этом
@@ -542,17 +542,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 }
 
                 MessageBoxClass.GoodMessageBox_MBC(textMessage: MessadeSaveDataWorker);
-                EventClearText();
+                Event_ClearText();
             }
-            catch (Exception exEventAddDataWorker)
+            catch (Exception exEvent_AddDataWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventAddDataWorker в NewWorkerPage:\n\n " +
-                         $"{exEventAddDataWorker.Message}");
+                         textMessage: $"Событие Event_AddDataWorker в NewWorkerPage:\n\n " +
+                         $"{exEvent_AddDataWorker.Message}");
             }
         }
 
-        private void EventClearText() // Очищаем все поля
+        private void Event_ClearText() // Очищаем все поля
         {
             try
             {
@@ -566,11 +566,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                     FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
                 }
             }
-            catch (Exception exEventClearText)
+            catch (Exception exEvent_ClearText)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventClearText в NewWorkerPage:\n\n " +
-                         $"{exEventClearText.Message}");
+                         textMessage: $"Событие Event_ClearText в NewWorkerPage:\n\n " +
+                         $"{exEvent_ClearText.Message}");
             }
         }
         #endregion
@@ -680,7 +680,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
 
                 if (GetRoleWorker != 1 && GetRoleWorker != 2 && GetRoleWorker != 5 && workerInformation == null)
                 {
-                    randomPassword = EventRandomTextSender().ToString("D6");
+                    randomPassword = Event_RandomTextSender().ToString("D6");
 
                     PasswordWorkerTextBox.Text = randomPassword;
                     RepeatPasswordWorkerPasswordBox.Password = randomPassword;

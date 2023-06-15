@@ -28,13 +28,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 InitializeComponent();
                 AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
-                EventMenuCount();
-                EventCategoryCount();
-                EventIngridientCount();
-                EventMinimazePeise();
-                EventAveragePeise();
-                EventMaxsimazePeise();
-                EventGeneralPeise();
+                Event_MenuCount();
+                Event_CategoryCount();
+                Event_IngridientCount();
+                Event_MinimazePeise();
+                Event_AveragePeise();
+                Event_MaxsimazePeise();
+                Event_GeneralPeise();
                 //ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
 
                 AppConnectClass.connectDataBase_ACC.IngredientsTable.Include(c => c.MenuTable).Load();
@@ -48,8 +48,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exGeneralInformationMenuPage.Message}");
             }
         }
-        #region Event
-        private void EventMenuCount() // Подсчет общего количества меню
+        #region Event_
+        private void Event_MenuCount() // Подсчет общего количества меню
         {
             try
             {
@@ -68,15 +68,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MenuCountTextBlock.Text = $"{countMenuData} позиций";
                 }
             }
-            catch (Exception exEventMenuCount)
+            catch (Exception exEvent_MenuCount)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMenuCount в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventMenuCount.Message}");
+                        textMessage: $"Событие Event_MenuCount в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_MenuCount.Message}");
             }
         }
 
-        private void EventCategoryCount() // Подсчет общего количества категории
+        private void Event_CategoryCount() // Подсчет общего количества категории
         {
             try
             {
@@ -95,15 +95,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     CategoryCountTextBlock.Text = $"{countCategoryData} категорий";
                 }
             }
-            catch (Exception exEventCategoryCount)
+            catch (Exception exEvent_CategoryCount)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventCategoryCount в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventCategoryCount.Message}");
+                        textMessage: $"Событие Event_CategoryCount в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_CategoryCount.Message}");
             }
         }
 
-        private void EventIngridientCount() // Подсчет общего количества ингредиентов
+        private void Event_IngridientCount() // Подсчет общего количества ингредиентов
         {
             try
             {
@@ -122,30 +122,30 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     IngridientCountTextBlock.Text = $"{countIngridientData} ингредиентов";
                 }
             }
-            catch (Exception exEventIngridientCount)
+            catch (Exception exEvent_IngridientCount)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventIngridientCount в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventIngridientCount.Message}");
+                        textMessage: $"Событие Event_IngridientCount в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_IngridientCount.Message}");
             }
         }
 
-        private void EventMinimazePeise() // Получение минимальной цены блюда
+        private void Event_MinimazePeise() // Получение минимальной цены блюда
         {
             try
             {
                 var minimazePrise = AppConnectClass.connectDataBase_ACC.MenuTable.OrderBy(miniData => miniData.Prise_Menu).FirstOrDefault();
                 MinPriseTextBlock.Text = $"{minimazePrise.Prise_Menu}₽ ({minimazePrise.Name_Menu} '{minimazePrise.MenuCategoryTable.Title_MenuCategory}')";
             }
-            catch (Exception exEventMinimazePeise)
+            catch (Exception exEvent_MinimazePeise)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMinimazePeise в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventMinimazePeise.Message}");
+                        textMessage: $"Событие Event_MinimazePeise в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_MinimazePeise.Message}");
             }
         }
 
-        private void EventAveragePeise() // Получение среднего значения цены
+        private void Event_AveragePeise() // Получение среднего значения цены
         {
             try
             {
@@ -154,41 +154,41 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 AveragePriseCountTextBlock.Text = $"{Math.Round(generalPrise / generalCount, 2)}₽";
             }
-            catch (Exception exEventAveragePeise)
+            catch (Exception exEvent_AveragePeise)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventAveragePeise в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventAveragePeise.Message}");
+                        textMessage: $"Событие Event_AveragePeise в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_AveragePeise.Message}");
             }
         }
 
-        private void EventMaxsimazePeise() // Получение максимальной цены блюда
+        private void Event_MaxsimazePeise() // Получение максимальной цены блюда
         {
             try
             {
                 var maxsimazePrise = AppConnectClass.connectDataBase_ACC.MenuTable.OrderByDescending(maxData => maxData.Prise_Menu).FirstOrDefault();
                 MaxPriseCountTextBlock.Text = $"{maxsimazePrise.Prise_Menu}₽ ({maxsimazePrise.Name_Menu} '{maxsimazePrise.MenuCategoryTable.Title_MenuCategory}')";
             }
-            catch (Exception exEventMaxsimazePeise)
+            catch (Exception exEvent_MaxsimazePeise)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMaxsimazePeise в GeneralInformationMenuPage:\n\n " +
-                        $"{exEventMaxsimazePeise.Message}");
+                        textMessage: $"Событие Event_MaxsimazePeise в GeneralInformationMenuPage:\n\n " +
+                        $"{exEvent_MaxsimazePeise.Message}");
             }
         }
 
-        private void EventGeneralPeise() // Получение общей цены блюд
+        private void Event_GeneralPeise() // Получение общей цены блюд
         {
             try
             {
                 var generalPrise = AppConnectClass.connectDataBase_ACC.MenuTable.Sum(generData => generData.Prise_Menu);
                 GeneralPriseTextBlock.Text = $"{generalPrise}₽";
             }
-            catch (Exception exEventGeneralPeise)
+            catch (Exception exEvent_GeneralPeise)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-               textMessage: $"Событие EventGeneralPeise в GeneralInformationMenuPage:\n\n " +
-               $"{exEventGeneralPeise.Message}");
+               textMessage: $"Событие Event_GeneralPeise в GeneralInformationMenuPage:\n\n " +
+               $"{exEvent_GeneralPeise.Message}");
             }
         }
         #endregion

@@ -79,7 +79,7 @@
         <Setter Property="Background" Value="#462AD8"/>
         <Setter Property="Foreground" Value="#f5f5f5"/>
         <Setter Property="FontFamily" Value="\ContentFolder\FontFolder\#Jura"/>
-        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontSize" Value="50"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
 

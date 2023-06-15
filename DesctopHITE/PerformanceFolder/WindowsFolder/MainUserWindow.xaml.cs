@@ -89,7 +89,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                EventResettingDataAboutAuthorizedUser();
+                Event_ResettingDataAboutAuthorizedUser();
 
                 AuthorizationWindow authorizationWindow = new AuthorizationWindow();
                 authorizationWindow.Show();
@@ -107,7 +107,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                EventResettingDataAboutAuthorizedUser();
+                Event_ResettingDataAboutAuthorizedUser();
                 Application.Current.Shutdown();
             }
             catch (Exception exExitAndCloseUserButton_Click)
@@ -118,8 +118,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Event
-        private void EventResettingDataAboutAuthorizedUser()
+        #region Event_
+        private void Event_ResettingDataAboutAuthorizedUser()
         {
             try
             {
@@ -130,11 +130,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
 
                 Properties.Settings.Default.Save();
             }
-            catch (Exception exEventResettingDataAboutAuthorizedUser)
+            catch (Exception exEvent_ResettingDataAboutAuthorizedUser)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventResettingDataAboutAuthorizedUser в MainUserWindow:\n\n " +
-                       $"{exEventResettingDataAboutAuthorizedUser.Message}");
+                       textMessage: $"Событие Event_ResettingDataAboutAuthorizedUser в MainUserWindow:\n\n " +
+                       $"{exEvent_ResettingDataAboutAuthorizedUser.Message}");
             }
         }
         #endregion

@@ -58,8 +58,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        #region Event
-        private void EventEditCategory(object sender, RoutedEventArgs e) // Редактирование информации
+        #region Event_
+        private void Event_EditCategory(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
@@ -72,15 +72,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Категория не выбрана");
                 }
             }
-            catch (Exception exEventEditCategory)
+            catch (Exception exEvent_EditCategory)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventEditCategory в ListCategoryPage:\n\n " +
-                        $"{exEventEditCategory.Message}");
+                        textMessage: $"Событие Event_EditCategory в ListCategoryPage:\n\n " +
+                        $"{exEvent_EditCategory.Message}");
             }
         }
 
-        private void EventDeleteCategory(object sender, RoutedEventArgs e) // Удаление информации
+        private void Event_DeleteCategory(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
@@ -102,11 +102,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Категория не выбрана");
                 }
             }
-            catch (Exception exEventDeleteCategory)
+            catch (Exception exEvent_DeleteCategory)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDeleteCategory в ListCategoryPage:\n\n " +
-                        $"{exEventDeleteCategory.Message}");
+                        textMessage: $"Событие Event_DeleteCategory в ListCategoryPage:\n\n " +
+                        $"{exEvent_DeleteCategory.Message}");
             }
         }
         #endregion
@@ -173,7 +173,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                EventEditCategory(this, e);
+                Event_EditCategory(this, e);
             }
             catch (Exception exCategoryListListView_MouseDoubleClick)
             {
@@ -204,8 +204,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuCategoryTable != null)
                 {
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditCategory(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteCategory(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { Event_EditCategory(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { Event_DeleteCategory(this, e); }
                 }
             }
             catch (Exception exKeyboardShortcuts)

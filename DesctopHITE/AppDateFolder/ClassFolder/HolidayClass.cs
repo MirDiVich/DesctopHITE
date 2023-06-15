@@ -11,7 +11,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     {
         DateTime toDay = DateTime.Now;
 
-        public string EventWhatDayIsIt_HC // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
+        public string Event_WhatDayIsIt_HC // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
         {
             get
             {
@@ -77,7 +77,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
             }
         }
 
-        public string EventHappyBirthdayGreetings_HC // Поздравление пользователя, если у него день рождения
+        public string Event_HappyBirthdayGreetings_HC // Поздравление пользователя, если у него день рождения
         {
             get
             {

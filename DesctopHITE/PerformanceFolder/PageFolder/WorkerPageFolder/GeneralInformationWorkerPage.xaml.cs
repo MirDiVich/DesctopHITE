@@ -40,11 +40,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    EventDataCountWorker();
-                    EventBirthdayComingSoonWorker();
-                    EventTodayBirthdayWorker();
-                    EventGenderWorker();
-                    EventNumberEmployeesWithPosition();
+                    Event_DataCountWorker();
+                    Event_BirthdayComingSoonWorker();
+                    Event_TodayBirthdayWorker();
+                    Event_GenderWorker();
+                    Event_NumberEmployeesWithPosition();
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -55,8 +55,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
             }
         }
 
-        #region Event
-        private void EventDataCountWorker() // Считаю количество сотрудников / количество онлайн / оффлайн
+        #region Event_
+        private void Event_DataCountWorker() // Считаю количество сотрудников / количество онлайн / оффлайн
         {
             try
             {
@@ -66,15 +66,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 TotalOnlineWorkerTextBlock.Text = $"{dataCountWorker.Count(status => status.pnStatus_Worker == 2)}";
                 TotalOfflineWorkerTextBlock.Text = $"{dataCountWorker.Count(status => status.pnStatus_Worker == 1)}";
             }
-            catch (Exception exEventDataCountWorker)
+            catch (Exception exEvent_DataCountWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDataCountWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exEventDataCountWorker.Message}");
+                        textMessage: $"Событие Event_DataCountWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEvent_DataCountWorker.Message}");
             }
         }
 
-        private void EventBirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
+        private void Event_BirthdayComingSoonWorker() // Получаю сотрудников, у которых скоро будет день рождение
         {
             try
             {
@@ -94,15 +94,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 // Устанавливаем список сотрудников с ожидаемыми днями рождения в ListBox
                 BirthdayComingSoonListView.ItemsSource = upcomingBirthdays;
             }
-            catch (Exception exEventBirthdayComingSoonWorker)
+            catch (Exception exEvent_BirthdayComingSoonWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventBirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exEventBirthdayComingSoonWorker.Message}");
+                        textMessage: $"Событие Event_BirthdayComingSoonWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEvent_BirthdayComingSoonWorker.Message}");
             }
         }
 
-        private void EventTodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
+        private void Event_TodayBirthdayWorker() // Получаю сотрудников, у которых сегодня день рождение
         {
             try
             {
@@ -111,15 +111,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                        toDayBrith.DateOfBrich_Passport.Day == toDay.Day &&
                        toDayBrith.DateOfBrich_Passport.Month == toDay.Month).ToList();
             }
-            catch (Exception exEventTodayBirthdayWorker)
+            catch (Exception exEvent_TodayBirthdayWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventTodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exEventTodayBirthdayWorker.Message}");
+                        textMessage: $"Событие Event_TodayBirthdayWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEvent_TodayBirthdayWorker.Message}");
             }
         }
 
-        private void EventGenderWorker() // Считаю количество сотрудников мужского \ женского гендера
+        private void Event_GenderWorker() // Считаю количество сотрудников мужского \ женского гендера
         {
             try
             {
@@ -128,15 +128,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 GenderManTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 1)}";
                 GenderWomenTextBlock.Text = $"{genderWorker.Count(gender => gender.pnGender_Passport == 2)}";
             }
-            catch (Exception exEventGenderWorker)
+            catch (Exception exEvent_GenderWorker)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventGenderWorker в GeneralInformationWorkerPage:\n\n " +
-                        $"{exEventGenderWorker.Message}");
+                        textMessage: $"Событие Event_GenderWorker в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEvent_GenderWorker.Message}");
             }
         }
 
-        private void EventNumberEmployeesWithPosition() // Считаю количество сотрудников  по должности
+        private void Event_NumberEmployeesWithPosition() // Считаю количество сотрудников  по должности
         {
             try
             {
@@ -148,11 +148,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 NumberEmployeesWithPositionCleanerTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 4)}";
                 NumberEmployeesWithPositionDirectorTextBlock.Text = $"{numberEmployeesWithPosition.Count(role => role.pnRole_Worker == 5)}";
             }
-            catch (Exception exEventNumberEmployeesWithPosition)
+            catch (Exception exEvent_NumberEmployeesWithPosition)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventNumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
-                        $"{exEventNumberEmployeesWithPosition.Message}");
+                        textMessage: $"Событие Event_NumberEmployeesWithPosition в GeneralInformationWorkerPage:\n\n " +
+                        $"{exEvent_NumberEmployeesWithPosition.Message}");
             }
         }
         #endregion

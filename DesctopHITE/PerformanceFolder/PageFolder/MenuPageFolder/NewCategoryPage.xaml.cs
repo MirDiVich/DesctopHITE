@@ -38,8 +38,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exNewCategoryPage.Message}");
             }
         }
-        #region Event
-        private void EventAddCategory()
+        #region Event_
+        private void Event_AddCategory()
         {
             try
             {
@@ -62,26 +62,26 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.GoodMessageBox_MBC(textMessage: $"ингредиент {addOrUpdateCategory.Title_MenuCategory} {messageda}");
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new ListCategoryPage());
             }
-            catch (Exception exEventAddEngridi)
+            catch (Exception exEvent_AddEngridi)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventAddEngridi в NewCategoryPage:\n\n " +
-                        $"{exEventAddEngridi.Message}");
+                        textMessage: $"Событие Event_AddEngridi в NewCategoryPage:\n\n " +
+                        $"{exEvent_AddEngridi.Message}");
             }
         }
 
-        private void EventMessageNull()
+        private void Event_MessageNull()
         {
             try
             {
                 if (NameCategoryTextBox.Text == "") messasgeNull += "Поле не должно быть пустым\n\n";
                 if (NameCategoryTextBox.Text.Length < 2) messasgeNull += "Название ингредиента не может состоять из 2 и менее букв";
             }
-            catch (Exception exEventMessageNull)
+            catch (Exception exEvent_MessageNull)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMessageNull в NewCategoryPage:\n\n " +
-                        $"{exEventMessageNull.Message}");
+                        textMessage: $"Событие Event_MessageNull в NewCategoryPage:\n\n " +
+                        $"{exEvent_MessageNull.Message}");
             }
         }
         #endregion
@@ -121,11 +121,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 messasgeNull = "";
-                EventMessageNull();
+                Event_MessageNull();
 
                 if (messasgeNull == "")
                 {
-                    EventAddCategory();
+                    Event_AddCategory();
                 }
                 else
                 {

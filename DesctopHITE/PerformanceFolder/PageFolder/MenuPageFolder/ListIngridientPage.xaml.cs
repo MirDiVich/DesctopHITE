@@ -59,8 +59,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        #region Event
-        private void EventEditIngredients(object sender, RoutedEventArgs e) // Редактирование информации
+        #region Event_
+        private void Event_EditIngredients(object sender, RoutedEventArgs e) // Редактирование информации
         {
             try
             {
@@ -73,15 +73,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
                 }
             }
-            catch (Exception exEventEditIngredients)
+            catch (Exception exEvent_EditIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventEditIngredients в ListIngridientPage:\n\n " +
-                        $"{exEventEditIngredients.Message}");
+                        textMessage: $"Событие Event_EditIngredients в ListIngridientPage:\n\n " +
+                        $"{exEvent_EditIngredients.Message}");
             }
         }
 
-        private void EventDeleteIngredients(object sender, RoutedEventArgs e) // Удаление информации
+        private void Event_DeleteIngredients(object sender, RoutedEventArgs e) // Удаление информации
         {
             try
             {
@@ -103,11 +103,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     MessageBoxClass.FailureMessageBox_MBC(textMessage: "Ингредиент не выбран");
                 }
             }
-            catch (Exception exEventDeleteIngredients)
+            catch (Exception exEvent_DeleteIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventDeleteIngredients в ListIngridientPage:\n\n " +
-                        $"{exEventDeleteIngredients.Message}");
+                        textMessage: $"Событие Event_DeleteIngredients в ListIngridientPage:\n\n " +
+                        $"{exEvent_DeleteIngredients.Message}");
             }
         }
         #endregion
@@ -174,7 +174,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                EventEditIngredients(this, e);
+                Event_EditIngredients(this, e);
             }
             catch (Exception exIngridientListListView_MouseDoubleClick)
             {
@@ -206,8 +206,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getIngredientsTable != null)
                 {
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { EventEditIngredients(this, e); }
-                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { EventDeleteIngredients(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.F2) { Event_EditIngredients(this, e); }
+                    if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.Key == Key.Delete) { Event_DeleteIngredients(this, e); }
                 }
             }
             catch (Exception exKeyboardShortcuts)

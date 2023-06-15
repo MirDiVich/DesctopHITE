@@ -34,6 +34,7 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         public virtual DbSet<MedicalBookTable> MedicalBookTable { get; set; }
         public virtual DbSet<MenuCategoryTable> MenuCategoryTable { get; set; }
         public virtual DbSet<MenuTable> MenuTable { get; set; }
+        public virtual DbSet<MTM_ChequeMenu> MTM_ChequeMenu { get; set; }
         public virtual DbSet<PassportTable> PassportTable { get; set; }
         public virtual DbSet<PlaceResidenceTable> PlaceResidenceTable { get; set; }
         public virtual DbSet<RoleTable> RoleTable { get; set; }

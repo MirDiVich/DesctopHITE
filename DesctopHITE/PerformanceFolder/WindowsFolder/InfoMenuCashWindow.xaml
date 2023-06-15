@@ -18,13 +18,13 @@
                 Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="430"/>
+                    <ColumnDefinition Width="1400"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
                     HorizontalAlignment="Center"
                     Grid.Column="1"
-                    Points="0,0, 30,15, 400,15, 430,0" 
+                    Points="0,0, 30,15, 1370,15, 1400,0" 
                     x:Name="PoligonName"
                     Fill="#2a2a2a"
                     Opacity="1">

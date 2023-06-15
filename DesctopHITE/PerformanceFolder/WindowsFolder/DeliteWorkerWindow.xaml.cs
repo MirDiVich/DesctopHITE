@@ -94,7 +94,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 {
                     MessageBoxClass.FailureMessageBox_MBC( textMessage: "Сотрудник не выбран");
                 }
-                else { EventDeliteWorker(); }
+                else { Event_DeliteWorker(); }
             }
             catch (Exception exDeliteButton_Click)
             {
@@ -104,8 +104,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Event
-        private void EventDeliteWorker() // Реализация удаления выбранного сотрудника
+        #region Event_
+        private void Event_DeliteWorker() // Реализация удаления выбранного сотрудника
         {
             try
             {
@@ -136,11 +136,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     this.Close();
                 }
             }
-            catch (Exception exDeliteWorkerEvent)
+            catch (Exception exDeliteWorkerEvent_)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие DeliteWorkerEvent в DeliteWorkerWindow:\n\n " +
-                        $"{exDeliteWorkerEvent.Message}");
+                        textMessage: $"Событие DeliteWorkerEvent_ в DeliteWorkerWindow:\n\n " +
+                        $"{exDeliteWorkerEvent_.Message}");
             }
         }
         #endregion

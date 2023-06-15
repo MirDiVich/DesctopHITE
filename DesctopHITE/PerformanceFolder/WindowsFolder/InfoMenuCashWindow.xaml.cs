@@ -15,7 +15,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         int numberOfTheSelectedMenu;
         int priseSelectedMenu;
 
-        public InfoMenuCashWindow(MenuTable menuTable)
+        public InfoMenuCashWindow(MenuTable menuTable) /// Событие данного окна
         {
             try
             {
@@ -24,7 +24,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 priseSelectedMenu = Convert.ToInt32(menuTable.Prise_Menu);
                 numberOfTheSelectedMenu = menuTable.PersonalNumber_Menu;
 
-                EventListIngridient();
+                Event__ListIngridient();
                 IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
             }
             catch (Exception exInfoMenuCashWindow)
@@ -36,59 +36,109 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         }
 
         #region _Click
-        private void DecreaseButton_Click(object sender, RoutedEventArgs e)
+        private void DecreaseButton_Click(object sender, RoutedEventArgs e) /// Уменьшить кол-во еды
         {
-            decreaseIncrease--;
-            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+            try
+            {
+                decreaseIncrease--;
+                IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
 
-            PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
+                PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
+            }
+            catch (Exception exDecreaseButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие IncreaseButton_Click в InfoMenuCashWindow:\n\n " +
+                        $"{exDecreaseButton_Click.Message}");
+            }
         }
 
-        private void IncreaseButton_Click(object sender, RoutedEventArgs e)
+        private void IncreaseButton_Click(object sender, RoutedEventArgs e) /// Увеличить кол-во еды
         {
-            decreaseIncrease++;
-            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+            try
+            {
+                decreaseIncrease++;
+                IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
 
-            PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
+                PriseMenuTextBlock.Text = $"{priseSelectedMenu * decreaseIncrease}";
+            }
+            catch (Exception exIncreaseButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие IncreaseButton_Click в InfoMenuCashWindow:\n\n " +
+                        $"{exIncreaseButton_Click.Message}");
+            }
         }
 
-        private void CanselButton_Click(object sender, RoutedEventArgs e)
+        private void CanselButton_Click(object sender, RoutedEventArgs e) /// Просто закрыть это окно
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception exCanselButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие CanselButton_Click в InfoMenuCashWindow:\n\n " +
+                        $"{exCanselButton_Click.Message}");
+            }
         }
         #endregion
-        #region Event
-        private void EventListIngridient()
+        #region Event_
+        private void Event__ListIngridient() /// Вывести список ингридиентов
         {
-            AppConnectClass.connectDataBase_ACC.MenuTable.Include(ingredients => ingredients.IngredientsTable).Load();
-            var ingredientsMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(numberOfTheSelectedMenu).IngredientsTable;
+            try
+            {
+                AppConnectClass.connectDataBase_ACC.MenuTable.Include(ingredients => ingredients.IngredientsTable).Load();
+                var ingredientsMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(numberOfTheSelectedMenu).IngredientsTable;
 
-            ListIngridientListView.Items.Refresh();
-            ListIngridientListView.ItemsSource = ingredientsMenu.ToList();
+                ListIngridientListView.Items.Refresh();
+                ListIngridientListView.ItemsSource = ingredientsMenu.ToList();
+            }
+            catch (Exception exEvent_ListIngridient)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие Event_ListIngridient в InfoMenuCashWindow:\n\n " +
+                        $"{exEvent_ListIngridient.Message}");
+            }
+        }
+
+        private void Event__AddToReceipt()
+        {
+
         }
         #endregion
         #region _TextChanged
-        private void IncreaseDecreaseTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void IncreaseDecreaseTextBox_TextChanged(object sender, TextChangedEventArgs e) /// Вывод кол-во еды, и блокировка функций
         {
-            if (decreaseIncrease >= 10)
+            try
             {
-                IncreaseButton.IsEnabled = false;
-            }
-            else
-            {
-                IncreaseButton.IsEnabled = true;
-            }
+                if (decreaseIncrease >= 10)
+                {
+                    IncreaseButton.IsEnabled = false;
+                }
+                else
+                {
+                    IncreaseButton.IsEnabled = true;
+                }
 
-            if (decreaseIncrease == 1)
-            {
-                DecreaseButton.IsEnabled = false;
-            }
-            else
-            {
-                DecreaseButton.IsEnabled = true;
-            }
+                if (decreaseIncrease == 1)
+                {
+                    DecreaseButton.IsEnabled = false;
+                }
+                else
+                {
+                    DecreaseButton.IsEnabled = true;
+                }
 
-            IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+                IncreaseDecreaseTextBox.Text = decreaseIncrease.ToString();
+            }
+            catch (Exception exIncreaseDecreaseTextBox_TextChanged)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие IncreaseDecreaseTextBox_TextChanged в InfoMenuCashWindow:\n\n " +
+                        $"{exIncreaseDecreaseTextBox_TextChanged.Message}");
+            }
         }
         #endregion
     }

@@ -42,8 +42,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                         $"{dataUser.PassportTable.Name_Passport[0]}. " +
                         $"{dataUser.PassportTable.Middlename_Passport[0]}.";
 
-                    EventIsCheckedToggleButton();
-                    EventIsEnabledToggleButton();
+                    Event_IsCheckedToggleButton();
+                    Event_IsEnabledToggleButton();
 
                     MainToggleButton.IsChecked = true;
                     MainToggleButton.IsEnabled = false;
@@ -64,8 +64,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 MainToggleButton.IsChecked = true;
                 MainToggleButton.IsEnabled = false;
@@ -83,8 +83,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 WorkersToggleButton.IsChecked = true;
                 WorkersToggleButton.IsEnabled = false;
@@ -102,8 +102,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 MenuToggleButton.IsChecked = true;
                 MenuToggleButton.IsEnabled = false;
@@ -121,8 +121,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 SettingsToggleButton.IsChecked = true;
                 SettingsToggleButton.IsEnabled = false;
@@ -137,8 +137,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
         #endregion
-        #region Event
-        private void EventIsCheckedToggleButton() // Отключение проверки кнопок
+        #region Event_
+        private void Event_IsCheckedToggleButton() // Отключение проверки кнопок
         {
             try
             {
@@ -147,14 +147,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 MenuToggleButton.IsChecked = false;
                 SettingsToggleButton.IsChecked = false;
             }
-            catch (Exception exEventIsCheckedToggleButton)
+            catch (Exception exEvent_IsCheckedToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsCheckedToggleButton в MenuUserPage:\n\n " +
-                       $"{exEventIsCheckedToggleButton.Message}");
+                       textMessage: $"Событие Event_IsCheckedToggleButton в MenuUserPage:\n\n " +
+                       $"{exEvent_IsCheckedToggleButton.Message}");
             }
         }
-        private void EventIsEnabledToggleButton() // Включение кнопок
+        private void Event_IsEnabledToggleButton() // Включение кнопок
         {
             try
             {
@@ -163,11 +163,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 MenuToggleButton.IsEnabled = true;
                 SettingsToggleButton.IsEnabled = true;
             }
-            catch (Exception exEventIsEnabledToggleButton)
+            catch (Exception exEvent_IsEnabledToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsEnabledToggleButton в MenuUserPage:\n\n " +
-                       $"{exEventIsEnabledToggleButton.Message}");
+                       textMessage: $"Событие Event_IsEnabledToggleButton в MenuUserPage:\n\n " +
+                       $"{exEvent_IsEnabledToggleButton.Message}");
             }
         }
         #endregion

@@ -28,9 +28,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 // Работа с таймером
                 dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1);
-                dispatcherTimer.Tick += EventTimer_Tick;
+                dispatcherTimer.Tick += Event_Timer_Tick;
 
-                EventReceivingDataWaitingForStorage();
+                Event_ReceivingDataWaitingForStorage();
             }
             catch (Exception exScanningPage)
             {
@@ -47,8 +47,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             {
                 if (CheckScanButton.IsChecked == true)
                 {
-                    EventStartLoadingAnimation();
-                    EventScanDeception();
+                    Event_StartLoadingAnimation();
+                    Event_ScanDeception();
 
                     TitleTextCheckScanTextBlock.Text = "ОСТАНОВИТЬ";
                     TitleIconCheckScanTextBlock1.Visibility = Visibility.Collapsed;
@@ -73,7 +73,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 }
                 else
                 {
-                    EventStopLoadingAnimation();
+                    Event_StopLoadingAnimation();
 
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "///";
@@ -91,8 +91,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
             }
         }
         #endregion
-        #region Event
-        private void EventStartLoadingAnimation() // Запуск анимации
+        #region Event_
+        private void Event_StartLoadingAnimation() // Запуск анимации
         {
             try
             {
@@ -143,15 +143,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 animationRight.RepeatBehavior = RepeatBehavior.Forever;
                 LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animationRight);
             }
-            catch (Exception exEventStartLoadingAnimation)
+            catch (Exception exEvent_StartLoadingAnimation)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                     textMessage: $"Событие EventStartLoadingAnimation в ScanningPage:\n\n " +
-                     $"{exEventStartLoadingAnimation.Message}");
+                     textMessage: $"Событие Event_StartLoadingAnimation в ScanningPage:\n\n " +
+                     $"{exEvent_StartLoadingAnimation.Message}");
             }
         }
 
-        private void EventStopLoadingAnimation() // Остановка анимации
+        private void Event_StopLoadingAnimation() // Остановка анимации
         {
             try
             {
@@ -160,15 +160,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 LoadingCircle2.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
                 LoadingCircle3.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, null);
             }
-            catch (Exception exEventStopLoadingAnimation) 
+            catch (Exception exEvent_StopLoadingAnimation) 
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventStopLoadingAnimation в ScanningPage:\n\n " +
-                         $"{exEventStopLoadingAnimation.Message}");
+                         textMessage: $"Событие Event_StopLoadingAnimation в ScanningPage:\n\n " +
+                         $"{exEvent_StopLoadingAnimation.Message}");
             }
         }
 
-        private void EventScanDeception()
+        private void Event_ScanDeception()
         {
             try
             {
@@ -179,19 +179,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 // создание и запуск таймера
                 dispatcherTimer = new DispatcherTimer();
-                dispatcherTimer.Tick += EventTimer_Tick;
+                dispatcherTimer.Tick += Event_Timer_Tick;
                 dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
                 dispatcherTimer.Start();
             }
-            catch (Exception exEventScanDeception)
+            catch (Exception exEvent_ScanDeception)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventScanDeception в ScanningPage:\n\n " +
-                         $"{exEventScanDeception.Message}");
+                         textMessage: $"Событие Event_ScanDeception в ScanningPage:\n\n " +
+                         $"{exEvent_ScanDeception.Message}");
             }
         }
 
-        private void EventTimer_Tick(object sender, EventArgs e)
+        private void Event_Timer_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -203,13 +203,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
 
                 if (percentage >= 100)
                 {
-                    EventStopLoadingAnimation();
+                    Event_StopLoadingAnimation();
 
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "100%";
                     durationScan = (int)(DateTime.Now - startTime).TotalSeconds;
 
-                    EventOutputDataWaitingForStorage();
+                    Event_OutputDataWaitingForStorage();
 
                     FrameNavigationClass.bodySettings_FNC.Navigate(new ScanningPage());
                 }
@@ -219,15 +219,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     FilesAtTimeScanningTextBlock.Text = $"{filesAtTimeScanning}";
                 }
             }
-            catch (Exception exEventTimer_Tick)
+            catch (Exception exEvent_Timer_Tick)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventTimer_Tick в ScanningPage:\n\n " +
-                         $"{exEventTimer_Tick.Message}");
+                         textMessage: $"Событие Event_Timer_Tick в ScanningPage:\n\n " +
+                         $"{exEvent_Timer_Tick.Message}");
             }
         }
 
-        private void EventReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
+        private void Event_ReceivingDataWaitingForStorage() // Вывод информации о том, кто последний раз проверял обновления приложения
         {
             try
             {
@@ -235,15 +235,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 WhomCheckedTextBlock.Text = Properties.Settings.Default.DateTimeScan;
                 DurationScanTextBlock.Text = Properties.Settings.Default.DurationScan;
             }
-            catch (Exception exEventReceivingDataWaitingForStorage)
+            catch (Exception exEvent_ReceivingDataWaitingForStorage)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventReceivingDataWaitingForStorage в ScanningPage:\n\n " +
-                         $"{exEventReceivingDataWaitingForStorage.Message}");
+                         textMessage: $"Событие Event_ReceivingDataWaitingForStorage в ScanningPage:\n\n " +
+                         $"{exEvent_ReceivingDataWaitingForStorage.Message}");
             }
         }
 
-        private void EventOutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
+        private void Event_OutputDataWaitingForStorage() // Фиксация информации о том, кто последний раз проверял обновления приложения
         {
             try
             {
@@ -254,11 +254,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 Properties.Settings.Default.DurationScan = $"{durationScan} секунд";
                 Properties.Settings.Default.Save();
             }
-            catch (Exception exEventOutputDataWaitingForStorage)
+            catch (Exception exEvent_OutputDataWaitingForStorage)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventOutputDataWaitingForStorage в ScanningPage:\n\n " +
-                         $"{exEventOutputDataWaitingForStorage.Message}");
+                         textMessage: $"Событие Event_OutputDataWaitingForStorage в ScanningPage:\n\n " +
+                         $"{exEvent_OutputDataWaitingForStorage.Message}");
             }
         }
         #endregion

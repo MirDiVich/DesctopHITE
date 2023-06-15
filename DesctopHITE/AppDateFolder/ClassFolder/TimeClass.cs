@@ -10,7 +10,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
     public partial class TimeClass
     {
         DateTime timeDay = DateTime.Now;
-        public string EventWhatTimeIsIt_TC // В зависимости от текущего времени, выводим приветствие (Смотрим, какой сейчас час)
+        public string Event_WhatTimeIsIt_TC // В зависимости от текущего времени, выводим приветствие (Смотрим, какой сейчас час)
         {
             get
             {

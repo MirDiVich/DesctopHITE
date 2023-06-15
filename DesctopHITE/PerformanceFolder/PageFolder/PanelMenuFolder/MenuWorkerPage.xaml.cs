@@ -36,8 +36,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                 {
                     FrameNavigationClass.bodyWorker_FNC.Navigate(new ListWorkerPage());
 
-                    EventIsCheckedToggleButton();
-                    EventIsEnabledToggleButton();
+                    Event_IsCheckedToggleButton();
+                    Event_IsEnabledToggleButton();
 
                     ListWorkweToggleButton.IsChecked = true;
                     ListWorkweToggleButton.IsEnabled = false;
@@ -56,8 +56,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 ListWorkweToggleButton.IsChecked = true;
                 ListWorkweToggleButton.IsEnabled = false;
@@ -76,8 +76,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
         {
             try
             {
-                EventIsCheckedToggleButton();
-                EventIsEnabledToggleButton();
+                Event_IsCheckedToggleButton();
+                Event_IsEnabledToggleButton();
 
                 GeneralInformationWorkerToggleButton.IsChecked = true;
                 GeneralInformationWorkerToggleButton.IsEnabled = false;
@@ -92,34 +92,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             }
         }
         #endregion
-        #region Event
-        private void EventIsCheckedToggleButton() // Отключение проверки кнопок
+        #region Event_
+        private void Event_IsCheckedToggleButton() // Отключение проверки кнопок
         {
             try
             {
                 ListWorkweToggleButton.IsChecked = false;
                 GeneralInformationWorkerToggleButton.IsChecked = false;
             }
-            catch (Exception exEventIsCheckedToggleButton)
+            catch (Exception exEvent_IsCheckedToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsCheckedToggleButton в MenuWorkerPage:\n\n " +
-                       $"{exEventIsCheckedToggleButton.Message}");
+                       textMessage: $"Событие Event_IsCheckedToggleButton в MenuWorkerPage:\n\n " +
+                       $"{exEvent_IsCheckedToggleButton.Message}");
             }
         }
 
-        private void EventIsEnabledToggleButton() // Отключение кнопок
+        private void Event_IsEnabledToggleButton() // Отключение кнопок
         {
             try
             {
                 ListWorkweToggleButton.IsEnabled = true;
                 GeneralInformationWorkerToggleButton.IsEnabled = true;
             }
-            catch (Exception exEventIsEnabledToggleButton)
+            catch (Exception exEvent_IsEnabledToggleButton)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                       textMessage: $"Событие EventIsEnabledToggleButton в MenuWorkerPage:\n\n " +
-                       $"{exEventIsEnabledToggleButton.Message}");
+                       textMessage: $"Событие Event_IsEnabledToggleButton в MenuWorkerPage:\n\n " +
+                       $"{exEvent_IsEnabledToggleButton.Message}");
             }
         }
         #endregion

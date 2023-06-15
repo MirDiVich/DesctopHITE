@@ -73,7 +73,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 messageNull = "";
-                EventMessageNull();
+                Event_MessageNull();
 
                 if (messageNull != "")
                 {
@@ -82,7 +82,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 else
                 {
                     messageValidData = "";
-                    EventMessageNull();
+                    Event_MessageNull();
 
                     if (messageValidData != "")
                     {
@@ -90,7 +90,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     }
                     else
                     {
-                        EventNewDataMenu();
+                        Event_NewDataMenu();
                     }
                 }
             }
@@ -123,8 +123,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-        #region Event
-        public void EventNewDataMenu() // Добавление нового меню в базу данных
+        #region Event_
+        public void Event_NewDataMenu() // Добавление нового меню в базу данных
         {
             try
             {
@@ -179,17 +179,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
 
-                EventSelectedIngredients();
+                Event_SelectedIngredients();
             }
-            catch (Exception exEventNewDataMenu)
+            catch (Exception exEvent_NewDataMenu)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                         textMessage: $"Событие EventNewDataMenu в NewMenuPage:\n\n " +
-                         $"{exEventNewDataMenu.Message}");
+                         textMessage: $"Событие Event_NewDataMenu в NewMenuPage:\n\n " +
+                         $"{exEvent_NewDataMenu.Message}");
             }
 }
 
-        private void EventSelectedIngredients() // Добавление списка в связь многие ко многим
+        private void Event_SelectedIngredients() // Добавление списка в связь многие ко многим
         {
             try
             {
@@ -208,15 +208,15 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.GoodMessageBox_MBC(textMessage: $"{nameMenu.Name_Menu} успешно добавлено");
                 FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
             }
-            catch (Exception exEventSelectedIngredients)
+            catch (Exception exEvent_SelectedIngredients)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventSelectedIngredients в NewMenuPage:\n\n " +
-                        $"{exEventSelectedIngredients.Message}");
+                        textMessage: $"Событие Event_SelectedIngredients в NewMenuPage:\n\n " +
+                        $"{exEvent_SelectedIngredients.Message}");
             }
         }
 
-        private void EventMessageNull() // Event на проверки полей на валидность данных 
+        private void Event_MessageNull() // Event_ на проверки полей на валидность данных 
         {
             try
             {
@@ -232,11 +232,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (PriseMenuTextBox.Text.Length <= 1) messageValidData += "'Стоимость' не может быть меньше или быть равным 1 символу\n";
                 if (WeightMenuTextBox.Text.Length <= 1) messageValidData += "'Вес (грамм)' не может быть меньше или быть равным 1 символу\n";
             }
-            catch (Exception exEventMessageNull)
+            catch (Exception exEvent_MessageNull)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие EventMessageNull в NewMenuPage:\n\n " +
-                        $"{exEventMessageNull.Message}");
+                        textMessage: $"Событие Event_MessageNull в NewMenuPage:\n\n " +
+                        $"{exEvent_MessageNull.Message}");
             }
         }
         #endregion

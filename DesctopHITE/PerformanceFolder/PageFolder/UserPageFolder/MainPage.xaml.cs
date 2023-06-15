@@ -45,7 +45,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                 {
                     // Свойства для Таймера
                     getTimer = new DispatcherTimer();
-                    getTimer.Tick += new EventHandler(EventTimer_Tick);
+                    getTimer.Tick += new EventHandler(Event_Timer_Tick);
                     getTimer.Interval = TimeSpan.FromMilliseconds(1);
                     getTimer.Start();
                 }
@@ -61,34 +61,34 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
                        $"{exPage_IsVisibleChanged.Message}");
             }
         }
-        #region Event
-        private void EventTimer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
+        #region Event_
+        private void Event_Timer_Tick(object sender, EventArgs e) // Действие, которое будет происходит в определённый промежуток времени
         {
             try
             {
                 // Работа с часами
-                HelloyTextBlock.Text = getTimeClass.EventWhatTimeIsIt_TC.ToString();
+                HelloyTextBlock.Text = getTimeClass.Event_WhatTimeIsIt_TC.ToString();
                 NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
                 NowDateTextBlock.Text = DateTime.Now.ToString("dd MMMM" + "(MM) " + "yyyy");
-                BirthdayTextBlock.Text = getDayClass.EventHappyBirthdayGreetings_HC.ToString();
-                NowHolidayTextBlock.Text = getDayClass.EventWhatDayIsIt_HC.ToString();
+                BirthdayTextBlock.Text = getDayClass.Event_HappyBirthdayGreetings_HC.ToString();
+                NowHolidayTextBlock.Text = getDayClass.Event_WhatDayIsIt_HC.ToString();
                 DayOfTheWeekTextBlock.Text = DateTime.Now.ToString("dddd", new CultureInfo("ru-RU"));
 
-                if (getDayClass.EventHappyBirthdayGreetings_HC == "")
+                if (getDayClass.Event_HappyBirthdayGreetings_HC == "")
                 {
                     BirthdayTextBlock.Visibility = Visibility.Collapsed;
                 }
-                if (getDayClass.EventWhatDayIsIt_HC == "Сегодня нет праздников")
+                if (getDayClass.Event_WhatDayIsIt_HC == "Сегодня нет праздников")
                 {
                     NowHolidayTextBlock.FontSize = 15;
                     NowHolidayTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(42, 42, 42));
                 }
             }
-            catch (Exception exEventTimer_Tick)
+            catch (Exception exEvent_Timer_Tick)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                      textMessage: $"Событие EventTimer_Tick в MainPage:\n\n " +
-                      $"{exEventTimer_Tick.Message}");
+                      textMessage: $"Событие Event_Timer_Tick в MainPage:\n\n " +
+                      $"{exEvent_Timer_Tick.Message}");
             }
         }
         #endregion

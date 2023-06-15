@@ -370,6 +370,9 @@
     <Compile Include="AppDateFolder\ModelFolder\MenuTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\MTM_ChequeMenu.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PassportTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>

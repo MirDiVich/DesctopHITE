@@ -70,7 +70,7 @@
                 </Button>
                 <Button
                     x:Name="EditButton"
-                    Click="EventEditWorker"
+                    Click="Event_EditWorker"
                     Width="220"
                     Height="45"
                     Margin="5 0 5 0">
@@ -90,7 +90,7 @@
                     Margin="5 0 0 0"
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"
-                    Click="EventDeleteWorker"
+                    Click="Event_DeleteWorker"
                     Width="180"
                     Height="45">
                     <StackPanel Margin="0 2 0 2" Orientation="Horizontal">
@@ -123,7 +123,7 @@
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem
-                            Click="EventViewDataWorker"
+                            Click="Event_ViewDataWorker"
                             InputGestureText="Ctrl+F1"
                             Header="Просмотреть">
                             <MenuItem.Icon>
@@ -137,7 +137,7 @@
                         <MenuItem 
                             InputGestureText="Ctrl+F2"
                             Header="Редактировать" 
-                            Click="EventEditWorker">
+                            Click="Event_EditWorker">
                             <MenuItem.Icon>
                                 <TextBlock
                                     Foreground="#462AD8"
@@ -150,7 +150,7 @@
                         <MenuItem 
                             InputGestureText="Ctrl+Delete"
                             Header="Удалить" 
-                            Click="EventDeleteWorker">
+                            Click="Event_DeleteWorker">
                             <MenuItem.Icon>
                                 <TextBlock
                                     Foreground="#462AD8"
