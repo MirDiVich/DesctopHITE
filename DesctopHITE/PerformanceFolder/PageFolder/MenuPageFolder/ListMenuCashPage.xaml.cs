@@ -55,17 +55,13 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     $"{exMenuCashPage.Message}");
             }
         }
-
+        #region _SelectionChanged
         private void ListMenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                menuSelection = ListMenuListView.SelectedItem as MenuTable; 
-                InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow(menuSelection);
-                infoMenuCashWindow.ShowDialog();
-
-                menuSelection = null;
-                ListMenuListView.SelectedItem = null;
+                menuSelection = ListMenuListView.SelectedItem as MenuTable;
+                Event_ChooseFood();
             }
             catch (Exception exMenuCashPage)
             {
@@ -74,5 +70,28 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     $"{exMenuCashPage.Message}");
             }
         }
+        #endregion
+        #region Event_
+        private void Event_ChooseFood()
+        {
+            try
+            {
+                if (menuSelection != null)
+                {
+                    InfoMenuCashWindow infoMenuCashWindow = new InfoMenuCashWindow(menuSelection);
+                    infoMenuCashWindow.ShowDialog();
+
+                    menuSelection = null;
+                    ListMenuListView.SelectedItem = null;
+                }
+            }
+            catch (Exception exEvent_ChooseFood)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                    textMessage: $"Событие Event_ChooseFood в ListMenuCashPage:\n\n " +
+                    $"{exEvent_ChooseFood.Message}");
+            }
+        }
+        #endregion
     }
 }

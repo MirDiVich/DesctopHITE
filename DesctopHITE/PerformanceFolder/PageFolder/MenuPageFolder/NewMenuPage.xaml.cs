@@ -137,7 +137,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 addEditMenuTable.Description_Menu = DescriptionMenuTextBox.Text;
                 addEditMenuTable.pnMenuCategory_Menu = (pnCategoryMenuComboBox.SelectedItem as MenuCategoryTable).PersonalNumber_MenuCategory;
                 addEditMenuTable.pnSystemSI = (pnSystemSIComboBox.SelectedItem as SystemSITable).PersonalNumber_SystemSI;
-                addEditMenuTable.Prise_Menu = Convert.ToDecimal(PriseMenuTextBox.Text);
+                addEditMenuTable.Prise_Menu = Convert.ToInt32(PriseMenuTextBox.Text);
                 addEditMenuTable.Weight_Menu = Convert.ToInt32(WeightMenuTextBox.Text);
 
                 if (DataContext != null)

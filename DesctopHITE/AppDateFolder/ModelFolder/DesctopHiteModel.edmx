@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище DesctopHiteModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BasketTable">
+          <Key>
+            <PropertyRef Name="pnCheque" />
+            <PropertyRef Name="pnMenu" />
+          </Key>
+          <Property Name="pnCheque" Type="int" Nullable="false" />
+          <Property Name="pnMenu" Type="int" Nullable="false" />
+          <Property Name="Quantity_MenuCheque" Type="int" Nullable="false" />
+          <Property Name="Prise_MenuCheque" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ChequeTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Cheque" />
@@ -13,6 +23,7 @@
           <Property Name="DataTime_Cheque" Type="datetime" Nullable="false" />
           <Property Name="pnCash_Cheque" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="pnWorker_Cheque" Type="int" Nullable="false" />
+          <Property Name="GeneralPrise_Cheque" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderTable">
           <Key>
@@ -81,18 +92,9 @@
           <Property Name="Description_Menu" Type="text" Nullable="false" />
           <Property Name="pnImageMunu_Menu" Type="int" Nullable="false" />
           <Property Name="pnMenuCategory_Menu" Type="int" Nullable="false" />
-          <Property Name="Prise_Menu" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Prise_Menu" Type="int" Nullable="false" />
           <Property Name="Weight_Menu" Type="int" Nullable="false" />
           <Property Name="pnSystemSI" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MTM_ChequeMenu">
-          <Key>
-            <PropertyRef Name="pnCheque" />
-            <PropertyRef Name="pnMenu" />
-          </Key>
-          <Property Name="pnCheque" Type="int" Nullable="false" />
-          <Property Name="pnMenu" Type="int" Nullable="false" />
-          <Property Name="Quantity_MenuCheque" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MTM_MenuIngredients">
           <Key>
@@ -251,30 +253,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MTM_ChequeMenu_ChequeTable">
+        <Association Name="FK_BasketTable_ChequeTable">
           <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
+          <End Role="BasketTable" Type="Self.BasketTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChequeTable">
               <PropertyRef Name="PersonalNumber_Cheque" />
             </Principal>
-            <Dependent Role="MTM_ChequeMenu">
+            <Dependent Role="BasketTable">
               <PropertyRef Name="pnCheque" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MTM_ChequeMenu_MenuTable">
+        <Association Name="FK_BasketTable_MenuTable">
           <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="MTM_ChequeMenu" Type="Self.MTM_ChequeMenu" Multiplicity="*" />
+          <End Role="BasketTable" Type="Self.BasketTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MenuTable">
               <PropertyRef Name="PersonalNumber_Menu" />
             </Principal>
-            <Dependent Role="MTM_ChequeMenu">
+            <Dependent Role="BasketTable">
               <PropertyRef Name="pnMenu" />
             </Dependent>
           </ReferentialConstraint>
@@ -430,6 +432,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище DesctopHiteModelContainer">
+          <EntitySet Name="BasketTable" EntityType="Self.BasketTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChequeTable" EntityType="Self.ChequeTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderTable" EntityType="Self.GenderTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImageMenuTable" EntityType="Self.ImageMenuTable" Schema="dbo" store:Type="Tables" />
@@ -439,7 +442,6 @@
           <EntitySet Name="MedicalBookTable" EntityType="Self.MedicalBookTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuCategoryTable" EntityType="Self.MenuCategoryTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuTable" EntityType="Self.MenuTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTM_ChequeMenu" EntityType="Self.MTM_ChequeMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MTM_MenuIngredients" EntityType="Self.MTM_MenuIngredients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PassportTable" EntityType="Self.PassportTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceResidenceTable" EntityType="Self.PlaceResidenceTable" Schema="dbo" store:Type="Tables" />
@@ -466,13 +468,13 @@
             <End Role="SystemSITable" EntitySet="SystemSITable" />
             <End Role="MenuTable" EntitySet="MenuTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_MTM_ChequeMenu_ChequeTable" Association="Self.FK_MTM_ChequeMenu_ChequeTable">
+          <AssociationSet Name="FK_BasketTable_ChequeTable" Association="Self.FK_BasketTable_ChequeTable">
             <End Role="ChequeTable" EntitySet="ChequeTable" />
-            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
+            <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_MTM_ChequeMenu_MenuTable" Association="Self.FK_MTM_ChequeMenu_MenuTable">
+          <AssociationSet Name="FK_BasketTable_MenuTable" Association="Self.FK_BasketTable_MenuTable">
             <End Role="MenuTable" EntitySet="MenuTable" />
-            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
+            <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
           <AssociationSet Name="FK_MTM_MenuIngredients_IngredientsTable" Association="Self.FK_MTM_MenuIngredients_IngredientsTable">
             <End Role="IngredientsTable" EntitySet="IngredientsTable" />
@@ -528,6 +530,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DesctopHiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DesctopHiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BasketTable" EntityType="DesctopHiteModel.BasketTable" />
           <EntitySet Name="ChequeTable" EntityType="DesctopHiteModel.ChequeTable" />
           <EntitySet Name="GenderTable" EntityType="DesctopHiteModel.GenderTable" />
           <EntitySet Name="ImageMenuTable" EntityType="DesctopHiteModel.ImageMenuTable" />
@@ -537,7 +540,6 @@
           <EntitySet Name="MedicalBookTable" EntityType="DesctopHiteModel.MedicalBookTable" />
           <EntitySet Name="MenuCategoryTable" EntityType="DesctopHiteModel.MenuCategoryTable" />
           <EntitySet Name="MenuTable" EntityType="DesctopHiteModel.MenuTable" />
-          <EntitySet Name="MTM_ChequeMenu" EntityType="DesctopHiteModel.MTM_ChequeMenu" />
           <EntitySet Name="PassportTable" EntityType="DesctopHiteModel.PassportTable" />
           <EntitySet Name="PlaceResidenceTable" EntityType="DesctopHiteModel.PlaceResidenceTable" />
           <EntitySet Name="RoleTable" EntityType="DesctopHiteModel.RoleTable" />
@@ -547,13 +549,17 @@
           <EntitySet Name="sysdiagrams" EntityType="DesctopHiteModel.sysdiagrams" />
           <EntitySet Name="SystemSITable" EntityType="DesctopHiteModel.SystemSITable" />
           <EntitySet Name="WorkerTable" EntityType="DesctopHiteModel.WorkerTable" />
+          <AssociationSet Name="FK_BasketTable_ChequeTable" Association="DesctopHiteModel.FK_BasketTable_ChequeTable">
+            <End Role="ChequeTable" EntitySet="ChequeTable" />
+            <End Role="BasketTable" EntitySet="BasketTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasketTable_MenuTable" Association="DesctopHiteModel.FK_BasketTable_MenuTable">
+            <End Role="MenuTable" EntitySet="MenuTable" />
+            <End Role="BasketTable" EntitySet="BasketTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="DesctopHiteModel.FK_ChequeTable_WorkerTable">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ChequeTable" EntitySet="ChequeTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MTM_ChequeMenu_ChequeTable" Association="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable">
-            <End Role="ChequeTable" EntitySet="ChequeTable" />
-            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_PassportTable_GenderTable" Association="DesctopHiteModel.FK_PassportTable_GenderTable">
             <End Role="GenderTable" EntitySet="GenderTable" />
@@ -582,10 +588,6 @@
           <AssociationSet Name="FK_MenuTable_SystemSITable" Association="DesctopHiteModel.FK_MenuTable_SystemSITable">
             <End Role="SystemSITable" EntitySet="SystemSITable" />
             <End Role="MenuTable" EntitySet="MenuTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MTM_ChequeMenu_MenuTable" Association="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable">
-            <End Role="MenuTable" EntitySet="MenuTable" />
-            <End Role="MTM_ChequeMenu" EntitySet="MTM_ChequeMenu" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTabe_PassportTable" Association="DesctopHiteModel.FK_WorkerTabe_PassportTable">
             <End Role="PassportTable" EntitySet="PassportTable" />
@@ -616,6 +618,18 @@
             <End Role="MenuTable" EntitySet="MenuTable" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BasketTable">
+          <Key>
+            <PropertyRef Name="pnCheque" />
+            <PropertyRef Name="pnMenu" />
+          </Key>
+          <Property Name="pnCheque" Type="Int32" Nullable="false" />
+          <Property Name="pnMenu" Type="Int32" Nullable="false" />
+          <Property Name="Quantity_MenuCheque" Type="Int32" Nullable="false" />
+          <Property Name="Prise_MenuCheque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.FK_BasketTable_ChequeTable" FromRole="BasketTable" ToRole="ChequeTable" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_BasketTable_MenuTable" FromRole="BasketTable" ToRole="MenuTable" />
+        </EntityType>
         <EntityType Name="ChequeTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Cheque" />
@@ -624,8 +638,9 @@
           <Property Name="DataTime_Cheque" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="pnCash_Cheque" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pnWorker_Cheque" Type="Int32" Nullable="false" />
+          <Property Name="GeneralPrise_Cheque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_BasketTable_ChequeTable" FromRole="ChequeTable" ToRole="BasketTable" />
           <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_ChequeTable_WorkerTable" FromRole="ChequeTable" ToRole="WorkerTable" />
-          <NavigationProperty Name="MTM_ChequeMenu" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable" FromRole="ChequeTable" ToRole="MTM_ChequeMenu" />
         </EntityType>
         <EntityType Name="GenderTable">
           <Key>
@@ -701,25 +716,14 @@
           <Property Name="Description_Menu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pnImageMunu_Menu" Type="Int32" Nullable="false" />
           <Property Name="pnMenuCategory_Menu" Type="Int32" Nullable="false" />
-          <Property Name="Prise_Menu" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Prise_Menu" Type="Int32" Nullable="false" />
           <Property Name="Weight_Menu" Type="Int32" Nullable="false" />
           <Property Name="pnSystemSI" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_BasketTable_MenuTable" FromRole="MenuTable" ToRole="BasketTable" />
           <NavigationProperty Name="ImageMenuTable" Relationship="DesctopHiteModel.FK_MenuTable_ImageMenuTable" FromRole="MenuTable" ToRole="ImageMenuTable" />
           <NavigationProperty Name="MenuCategoryTable" Relationship="DesctopHiteModel.FK_MenuTable_MenuCategoryTable" FromRole="MenuTable" ToRole="MenuCategoryTable" />
           <NavigationProperty Name="SystemSITable" Relationship="DesctopHiteModel.FK_MenuTable_SystemSITable" FromRole="MenuTable" ToRole="SystemSITable" />
-          <NavigationProperty Name="MTM_ChequeMenu" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable" FromRole="MenuTable" ToRole="MTM_ChequeMenu" />
           <NavigationProperty Name="IngredientsTable" Relationship="DesctopHiteModel.MTM_MenuIngredients" FromRole="MenuTable" ToRole="IngredientsTable" />
-        </EntityType>
-        <EntityType Name="MTM_ChequeMenu">
-          <Key>
-            <PropertyRef Name="pnCheque" />
-            <PropertyRef Name="pnMenu" />
-          </Key>
-          <Property Name="pnCheque" Type="Int32" Nullable="false" />
-          <Property Name="pnMenu" Type="Int32" Nullable="false" />
-          <Property Name="Quantity_MenuCheque" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable" FromRole="MTM_ChequeMenu" ToRole="ChequeTable" />
-          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable" FromRole="MTM_ChequeMenu" ToRole="MenuTable" />
         </EntityType>
         <EntityType Name="PassportTable">
           <Key>
@@ -840,6 +844,34 @@
           <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
           <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
+        <Association Name="FK_BasketTable_ChequeTable">
+          <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DesctopHiteModel.BasketTable" Role="BasketTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChequeTable">
+              <PropertyRef Name="PersonalNumber_Cheque" />
+            </Principal>
+            <Dependent Role="BasketTable">
+              <PropertyRef Name="pnCheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasketTable_MenuTable">
+          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DesctopHiteModel.BasketTable" Role="BasketTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuTable">
+              <PropertyRef Name="PersonalNumber_Menu" />
+            </Principal>
+            <Dependent Role="BasketTable">
+              <PropertyRef Name="pnMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ChequeTable_WorkerTable">
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="*" />
@@ -849,20 +881,6 @@
             </Principal>
             <Dependent Role="ChequeTable">
               <PropertyRef Name="pnWorker_Cheque" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MTM_ChequeMenu_ChequeTable">
-          <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DesctopHiteModel.MTM_ChequeMenu" Role="MTM_ChequeMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChequeTable">
-              <PropertyRef Name="PersonalNumber_Cheque" />
-            </Principal>
-            <Dependent Role="MTM_ChequeMenu">
-              <PropertyRef Name="pnCheque" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -950,20 +968,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MTM_ChequeMenu_MenuTable">
-          <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DesctopHiteModel.MTM_ChequeMenu" Role="MTM_ChequeMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MenuTable">
-              <PropertyRef Name="PersonalNumber_Menu" />
-            </Principal>
-            <Dependent Role="MTM_ChequeMenu">
-              <PropertyRef Name="pnMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_WorkerTabe_PassportTable">
           <End Type="DesctopHiteModel.PassportTable" Role="PassportTable" Multiplicity="1" />
           <End Type="DesctopHiteModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
@@ -1048,9 +1052,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище DesctopHiteModelContainer" CdmEntityContainer="DesctopHiteEntities">
+          <EntitySetMapping Name="BasketTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.BasketTable">
+              <MappingFragment StoreEntitySet="BasketTable">
+                <ScalarProperty Name="Prise_MenuCheque" ColumnName="Prise_MenuCheque" />
+                <ScalarProperty Name="Quantity_MenuCheque" ColumnName="Quantity_MenuCheque" />
+                <ScalarProperty Name="pnMenu" ColumnName="pnMenu" />
+                <ScalarProperty Name="pnCheque" ColumnName="pnCheque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ChequeTable">
             <EntityTypeMapping TypeName="DesctopHiteModel.ChequeTable">
               <MappingFragment StoreEntitySet="ChequeTable">
+                <ScalarProperty Name="GeneralPrise_Cheque" ColumnName="GeneralPrise_Cheque" />
                 <ScalarProperty Name="pnWorker_Cheque" ColumnName="pnWorker_Cheque" />
                 <ScalarProperty Name="pnCash_Cheque" ColumnName="pnCash_Cheque" />
                 <ScalarProperty Name="DataTime_Cheque" ColumnName="DataTime_Cheque" />
@@ -1134,15 +1149,6 @@
                 <ScalarProperty Name="Description_Menu" ColumnName="Description_Menu" />
                 <ScalarProperty Name="Name_Menu" ColumnName="Name_Menu" />
                 <ScalarProperty Name="PersonalNumber_Menu" ColumnName="PersonalNumber_Menu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MTM_ChequeMenu">
-            <EntityTypeMapping TypeName="DesctopHiteModel.MTM_ChequeMenu">
-              <MappingFragment StoreEntitySet="MTM_ChequeMenu">
-                <ScalarProperty Name="Quantity_MenuCheque" ColumnName="Quantity_MenuCheque" />
-                <ScalarProperty Name="pnMenu" ColumnName="pnMenu" />
-                <ScalarProperty Name="pnCheque" ColumnName="pnCheque" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

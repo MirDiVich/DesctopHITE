@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
+    IsVisibleChanged="Window_IsVisibleChanged"
     Style="{StaticResource InfoMenuCashWindowStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>
@@ -187,6 +188,8 @@
                     <Button 
                         VerticalAlignment="Bottom"
                         FontSize="40"
+                        x:Name="NextButton"
+                        Click="NextButton_Click"
                         HorizontalAlignment="Right"
                         Margin="10"
                         Height="80"

@@ -328,6 +328,9 @@
     <Compile Include="AppDateFolder\ClassFolder\HolidayClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\MessageBoxClass.cs" />
     <Compile Include="AppDateFolder\ClassFolder\TimeClass.cs" />
+    <Compile Include="AppDateFolder\ModelFolder\BasketTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppDateFolder\ModelFolder\ChequeTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
@@ -368,9 +371,6 @@
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\MenuTable.cs">
-      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\MTM_ChequeMenu.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\PassportTable.cs">

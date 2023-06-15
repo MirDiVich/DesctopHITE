@@ -17,16 +17,17 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChequeTable()
         {
-            this.MTM_ChequeMenu = new HashSet<MTM_ChequeMenu>();
+            this.BasketTable = new HashSet<BasketTable>();
         }
     
         public int PersonalNumber_Cheque { get; set; }
         public System.DateTime DataTime_Cheque { get; set; }
         public string pnCash_Cheque { get; set; }
         public int pnWorker_Cheque { get; set; }
+        public int GeneralPrise_Cheque { get; set; }
     
-        public virtual WorkerTable WorkerTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MTM_ChequeMenu> MTM_ChequeMenu { get; set; }
+        public virtual ICollection<BasketTable> BasketTable { get; set; }
+        public virtual WorkerTable WorkerTable { get; set; }
     }
 }

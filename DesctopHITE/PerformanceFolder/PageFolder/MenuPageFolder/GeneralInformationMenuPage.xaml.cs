@@ -152,7 +152,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 var generalCount = AppConnectClass.connectDataBase_ACC.MenuTable.Count();
                 var generalPrise = AppConnectClass.connectDataBase_ACC.MenuTable.Sum(generData => generData.Prise_Menu);
 
-                AveragePriseCountTextBlock.Text = $"{Math.Round(generalPrise / generalCount, 2)}₽";
+                AveragePriseCountTextBlock.Text = $"{generalPrise}₽";
             }
             catch (Exception exEvent_AveragePeise)
             {

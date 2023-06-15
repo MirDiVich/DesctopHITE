@@ -12,11 +12,12 @@ namespace DesctopHITE.AppDateFolder.ModelFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class MTM_ChequeMenu
+    public partial class BasketTable
     {
         public int pnCheque { get; set; }
         public int pnMenu { get; set; }
         public int Quantity_MenuCheque { get; set; }
+        public int Prise_MenuCheque { get; set; }
     
         public virtual ChequeTable ChequeTable { get; set; }
         public virtual MenuTable MenuTable { get; set; }
