@@ -1,0 +1,42 @@
+﻿<Window
+    x:Class="DesctopHITE.PerformanceFolder.WindowsFolder.WaitingForANewOrderWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen" 
+    IsVisibleChanged="Window_IsVisibleChanged"
+    Style="{StaticResource MainCashWinwosStyle}">
+    <Border 
+        CornerRadius="0" 
+        Style="{DynamicResource MainBorderStyle}">
+        <Grid>
+            <Image
+                Height="1080"
+                Width="1920"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Stretch="UniformToFill"
+                x:Name="ImageImage"/>
+            <Button
+                FontSize="40"
+                Height="80"
+                Width="520"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="50 0 0 50">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="40"
+                        Text="&#xf153;" 
+                        Style="{DynamicResource IconTextBlockStyle}"
+                        Margin="0 0 10 0"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="НАЧАТЬ"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

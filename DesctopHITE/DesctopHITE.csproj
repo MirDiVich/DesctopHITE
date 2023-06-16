@@ -319,6 +319,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PerformanceFolder\WindowsFolder\WaitingForANewOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PerformanceFolder\WindowsFolder\WaitingTimerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,6 +403,9 @@
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\SystemSITable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDateFolder\ModelFolder\ThePerfectOfferTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
@@ -523,6 +530,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml.cs">
       <DependentUpon>MainUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\WindowsFolder\WaitingForANewOrderWindow.xaml.cs">
+      <DependentUpon>WaitingForANewOrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\WaitingTimerWindow.xaml.cs">
       <DependentUpon>WaitingTimerWindow.xaml</DependentUpon>

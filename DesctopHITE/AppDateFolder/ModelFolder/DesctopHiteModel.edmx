@@ -184,6 +184,13 @@
           <Property Name="PersonalNumber_SystemSI" Type="int" Nullable="false" />
           <Property Name="Title_SystemSI" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="ThePerfectOfferTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_ThePerfectOffer" />
+          </Key>
+          <Property Name="PersonalNumber_ThePerfectOffer" Type="int" Nullable="false" />
+          <Property Name="Image_ThePerfectOffer" Type="image" Nullable="false" />
+        </EntityType>
         <EntityType Name="WorkerTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Worker" />
@@ -253,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BasketTable_ChequeTable">
+        <Association Name="FK_MTM_ChequeMenu_ChequeTable">
           <End Role="ChequeTable" Type="Self.ChequeTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -267,7 +274,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BasketTable_MenuTable">
+        <Association Name="FK_MTM_ChequeMenu_MenuTable">
           <End Role="MenuTable" Type="Self.MenuTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -451,6 +458,7 @@
           <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemSITable" EntityType="Self.SystemSITable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThePerfectOfferTable" EntityType="Self.ThePerfectOfferTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ChequeTable_WorkerTable" Association="Self.FK_ChequeTable_WorkerTable">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
@@ -468,11 +476,11 @@
             <End Role="SystemSITable" EntitySet="SystemSITable" />
             <End Role="MenuTable" EntitySet="MenuTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_BasketTable_ChequeTable" Association="Self.FK_BasketTable_ChequeTable">
+          <AssociationSet Name="FK_MTM_ChequeMenu_ChequeTable" Association="Self.FK_MTM_ChequeMenu_ChequeTable">
             <End Role="ChequeTable" EntitySet="ChequeTable" />
             <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_BasketTable_MenuTable" Association="Self.FK_BasketTable_MenuTable">
+          <AssociationSet Name="FK_MTM_ChequeMenu_MenuTable" Association="Self.FK_MTM_ChequeMenu_MenuTable">
             <End Role="MenuTable" EntitySet="MenuTable" />
             <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
@@ -548,12 +556,13 @@
           <EntitySet Name="StatusTable" EntityType="DesctopHiteModel.StatusTable" />
           <EntitySet Name="sysdiagrams" EntityType="DesctopHiteModel.sysdiagrams" />
           <EntitySet Name="SystemSITable" EntityType="DesctopHiteModel.SystemSITable" />
+          <EntitySet Name="ThePerfectOfferTable" EntityType="DesctopHiteModel.ThePerfectOfferTable" />
           <EntitySet Name="WorkerTable" EntityType="DesctopHiteModel.WorkerTable" />
-          <AssociationSet Name="FK_BasketTable_ChequeTable" Association="DesctopHiteModel.FK_BasketTable_ChequeTable">
+          <AssociationSet Name="FK_MTM_ChequeMenu_ChequeTable" Association="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable">
             <End Role="ChequeTable" EntitySet="ChequeTable" />
             <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_BasketTable_MenuTable" Association="DesctopHiteModel.FK_BasketTable_MenuTable">
+          <AssociationSet Name="FK_MTM_ChequeMenu_MenuTable" Association="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable">
             <End Role="MenuTable" EntitySet="MenuTable" />
             <End Role="BasketTable" EntitySet="BasketTable" />
           </AssociationSet>
@@ -627,8 +636,8 @@
           <Property Name="pnMenu" Type="Int32" Nullable="false" />
           <Property Name="Quantity_MenuCheque" Type="Int32" Nullable="false" />
           <Property Name="Prise_MenuCheque" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.FK_BasketTable_ChequeTable" FromRole="BasketTable" ToRole="ChequeTable" />
-          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_BasketTable_MenuTable" FromRole="BasketTable" ToRole="MenuTable" />
+          <NavigationProperty Name="ChequeTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable" FromRole="BasketTable" ToRole="ChequeTable" />
+          <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable" FromRole="BasketTable" ToRole="MenuTable" />
         </EntityType>
         <EntityType Name="ChequeTable">
           <Key>
@@ -639,7 +648,7 @@
           <Property Name="pnCash_Cheque" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pnWorker_Cheque" Type="Int32" Nullable="false" />
           <Property Name="GeneralPrise_Cheque" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_BasketTable_ChequeTable" FromRole="ChequeTable" ToRole="BasketTable" />
+          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable" FromRole="ChequeTable" ToRole="BasketTable" />
           <NavigationProperty Name="WorkerTable" Relationship="DesctopHiteModel.FK_ChequeTable_WorkerTable" FromRole="ChequeTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="GenderTable">
@@ -719,7 +728,7 @@
           <Property Name="Prise_Menu" Type="Int32" Nullable="false" />
           <Property Name="Weight_Menu" Type="Int32" Nullable="false" />
           <Property Name="pnSystemSI" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_BasketTable_MenuTable" FromRole="MenuTable" ToRole="BasketTable" />
+          <NavigationProperty Name="BasketTable" Relationship="DesctopHiteModel.FK_MTM_ChequeMenu_MenuTable" FromRole="MenuTable" ToRole="BasketTable" />
           <NavigationProperty Name="ImageMenuTable" Relationship="DesctopHiteModel.FK_MenuTable_ImageMenuTable" FromRole="MenuTable" ToRole="ImageMenuTable" />
           <NavigationProperty Name="MenuCategoryTable" Relationship="DesctopHiteModel.FK_MenuTable_MenuCategoryTable" FromRole="MenuTable" ToRole="MenuCategoryTable" />
           <NavigationProperty Name="SystemSITable" Relationship="DesctopHiteModel.FK_MenuTable_SystemSITable" FromRole="MenuTable" ToRole="SystemSITable" />
@@ -814,6 +823,13 @@
           <Property Name="Title_SystemSI" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MenuTable" Relationship="DesctopHiteModel.FK_MenuTable_SystemSITable" FromRole="SystemSITable" ToRole="MenuTable" />
         </EntityType>
+        <EntityType Name="ThePerfectOfferTable">
+          <Key>
+            <PropertyRef Name="PersonalNumber_ThePerfectOffer" />
+          </Key>
+          <Property Name="PersonalNumber_ThePerfectOffer" Type="Int32" Nullable="false" />
+          <Property Name="Image_ThePerfectOffer" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="WorkerTable">
           <Key>
             <PropertyRef Name="PersonalNumber_Worker" />
@@ -844,7 +860,7 @@
           <NavigationProperty Name="SnilsTable" Relationship="DesctopHiteModel.FK_WorkerTabe_SnilsTable" FromRole="WorkerTable" ToRole="SnilsTable" />
           <NavigationProperty Name="StatusTable" Relationship="DesctopHiteModel.FK_WorkerTabe_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
-        <Association Name="FK_BasketTable_ChequeTable">
+        <Association Name="FK_MTM_ChequeMenu_ChequeTable">
           <End Type="DesctopHiteModel.ChequeTable" Role="ChequeTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -858,7 +874,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BasketTable_MenuTable">
+        <Association Name="FK_MTM_ChequeMenu_MenuTable">
           <End Type="DesctopHiteModel.MenuTable" Role="MenuTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1236,6 +1252,14 @@
               <MappingFragment StoreEntitySet="SystemSITable">
                 <ScalarProperty Name="Title_SystemSI" ColumnName="Title_SystemSI" />
                 <ScalarProperty Name="PersonalNumber_SystemSI" ColumnName="PersonalNumber_SystemSI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThePerfectOfferTable">
+            <EntityTypeMapping TypeName="DesctopHiteModel.ThePerfectOfferTable">
+              <MappingFragment StoreEntitySet="ThePerfectOfferTable">
+                <ScalarProperty Name="Image_ThePerfectOffer" ColumnName="Image_ThePerfectOffer" />
+                <ScalarProperty Name="PersonalNumber_ThePerfectOffer" ColumnName="PersonalNumber_ThePerfectOffer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

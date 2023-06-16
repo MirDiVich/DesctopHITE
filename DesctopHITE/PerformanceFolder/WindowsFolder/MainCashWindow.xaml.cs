@@ -8,11 +8,14 @@ using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
 {
     public partial class MainCashWindow : Window
     {
+        DispatcherTimer dispatcherTimer;
+
         public MainCashWindow()
         {
             try
@@ -20,6 +23,15 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 InitializeComponent();
                 FrameNavigationClass.munuCash_FNC = MenuCashFrame;
                 FrameNavigationClass.bodyCash_FNC = BodyCashFrame;
+
+                // Инициализация таймера
+                dispatcherTimer = new DispatcherTimer();
+                dispatcherTimer.Interval = TimeSpan.FromSeconds(20);
+                dispatcherTimer.Tick += DispatcherTimer_Tick;
+
+                // Привязка обработчика события к окну
+                this.MouseMove += MainCashWindow_MouseMove;
+                this.MouseDown += MainCashWindow_MouseDown;
             }
             catch (Exception exMainCashWindow)
             {
@@ -45,5 +57,53 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         $"{exWindow_IsVisibleChanged.Message}");
             }
         }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                WaitingTimerWindow waitingTimerWindow = new WaitingTimerWindow();
+                waitingTimerWindow.ShowDialog();
+            }
+            catch (Exception exDispatcherTimer_Tick)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие DispatcherTimer_Tick в MainCashWindow:\n\n " +
+                        $"{exDispatcherTimer_Tick.Message}");
+            }
+        }
+        #region _MouseDown _MouseMove
+        private void MainCashWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+                // При нажатии на кнопку сбрасываем таймер
+                dispatcherTimer.Stop();
+                dispatcherTimer.Start();
+            }
+            catch (Exception exMainCashWindow_MouseDown)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие MainCashWindow_MouseDown в MainCashWindow:\n\n " +
+                        $"{exMainCashWindow_MouseDown.Message}");
+            }
+        }
+
+        private void MainCashWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            try
+            {
+                // При движении мышки сбрасываем таймер
+                dispatcherTimer.Stop();
+                dispatcherTimer.Start();
+            }
+            catch (Exception exMainCashWindow_MouseMove)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие MainCashWindow_MouseMove в MainCashWindow:\n\n " +
+                        $"{exMainCashWindow_MouseMove.Message}");
+            }
+        }
+        #endregion
     }
 }
