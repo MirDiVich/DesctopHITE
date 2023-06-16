@@ -155,7 +155,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         {
                             MessageBoxClass.FailureMessageBox_MBC(textMessage: "К сожилению нельзя добавить больше 10 позиций этого меню");
                         }
-
+                        
                     }
                 }
                 // Добавляем позиции в этот чек
@@ -175,8 +175,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 var calculateTheTotalCostOfTheGoodsFromKarzina = getAnItemFromTheShoppingCart.Sum(calculateTheAmount =>
                     calculateTheAmount.Prise_MenuCheque);
 
-                MessageBox.Show(calculateTheTotalCostOfTheGoodsFromKarzina.ToString());
-
+                chequeTable = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
                 chequeTable.GeneralPrise_Cheque = calculateTheTotalCostOfTheGoodsFromKarzina;
 
                 AppConnectClass.connectDataBase_ACC.ChequeTable.AddOrUpdate(chequeTable);
