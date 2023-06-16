@@ -2,7 +2,7 @@
     x:Class="DesctopHITE.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    StartupUri="\PerformanceFolder\WindowsFolder\WaitingTimerWindow.xaml">
+    StartupUri="\PerformanceFolder\WindowsFolder\AuthorizationWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
