@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
-    IsVisibleChanged="Window_IsVisibleChanged"
     Style="{StaticResource WaitingTimerWindowStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>

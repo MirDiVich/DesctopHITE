@@ -2,7 +2,7 @@
 /// Данное окно представляет из себя окно ожидания.
 /// Когда сотрудник или клиент ничего не делает на экране, то система встаёт в режим ожидания (появляется данное окно)
 ///     после чего, если таймер закончится или не нажали на продолжить, или нажали на отменить,
-///     то созданные чек удалится, и система будет готова к созданию ового заказа
+///     то созданные чек удалится, и система будет готова к созданию нового заказа
 ///----------------------------------------------------------------------------------------------------------
 
 using DesctopHITE.AppDateFolder.ClassFolder;
@@ -28,7 +28,10 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 dispatcher = new DispatcherTimer();
                 dispatcher.Interval = TimeSpan.FromSeconds(1);
                 dispatcher.Tick += Dispatcher_Tick;
+
                 timeSpan = TimeSpan.FromSeconds(10);
+
+                dispatcher.Start();
             }
             catch (Exception exWaitingTimerWindow)
             {
@@ -38,34 +41,12 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            try
-            {
-                if(Visibility == Visibility.Visible )
-                {
-                    dispatcher.Start();
-                }
-                else
-                {
-                    dispatcher.Stop();
-                }
-            }
-            catch (Exception exWindow_IsVisibleChanged)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие Window_IsVisibleChanged в WaitingTimerWindow:\n\n " +
-                        $"{exWindow_IsVisibleChanged.Message}");
-            }
-        }
-
         private void Dispatcher_Tick(object sender, EventArgs e)
         {
             try
             {
                 if (timeSpan == TimeSpan.Zero)
                 {
-                    dispatcher.Stop();
                     Event_TimerClose();
                 }
                 else
@@ -111,6 +92,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 AppConnectClass.connectDataBase_ACC.ChequeTable.Remove(checkSearch);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
                 AppConnectClass.theNumberOfTheCreatedReceipt = 0;
+
+                WaitingForANewOrderWindow waitingForANewOrderWindow = new WaitingForANewOrderWindow();
+                waitingForANewOrderWindow.ShowDialog();
 
                 this.Close();
             }

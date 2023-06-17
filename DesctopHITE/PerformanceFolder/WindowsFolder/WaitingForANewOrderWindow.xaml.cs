@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -66,7 +67,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void DispatcherTimer_Tick(object sender, EventArgs e) /// Метод на вывод рандомного фото
+        private void DispatcherTimer_Tick(object sender, EventArgs e) /// Раз в n время выполнять метод
         {
             try
             {
@@ -86,6 +87,8 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             try
             {
 
+
+                this.Close();
             }
             catch (Exception exEvent_StartAnOrder)
             {
@@ -95,7 +98,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
 
-        private void Event_RandomImage()
+        private void Event_RandomImage() /// Метод на вывод рандомного фото
         {
             try
             {
@@ -114,7 +117,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     bitmapImage.StreamSource = stream;
                     bitmapImage.EndInit();
 
-                    ImageImage.Source = bitmapImage;
+                    NewImage.Source = bitmapImage;
                 }
             }
             catch (Exception exEvent_RandomImage)
@@ -125,5 +128,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
+
+        // Закрыть данное окно и перейти к пополнению корзины
+        private void NextButton_Click(object sender, RoutedEventArgs e) { Event_StartAnOrder(); }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) { Event_StartAnOrder(); }
     }
 }

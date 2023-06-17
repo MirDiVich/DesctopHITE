@@ -7,8 +7,10 @@
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen" 
     IsVisibleChanged="Window_IsVisibleChanged"
+    MouseDown="Window_MouseDown"
     Style="{StaticResource MainCashWinwosStyle}">
     <Border 
+        Name="BodyBorder"
         CornerRadius="0" 
         Style="{DynamicResource MainBorderStyle}">
         <Grid>
@@ -18,8 +20,10 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Stretch="UniformToFill"
-                x:Name="ImageImage"/>
+                x:Name="NewImage"/>
             <Button
+                x:Name="NextButton"
+                Click="NextButton_Click"
                 FontSize="40"
                 Height="80"
                 Width="520"
