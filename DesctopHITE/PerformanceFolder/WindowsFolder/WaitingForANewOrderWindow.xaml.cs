@@ -1,20 +1,19 @@
-﻿using DesctopHITE.AppDateFolder.ClassFolder;
+﻿///----------------------------------------------------------------------------------------------------------
+/// Обычное окно, которая отображает рекламу. Данное окно вызывается автоматически системой.
+/// На данном окне выгружается реклама из БД.
+/// Метод выгрузки простой, система рандомно отбирает номер рекламы, 
+///     после чего находит данную рекламу и выгружает её. Отбор идёт по ID.
+/// Реклама представляет из себя просто картинку, сделанную и загруженную в бд заранее.
+///----------------------------------------------------------------------------------------------------------
+
+using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace DesctopHITE.PerformanceFolder.WindowsFolder
@@ -115,10 +114,14 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                // Рандомно получаем фото от 1 до 6
-                int personalNumberImage = random.Next(1, 6);
+                // Получаем минимальный id рекламы и максимальный
+                var minIdAdvertisement = AppConnectClass.connectDataBase_ACC.ThePerfectOfferTable.Min(dataMin => dataMin.PersonalNumber_ThePerfectOffer);
+                var maxIdAdvertisement = AppConnectClass.connectDataBase_ACC.ThePerfectOfferTable.Max(dataMax => dataMax.PersonalNumber_ThePerfectOffer);
 
-                // Ищем это фото
+                // Получаем рандомный ID рекламы из имеющихся
+                int personalNumberImage = random.Next(minIdAdvertisement, maxIdAdvertisement);
+
+                // Ищем выбранную рекламу
                 var dataImage = AppConnectClass.connectDataBase_ACC.ThePerfectOfferTable.Find(personalNumberImage);
 
                 // Конверт фото
@@ -139,6 +142,11 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                     textMessage: $"Событие Event_RandomImage в WaitingForANewOrderWindow:\n\n " +
                     $"{exEvent_RandomImage.Message}");
             }
+            ///<!--
+            /// !!! Может не сработать, если допустим Id рекламы идёт не по порядку (1, 2, 3, ...), а в разнобой (5, 10, 26, ...)
+            /// Это по идеи можно решить, просто получив список всех Id и уже рандомно из данного списка найти, что следует, что
+            ///     мой метод немного не правильный.
+            /// -->
         }
         #endregion
 

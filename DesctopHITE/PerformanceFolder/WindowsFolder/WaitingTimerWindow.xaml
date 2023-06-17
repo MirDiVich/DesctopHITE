@@ -88,13 +88,13 @@
                             Style="{DynamicResource OtherButtonStyle}">
                             <StackPanel Margin="50 0" Orientation="Horizontal">
                                 <TextBlock
-                                Margin="0 0 10 0"
-                                Text="ПРОДОЛЖИТЬ"/>
+                                    Margin="0 0 10 0"
+                                    Text="ПРОДОЛЖИТЬ"/>
                                 <TextBlock
-                                FontSize="40"
-                                Text="&#xf2ee;" 
-                                Style="{DynamicResource IconTextBlockStyle}"
-                                Margin="10 0 0 0"/>
+                                    FontSize="40"
+                                    Text="&#xf2ee;" 
+                                    Style="{DynamicResource IconTextBlockStyle}"
+                                    Margin="10 0 0 0"/>
                             </StackPanel>
                         </Button>
                     </Grid>
