@@ -86,6 +86,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
                 <Border
+                    ToolTip="Паспорт"
                     Width="870"
                     x:Name="PassportBorder" 
                     Style="{DynamicResource BorderInformation}" 
@@ -272,6 +273,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="Место жительства"
                     Width="800" 
                     x:Name="PlaceResidenceBorder"
                     Style="{DynamicResource BorderInformation}">
@@ -396,6 +398,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Медицинская книжка"
                     Width="800" 
                     x:Name="MedicalBookBorder"
                     Style="{DynamicResource BorderInformation}">
@@ -535,6 +538,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="Снилс"
                     Width="800" 
                     x:Name="SnilsBorder"
                     Style="{DynamicResource BorderInformation}">
@@ -591,6 +595,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="ИНН"
                     Width="800" 
                     x:Name="INNBorder" 
                     Style="{DynamicResource BorderInformation}">
@@ -672,6 +677,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="Заработная карта"
                     Width="800" 
                     x:Name="SalaryCardBorder"
                     Style="{DynamicResource BorderInformation}">
@@ -772,6 +778,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="Общая информация"
                     Width="800" 
                     Margin="0 10 0 20"
                     x:Name="GeneralDataBorder"

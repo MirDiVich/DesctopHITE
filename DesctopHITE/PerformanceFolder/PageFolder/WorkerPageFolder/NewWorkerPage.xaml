@@ -87,6 +87,7 @@
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Center">
                 <Border 
+                    ToolTip="Паспорт"
                     x:Name="PassportBorder" 
                     Style="{DynamicResource BorderInformation}"
                     Margin="0 10 0 10">
@@ -485,6 +486,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="Место жительства"
                     x:Name="PlaceResidenceBorder"
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
@@ -704,6 +706,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Медицинская книжка"
                     x:Name="MedicalBookBorder" 
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
@@ -918,6 +921,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Снилс"
                     x:Name="SnilsBorder"
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
@@ -999,6 +1003,7 @@
                     </Grid>
                 </Border>
                 <Border 
+                    ToolTip="ИНН"
                     x:Name="INNBorder"
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
@@ -1146,6 +1151,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Заработная карта"
                     x:Name="SalaryCardBorder" 
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
@@ -1365,6 +1371,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Общая информация"
                     Margin="0 10 0 20"
                     x:Name="GeneralDataBorder"
                     Style="{DynamicResource BorderInformation}">
@@ -1566,6 +1573,7 @@
                             </Border.Effect>
                         </Border>
                         <Button
+                            ToolTip="Добавить"
                             x:Name="NewWorkerButton"
                             Click="NewWorkerButton_Click"
                             Width="220"
