@@ -16,6 +16,7 @@
             Orientation="Vertical"
             Margin="10">
             <Border
+                ToolTip="Информация по онлайну"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
                 <Grid>
@@ -81,6 +82,7 @@
                 </Grid>
             </Border>
             <Border 
+                ToolTip="Информация по гендеру"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
                 <Grid>
@@ -136,6 +138,7 @@
                 </Grid>
             </Border>
             <Border 
+                ToolTip="Информация по должности"
                 Visibility="Visible" 
                 Style="{DynamicResource BorderInformation}">
                 <Grid>
@@ -225,6 +228,7 @@
             Orientation="Vertical" 
             Margin="10">
             <Border 
+                ToolTip="У кого сегодня день рождение"
                 MaxHeight="350" 
                 MinHeight="0"
                 Height="auto" 
@@ -263,6 +267,7 @@
                 </Grid>
             </Border>
             <Border 
+                ToolTip="У кого скоро день рождение ( через 3, 2 или 1 день)"
                 MaxHeight="350"
                 MinHeight="0" 
                 Height="auto" 

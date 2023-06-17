@@ -82,6 +82,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
                 {
                     PassportToggleButton.IsChecked = true;
                     PassportBorder.Visibility = Visibility.Visible;
+                    PassportToggleButton.ToolTip = "Скрыть паспорт";
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
@@ -96,44 +97,100 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         // Так как код очень простой и короткий, было принято решение написать его в "длину"
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PassportToggleButton.IsChecked == true) { PassportBorder.Visibility = Visibility.Visible; }
-            else { PassportBorder.Visibility = Visibility.Collapsed; }
+            if (PassportToggleButton.IsChecked == true) 
+            { 
+                PassportBorder.Visibility = Visibility.Visible; 
+                PassportToggleButton.ToolTip = "Скрыть паспорт";
+            }
+            else 
+            { 
+                PassportBorder.Visibility = Visibility.Collapsed;
+                PassportToggleButton.ToolTip = "Показать паспорт";
+            }
         }
 
         private void PlaceResidenceToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PlaceResidenceToggleButton.IsChecked == true) { PlaceResidenceBorder.Visibility = Visibility.Visible; }
-            else { PlaceResidenceBorder.Visibility = Visibility.Collapsed; }
+            if (PlaceResidenceToggleButton.IsChecked == true)
+            { 
+                PlaceResidenceBorder.Visibility = Visibility.Visible;
+                PlaceResidenceToggleButton.ToolTip = "Скрыть место жительства";
+            }
+            else
+            { 
+                PlaceResidenceBorder.Visibility = Visibility.Collapsed;
+                PlaceResidenceToggleButton.ToolTip = "Показать место жительства";
+            }
         }
 
         private void MedicalBookToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MedicalBookToggleButton.IsChecked == true) { MedicalBookBorder.Visibility = Visibility.Visible; }
-            else { MedicalBookBorder.Visibility = Visibility.Collapsed; }
+            if (MedicalBookToggleButton.IsChecked == true)
+            { 
+                MedicalBookBorder.Visibility = Visibility.Visible;
+                MedicalBookToggleButton.ToolTip = "Скрыть медицинскую книжку";
+            }
+            else
+            { 
+                MedicalBookBorder.Visibility = Visibility.Collapsed;
+                MedicalBookToggleButton.ToolTip = "Показать медицинскую книжку";
+            }
         }
 
         private void SnilsToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SnilsToggleButton.IsChecked == true) { SnilsBorder.Visibility = Visibility.Visible; }
-            else { SnilsBorder.Visibility = Visibility.Collapsed; }
+            if (SnilsToggleButton.IsChecked == true) 
+            { 
+                SnilsBorder.Visibility = Visibility.Visible;
+                SnilsToggleButton.ToolTip = "Скрыть снилс";
+            }
+            else 
+            { 
+                SnilsBorder.Visibility = Visibility.Collapsed;
+                SnilsToggleButton.ToolTip = "Показать снилс";
+            }
         }
 
         private void INNToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (INNToggleButton.IsChecked == true) { INNBorder.Visibility = Visibility.Visible; }
-            else { INNBorder.Visibility = Visibility.Collapsed; }
+            if (INNToggleButton.IsChecked == true)
+            { 
+                INNBorder.Visibility = Visibility.Visible;
+                INNToggleButton.ToolTip = "Скрыть инн";
+            }
+            else 
+            {
+                INNBorder.Visibility = Visibility.Collapsed;
+                INNToggleButton.ToolTip = "Показать инн"; 
+            }
         }
 
         private void SalaryCardToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SalaryCardToggleButton.IsChecked == true) { SalaryCardBorder.Visibility = Visibility.Visible; }
-            else { SalaryCardBorder.Visibility = Visibility.Collapsed; }
+            if (SalaryCardToggleButton.IsChecked == true) 
+            { 
+                SalaryCardBorder.Visibility = Visibility.Visible;
+                SalaryCardToggleButton.ToolTip = "Скрыть заработную карту";
+            }
+            else 
+            { 
+                SalaryCardBorder.Visibility = Visibility.Collapsed;
+                SalaryCardToggleButton.ToolTip = "Показать заработную карту";
+            }
         }
 
         private void GeneralDataToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (GeneralDataToggleButton.IsChecked == true) { GeneralDataBorder.Visibility = Visibility.Visible; }
-            else { GeneralDataBorder.Visibility = Visibility.Collapsed; }
+            if (GeneralDataToggleButton.IsChecked == true) 
+            { 
+                GeneralDataBorder.Visibility = Visibility.Visible;
+                GeneralDataToggleButton.ToolTip = "Скрыть основную информацию";
+            }
+            else 
+            {
+                GeneralDataBorder.Visibility = Visibility.Collapsed;
+                GeneralDataToggleButton.ToolTip = "Показать основную информацию";
+            }
         }
         #endregion
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
