@@ -86,7 +86,20 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
+                // Добавляем чек
+                if (AppConnectClass.theNumberOfTheCreatedReceipt == 0)
+                {
+                    var chequeTable = new ChequeTable();
 
+                    chequeTable.DataTime_Cheque = DateTime.Now;
+                    chequeTable.pnCash_Cheque = Environment.MachineName.ToString();
+                    chequeTable.pnWorker_Cheque = 1031;
+                    chequeTable.GeneralPrise_Cheque = 0;
+
+                    AppConnectClass.connectDataBase_ACC.ChequeTable.Add(chequeTable);
+                    AppConnectClass.connectDataBase_ACC.SaveChanges();
+                    AppConnectClass.theNumberOfTheCreatedReceipt = chequeTable.PersonalNumber_Cheque;
+                }
 
                 this.Close();
             }

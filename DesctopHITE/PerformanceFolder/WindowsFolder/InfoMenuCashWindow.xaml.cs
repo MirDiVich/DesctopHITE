@@ -124,22 +124,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
         {
             try
             {
-                // Создаём таблицы
-                var chequeTable = new ChequeTable();
                 var addToReceipt = new BasketTable();
-
-                // Добавляем чек
-                if (AppConnectClass.theNumberOfTheCreatedReceipt == 0)
-                {
-                    chequeTable.DataTime_Cheque = DateTime.Now;
-                    chequeTable.pnCash_Cheque = Environment.MachineName.ToString();
-                    chequeTable.pnWorker_Cheque = 1031;
-                    chequeTable.GeneralPrise_Cheque = 0;
-
-                    AppConnectClass.connectDataBase_ACC.ChequeTable.Add(chequeTable);
-                    AppConnectClass.connectDataBase_ACC.SaveChanges();
-                    AppConnectClass.theNumberOfTheCreatedReceipt = chequeTable.PersonalNumber_Cheque;
-                }
 
                 // Смотрим, есть ли уже список продуктов
                 if (AppConnectClass.connectDataBase_ACC.BasketTable.Where(dataWhere =>
@@ -155,9 +140,10 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                         {
                             MessageBoxClass.FailureMessageBox_MBC(textMessage: "К сожилению нельзя добавить больше 10 позиций этого меню");
                         }
-                        
+
                     }
                 }
+
                 // Добавляем позиции в этот чек
                 addToReceipt.pnCheque = AppConnectClass.theNumberOfTheCreatedReceipt;
                 addToReceipt.pnMenu = numberOfTheSelectedMenu;
@@ -175,7 +161,7 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 var calculateTheTotalCostOfTheGoodsFromKarzina = getAnItemFromTheShoppingCart.Sum(calculateTheAmount =>
                     calculateTheAmount.Prise_MenuCheque);
 
-                chequeTable = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
+                var chequeTable = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
                 chequeTable.GeneralPrise_Cheque = calculateTheTotalCostOfTheGoodsFromKarzina;
 
                 AppConnectClass.connectDataBase_ACC.ChequeTable.AddOrUpdate(chequeTable);
