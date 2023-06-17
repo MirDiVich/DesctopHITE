@@ -1,4 +1,11 @@
-﻿using DesctopHITE.AppDateFolder.ClassFolder;
+﻿///----------------------------------------------------------------------------------------------------------
+/// На данной странице выгружается список всех категорий, при нажатии на которые, пользователь или
+///     сотрудник попадает в список еды, у которой данная категория.
+/// Но та так в списке категории, есть категория, которую не должен видеть пользователь и не должна мешать сотруднику,
+///     данная категория удаляется из списка
+///----------------------------------------------------------------------------------------------------------
+
+using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder;
 using System;
@@ -31,7 +38,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
             {
                 if (Visibility == Visibility.Visible)
                 {
-                    ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
+                    // Выгружаем список категорий 
+                    var dataMunuCategory = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
+                    ListMenuListView.ItemsSource = dataMunuCategory;
+
+                    // Найдите элемент в источнике данных по ID 
+                    var itemToRemove = dataMunuCategory.FirstOrDefault(item => item.PersonalNumber_MenuCategory == 16);
+
+                    if (itemToRemove != null)
+                    {
+                        // Удалите элемент из коллекции 
+                        dataMunuCategory.Remove(itemToRemove);
+
+                        // Обновите отображение ListView 
+                        ListMenuListView.Items.Refresh();
+                    }
                 }
             }
             catch (Exception exPage_IsVisibleChanged)

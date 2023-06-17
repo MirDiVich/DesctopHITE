@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
-    KeyUp="Window_KeyUp"
     Style="{DynamicResource AuthorizationWindowStyle}">
     <Border Style="{DynamicResource MainBorderStyle}">
         <Grid>

@@ -222,39 +222,47 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 if (logInUser != null)
                 {
                     MainUserWindow mainUserWindow = new MainUserWindow();
+                    MainCashWindow mainCashWindow = new MainCashWindow();
+                    WaitingForANewOrderWindow waitingForANewOrderWindow = new WaitingForANewOrderWindow();
 
                     switch (logInUser.pnRole_Worker) // Проверяем должность пользователя
                     {
-                        case 1:
+                        case 1: // Программист
                             SaveSettings();
                             AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
-                        case 2:
+                        case 2: // Администратор
                             SaveSettings();
                             AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
-                        case 3:
+                        case 3: // Кассир
+                            AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
+                            mainCashWindow.Show();
+                            waitingForANewOrderWindow.ShowDialog();
+                            this.Close();
+                            break;
+
+                        case 5: // Директор
                             SaveSettings();
                             AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
-                            MessageBox.Show("Для вас ещё не реализован код");
                             mainUserWindow.Show();
                             this.Close();
                             break;
 
-                        case 5:
-                            SaveSettings();
+                        case 6: // Самообслуживание
                             AppConnectClass.receiveConnectUser_ACC = logInUser.PersonalNumber_Worker;
-                            mainUserWindow.Show();
+                            mainCashWindow.Show();
+                            waitingForANewOrderWindow.ShowDialog();
                             this.Close();
                             break;
 
-                        // Если у пользователя должность, которой не разрешён вход
+                        // Для всех остальных должностей
                         default:
                             string messageDefault =
                                 $"Извините {logInUser.PassportTable.Surname_Passport + " " + logInUser.PassportTable.Name_Passport} " +
@@ -457,26 +465,5 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-
-        private void Window_KeyUp(object sender, KeyEventArgs e) // Временное событие
-        {
-            try
-            {
-                if (e.Key == Key.Apps)
-                {
-                    MainCashWindow mainCashWindow = new MainCashWindow();
-                    WaitingForANewOrderWindow waitingForANewOrderWindow = new WaitingForANewOrderWindow();
-                    mainCashWindow.Show();
-                    waitingForANewOrderWindow.ShowDialog();
-                    this.Close();
-                }
-            }
-            catch (Exception exWindow_KeyUp)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                     textMessage: $"Событие Window_KeyUp в AuthorizationWindow:\n\n " +
-                     $"{exWindow_KeyUp.Message}");
-            }
-        }
     }
 }
