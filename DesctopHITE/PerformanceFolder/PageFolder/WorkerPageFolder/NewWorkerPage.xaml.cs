@@ -94,7 +94,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.WorkerPageFolder
         }
         #region _Click
         #region Показать или скрыть Border
-        // Так как код очень простой и короткий, было принято решение написать его в "длину"
         private void PassportToggleButton_Click(object sender, RoutedEventArgs e)
         {
             if (PassportToggleButton.IsChecked == true) 

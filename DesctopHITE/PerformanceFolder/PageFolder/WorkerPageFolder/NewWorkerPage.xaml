@@ -50,7 +50,7 @@
                 x:Name="SalaryCardToggleButton"
                 Click="SalaryCardToggleButton_Click"
                 Content="Заработная карта"
-                Style="{DynamicResource MainMenuToggleButtonStyle}" Cursor="Hand"/>
+                Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
                 ToolTip="Показать общие данные"
                 x:Name="GeneralDataToggleButton"

@@ -16,42 +16,50 @@
             Style="{DynamicResource MainMenuStackPanelStyle}"
             Grid.Column="0">
             <ToggleButton
+                ToolTip="Показать паспорт"
                 x:Name="PassportToggleButton"
                 Click="PassportToggleButton_Click"
                 Content="Паспорт"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать место жительства"
                 x:Name="PlaceResidenceToggleButton"
                 Click="PlaceResidenceToggleButton_Click"
                 Content="Место жительства"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать медецинскую книжку"
                 x:Name="MedicalBookToggleButton"
                 Click="MedicalBookToggleButton_Click"
                 Content="Медицинская книжка"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать снилс"
                 x:Name="SnilsToggleButton"
                 Click="SnilsToggleButton_Click"
                 Content="СНИЛС"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать инн"
                 x:Name="INNToggleButton"
                 Click="INNToggleButton_Click"
                 Content="ИНН"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать заработную карту"
                 x:Name="SalaryCardToggleButton"
                 Click="SalaryCardToggleButton_Click"
                 Content="Заработная карта"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
             <ToggleButton
+                ToolTip="Показать общие данные"
                 x:Name="GeneralDataToggleButton"
                 Click="GeneralDataToggleButton_Click"
                 Content="Общие данные"
                 Style="{DynamicResource MainMenuToggleButtonStyle}"/>
         </StackPanel>
         <Button
+            ToolTip="Вернуться назад"
             Width="246"
             Height="50"
             Margin="0 0 0 10"
@@ -880,6 +888,7 @@
                             </Border.Effect>
                         </Border>
                         <Button
+                            ToolTip="Редактировать"
                             x:Name="EditWorkerButton"
                             Click="EditWorkerButton_Click"
                             Width="350"
