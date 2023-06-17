@@ -10,6 +10,7 @@
     <Grid>
         <StackPanel Style="{DynamicResource MainMenuStackPanelStyle}">
             <ToggleButton
+                ToolTip="Главная"
                 x:Name="MainToggleButton"
                 Click="MainToggleButton_Click"
                 Style="{DynamicResource MainMenuToggleButtonStyle}">
@@ -23,6 +24,7 @@
                 </StackPanel>
             </ToggleButton>
             <ToggleButton 
+                ToolTip="Сотрудники"
                 x:Name="WorkersToggleButton"
                 Click="WorkersToggleButton_Click"
                 Style="{DynamicResource MainMenuToggleButtonStyle}">
@@ -36,6 +38,7 @@
                 </StackPanel>
             </ToggleButton>
             <ToggleButton 
+                ToolTip="Меню"
                 Click="MenuToggleButton_Click"
                 x:Name="MenuToggleButton"
                 Style="{DynamicResource MainMenuToggleButtonStyle}">
@@ -49,6 +52,7 @@
                 </StackPanel>
             </ToggleButton>
             <ToggleButton
+                ToolTip="Настройки"
                 Click="SettingsToggleButton_Click"
                 x:Name="SettingsToggleButton"
                 Style="{DynamicResource MainMenuToggleButtonStyle}">
@@ -63,6 +67,7 @@
             </ToggleButton>
         </StackPanel>
         <Border
+            ToolTip="Мой профиль"
             Margin="0 0 0 0"
             CornerRadius="0 10 0 10"
             Background="#202020"

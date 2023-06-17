@@ -50,6 +50,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     Event_StartLoadingAnimation();
                     Event_ScanDeception();
 
+                    CheckScanButton.ToolTip = "Остановить";
+
                     TitleTextCheckScanTextBlock.Text = "ОСТАНОВИТЬ";
                     TitleIconCheckScanTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconCheckScanTextBlock2.Visibility = Visibility.Visible;
@@ -78,7 +80,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "///";
 
-                    TitleTextCheckScanTextBlock.Text = "ПРОВЕРИТЬ";
+                    CheckScanButton.ToolTip = "Сканировать";
+
+                    TitleTextCheckScanTextBlock.Text = "СКАНИРОВАТЬ";
                     TitleIconCheckScanTextBlock1.Visibility = Visibility.Visible;
                     TitleIconCheckScanTextBlock2.Visibility = Visibility.Collapsed;
                 }

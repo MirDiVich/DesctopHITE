@@ -9,22 +9,26 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
+            ToolTip="О приложении"
             Margin="0 0 15 0"
             Click="AboutTheAppToggleButton_Click"
             x:Name="AboutTheAppToggleButton"
             Content="О ПРИЛОЖЕНИИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Обновления"
             Click="UpdateToggleButton_Click"
             x:Name="UpdateToggleButton"
             Content="ОБНОВЛЕНИЕ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Разработчики"
             Click="DevelopersToggleButton_Click"
             x:Name="DevelopersToggleButton"
             Content="РАЗРАБОТЧИКИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Сканирование"
             Margin="15 0 0 0"
             Click="ScanningToggleButton_Click"
             x:Name="ScanningToggleButton"

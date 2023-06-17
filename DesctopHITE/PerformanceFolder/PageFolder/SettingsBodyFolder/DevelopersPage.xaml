@@ -24,6 +24,7 @@
                 TextWrapping="Wrap"
                 Text="Здравствуйте, мы «PegasusCode» являемся разработчиками данной автоматизированной информационной системы. Мы специально стараемся разработать дружественный и удобный для пользователя интерфейс данной автоматизированной информационной системы. Так же мы стараемся вовремя исправлять баги и ошибки в работе данной автоматизированной информационной системы. Если у вас возникли вопросы, предложения по улучшению данной автоматизированной информационной системы или вы нашли баг, то можете написать нам! Наши контакты доступны в: ">
                 <Hyperlink 
+                    ToolTip="Перейти в Telegram"
                     Style="{DynamicResource Hyperlink}" 
                     x:Name="TelegramHyperlink" 
                     Click="TelegramHyperlink_Click" 
@@ -31,6 +32,7 @@
                     Telegram,
                 </Hyperlink>
                 <Hyperlink 
+                    ToolTip="Перейти в WhatsApp"
                     Style="{DynamicResource Hyperlink}"
                     x:Name="WhatsAppHyperlink" 
                     Click="WhatsAppHyperlink_Click" 
@@ -38,6 +40,7 @@
                     WhatsApp,
                 </Hyperlink>
                 <Hyperlink
+                    ToolTip="Перейти в VK"
                     Style="{DynamicResource Hyperlink}" 
                     x:Name="VKHyperlink"
                     Click="VKHyperlink_Click"
@@ -49,6 +52,7 @@
                 TextWrapping="Wrap"
                 Text="(ссылки кликабельны), или же сканировать QR-code для перехода на диалог с нами. Если вам интересен код данной автоматизированной информационной системы, то можете перейти на: ">
                 <Hyperlink 
+                    ToolTip="Перейти в GitHub"
                     Style="{DynamicResource Hyperlink}"
                     x:Name="GitHubHyperlink"
                     Click="GitHubHyperlink_Click"
@@ -70,18 +74,22 @@
             VerticalAlignment="Center" 
             HorizontalAlignment="Center">
             <Image
+                ToolTip="Telegram"
                 Margin="0 0 10 0"
                 Style="{StaticResource QrImage}"
                 Source="\ContentFolder\ImageFolder\TelegramQrCode.png"/>
             <Image
+                ToolTip="WhatsApp"
                 Margin="10 0 10 0"
                 Style="{StaticResource QrImage}"
                 Source="\ContentFolder\ImageFolder\WhatsAppQrCode.png"/>
             <Image
+                ToolTip="Vk"
                 Margin="10 0 10 0"
                 Style="{StaticResource QrImage}"
                 Source="\ContentFolder\ImageFolder\VkQrCode.png"/>
             <Image
+                ToolTip="GitHub"
                 Margin="10 0 0 0"
                 Style="{StaticResource QrImage}"
                 Source="\ContentFolder\ImageFolder\GitHubQrCode.png"/>

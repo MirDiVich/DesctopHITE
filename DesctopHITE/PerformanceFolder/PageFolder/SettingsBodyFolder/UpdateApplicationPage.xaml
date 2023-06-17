@@ -16,6 +16,7 @@
             VerticalAlignment="Top" 
             HorizontalAlignment="Left">
             <Border
+                ToolTip="Список обновлений"
                 Margin="10"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
@@ -107,6 +108,7 @@
                 </Grid>
             </Border>
             <Border
+                ToolTip="Список обновлений"
                 Margin="10"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
@@ -159,6 +161,7 @@
                 </Grid>
             </Border>
             <Border
+                ToolTip="Список обновлений"
                 Margin="10"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
@@ -211,6 +214,7 @@
                 </Grid>
             </Border>
             <Border
+                ToolTip="Список обновлений"
                 Margin="10"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
@@ -273,6 +277,7 @@
                 Height="400"
                 Margin="10 0 10 0">
                 <TextBlock
+                    ToolTip="Анимация проверки"
                     x:Name="ProgressScanTextBlock"
                     Visibility="Visible"
                     Foreground="#462AD8"
@@ -288,6 +293,7 @@
                     </TextBlock.Effect>
                 </TextBlock>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle0"
                     Width="150"
                     Height="150"
@@ -303,6 +309,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle1"
                     Width="175"
                     Height="175"
@@ -318,6 +325,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle2"
                     Width="207"
                     Height="207"
@@ -333,6 +341,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle3"
                     Width="250"
                     Height="250"
@@ -348,6 +357,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <ToggleButton
+                    ToolTip="Проверить"
                     Style="{DynamicResource MainToggleButton}"
                     x:Name="CheckUpdateButton"
                     Click="CheckUpdateButton_Click"
@@ -403,6 +413,7 @@
                             </Border.Effect>
                         </Border>
                         <StackPanel 
+                            ToolTip="Результат проверки"
                             Margin="10" 
                             Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                             <StackPanel Style="{DynamicResource HorizontalDataStackPanel}">
@@ -425,6 +436,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Информация про проверку"
                     x:Name="ResultScanBorder"
                     Margin="10"
                     Visibility="Visible"

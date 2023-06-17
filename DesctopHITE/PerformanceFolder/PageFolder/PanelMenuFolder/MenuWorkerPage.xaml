@@ -9,11 +9,13 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
+            ToolTip="Все сотрудники"
             Click="ListWorkweToggleButton_Click"
             x:Name="ListWorkweToggleButton"
             Content="ВСЕ СОТРУДНИКИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Общая информация"
             Margin="15 0 0 0"
             Click="GeneralInformationWorkerToggleButton_Click"
             x:Name="GeneralInformationWorkerToggleButton"

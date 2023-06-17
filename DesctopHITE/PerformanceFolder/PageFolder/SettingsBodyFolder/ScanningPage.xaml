@@ -17,6 +17,7 @@
             VerticalAlignment="Top" 
             HorizontalAlignment="Left">
             <Border 
+                ToolTip="Результат сканирования"
                 Margin="10"
                 Height="200"
                 Width="600"
@@ -142,6 +143,7 @@
                 </Grid>
             </Border>
             <Border 
+                ToolTip="Список ошибок"
                 Margin="10"
                 Height="110"
                 Width="600"
@@ -202,6 +204,7 @@
                 Height="400" 
                 Margin="10 0 10 0">
                 <TextBlock
+                    ToolTip="Анимация проверки"
                     x:Name="ProgressScanTextBlock"
                     Visibility="Visible"
                     Foreground="#462AD8"
@@ -217,6 +220,7 @@
                     </TextBlock.Effect>
                 </TextBlock>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle0"
                     Width="150"
                     Height="150"
@@ -232,6 +236,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle1"
                     Width="175"
                     Height="175"
@@ -247,6 +252,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle2"
                     Width="207"
                     Height="207"
@@ -262,6 +268,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <Ellipse 
+                    ToolTip="Анимация проверки"
                     x:Name="LoadingCircle3"
                     Width="250"
                     Height="250"
@@ -277,6 +284,7 @@
                     </Ellipse.Effect>
                 </Ellipse>
                 <ToggleButton
+                    ToolTip="Сканировать"
                     Style="{DynamicResource MainToggleButton}"
                     x:Name="CheckScanButton"
                     Click="CheckScanButton_Click"

@@ -73,6 +73,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     Event_StartLoadingAnimation();
                     Event_ScanDeception();
 
+                    CheckUpdateButton.ToolTip = "Остановить";
+
                     ProgressScanTextBlock.Text = "0%";
                     IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
                 }
@@ -83,6 +85,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     TitleTextCheckUpdateTextBlock.Text = "ПРОВЕРИТЬ";
 
                     Event_StopLoadingAnimation();
+
+                    CheckUpdateButton.ToolTip = "Проверить";
 
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "///";
