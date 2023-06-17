@@ -23,6 +23,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
+                    ToolTip="Перемищать данное окно"
                     HorizontalAlignment="Center"
                     Grid.Column="1"
                     Points="0,0, 30,15, 400,15, 430,0" 
@@ -61,6 +62,7 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                         <TextBlock
+                            ToolTip="HIRE"
                             Text="HIRE"
                             Margin="0 0 0 0"
                             FontSize="100"
@@ -80,7 +82,7 @@
                             Style="{StaticResource MainStyleTextBlock}"
                             FontFamily="\ContentFolder\FontFolder\#Rubik Wet Paint"
                             Foreground="#462AD8"/>
-                        <Grid Margin="0 20 0 10">
+                        <Grid ToolTip="Поле для ввода Login" Margin="0 20 0 10">
                             <Border Style="{DynamicResource ShadowBorder}">
                                 <Border.Effect>
                                     <DropShadowEffect 
@@ -122,7 +124,7 @@
                                             RenderingBias="Performance"/>
                                     </Border.Effect>
                                 </Border>
-                                <Grid x:Name="PasswordPasswordGrid">
+                                <Grid ToolTip="Поле ддля ввода Password" x:Name="PasswordPasswordGrid">
                                     <PasswordBox
                                         KeyDown="PasswordUserPasswordBox_KeyDown"
                                         PasswordChanged="PasswordUserPasswordBox_PasswordChanged"
@@ -140,6 +142,7 @@
                                         Style="{DynamicResource HintTextBlockStyle}"/>
                                 </Grid>
                                 <Grid 
+                                    ToolTip="Поле для ввода Password"
                                     Visibility="Collapsed"
                                     x:Name="TextPasswordGrid">
                                     <Border Style="{DynamicResource ShadowBorder}">
@@ -169,6 +172,7 @@
                                         Style="{DynamicResource HintTextBlockStyle}"/>
                                 </Grid>
                                 <Button
+                                    ToolTip="Посмотреть пароль"
                                     PreviewMouseUp="VisiblePasswordUserButton_PreviewMouseUp"
                                     PreviewMouseDown="VisiblePasswordUserButton_PreviewMouseDown"
                                     x:Name="VisiblePasswordUserButton"
@@ -202,6 +206,7 @@
                                 </Border.Effect>
                             </Border>
                             <ComboBox
+                                ToolTip="Позволяет при следующем запуске приложения не вводить повторно свои данные"
                                 Text="Не запоминать меня"
                                 x:Name="RememberUserComboBox"
                                 Height="30"
@@ -230,6 +235,7 @@
                                 </Border.Effect>
                             </Border>
                             <Button
+                                ToolTip="Вход"
                                 x:Name="LoginButton"
                                 Click="LoginButton_Click"
                                 Width="220"

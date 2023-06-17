@@ -24,6 +24,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
+                    ToolTip="Перемищать данное окно"
                     HorizontalAlignment="Center"
                     Grid.Column="1"
                     Points="0,0, 30,15, 1200,15, 1230,0" 
@@ -47,17 +48,19 @@
                 <StackPanel
                     Grid.Column="2"
                     Style="{DynamicResource ControlPanelStackPanelStyle}">
-                    <Menu Style="{DynamicResource Menu}">
+                    <Menu ToolTip="Выход из системы" Style="{DynamicResource Menu}">
                         <MenuItem 
                             Padding="8 0 0 0"
                             Style="{DynamicResource MenuButton}"
                             Header="&#xf1af;">
                             <MenuItem
+                                ToolTip="Выйти, но не закрывать приложение"
                                 Style="{DynamicResource ParentMenuItem}"
                                 x:Name="ExitUserButton"
                                 Click="ExitUserButton_Click"
                                 Header="Выйти"/>
                             <MenuItem 
+                                ToolTip="Выйти с закрытием приложения"
                                 Style="{DynamicResource ParentMenuItem}"
                                 x:Name="ExitAndCloseUserButton"
                                 Click="ExitAndCloseUserButton_Click"

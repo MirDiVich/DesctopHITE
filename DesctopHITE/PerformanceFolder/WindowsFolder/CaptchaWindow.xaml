@@ -21,6 +21,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
+                    ToolTip="Перемищать данное окно"
                     HorizontalAlignment="Center"
                     Grid.Column="1"
                     Points="0,0, 30,15, 400,15, 430,0" 
@@ -42,7 +43,7 @@
                 <StackPanel 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center">
-                    <Grid Margin="0 0 0 20">
+                    <Grid ToolTip="Капча" Margin="0 0 0 20">
                         <TextBlock
                             FontFamily="Times New Roman"
                             x:Name="TextCaptchaTextBlock"
@@ -55,7 +56,7 @@
                             HorizontalAlignment="Center"
                             Stretch="UniformToFill"/>
                     </Grid>
-                    <Grid Margin="0 20 0 10">
+                    <Grid ToolTip="Поле для ввода капчи" Margin="0 20 0 10">
                         <Border Style="{DynamicResource ShadowBorder}">
                             <Border.Effect>
                                 <DropShadowEffect 
@@ -90,6 +91,7 @@
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Center">
                         <Button
+                            ToolTip="Проверить капчу"
                             Margin="0 0 10 0"
                             x:Name="EnterCaptchaButton"
                             Click="EnterCaptchaButton_Click"
@@ -106,6 +108,7 @@
                             </StackPanel>
                         </Button>
                         <Button
+                            ToolTip="Сменить капчу"
                             Margin="10 0 0 0"
                             x:Name="NewCaptchaButton"
                             Click="NewCaptchaButton_Click"

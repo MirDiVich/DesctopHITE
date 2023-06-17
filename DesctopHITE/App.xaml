@@ -23,6 +23,7 @@
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\ListViewDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\MenuDictionary.xaml"/>
                 <ResourceDictionary Source="\AppDateFolder\StyleFolder\FrameDictionary.xaml"/>
+                <ResourceDictionary Source="\AppDateFolder\StyleFolder\ToolTipDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

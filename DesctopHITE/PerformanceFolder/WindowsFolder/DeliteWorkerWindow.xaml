@@ -23,6 +23,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Polygon
+                    ToolTip="Перемищать данное окно"
                     HorizontalAlignment="Center"
                     Grid.Column="1"
                     Points="0,0, 30,15, 400,15, 430,0" 
@@ -70,6 +71,7 @@
                             <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
                         </StackPanel.OpacityMask>
                         <Image 
+                            ToolTip="Фото сотрудника"
                             Height="190"
                             Width="190"
                             Stretch="UniformToFill"
@@ -85,6 +87,7 @@
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left">
                     <TextBlock
+                        ToolTip="ФИО сотрудника и его должность"
                         HorizontalAlignment="Left"
                         Margin="0 0 0 15"
                         Style="{DynamicResource MainStyleTextBlock}"
@@ -117,6 +120,7 @@
                          HorizontalAlignment="Left" 
                          Orientation="Vertical">
                          <TextBlock
+                            ToolTip="Когда добавлен сотрудник"
                             HorizontalAlignment="Left"
                             Margin="0 0 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -133,6 +137,7 @@
                             </StackPanel>
                          </TextBlock>
                          <TextBlock
+                            ToolTip="Кем добавлен сотрудник"
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -160,6 +165,7 @@
                             </StackPanel>
                         </TextBlock>
                          <TextBlock
+                            ToolTip="ИНН сотрудника"
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -176,22 +182,24 @@
                             </StackPanel>
                          </TextBlock>
                          <TextBlock
-                            HorizontalAlignment="Left"
-                            Margin="0 5 0 5"
-                            Style="{DynamicResource MainStyleTextBlock}">
-                            <StackPanel  
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="0 0 5 0"
-                                    Text="Снилс сотрудника:"/>
-                                <TextBlock
-                                    Style="{DynamicResource OtherStyleTextBlock}"
-                                    Margin="5 0 5 0"
-                                    Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
+                             ToolTip="Снилс сотрудника"
+                             HorizontalAlignment="Left"
+                             Margin="0 5 0 5"
+                             Style="{DynamicResource MainStyleTextBlock}">
+                             <StackPanel  
+                                 VerticalAlignment="Center"
+                                 Orientation="Horizontal">
+                                 <TextBlock
+                                     Margin="0 0 5 0"
+                                     Text="Снилс сотрудника:"/>
+                                 <TextBlock
+                                     Style="{DynamicResource OtherStyleTextBlock}"
+                                     Margin="5 0 5 0"
+                                     Text="{Binding SnilsTable.PersonalNumber_Snils}"/>
                             </StackPanel>
                          </TextBlock>
                          <TextBlock
+                            ToolTip="Заработная карта сотрудника"
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -208,6 +216,7 @@
                             </StackPanel>
                          </TextBlock>
                          <TextBlock
+                            ToolTip="Медецинская книжка сотрудника"
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -216,7 +225,7 @@
                                 Orientation="Horizontal">
                                 <TextBlock
                                     Margin="0 0 5 0"
-                                    Text="медицинская книжка сотрудника:"/>
+                                    Text="Медицинская книжка сотрудника:"/>
                                 <TextBlock
                                     Style="{DynamicResource OtherStyleTextBlock}"
                                     Margin="5 0 5 0"
@@ -224,6 +233,7 @@
                             </StackPanel>
                          </TextBlock>
                          <TextBlock
+                            ToolTip="Паспорт сотрудника"
                             HorizontalAlignment="Left"
                             Margin="0 5 0 5"
                             Style="{DynamicResource MainStyleTextBlock}">
@@ -252,6 +262,7 @@
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right">
                     <Button
+                        ToolTip="Отмена удаления"
                         Style="{DynamicResource OtherButtonStyle}"
                         x:Name="CancelButton"
                         Click="CancelButton_Click"
@@ -271,6 +282,7 @@
                         </StackPanel>
                     </Button>    
                     <Button
+                        ToolTip="Удалить сотрудника"
                         Style="{DynamicResource DeliteButtonStyle}"
                         x:Name="DeliteButton"
                         Click="DeliteButton_Click"
