@@ -465,8 +465,10 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 if (e.Key == Key.Apps)
                 {
                     MainCashWindow mainCashWindow = new MainCashWindow();
+                    WaitingForANewOrderWindow waitingForANewOrderWindow = new WaitingForANewOrderWindow();
                     mainCashWindow.Show();
-                    Close();
+                    waitingForANewOrderWindow.ShowDialog();
+                    this.Close();
                 }
             }
             catch (Exception exWindow_KeyUp)

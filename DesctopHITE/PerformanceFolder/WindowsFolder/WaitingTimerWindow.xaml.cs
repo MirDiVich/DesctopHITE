@@ -88,15 +88,16 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             {
                 dispatcher.Stop();
 
+                // Удаляем чек
                 var checkSearch = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
                 AppConnectClass.connectDataBase_ACC.ChequeTable.Remove(checkSearch);
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
                 AppConnectClass.theNumberOfTheCreatedReceipt = 0;
 
+                this.Close();
+
                 WaitingForANewOrderWindow waitingForANewOrderWindow = new WaitingForANewOrderWindow();
                 waitingForANewOrderWindow.ShowDialog();
-
-                this.Close();
             }
             catch (Exception exEvent_TimerClose)
             {
