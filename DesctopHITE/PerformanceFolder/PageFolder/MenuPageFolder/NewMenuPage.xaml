@@ -45,7 +45,7 @@
                                             <TextBlock
                                                 Text="Название"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                            <Grid>
+                                            <Grid ToolTip="Название">
                                                 <Border Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
@@ -66,11 +66,11 @@
                                                     Width="500"/>
                                             </Grid>
                                         </StackPanel>
-                                        <StackPanel Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
+                                        <StackPanel  Style="{DynamicResource TextBlockDominatesTextBoxStackPanel}">
                                             <TextBlock
                                                 Text="Описание"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                            <Grid>
+                                            <Grid ToolTip="Описание меню">
                                                 <Border Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
@@ -95,7 +95,7 @@
                                             <TextBlock
                                                 Text="Категория"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                            <Grid>
+                                            <Grid ToolTip="Категория">
                                                 <Border Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
@@ -120,7 +120,7 @@
                                             <TextBlock
                                                 Text="Стоимость"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
-                                            <Grid>
+                                            <Grid ToolTip="Стоимость">
                                                 <Border Style="{DynamicResource OtherShadowBorder}">
                                                     <Border.Effect>
                                                         <DropShadowEffect 
@@ -147,7 +147,7 @@
                                                 Text="Вес (грамм)"
                                                 Style="{DynamicResource TextBlockDominatesTextBoxTextBlock}"/>
                                             <StackPanel Orientation="Horizontal">
-                                                <Grid Margin="0 0 5 0">
+                                                <Grid Margin="0 0 5 0" ToolTip="Вес">
                                                     <Border Style="{DynamicResource OtherShadowBorder}">
                                                         <Border.Effect>
                                                             <DropShadowEffect 
@@ -168,7 +168,7 @@
                                                         Style="{DynamicResource OtherTextBoxStyle}"
                                                         Width="300"/>
                                                 </Grid>
-                                                <Grid Margin="5 0 0 0">
+                                                <Grid Margin="5 0 0 0" ToolTip="Еденица измерения">
                                                     <Border Style="{DynamicResource OtherShadowBorder}">
                                                         <Border.Effect>
                                                             <DropShadowEffect 
@@ -220,6 +220,7 @@
                                         FontSize="30"
                                         Margin="0 10 0 10"/>
                                     <Image
+                                        ToolTip="Фото меню"
                                         x:Name="MenuPhotoImage"
                                         Source="{Binding ImageMenuTable.Image_ImageMenu}"
                                         Width="300"
@@ -239,6 +240,7 @@
                                             </Border.Effect>
                                         </Border>
                                         <Button
+                                            ToolTip="Загрузить фото"
                                             Style="{DynamicResource OtherButtonStyle}"
                                             Width="250"
                                             Height="45"
@@ -286,6 +288,7 @@
                                         FontSize="30"
                                         Margin="0 10 0 10"/>
                                     <ListView
+                                        ToolTip="Выберите используемые ингредиенты"
                                         Height="auto"
                                         MinHeight="0"
                                         MaxHeight="360"
@@ -339,6 +342,7 @@
                                         FontSize="30"
                                         Margin="0 10 0 10"/>
                                     <ListView
+                                        ToolTip="Используемые ингредиенты"
                                         HorizontalAlignment="Left"
                                         Height="auto"
                                         MinHeight="0"

@@ -9,21 +9,25 @@
     Style="{DynamicResource MenuSpacePageStyle}">
     <StackPanel Style="{DynamicResource OtherMenuStackPanelStyle}">
         <ToggleButton
+            ToolTip="Меню"
             Click="ListMenuToggleButton_Click"
             x:Name="ListMenuToggleButton"
             Content="МЕНЮ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Ингридиенты"
             Click="IngridientsMenuToggleButton_Click"
             x:Name="IngridientsMenuToggleButton"
             Content="ИНГРИДИЕНТЫ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Категории"
             Click="CategoryMenuToggleButton_Click"
             x:Name="CategoryMenuToggleButton"
             Content="КАТЕГОРИИ"
             Style="{DynamicResource OtherMenuToggleButtonStyle}"/>
         <ToggleButton
+            ToolTip="Общая информация"
             Margin="15 0 0 0"
             Click="GeneralInformationToggleButton_Click"
             x:Name="GeneralInformationToggleButton"

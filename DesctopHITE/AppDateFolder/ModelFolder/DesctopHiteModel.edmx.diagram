@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="99c76b34545f4e2485931ad73d121402" Name="Diagram1" DisplayType="true">
+      <Diagram DiagramId="99c76b34545f4e2485931ad73d121402" Name="Diagram1" DisplayType="true" ZoomLevel="94">
         <EntityTypeShape EntityType="DesctopHiteModel.BasketTable" Width="1.5" PointX="9.75" PointY="3.5" />
         <EntityTypeShape EntityType="DesctopHiteModel.ChequeTable" Width="1.5" PointX="7.5" PointY="3.375" />
         <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="0.75" />
