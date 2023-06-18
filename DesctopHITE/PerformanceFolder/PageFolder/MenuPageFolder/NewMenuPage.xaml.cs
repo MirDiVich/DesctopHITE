@@ -246,10 +246,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
-                SelectionIngredientsListListView.Items.Add(allIngredients);
-                AllIngredientsListListView.Items.Remove(allIngredients);
-                AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
-                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+
+                if (allIngredients != null)
+                {
+                    if (!SelectionIngredientsListListView.Items.Contains(allIngredients))
+                    {
+                        SelectionIngredientsListListView.Items.Add(allIngredients);
+                    }
+                    else
+                    {
+                        SelectionIngredientsListListView.Items.Remove(allIngredients);
+                    }
+
+                    AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+                    SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+                }
             }
             catch (Exception exAllIngredientsListListView_MouseDoubleClick)
             {
@@ -263,9 +274,19 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                var selectionIngredients = SelectionIngredientsListListView.SelectedItem; // Получаем информацию
-                SelectionIngredientsListListView.Items.Remove(selectionIngredients);
-                SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+                var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem; // Получаем информацию
+
+                if (selectionIngredients != null)
+                {
+                    AllIngredientsListListView.Items.Add(selectionIngredients);
+                    SelectionIngredientsListListView.Items.Remove(selectionIngredients);
+
+                    AllIngredientsListListView.Items.Refresh();
+                    SelectionIngredientsListListView.Items.Refresh();
+
+                    AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+                    SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
+                }
             }
             catch (Exception exSelectionIngredientsListListView_MouseDoubleClick)
             {
