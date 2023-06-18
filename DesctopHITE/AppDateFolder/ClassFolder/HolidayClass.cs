@@ -9,7 +9,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
 {
     public partial class HolidayClass
     {
-        DateTime toDay = DateTime.Now;
+        public DateTime toDay;
 
         public string Event_WhatDayIsIt_HC // В зависимости от текущей даты, выводим приветствие (Смотрим, какой сегодня праздник)
         {

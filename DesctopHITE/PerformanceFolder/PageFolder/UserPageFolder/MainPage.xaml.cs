@@ -66,6 +66,12 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.UserPageFolder
         {
             try
             {
+                // Отправляю в переменную класса с датой и временем, дату и время на данный момент. 
+                // Это нужно для того, чтоб не было багов, к примеру, если уже наступил вечер, главное окно было открыто с утра
+                //      и весит приветствующая табличка "С добрым утром ___", хотя должно быть "Добрый вечер ___" 
+                getTimeClass.timeDay = DateTime.Now;
+                getDayClass.toDay = DateTime.Now;
+
                 // Работа с часами
                 HelloyTextBlock.Text = getTimeClass.Event_WhatTimeIsIt_TC.ToString();
                 NowTimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
