@@ -592,8 +592,6 @@
       <DependentUpon>DesctopHiteModel.edmx</DependentUpon>
       <LastGenOutput>DesctopHiteModel.cs</LastGenOutput>
     </Content>
-    <Content Include="ContentFolder\SongFolder\skibidi-toilet.mp3" />
-    <Content Include="ContentFolder\SongFolder\skibidi-toilet.wav" />
     <Resource Include="Icon_DesctopHITE.ico" />
     <Resource Include="ContentFolder\ImageFolder\Icon_DesctopHITE.png" />
     <Resource Include="ContentFolder\ImageFolder\GitHubQrCode.png" />

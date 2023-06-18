@@ -469,48 +469,5 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
-        #region Пасхалка
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                // Добавление нажатой клавиши в последовательность
-                sequence.Add(e.Key);
-
-                // Проверка наличия нужной последовательности клавиш
-                if (CheckCheatCode())
-                {
-                    var player = new SoundPlayer();
-                    player.SoundLocation = @"ContentFolder\\SongFolder\\skibidi-toilet.wav";
-                    player.Play();
-
-                    MessageBoxClass.GoodMessageBox_MBC(textMessage: "Опана, посхалочка");
-                }
-            }
-            catch (Exception exWindow_KeyDown)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                    textMessage: $"Событие Window_KeyDown в AuthorizationWindow:\n\n " +
-                    $"{exWindow_KeyDown.Message}");
-            }
-        }
-        private bool CheckCheatCode()
-        {
-            // Здесь проверяй, соответствует ли текущая последовательность клавиш нужному чит-коду
-            // Например, проверяем, если последовательность "vertolet"
-            if (sequence.Count == 6 &&
-                sequence[0] == Key.T &&
-                sequence[1] == Key.Y &&
-                sequence[2] == Key.A &&
-                sequence[3] == Key.L &&
-                sequence[4] == Key.E &&
-                sequence[5] == Key.T)
-            {
-                sequence.Clear(); // Очистка последовательности после активации
-                return true;
-            }
-            return false;
-        }
-        #endregion
     }
 }

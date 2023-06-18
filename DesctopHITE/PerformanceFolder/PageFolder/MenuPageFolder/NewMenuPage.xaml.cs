@@ -6,6 +6,7 @@ using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
@@ -22,6 +23,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
     public partial class NewMenuPage : Page
     {
+        List<IngredientsTable> ingredientsList = new List<IngredientsTable>();
+
         byte[] imageData;
 
         int personlNumberMenu;
@@ -45,6 +48,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     var ingredientsMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu).IngredientsTable;
 
                     SelectionIngredientsListListView.Items.Refresh();
+                    ingredientsList = ingredientsMenu.ToList();
+
                     SelectionIngredientsListListView.ItemsSource = ingredientsMenu.ToList();
                 }
                 else
@@ -154,7 +159,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         imageData = new byte[fs.Length];
                         fs.Read(imageData, 0, imageData.Length);
                     }
-                    if (DataContext != null) 
+                    if (DataContext != null)
                     {
                         addEditImageMenuTable.PersonalNumber_ImageMenu = addEditMenuTable.pnImageMunu_Menu;
                     }
@@ -187,7 +192,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                          textMessage: $"Событие Event_NewDataMenu в NewMenuPage:\n\n " +
                          $"{exEvent_NewDataMenu.Message}");
             }
-}
+        }
 
         private void Event_SelectedIngredients() // Добавление списка в связь многие ко многим
         {
@@ -249,14 +254,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 if (allIngredients != null)
                 {
-                    if (!SelectionIngredientsListListView.Items.Contains(allIngredients))
+                    if (!ingredientsList.Contains(allIngredients))
                     {
-                        SelectionIngredientsListListView.Items.Add(allIngredients);
+                        ingredientsList.Add(allIngredients);
                     }
                     else
                     {
-                        SelectionIngredientsListListView.Items.Remove(allIngredients);
+                        ingredientsList.Remove(allIngredients);
                     }
+
+                    SelectionIngredientsListListView.ItemsSource = ingredientsList;
 
                     AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                     SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
@@ -278,11 +285,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
                 if (selectionIngredients != null)
                 {
-                    AllIngredientsListListView.Items.Add(selectionIngredients);
-                    SelectionIngredientsListListView.Items.Remove(selectionIngredients);
-
-                    AllIngredientsListListView.Items.Refresh();
-                    SelectionIngredientsListListView.Items.Refresh();
+                    ingredientsList.Remove(selectionIngredients);
+                    SelectionIngredientsListListView.ItemsSource = ingredientsList;
 
                     AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                     SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
