@@ -7,6 +7,7 @@
     mc:Ignorable="d">
     <Border Style="{DynamicResource MainBorderStyle}">
         <TextBlock
+            ToolTip="{Binding Name_Ingredients}"
             HorizontalAlignment="Left"
             Text="{Binding Name_Ingredients}"
             Style="{DynamicResource MainStyleTextBlock}"

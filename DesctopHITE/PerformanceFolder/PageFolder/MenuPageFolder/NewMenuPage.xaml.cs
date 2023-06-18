@@ -240,20 +240,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-        #region _SelectionChanged _MouseDoubleClick _PreviewKeyDown
-        private void AllIngredientsListListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region _MouseDoubleClick _PreviewKeyDown
+        private void AllIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
                 var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
                 SelectionIngredientsListListView.Items.Add(allIngredients);
+                AllIngredientsListListView.Items.Remove(allIngredients);
+                AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                 SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
-            catch (Exception exAllIngredientsListListView_SelectionChanged)
+            catch (Exception exAllIngredientsListListView_MouseDoubleClick)
             {
                 MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие AllIngredientsListListView_SelectionChanged в NewMenuPage:\n\n " +
-                        $"{exAllIngredientsListListView_SelectionChanged.Message}");
+                        textMessage: $"Событие AllIngredientsListListView_MouseDoubleClick в NewMenuPage:\n\n " +
+                        $"{exAllIngredientsListListView_MouseDoubleClick.Message}");
             }
         }
 
@@ -332,6 +334,32 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 MessageBoxClass.ExceptionMessageBox_MBC(
                         textMessage: $"Событие GoBackButton_Click в NewMenuPage:\n\n " +
                         $"{exGoBackButton_Click.Message}");
+            }
+        }
+
+        private void NewIngridientToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (NewIngridientToggleButton.IsChecked == true)
+                {
+                    AllIngridientBorder.Visibility = Visibility.Visible;
+                    NewIngridientToggleButton.Content = "Скрыть список всех ингредиентов";
+                    NewIngridientToggleButton.ToolTip = "Скрыть список всех ингредиентов";
+                }
+                else
+                {
+                    AllIngridientBorder.Visibility = Visibility.Collapsed;
+
+                    NewIngridientToggleButton.Content = "Показать список всех ингредиентов";
+                    NewIngridientToggleButton.ToolTip = "Показать список всех ингредиентов";
+                }
+            }
+            catch (Exception exNewIngridientToggleButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие NewIngridientToggleButton_Click в NewMenuPage:\n\n " +
+                        $"{exNewIngridientToggleButton_Click.Message}");
             }
         }
     }

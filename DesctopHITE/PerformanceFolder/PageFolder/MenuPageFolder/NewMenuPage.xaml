@@ -258,16 +258,77 @@
                     </Border>
                 </StackPanel>
                 <StackPanel 
+                    Width="921"
                     HorizontalAlignment="Center" 
                     Margin="0 3.5 0 3.5" 
-                    Orientation="Horizontal">
+                    Orientation="Vertical">
                     <Border
                         Height="auto"
                         MinHeight="0"
-                        MaxHeight="400"
-                        Margin="0 0 3.5 0"
+                        MaxHeight="300"
+                        Margin="0 0 0 3.5"
                         Visibility="Visible" 
-                        Width="780" 
+                        VerticalAlignment="Top"
+                        Style="{DynamicResource BorderInformation}">
+                        <Grid>
+                            <Border Style="{DynamicResource NeonBorder}">
+                                <Border.Effect>
+                                    <DropShadowEffect 
+                                        Color="{StaticResource NeonHighlightingColor}" 
+                                        ShadowDepth="0" 
+                                        Direction="0" 
+                                        BlurRadius="25"/>
+                                </Border.Effect>
+                            </Border>
+                            <Grid Margin="20">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock
+                                        Foreground="#462AD8"
+                                        Text="ИНГРЕДИЕНТЫ"
+                                        Style="{DynamicResource MainStyleTextBlock}"
+                                        FontSize="30"
+                                        Margin="0 10 0 10"/>
+                                    <ListView
+                                        ToolTip="Используемые ингредиенты"
+                                        HorizontalAlignment="Left"
+                                        Height="auto"
+                                        MinHeight="0"
+                                        MaxHeight="300"
+                                        MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
+                                        ItemContainerStyle="{StaticResource ListViewItemSelected}"
+                                        x:Name="SelectionIngredientsListListView">
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel 
+                                                    IsItemsHost="True" 
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Left" 
+                                                    Background="Transparent"/>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <UserControl:IngredientsMenuControl/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ToggleButton
+                        Margin="0 3.5"
+                        ToolTip="Показать список всех ингредиентов"
+                        x:Name="NewIngridientToggleButton"
+                        Click="NewIngridientToggleButton_Click"
+                        Content="Показать список всех ингредиентов"
+                        Style="{DynamicResource VisibilityAllIngridientToggleButton}"/>
+                    <Border
+                        x:Name="AllIngridientBorder"
+                        Height="auto"
+                        MinHeight="0"
+                        MaxHeight="400"
+                        Margin="0 3.5 0 0" 
                         Style="{DynamicResource BorderInformation}">
                         <Grid>
                             <Border Style="{DynamicResource NeonBorder}">
@@ -292,64 +353,9 @@
                                         Height="auto"
                                         MinHeight="0"
                                         MaxHeight="360"
-                                        SelectionChanged="AllIngredientsListListView_SelectionChanged"
+                                        MouseDoubleClick="AllIngredientsListListView_MouseDoubleClick"
                                         ItemContainerStyle="{StaticResource ListViewItemSelected}"
                                         x:Name="AllIngredientsListListView">
-                                        <ListView.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel 
-                                                    IsItemsHost="True" 
-                                                    VerticalAlignment="Top"
-                                                    HorizontalAlignment="Left" 
-                                                    Background="Transparent"/>
-                                            </ItemsPanelTemplate>
-                                        </ListView.ItemsPanel>
-                                        <ListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <UserControl:IngredientsMenuControl/>
-                                            </DataTemplate>
-                                        </ListView.ItemTemplate>
-                                    </ListView>
-                                </StackPanel>
-                            </Grid>
-                        </Grid>
-                    </Border>
-                    <Border
-                        Height="auto"
-                        MinHeight="0"
-                        MaxHeight="300"
-                        Margin="3.5 0 0 0"
-                        Visibility="Visible" 
-                        VerticalAlignment="Top"
-                        Width="450" 
-                        Style="{DynamicResource BorderInformation}">
-                        <Grid>
-                            <Border Style="{DynamicResource NeonBorder}">
-                                <Border.Effect>
-                                    <DropShadowEffect 
-                                        Color="{StaticResource NeonHighlightingColor}" 
-                                        ShadowDepth="0" 
-                                        Direction="0" 
-                                        BlurRadius="25"/>
-                                </Border.Effect>
-                            </Border>
-                            <Grid Margin="20">
-                                <StackPanel Width="430" HorizontalAlignment="Center">
-                                    <TextBlock
-                                        Foreground="#462AD8"
-                                        Text="ИНГРЕДИЕНТЫ"
-                                        Style="{DynamicResource MainStyleTextBlock}"
-                                        FontSize="30"
-                                        Margin="0 10 0 10"/>
-                                    <ListView
-                                        ToolTip="Используемые ингредиенты"
-                                        HorizontalAlignment="Left"
-                                        Height="auto"
-                                        MinHeight="0"
-                                        MaxHeight="300"
-                                        MouseDoubleClick="SelectionIngredientsListListView_MouseDoubleClick"
-                                        ItemContainerStyle="{StaticResource ListViewItemSelected}"
-                                        x:Name="SelectionIngredientsListListView">
                                         <ListView.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <WrapPanel 

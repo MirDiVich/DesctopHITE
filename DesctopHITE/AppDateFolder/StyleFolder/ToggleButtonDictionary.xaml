@@ -65,6 +65,30 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="VisibilityAllIngridientToggleButton" TargetType="ToggleButton" BasedOn="{StaticResource MainMenuToggleButtonStyle}">
+        <Setter Property="Width" Value="450"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border
+                        CornerRadius="10"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#a4a4a4"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Foreground" Value="#f5f5f5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="MainToggleButton" TargetType="ToggleButton">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0"/>
