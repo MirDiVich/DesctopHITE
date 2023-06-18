@@ -134,7 +134,7 @@
                                                 </Border>
                                                 <TextBox
                                                     PreviewKeyDown="CtrlV_PreviewKeyDown"
-                                                    PreviewTextInput="PriseValidationTextBox"
+                                                    PreviewTextInput="NumberValidationTextBox"
                                                     Text="{Binding Prise_Menu}"
                                                     MaxLength="6"
                                                     x:Name="PriseMenuTextBox"

@@ -1,6 +1,11 @@
-﻿///----------------------------------------------------------------------------------------------------------
-///
-///----------------------------------------------------------------------------------------------------------
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Данная страница представляет из себя страницу для:
+///     1. Добавления нового меню;
+///     2. Редактирование информации об существующем.
+/// При сохранении данных, программа проверяет, правильную валидность данных, и наличие пустоты в тех полях, где не должно быть пустоты.
+/// На данной странице реализован список, в которой выгружается список всех ингредиентов, которые используются для данного меню (если такие имеются).
+/// Это позволяет, как удалять позиции из данного списка, так и добавлять, после чего просто присвоить данный список редактируемому или добавляемому меню.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
@@ -23,7 +28,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 {
     public partial class NewMenuPage : Page
     {
-        List<IngredientsTable> ingredientsList = new List<IngredientsTable>();
+        List<IngredientsTable> ingredientsList = new List<IngredientsTable>(); /// Тот самый список
 
         byte[] imageData;
 
@@ -38,7 +43,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             try
             {
                 InitializeComponent();
+                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
 
+                // Проверяем, идёт редактирование меню или добавление нового 
                 if (menuTable != null)
                 {
                     DataContext = menuTable;
@@ -54,14 +61,17 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
                 else
                 {
-                    ImageSource userImage = new BitmapImage(new Uri("/ContentFolder/ImageFolder/NoImage.png", UriKind.RelativeOrAbsolute)); // Вывод стандартного фото
+                    // В случае, если пользователь добавляет новое меню, то программа просто выводит стандартное изображение
+                    ImageSource userImage = new BitmapImage(new Uri("/ContentFolder/ImageFolder/NoImage.png", UriKind.RelativeOrAbsolute));
                     MenuPhotoImage.Source = userImage;
                 }
 
-                AppConnectClass.connectDataBase_ACC = new DesctopHiteEntities();
+                // Привязка данных для соответствующих UI элементов
                 pnCategoryMenuComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.ToList();
                 pnSystemSIComboBox.ItemsSource = AppConnectClass.connectDataBase_ACC.SystemSITable.ToList();
                 AllIngredientsListListView.ItemsSource = AppConnectClass.connectDataBase_ACC.IngredientsTable.ToList();
+
+                // Сортировка списка ингридиентов
                 AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
             }
             catch (Exception exNewMenuPage)
@@ -73,10 +83,11 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
 
         #region _Click
-        private void NewMenuButton_Click(object sender, RoutedEventArgs e)
+        private void NewMenuButton_Click(object sender, RoutedEventArgs e) /// Кнопка на добавление\редактирование меню
         {
             try
             {
+                // Проверяем на пустоту поля
                 messageNull = "";
                 Event_MessageNull();
 
@@ -86,6 +97,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 }
                 else
                 {
+                    // Проверяем поля на правильную валидность данных
                     messageValidData = "";
                     Event_MessageNull();
 
@@ -107,7 +119,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void NewMenuImageButton_Click(object sender, RoutedEventArgs e) // При нажатии на кнопку открываем FileDialog и получаем путь к картинке
+        private void NewMenuImageButton_Click(object sender, RoutedEventArgs e) /// При нажатии на кнопку открываем FileDialog и получаем путь к картинке
         {
             try
             {
@@ -129,7 +141,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
         #endregion
         #region Event_
-        public void Event_NewDataMenu() // Добавление нового меню в базу данных
+        public void Event_NewDataMenu() /// Добавление нового меню в базу данных
         {
             try
             {
@@ -221,7 +233,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Event_MessageNull() // Event_ на проверки полей на валидность данных 
+        private void Event_MessageNull() /// Проверки полей на валидность данных 
         {
             try
             {
@@ -246,14 +258,16 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
         #endregion
         #region _MouseDoubleClick _PreviewKeyDown
-        private void AllIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void AllIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) /// Событие при двойном нажатии на полный список ингредиентов
         {
             try
             {
+                // получаем выбранный элемент
                 var allIngredients = (IngredientsTable)AllIngredientsListListView.SelectedItem; // Получаем информацию
 
                 if (allIngredients != null)
                 {
+                    // Если такого в списке нет, добавляем, иначе, удаляем
                     if (!ingredientsList.Contains(allIngredients))
                     {
                         ingredientsList.Add(allIngredients);
@@ -263,8 +277,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         ingredientsList.Remove(allIngredients);
                     }
 
+                    // Обновляем список
                     SelectionIngredientsListListView.ItemsSource = ingredientsList;
 
+                    // Производим сортировку
                     AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                     SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                 }
@@ -277,17 +293,22 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void SelectionIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void SelectionIngredientsListListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) /// Событие при двойном нажатии на список ингредиентов для конкретного меню
         {
             try
             {
-                var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem; // Получаем информацию
+                // получаем выбранный элемент
+                var selectionIngredients = (IngredientsTable)SelectionIngredientsListListView.SelectedItem;
 
+                // Если выбранный элемент существует, то производим его удаление
                 if (selectionIngredients != null)
                 {
                     ingredientsList.Remove(selectionIngredients);
+
+                    // Обновляем список
                     SelectionIngredientsListListView.ItemsSource = ingredientsList;
 
+                    // Производим сортировку
                     AllIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                     SelectionIngredientsListListView.Items.SortDescriptions.Add(new SortDescription("Name_Ingredients", ListSortDirection.Ascending));
                 }
@@ -300,7 +321,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e) // Запретить использовать Ctrl + v в некоторых TextBox
+        private void CtrlV_PreviewKeyDown(object sender, KeyEventArgs e) /// Запретить использовать "ctrl + v" в некоторых TextBox
         {
             try
             {
@@ -317,8 +338,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-        #region ValidData // Просто для валидность данных (В одних TextBox разрешить писать только цифры и т.д.)
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        #region ValidData
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)  /// Разрешить писать только цифры
         {
             try
             {
@@ -332,23 +353,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         $"{exNumberValidationTextBox.Message}");
             }
         }
-        private void PriseValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            try
-            {
-                Regex NumberRegex = new Regex("[^0-9]");
-                e.Handled = NumberRegex.IsMatch(e.Text);
-            }
-            catch (Exception exPriseValidationTextBox)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                        textMessage: $"Событие PriseValidationTextBox в NewMenuPage:\n\n " +
-                        $"{exPriseValidationTextBox.Message}");
-            }
-        }
         #endregion
 
-        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        private void GoBackButton_Click(object sender, RoutedEventArgs e) /// Вернуться назад
         {
             try
             {
@@ -362,7 +369,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void NewIngridientToggleButton_Click(object sender, RoutedEventArgs e)
+        private void NewIngridientToggleButton_Click(object sender, RoutedEventArgs e) /// Показать или скрыть список всех ингредиентов
         {
             try
             {
