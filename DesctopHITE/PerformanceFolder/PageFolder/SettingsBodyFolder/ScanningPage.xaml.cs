@@ -50,9 +50,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     Event_StartLoadingAnimation();
                     Event_ScanDeception();
 
-                    CheckScanButton.ToolTip = "Остановить";
+                    CheckScanButton.ToolTip = "Сканирование";
 
-                    TitleTextCheckScanTextBlock.Text = "ОСТАНОВИТЬ";
+                    TitleTextCheckScanTextBlock.Text = "Сканирование";
                     TitleIconCheckScanTextBlock1.Visibility = Visibility.Collapsed;
                     TitleIconCheckScanTextBlock2.Visibility = Visibility.Visible;
 
@@ -75,8 +75,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 }
                 else
                 {
-                    Event_StopLoadingAnimation();
-
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "///";
 
@@ -85,6 +83,21 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     TitleTextCheckScanTextBlock.Text = "СКАНИРОВАТЬ";
                     TitleIconCheckScanTextBlock1.Visibility = Visibility.Visible;
                     TitleIconCheckScanTextBlock2.Visibility = Visibility.Collapsed;
+
+                    WhomCheckedTextBlock2.Visibility = Visibility.Collapsed;
+                    ResultScanTextBlock2.Visibility = Visibility.Collapsed;
+                    WhenCheckedTextBlock2.Visibility = Visibility.Collapsed;
+                    DurationScanTextBlock2.Visibility = Visibility.Collapsed;
+                    TitleErrorTextBlock2.Visibility = Visibility.Collapsed;
+
+                    WhomCheckedTextBlock.Visibility = Visibility.Visible;
+                    ResultScanTextBlock.Visibility = Visibility.Visible;
+                    WhenCheckedTextBlock.Visibility = Visibility.Visible;
+                    DurationScanTextBlock.Visibility = Visibility.Visible;
+                    TitleErrorTextBlock.Visibility = Visibility.Visible;
+
+                    Event_StopLoadingAnimation();
+                    Event_ReceivingDataWaitingForStorage();
                 }
             }
             catch (Exception exCheckScanButton_Click)

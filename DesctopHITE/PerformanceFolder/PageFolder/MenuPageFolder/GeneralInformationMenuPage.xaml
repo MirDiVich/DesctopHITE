@@ -15,6 +15,7 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <Border
+                    ToolTip="Общая информация"
                     Margin="3.5"
                     Visibility="Visible"
                     Style="{DynamicResource BorderInformation}">
@@ -131,6 +132,7 @@
                     </Grid>
                 </Border>
                 <Border
+                    ToolTip="Информация по категории"
                     Margin="3.5"
                     Visibility="Visible"
                     Style="{DynamicResource BorderInformation}">
@@ -173,6 +175,7 @@
                 </Border>
             </StackPanel>
             <Border
+                ToolTip="Информация о категории"
                 Margin="3.5"
                 Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">

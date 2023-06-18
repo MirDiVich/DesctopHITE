@@ -16,6 +16,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid 
+                ToolTip="Общая информация"
                 HorizontalAlignment="Left"
                 Width="520" 
                 Margin="10 0 0 0">
@@ -51,6 +52,7 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right">
                 <Button
+                    ToolTip="Добавить"
                     x:Name="NewCategoryButton"
                     Click="NewCategoryButton_Click"
                     Width="180"
@@ -69,6 +71,7 @@
                     </StackPanel>
                 </Button>
                 <Button
+                    ToolTip="Редактировать"
                     x:Name="EditButton"
                     Click="Event_EditCategory"
                     Width="220"
@@ -87,6 +90,7 @@
                     </StackPanel>
                 </Button>
                 <Button
+                    ToolTip="Удалить"
                     Margin="5 0 0 0"
                     Style="{DynamicResource DeliteButtonStyle}"
                     x:Name="DeliteButton"

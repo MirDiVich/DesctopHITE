@@ -70,13 +70,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     TitleIconCheckUpdateTextBlock1.Visibility = Visibility.Collapsed;
                     TitleTextCheckUpdateTextBlock.Text = "ОСТАНОВИТЬ";
 
-                    Event_StartLoadingAnimation();
-                    Event_ScanDeception();
-
                     CheckUpdateButton.ToolTip = "Остановить";
 
                     ProgressScanTextBlock.Text = "0%";
                     IndoVersionTodayBorder.Visibility = Visibility.Collapsed;
+
+                    WhenCheckedTextBlock.Text = "...";
+                    WhomCheckedTextBlock.Text = "...";
+                    ResultCheckedTextBlock.Text = "...";
+                    VersionCheckedTextBlock.Text = "...";
+
+                    Event_StartLoadingAnimation();
+                    Event_ScanDeception();
                 }
                 else
                 {
@@ -84,13 +89,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                     TitleIconCheckUpdateTextBlock1.Visibility = Visibility.Visible;
                     TitleTextCheckUpdateTextBlock.Text = "ПРОВЕРИТЬ";
 
-                    Event_StopLoadingAnimation();
-
                     CheckUpdateButton.ToolTip = "Проверить";
 
                     dispatcherTimer.Stop();
                     ProgressScanTextBlock.Text = "///";
                     IndoVersionTodayBorder.Visibility = Visibility.Visible;
+
+                    Event_StopLoadingAnimation();
+                    Event_ReceivingDataWaitingForStorage();
                 }
             }
             catch (Exception exCheckUpdateButton_Click)
@@ -266,7 +272,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.SettingsBodyFolder
                 Properties.Settings.Default.SNMUpdateScan = $"{DateScanUser.Surname_Passport} {DateScanUser.Name_Passport[0]}. {DateScanUser.Middlename_Passport[0]}.";
                 Properties.Settings.Default.DateTimeUpdateScan = DateTime.Now.ToString();
                 Properties.Settings.Default.ResultUpdateScan = "Стоит последняя версия обновления";
-                Properties.Settings.Default.VersionUpdateScan = "4.12.286";
+                Properties.Settings.Default.VersionUpdateScan = "4.12.314";
                 Properties.Settings.Default.Save();
             }
             catch (Exception exEvent_OutputDataWaitingForStorage)
