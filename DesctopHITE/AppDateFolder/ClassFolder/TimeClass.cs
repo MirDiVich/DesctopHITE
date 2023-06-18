@@ -4,7 +4,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using System;
-using System.Globalization;
 
 namespace DesctopHITE.AppDateFolder.ClassFolder
 {
@@ -19,6 +18,7 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 var dataUser = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(AppConnectClass.receiveConnectUser_ACC);
 
                 string titleNowHour = "Время не определенно";
+
                 if (timeDay.Hour >= 0 && DateTime.Now.Hour <= 5)
                 {
                     titleNowHour = $"Доброй ночи \n " +
