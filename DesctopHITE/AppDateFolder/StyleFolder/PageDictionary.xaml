@@ -35,4 +35,10 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
 
+    <Style x:Key="BodyCashBasketAdvertisementPageStyle" TargetType="Page"> <!--Тело в пространстве взаимодействия для рекламы и корзины-->
+        <Setter Property="Width" Value="1916"/>
+        <Setter Property="Height" Value="1076"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    </Style>
+
 </ResourceDictionary>
