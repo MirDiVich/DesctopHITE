@@ -66,6 +66,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (dataContextMenu != null)
                 {
                     FrameNavigationClass.bodyMenu_FNC.Navigate(new ViewMenuPage(dataContextMenu));
+
+                    dataContextMenu = null;
+                    ListMenuListView.SelectedItem = null;
                 }
                 else
                 {
@@ -89,6 +92,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 if (dataContextMenu != null)
                 {
                     FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(dataContextMenu));
+
+                    dataContextMenu = null;
+                    ListMenuListView.SelectedItem = null;
                 }
                 else
                 {
@@ -109,9 +115,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (dataContextMenu != null)
                 {
-                    ///<!--
-                    /// TODO: Реализовать удаление
-                    /// -->
+                    var dataRemoveMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(dataContextMenu.PersonalNumber_Menu);
+                    
+                    if (MessageBoxClass.RemoveMessageBox_MBC(textMessage: 
+                        $"Вы действительно хотите удалить {dataRemoveMenu.Name_Menu}") == MessageBoxResult.Yes)
+                    {
+                        AppConnectClass.connectDataBase_ACC.MenuTable.Remove(dataRemoveMenu);
+                        AppConnectClass.connectDataBase_ACC.SaveChanges();
+
+                        // Обновляю ListView и делаю сотртровку
+                        ListMenuListView.ItemsSource = AppConnectClass.connectDataBase_ACC.MenuTable.ToList();
+                        ListMenuListView.Items.SortDescriptions.Add(new SortDescription("PersonalNumber_Menu", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфавитном порядке (Сортировка происходит по атрибуту "Name_Menu");
+                    }
+                    else
+                    {
+                        dataContextMenu = null;
+                        ListMenuListView.SelectedItem = null;
+                    }
                 }
                 else
                 {

@@ -184,7 +184,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #endregion
-
         #region _Click
         private void NewIngredientsButton_Click(object sender, RoutedEventArgs e)
         {

@@ -36,12 +36,12 @@ namespace DesctopHITE.AppDateFolder.ClassFolder
                 MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
-        public static void RemoveMessageBox_MBC( /// MessageBox для Вопроса об удалении
-            string textMessage = "Разработчик (программист) не присвоил этому значению сообщение",
+        public static MessageBoxResult RemoveMessageBox_MBC( /// MessageBox для подтверждения удаления
+            string textMessage = "Разработчик (программист) не присвоил этому значению сообщение", 
             string TopRow = "Удаление")
         {
-            MessageBox.Show(
-                textMessage, TopRow,
+            return MessageBox.Show(
+                textMessage, TopRow, 
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
     }
