@@ -109,7 +109,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (dataContextMenu != null)
                 {
-                    
+                    ///<!--
+                    /// TODO: Реализовать удаление
+                    /// -->
                 }
                 else
                 {
