@@ -87,8 +87,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getIngredientsTable != null)
                 {
-                    if (MessageBox.Show("Вы действительно хотите удалить " + getIngredientsTable.Name_Ingredients, "Удаление",
-                        MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    if (MessageBoxClass.RemoveMessageBox_MBC(textMessage:
+                      $"Вы действительно хотите удалить {getIngredientsTable.Name_Ingredients}") == MessageBoxResult.Yes)
                     {
                         var deliteIngredients = AppConnectClass.connectDataBase_ACC.IngredientsTable;
                         deliteIngredients.Remove(getIngredientsTable);

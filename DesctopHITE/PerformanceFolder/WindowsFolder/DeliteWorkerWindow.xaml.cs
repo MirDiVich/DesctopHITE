@@ -112,9 +112,9 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 var informationDeliteWorker = AppConnectClass.connectDataBase_ACC.WorkerTable.Find(personalNumberWorker);
 
                 string SurnameNameWorker = $"{informationDeliteWorker.PassportTable.Surname_Passport} {informationDeliteWorker.PassportTable.Name_Passport}"; // Получаем Фамилия и Имя для уведомления
-                string MessageTitle = $"Вы действительно хотите удалить: {SurnameNameWorker} ?";
 
-                if (MessageBox.Show( MessageTitle, "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBoxClass.RemoveMessageBox_MBC(textMessage:
+                      $"Вы действительно хотите удалить {SurnameNameWorker}") == MessageBoxResult.Yes)
                 {
                     var dataDelitWorker = AppConnectClass.connectDataBase_ACC;
 

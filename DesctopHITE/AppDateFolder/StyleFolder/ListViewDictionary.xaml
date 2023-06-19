@@ -57,7 +57,7 @@
                                     <DropShadowEffect 
                                         Color="#462AD8" 
                                         ShadowDepth="0" 
-                                        Direction="0" 
+                                        Direction="0"   
                                         BlurRadius="25"/>
                                 </Border.Effect>
                             </Border>

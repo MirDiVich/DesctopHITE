@@ -86,8 +86,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             {
                 if (getMenuCategoryTable != null)
                 {
-                    if (MessageBox.Show("Вы действительно хотите удалить " + getMenuCategoryTable.Title_MenuCategory, "Удаление",
-                       MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    if (MessageBoxClass.RemoveMessageBox_MBC(textMessage:
+                       $"Вы действительно хотите удалить {getMenuCategoryTable.Title_MenuCategory}") == MessageBoxResult.Yes)
                     {
                         var deliteCategory = AppConnectClass.connectDataBase_ACC.MenuCategoryTable;
                         deliteCategory.Remove(getMenuCategoryTable);
