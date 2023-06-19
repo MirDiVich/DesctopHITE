@@ -32,7 +32,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
 
         byte[] imageData;
 
-        int personlNumberMenu;
+        int personlNumberMenu = 0;
 
         string pathImage = "";
         string messageNull;
@@ -145,9 +145,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
+                string infoAddEditDataText = "Сохранено";
+
                 // Объявляем таблицы
                 var addEditMenuTable = new MenuTable();
                 var addEditImageMenuTable = new ImageMenuTable();
+
+                if (personlNumberMenu != 0)
+                {
+                    infoAddEditDataText = "Изменено";
+
+                    addEditMenuTable = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
+
+                    if (addEditMenuTable.pnImageMunu_Menu != 404)
+                    {
+                        addEditImageMenuTable = AppConnectClass.connectDataBase_ACC.ImageMenuTable.Find(addEditMenuTable.pnImageMunu_Menu);
+                    }
+                }
 
                 // Работа с основной таблицей меню
                 addEditMenuTable.Name_Menu = NameMenuTextBox.Text;
@@ -156,11 +170,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 addEditMenuTable.pnSystemSI = (pnSystemSIComboBox.SelectedItem as SystemSITable).PersonalNumber_SystemSI;
                 addEditMenuTable.Prise_Menu = Convert.ToInt32(PriseMenuTextBox.Text);
                 addEditMenuTable.Weight_Menu = Convert.ToInt32(WeightMenuTextBox.Text);
-
-                if (DataContext != null)
-                {
-                    addEditMenuTable.PersonalNumber_Menu = personlNumberMenu;
-                }
 
                 // Работа с фото
                 if (pathImage != "")
@@ -171,10 +180,6 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                         imageData = new byte[fs.Length];
                         fs.Read(imageData, 0, imageData.Length);
                     }
-                    if (DataContext != null)
-                    {
-                        addEditImageMenuTable.PersonalNumber_ImageMenu = addEditMenuTable.pnImageMunu_Menu;
-                    }
 
                     addEditImageMenuTable.Name_ImageMenu = $"{NameMenuTextBox.Text}";
                     addEditImageMenuTable.Image_ImageMenu = imageData;
@@ -183,12 +188,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                     addEditMenuTable.pnImageMunu_Menu = addEditImageMenuTable.PersonalNumber_ImageMenu;
                 }
 
-                if (DataContext == null)
+                if (personlNumberMenu == 0 && pathImage == "")
                 {
-                    if (pathImage == "")
-                    {
-                        addEditMenuTable.pnImageMunu_Menu = 404;
-                    }
+                    addEditMenuTable.pnImageMunu_Menu = 404;
                 }
 
                 AppConnectClass.connectDataBase_ACC.MenuTable.AddOrUpdate(addEditMenuTable);
@@ -197,6 +199,8 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 personlNumberMenu = addEditMenuTable.PersonalNumber_Menu;
 
                 Event_SelectedIngredients();
+
+                MessageBoxClass.GoodMessageBox_MBC(textMessage: $"{addEditMenuTable.Name_Menu} {infoAddEditDataText}");
             }
             catch (Exception exEvent_NewDataMenu)
             {
@@ -206,24 +210,23 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Event_SelectedIngredients() // Добавление списка в связь многие ко многим
+        private void Event_SelectedIngredients() /// Добавление списка в связь многие ко многим
         {
             try
             {
                 var objectMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
+                objectMenu.IngredientsTable.Clear();
+                AppConnectClass.connectDataBase_ACC.SaveChanges();
 
                 // Цикл для того, чтоб добавить несколько элементов в таблицу
-                foreach (var ingredient in SelectionIngredientsListListView.Items)
+                foreach (var ingredient in ingredientsList)
                 {
                     var objectListIngredients = ingredient as IngredientsTable;
                     objectMenu.IngredientsTable.Add(objectListIngredients);
                 }
 
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
-
-                var nameMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
-                MessageBoxClass.GoodMessageBox_MBC(textMessage: $"{nameMenu.Name_Menu} успешно добавлено");
-                FrameNavigationClass.bodyMenu_FNC.Navigate(new NewMenuPage(null));
+                FrameNavigationClass.bodyMenu_FNC.Navigate(new ListMenuPage());
             }
             catch (Exception exEvent_SelectedIngredients)
             {
