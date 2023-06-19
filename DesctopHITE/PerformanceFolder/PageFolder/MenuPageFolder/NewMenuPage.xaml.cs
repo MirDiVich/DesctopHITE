@@ -214,7 +214,10 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
+                // Ищем редактируемое меню (В случае 0, будет идти работа с новым меню, в случае с xxx будет идти работа с тем меню, которое имеет значение xxx)
                 var objectMenu = AppConnectClass.connectDataBase_ACC.MenuTable.Find(personlNumberMenu);
+
+                // Очищаем список ингредиентов дял того, чтобы его перезаписать
                 objectMenu.IngredientsTable.Clear();
                 AppConnectClass.connectDataBase_ACC.SaveChanges();
 
@@ -236,16 +239,18 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Event_MessageNull() /// Проверки полей на валидность данных 
+        private void Event_MessageNull() /// Проверки полей на пустоту и валидность данных 
         {
             try
             {
+                // Проверка на пустоту
                 if (string.IsNullOrWhiteSpace(NameMenuTextBox.Text)) messageNull += "Вы не указали 'Название'\n";
                 if (string.IsNullOrWhiteSpace(DescriptionMenuTextBox.Text)) messageNull += "Вы не указали 'Описание'\n";
                 if (string.IsNullOrWhiteSpace(pnCategoryMenuComboBox.Text)) messageNull += "Вы не указали 'Категорию'\n";
                 if (string.IsNullOrWhiteSpace(PriseMenuTextBox.Text)) messageNull += "Вы не указали 'Стоимость'\n";
                 if (string.IsNullOrWhiteSpace(WeightMenuTextBox.Text)) messageNull += "Вы не указали 'Вес (грамм)'";
 
+                // ПРоверка на валидность
                 if (NameMenuTextBox.Text.Length <= 1) messageValidData += "'Название' не может быть меньше или быть равным 1 символу\n";
                 if (DescriptionMenuTextBox.Text.Length <= 5) messageValidData += "'Описание' не может быть меньше или быть равным 5 символам\n";
                 if (pnCategoryMenuComboBox.Text == "") messageValidData += "'Категория' не выбрана\n";

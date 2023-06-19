@@ -10,7 +10,6 @@
 
 using DesctopHITE.AppDateFolder.ClassFolder;
 using DesctopHITE.AppDateFolder.ModelFolder;
-using DesctopHITE.PerformanceFolder.WindowsFolder;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -39,7 +38,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) /// Если страница видна
         {
             try
             {
@@ -60,7 +59,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
         #region Event_
-        private void Event_ViewDataMenu(object sender, RoutedEventArgs e) // Просмотр информации
+        private void Event_ViewDataMenu(object sender, RoutedEventArgs e) /// Просмотр информации
         {
             try
             {
@@ -83,7 +82,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Event_EditMunu(object sender, RoutedEventArgs e) // Редактирование
+        private void Event_EditMunu(object sender, RoutedEventArgs e) /// Редактирование
         {
             try
             {
@@ -104,7 +103,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void Event_DeleteMenu(object sender, RoutedEventArgs e) // Удаление информации
+        private void Event_DeleteMenu(object sender, RoutedEventArgs e) /// Удаление информации
         {
             try
             {
@@ -126,7 +125,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         }
         #endregion
         #region _SelectionChanged _MouseDoubleClick
-        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) // Простой алгоритм поиска
+        private void SearchTextBox_SelectionChanged(object sender, RoutedEventArgs e) /// Простой алгоритм поиска
         {
             try
             {
@@ -139,7 +138,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 {
                     HintSearchTextBlock.Visibility = Visibility.Collapsed;
 
-                    var Objects = AppConnectClass.connectDataBase_ACC.MenuTable.ToList(); //Получаем лист объектов из таблицы MenuTable
+                    var Objects = AppConnectClass.connectDataBase_ACC.MenuTable.ToList(); /// Получаем лист объектов из таблицы MenuTable
 
                     var SearchResults = Objects.Where(nameMunu => // Делаем поиск из полученного списка
                         nameMunu.Name_Menu.ToString().Contains(SearchTextBox.Text.ToString())); // По атрибуту Name_Menu из таблицы MenuTable по похожему контенту в SearchTextBox
@@ -171,7 +170,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         {
             try
             {
-                dataContextMenu = (MenuTable)ListMenuListView.SelectedItem; // Получаем информацию об выбранном меню
+                dataContextMenu = (MenuTable)ListMenuListView.SelectedItem; /// Получаем информацию об выбранном меню
                 EditButton.IsEnabled = true;
                 DeliteButton.IsEnabled = true;
             }
@@ -186,7 +185,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
         private void ListMenuListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) { Event_EditMunu(this, e); }
         #endregion
         #region _Click
-        private void KeyboardShortcuts(object sender, KeyEventArgs e)
+        private void KeyboardShortcuts(object sender, KeyEventArgs e) /// Работа с сочетанием клавиш
         {
             try
             {
@@ -205,7 +204,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
             }
         }
 
-        private void NewMenuButton_Click(object sender, RoutedEventArgs e)
+        private void NewMenuButton_Click(object sender, RoutedEventArgs e) /// Переход к добавлению нового меню
         {
             try
             {
