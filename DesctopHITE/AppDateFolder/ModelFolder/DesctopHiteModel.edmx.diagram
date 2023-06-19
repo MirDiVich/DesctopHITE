@@ -8,21 +8,21 @@
         <EntityTypeShape EntityType="DesctopHiteModel.BasketTable" Width="1.5" PointX="9.75" PointY="3.5" />
         <EntityTypeShape EntityType="DesctopHiteModel.ChequeTable" Width="1.5" PointX="7.5" PointY="3.5" />
         <EntityTypeShape EntityType="DesctopHiteModel.GenderTable" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="DesctopHiteModel.ImageMenuTable" Width="1.5" PointX="5.25" PointY="16" />
+        <EntityTypeShape EntityType="DesctopHiteModel.ImageMenuTable" Width="1.5" PointX="5.25" PointY="13.625" />
         <EntityTypeShape EntityType="DesctopHiteModel.ImagePassportTable" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DesctopHiteModel.IngredientsTable" Width="1.5" PointX="5.25" PointY="13.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="25" />
-        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="16.125" />
+        <EntityTypeShape EntityType="DesctopHiteModel.IngredientsTable" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.INNTable" Width="1.5" PointX="3" PointY="19.125" />
+        <EntityTypeShape EntityType="DesctopHiteModel.MedicalBookTable" Width="1.5" PointX="3" PointY="21.75" />
         <EntityTypeShape EntityType="DesctopHiteModel.MenuCategoryTable" Width="1.5" PointX="5.25" PointY="8.875" />
         <EntityTypeShape EntityType="DesctopHiteModel.MenuTable" Width="1.5" PointX="7.5" PointY="11.625" />
         <EntityTypeShape EntityType="DesctopHiteModel.PassportTable" Width="1.5" PointX="3" PointY="2.75" />
-        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="12.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="8" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="19.5" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="22.625" />
-        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="10.375" />
+        <EntityTypeShape EntityType="DesctopHiteModel.PlaceResidenceTable" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.RoleTable" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SalaryCardTable" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SnilsTable" Width="1.5" PointX="3" PointY="25.125" />
+        <EntityTypeShape EntityType="DesctopHiteModel.StatusTable" Width="1.5" PointX="3" PointY="16.75" />
         <EntityTypeShape EntityType="DesctopHiteModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.375" />
-        <EntityTypeShape EntityType="DesctopHiteModel.SystemSITable" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="DesctopHiteModel.SystemSITable" Width="1.5" PointX="5.25" PointY="16.125" />
         <EntityTypeShape EntityType="DesctopHiteModel.ThePerfectOfferTable" Width="1.5" PointX="9.75" PointY="1.375" />
         <EntityTypeShape EntityType="DesctopHiteModel.WorkerTable" Width="1.5" PointX="5.25" PointY="1.75" />
         <AssociationConnector Association="DesctopHiteModel.FK_MTM_ChequeMenu_ChequeTable" />
