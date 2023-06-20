@@ -33,6 +33,8 @@
                     CornerRadius="20 20 0 0"
                     Background="#2a2a2a"/>
                 <Button 
+                    x:Name="BasketButton"
+                    Click="BasketButton_Click"
                     FontSize="40"
                     HorizontalAlignment="Right"
                     Margin="0 0 10 0"

@@ -12,9 +12,16 @@
         </Grid.ColumnDefinitions>
         <Image
             Grid.Column="0"
-            Source="{Binding ImageMenuTable.Image_ImageMenu}"
+            Source="{Binding MenuTable.ImageMenuTable.Image_ImageMenu}"
             Width="150"
             Stretch="Uniform"
             Height="150"/>
+        <Grid Grid.Column="1">
+            <TextBlock
+                Style="{DynamicResource MainStyleTextBlock}"
+                FontSize="30"
+                Text="{Binding MenuTable.Name_Menu}"
+                Margin="10 0 0 0"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -105,5 +105,21 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
+        #region _Click
+        private void BasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BasketWindow basketWindow = new BasketWindow();
+                basketWindow.ShowDialog();
+            }
+            catch (Exception exBasketButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие BasketButton_Click в MainCashWindow:\n\n " +
+                        $"{exBasketButton_Click.Message}");
+            }
+        }
+        #endregion
     }
 }

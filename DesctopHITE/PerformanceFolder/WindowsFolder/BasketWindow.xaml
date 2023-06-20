@@ -6,6 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen" 
+    IsVisibleChanged="Window_IsVisibleChanged"
+    xmlns:UserControl ="clr-namespace:DesctopHITE.PerformanceFolder.UserControlFolder"
     Style="{StaticResource MainCashWinwosStyle}">
     <Border 
         Name="BodyBorder"
@@ -17,6 +19,7 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <ListView
+                x:Name="MainBasketListView"
                 Grid.Row="0"
                 VerticalAlignment="Top"
                 Margin="10"
@@ -24,7 +27,7 @@
                 HorizontalAlignment="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
+                        <UserControl:ListBasketUserControl/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
