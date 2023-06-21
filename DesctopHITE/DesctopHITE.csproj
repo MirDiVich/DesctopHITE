@@ -283,10 +283,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\UserControlFolder\ListBasketUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PerformanceFolder\UserControlFolder\ListWorkerBirthdayControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -336,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerformanceFolder\WindowsFolder\TransactionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -426,9 +426,6 @@
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\ThePerfectOfferTable.cs">
-      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\ViewMenuCategory.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
@@ -524,9 +521,6 @@
     <Compile Include="PerformanceFolder\UserControlFolder\IngredientsMenuControl.xaml.cs">
       <DependentUpon>IngredientsMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceFolder\UserControlFolder\ListBasketUserControl.xaml.cs">
-      <DependentUpon>ListBasketUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PerformanceFolder\UserControlFolder\ListWorkerBirthdayControl.xaml.cs">
       <DependentUpon>ListWorkerBirthdayControl.xaml</DependentUpon>
     </Compile>
@@ -565,6 +559,9 @@
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\MainUserWindow.xaml.cs">
       <DependentUpon>MainUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceFolder\WindowsFolder\TransactionWindow.xaml.cs">
+      <DependentUpon>TransactionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\WindowsFolder\WaitingForANewOrderWindow.xaml.cs">
       <DependentUpon>WaitingForANewOrderWindow.xaml</DependentUpon>

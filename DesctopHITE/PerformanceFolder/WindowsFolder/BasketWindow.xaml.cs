@@ -63,5 +63,39 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             }
         }
         #endregion
+        #region _Click
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception exGoBackButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие GoBackButton_Click в BasketWindow:\n\n " +
+                        $"{exGoBackButton_Click.Message}");
+            }
+        }
+
+        private void TransactionButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var cheque = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
+
+                TransactionWindow transactionWindow = new TransactionWindow(cheque);
+                transactionWindow.Show();
+                this.Close();
+            }
+            catch (Exception exGoBackButton_Click)
+            {
+                MessageBoxClass.ExceptionMessageBox_MBC(
+                        textMessage: $"Событие GoBackButton_Click в BasketWindow:\n\n " +
+                        $"{exGoBackButton_Click.Message}");
+            }
+        }
+        #endregion
     }
 }
+

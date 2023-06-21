@@ -52,6 +52,7 @@
                     </StackPanel>
                 </Button>
                 <Button 
+                    Click="BasketButton_Click"
                     FontSize="40"
                     HorizontalAlignment="Center"
                     Margin="0 0 0 0"

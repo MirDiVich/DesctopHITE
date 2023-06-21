@@ -44,4 +44,9 @@
         <Setter Property="Width" Value="1280"/>
     </Style>
 
+    <Style x:Key="TransactionWindowStyle" TargetType="Window" BasedOn="{StaticResource MainWinwosStyle}">
+        <Setter Property="Height" Value="720"/>
+        <Setter Property="Width" Value="1280"/>
+    </Style>
+
 </ResourceDictionary>

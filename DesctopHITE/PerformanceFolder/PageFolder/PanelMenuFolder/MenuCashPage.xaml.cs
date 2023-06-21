@@ -72,12 +72,7 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
 
                 FrameNavigationClass.bodyCash_FNC.Navigate(new ListMenuCashPage());
             }
-            catch (Exception exListMenuListView_SelectionChanged)
-            {
-                MessageBoxClass.ExceptionMessageBox_MBC(
-                    textMessage: $"Событие ListMenuListView_SelectionChanged в MenuCashPage:\n\n " +
-                    $"{exListMenuListView_SelectionChanged.Message}");
-            }
+            catch (Exception exListMenuListView_SelectionChanged){}
         }
     }
 }
