@@ -53,6 +53,9 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.PanelMenuFolder
                         // Обновите отображение ListView 
                         ListMenuListView.Items.Refresh();
                     }
+
+                    ListMenuListView.SelectedItem = AppConnectClass.connectDataBase_ACC.MenuCategoryTable.Find(1);
+                    FrameNavigationClass.bodyCash_FNC.Navigate(new ListMenuCashPage());
                 }
             }
             catch (Exception exPage_IsVisibleChanged)
