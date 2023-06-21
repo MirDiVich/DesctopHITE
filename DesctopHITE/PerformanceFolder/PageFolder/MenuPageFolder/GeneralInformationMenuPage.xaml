@@ -134,7 +134,7 @@
                 <Border
                     ToolTip="Информация по категории"
                     Margin="3.5"
-                    Visibility="Visible"
+                    Visibility="Collapsed"
                     Style="{DynamicResource BorderInformation}">
                     <Grid>
                         <Border Style="{DynamicResource NeonBorder}">
@@ -175,9 +175,9 @@
                 </Border>
             </StackPanel>
             <Border
+                Visibility="Collapsed"
                 ToolTip="Информация о категории"
                 Margin="3.5"
-                Visibility="Visible"
                 Style="{DynamicResource BorderInformation}">
                 <Grid>
                     <Border Style="{DynamicResource NeonBorder}">

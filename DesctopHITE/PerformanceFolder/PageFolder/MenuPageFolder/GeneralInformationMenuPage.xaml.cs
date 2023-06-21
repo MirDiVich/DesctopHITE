@@ -35,11 +35,14 @@ namespace DesctopHITE.PerformanceFolder.PageFolder.MenuPageFolder
                 Event_AveragePeise();
                 Event_MaxsimazePeise();
                 Event_GeneralPeise();
-                //ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
 
                 AppConnectClass.connectDataBase_ACC.IngredientsTable.Include(c => c.MenuTable).Load();
                 var rr = AppConnectClass.connectDataBase_ACC.IngredientsTable;
+                //ViewMenuCategoryListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewMenuCategory.ToList();
                 //ViewMenuIngridientListView.ItemsSource = AppConnectClass.connectDataBase_ACC.ViewIngridientMenu.ToList();
+                ///<!--
+                /// Так как я вывожу информацию из связи многие ко многим, представление просто есть, но его нет
+                /// -->
             }
             catch (Exception exGeneralInformationMenuPage)
             {

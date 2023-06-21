@@ -15,6 +15,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <ListView
@@ -53,13 +54,25 @@
                                     Grid.Column="2"
                                     Style="{DynamicResource MainStyleTextBlock}"
                                     FontSize="30"
-                                    Text="{Binding Prise_MenuCheque}"/>
+                                    Text="{Binding Prise_MenuCheque, StringFormat= {}{0}₽}"/>
                             </Grid>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0">
+                <TextBlock
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="30"
+                    Text="Сумма:"
+                    Margin="0 0 10 0"/>
+                <TextBlock
+                    x:Name="MainSummaTextBlock"
+                    Style="{DynamicResource MainStyleTextBlock}"
+                    FontSize="30"
+                    Margin="10 0 0 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button 
                     x:Name="GoBackButton"
                     Click="GoBackButton_Click"

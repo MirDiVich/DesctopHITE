@@ -84,8 +84,6 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
                 int elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
                 int percentage = (int)(elapsedSeconds / (float)targetTime * 100);
 
-                int filesAtTimeScanning = (int)(elapsedSeconds / (float)targetTime * 591);
-
                 if (percentage >= 100)
                 {
                     Event_StopLoadingAnimation();

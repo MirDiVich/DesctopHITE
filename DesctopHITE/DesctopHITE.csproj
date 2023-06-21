@@ -163,10 +163,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PerformanceFolder\PageFolder\CashPageFolder\BasketPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PerformanceFolder\PageFolder\CashPageFolder\WaitingForANewOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -428,11 +424,11 @@
     <Compile Include="AppDateFolder\ModelFolder\ThePerfectOfferTable.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
+    <Compile Include="AppDateFolder\ModelFolder\ViewMenuCategory.cs">
       <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceFolder\PageFolder\CashPageFolder\BasketPage.xaml.cs">
-      <DependentUpon>BasketPage.xaml</DependentUpon>
+    <Compile Include="AppDateFolder\ModelFolder\WorkerTable.cs">
+      <DependentUpon>DesctopHiteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PerformanceFolder\PageFolder\CashPageFolder\WaitingForANewOrderPage.xaml.cs">
       <DependentUpon>WaitingForANewOrderPage.xaml</DependentUpon>

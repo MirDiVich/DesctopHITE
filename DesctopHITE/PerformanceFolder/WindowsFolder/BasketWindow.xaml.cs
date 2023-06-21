@@ -52,8 +52,10 @@ namespace DesctopHITE.PerformanceFolder.WindowsFolder
             try
             {
                 AppConnectClass.connectDataBase_ACC.ChequeTable.Include(basket => basket.BasketTable).Load();
-                var dataChack = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt).BasketTable;
-                MainBasketListView.ItemsSource = dataChack.ToList();
+                var dataChack = AppConnectClass.connectDataBase_ACC.ChequeTable.Find(AppConnectClass.theNumberOfTheCreatedReceipt);
+                MainBasketListView.ItemsSource = dataChack.BasketTable.ToList();
+
+                MainSummaTextBlock.Text = $"{dataChack.GeneralPrise_Cheque}₽";
             }
             catch (Exception exEvent_PutBasket)
             {
